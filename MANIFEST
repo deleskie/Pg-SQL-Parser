@@ -4,6 +4,10 @@ lib/Pg/SQL/Parser.pm
 MANIFEST			This list of files
 README
 t/00-load.t
-t/manifest.t
-t/pod-coverage.t
-t/pod.t
+t/01-pod.t
+t/02-pod-coverage.t
+t/03-perl-critic.t
+t/04-manifest.t
+t/05-perltidy.t
+t/perlcriticrc
+t/perltidyrc

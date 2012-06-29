@@ -1,12 +1,12 @@
 package Pg::SQL::Parser;
 
-use 5.006;
+use 5.012;
 use strict;
 use warnings;
 
 =head1 NAME
 
-Pg::SQL::Parser - The great new Pg::SQL::Parser!
+Pg::SQL::Parser - Parser of SQL queries, handling PostgreSQL extensions
 
 =head1 VERSION
 
@@ -16,37 +16,38 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
+Pg::SQL::Parser is used to parse given SQL query/queries into objects.
 
     use Pg::SQL::Parser;
 
-    my $foo = Pg::SQL::Parser->new();
+    my $parser = Pg::SQL::Parser->new();
+    my @queries = $parser->parse( 'SELECT a, b FROM c; SELECT 2 + 3 from d' );
     ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
+=head2 new()
+
+Object constructor. No logic there.
 
 =cut
 
-sub function1 {
+sub new {
+    my $class = shift;
+    return bless {}, $class;
 }
 
-=head2 function2
+=head2 parse()
+
+Main function - parses given queries returning array of Pg::SQL::Parser::Statement objects.
 
 =cut
 
-sub function2 {
+sub parse {
+    my $self = shift;
+    return;
 }
 
 =head1 AUTHOR
@@ -58,9 +59,6 @@ Hubert depesz Lubaczewski, C<< <depesz at depesz.com> >>
 Please report any bugs or feature requests to C<bug-pg-sql-parser at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pg-SQL-Parser>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
-
 
 =head1 SUPPORT
 
@@ -133,4 +131,4 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1; # End of Pg::SQL::Parser
+1;    # End of Pg::SQL::Parser
