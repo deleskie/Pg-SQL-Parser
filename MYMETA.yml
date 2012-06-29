@@ -1,0 +1,22 @@
+---
+abstract: 'Parser of SQL queries, handling PostgreSQL extensions'
+author:
+  - 'Hubert depesz Lubaczewski <depesz@depesz.com>'
+build_requires:
+  Test::More: 0
+dynamic_config: 0
+generated_by: 'Module::Build version 0.4, CPAN::Meta::Converter version 2.120921'
+license: bsd
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Pg-SQL-Parser
+provides:
+  Pg::SQL::Parser:
+    file: lib/Pg/SQL/Parser.pm
+    version: 0.01
+requires:
+  perl: 5.006
+resources:
+  license: http://opensource.org/licenses/bsd-license.php
+version: 0.01

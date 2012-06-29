@@ -1,6 +1,7 @@
 Build.PL
 Changes
 lib/Pg/SQL/Parser.pm
+lib/Pg/SQL/Parser/Lexer.pm
 MANIFEST			This list of files
 README
 t/00-load.t
@@ -9,5 +10,10 @@ t/02-pod-coverage.t
 t/03-perl-critic.t
 t/04-manifest.t
 t/05-perltidy.t
+t/06-lexer-data/01-expect
+t/06-lexer-data/01-query
+t/06-lexer-data/02-expect
+t/06-lexer-data/02-query
+t/06-lexer.t
 t/perlcriticrc
 t/perltidyrc
