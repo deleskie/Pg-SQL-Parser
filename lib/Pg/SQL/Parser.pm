@@ -4,6 +4,9 @@ use v5.12;
 use strict;
 use warnings;
 
+use Pg::SQL::Parser::Lexer qw( get_yylex );
+use Pg::SQL::Parser::SQL;
+
 =head1 NAME
 
 Pg::SQL::Parser - Parser of SQL queries, handling PostgreSQL extensions
@@ -23,7 +26,7 @@ Pg::SQL::Parser is used to parse given SQL query/queries into objects.
     use Pg::SQL::Parser;
 
     my $parser = Pg::SQL::Parser->new();
-    my @queries = $parser->parse( 'SELECT a, b FROM c; SELECT 2 + 3 from d' );
+    my $queries = $parser->parse( 'SELECT a, b FROM c; SELECT 2 + 3 from d' );
     ...
 
 =head1 SUBROUTINES/METHODS
@@ -36,18 +39,22 @@ Object constructor. No logic there.
 
 sub new {
     my $class = shift;
-    return bless {}, $class;
+    my $self = bless {}, $class;
+    $self->{ 'parser' } = Pg::SQL::Parser::SQL->new();
+    return $self;
 }
 
 =head2 parse()
 
-Main function - parses given queries returning array of Pg::SQL::Parser::Statement objects.
+Main function - parses given queries returning arrayref of Pg::SQL::Parser::Statement objects.
 
 =cut
 
 sub parse {
-    my $self = shift;
-    return;
+    my $self  = shift;
+    my $query = shift;
+
+    return $self->{ 'parser' }->YYParse( yylex => get_yylex( $query ) );
 }
 
 =head1 AUTHOR
