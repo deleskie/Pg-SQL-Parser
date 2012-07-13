@@ -1,6 +1,6 @@
 package Pg::SQL::Parser;
 
-use 5.012;
+use v5.12;
 use strict;
 use warnings;
 
