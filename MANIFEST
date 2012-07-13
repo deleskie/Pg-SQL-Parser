@@ -1,7 +1,9 @@
 Build.PL
 Changes
+eyapp/SQL.eyp
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Lexer.pm
+lib/Pg/SQL/Parser/SQL.pm
 MANIFEST			This list of files
 README
 t/00-load.t

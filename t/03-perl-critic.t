@@ -4,6 +4,7 @@ use warnings;
 use File::Spec;
 use Test::More;
 use English qw(-no_match_vars);
+use File::Find;
 
 if ( not $ENV{TEST_AUTHOR} ) {
     my $msg = 'Author test.  Set $ENV{TEST_AUTHOR} to a true value to run.';
@@ -19,5 +20,17 @@ if ( $EVAL_ERROR ) {
 
 my $rcfile = File::Spec->catfile( 't', 'perlcriticrc' );
 Test::Perl::Critic->import( -profile => $rcfile );
-all_critic_ok();
 
+my @files = ();
+find(
+    sub {
+        return unless -f;
+        return unless /\.pm\z/;
+        return if $File::Find::name eq 'lib/Pg/SQL/Parser/SQL.pm';
+        push @files, $File::Find::name;
+    },
+    'lib/'
+);
+
+plan tests => scalar @files;
+critic_ok( $_ ) for @files;
