@@ -1,14 +1,55 @@
+%{
+    use Pg::SQL::Parser::Element;
+    my $factory = Pg::SQL::Parser::Element->new();
+%}
 
 %%
 
+top: statements                { $_[1] }
+;
+
 statements: statement          { [ $_[1] ] }
-    | statements ';' statement { push @{ $_[1] }, $_[2]; $_[1] }
+    | statements ';' statement { push @{ $_[1] }, $_[3]; $_[1] }
+    | statements ';'           { $_[1] }
 ;
 
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT IDENTIFIER { { 'type' => 'query', 'subtype' => 'SELECT', result => [ $_[2] ] } }
+select_stmt: SELECT result_columns {
+                                        my $select = $factory->make( 'Select' );
+                                        for my $rc ( @{ $_[2] } ) {
+                                            my $res = $factory->make('Result_Column');
+                                            $res->value( @{ $rc } );
+                                            $select->add_result( $res )
+                                        }
+                                        $select
+                                    }
+;
+
+result_columns: result_column          { [ $_[1] ] }
+    | result_columns ',' result_column { push @{ $_[1] }, $_[3]; $_[1] }
+;
+
+result_column: expr      { [ $_[1], undef ] }
+    | expr AS identifier { [ $_[1], $_[3] ] }
+;
+
+expr: literal_value { $_[1] }
+;
+
+literal_value: STRING_CONSTANT  { my $val = $factory->make( 'Literal_Value' ); $val->value( 'STRING_CONSTANT', $_[1] ); $val }
+    | USTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'USTRING_CONSTANT', $_[1] ); $val }
+    | ESTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'ESTRING_CONSTANT', $_[1] ); $val }
+    | BITSTRING_CONSTANT        { my $val = $factory->make( 'Literal_Value' ); $val->value( 'BITSTRING_CONSTANT', $_[1] ); $val }
+    | XBITSTRING_CONSTANT       { my $val = $factory->make( 'Literal_Value' ); $val->value( 'XBITSTRING_CONSTANT', $_[1] ); $val }
+    | NUMERIC_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'NUMERIC_CONSTANT', $_[1] ); $val }
+    | INTEGER_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'INTEGER_CONSTANT', $_[1] ); $val }
+;
+
+identifier: QUOTED_IDENTIFIER { $_[1] }
+    | UQUOTED_IDENTIFIER      { $_[1] }
+    | IDENTIFIER              { $_[1] }
 ;
 
 %%
