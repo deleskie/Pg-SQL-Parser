@@ -295,9 +295,6 @@ sub new {
 		DEFAULT => -8
 	},
 	{#State 24
-		ACTIONS => {
-			'OPERATOR' => 21
-		},
 		DEFAULT => -12
 	},
 	{#State 25
@@ -317,47 +314,47 @@ sub new {
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 320 ../lib/Pg/SQL/Parser/SQL.pm
+#line 317 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
-#line 8 "SQL.eyp"
+#line 10 "SQL.eyp"
  $_[1] }
-#line 327 ../lib/Pg/SQL/Parser/SQL.pm
+#line 324 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
-#line 11 "SQL.eyp"
+#line 13 "SQL.eyp"
  [ $_[1] ] }
-#line 334 ../lib/Pg/SQL/Parser/SQL.pm
+#line 331 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
-#line 12 "SQL.eyp"
+#line 14 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 341 ../lib/Pg/SQL/Parser/SQL.pm
+#line 338 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
-#line 13 "SQL.eyp"
+#line 15 "SQL.eyp"
  $_[1] }
-#line 348 ../lib/Pg/SQL/Parser/SQL.pm
+#line 345 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
-#line 16 "SQL.eyp"
+#line 18 "SQL.eyp"
  $_[1] }
-#line 355 ../lib/Pg/SQL/Parser/SQL.pm
+#line 352 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
 sub {
-#line 19 "SQL.eyp"
+#line 21 "SQL.eyp"
 
                                         my $select = $factory->make( 'Select' );
                                         for my $rc ( @{ $_[2] } ) {
@@ -368,128 +365,128 @@ sub {
                                         }
                                         $select
                                     }
-#line 371 ../lib/Pg/SQL/Parser/SQL.pm
+#line 368 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
-#line 31 "SQL.eyp"
+#line 33 "SQL.eyp"
  [ $_[1] ] }
-#line 378 ../lib/Pg/SQL/Parser/SQL.pm
+#line 375 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
-#line 32 "SQL.eyp"
+#line 34 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 385 ../lib/Pg/SQL/Parser/SQL.pm
+#line 382 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
-#line 35 "SQL.eyp"
+#line 37 "SQL.eyp"
  [ $_[1], undef ] }
-#line 392 ../lib/Pg/SQL/Parser/SQL.pm
+#line 389 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
-#line 36 "SQL.eyp"
+#line 38 "SQL.eyp"
  [ $_[1], $_[3] ] }
-#line 399 ../lib/Pg/SQL/Parser/SQL.pm
+#line 396 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
-#line 39 "SQL.eyp"
+#line 41 "SQL.eyp"
  $_[1] }
-#line 406 ../lib/Pg/SQL/Parser/SQL.pm
+#line 403 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_12
 		 'expr', 3,
 sub {
-#line 40 "SQL.eyp"
+#line 42 "SQL.eyp"
 
                                 my $op = $factory->make( 'Operation' );
                                 $op->operator( $_[2] );
                                 $op->left( $_[1] );
                                 $op->right( $_[3] );
                                 $op;
-    }
-#line 419 ../lib/Pg/SQL/Parser/SQL.pm
+                            }
+#line 416 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_13
 		 'literal_value', 1,
 sub {
-#line 49 "SQL.eyp"
+#line 51 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'STRING_CONSTANT' );     $val->value ( $_[1] ); $val }
-#line 426 ../lib/Pg/SQL/Parser/SQL.pm
+#line 423 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_14
 		 'literal_value', 1,
 sub {
-#line 50 "SQL.eyp"
+#line 52 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'USTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
-#line 433 ../lib/Pg/SQL/Parser/SQL.pm
+#line 430 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_15
 		 'literal_value', 1,
 sub {
-#line 51 "SQL.eyp"
+#line 53 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'ESTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
-#line 440 ../lib/Pg/SQL/Parser/SQL.pm
+#line 437 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_16
 		 'literal_value', 1,
 sub {
-#line 52 "SQL.eyp"
+#line 54 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'BITSTRING_CONSTANT' );  $val->value ( $_[1] ); $val }
-#line 447 ../lib/Pg/SQL/Parser/SQL.pm
+#line 444 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_17
 		 'literal_value', 1,
 sub {
-#line 53 "SQL.eyp"
+#line 55 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'XBITSTRING_CONSTANT' ); $val->value ( $_[1] ); $val }
-#line 454 ../lib/Pg/SQL/Parser/SQL.pm
+#line 451 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_18
 		 'literal_value', 1,
 sub {
-#line 54 "SQL.eyp"
+#line 56 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'NUMERIC_CONSTANT' );    $val->value ( $_[1] ); $val }
-#line 461 ../lib/Pg/SQL/Parser/SQL.pm
+#line 458 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_19
 		 'literal_value', 1,
 sub {
-#line 55 "SQL.eyp"
+#line 57 "SQL.eyp"
  my $val = $factory->make( 'Literal_Value' ); $val->type( 'INTEGER_CONSTANT' );    $val->value ( $_[1] ); $val }
-#line 468 ../lib/Pg/SQL/Parser/SQL.pm
+#line 465 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_20
 		 'identifier', 1,
 sub {
-#line 58 "SQL.eyp"
+#line 60 "SQL.eyp"
  $_[1] }
-#line 475 ../lib/Pg/SQL/Parser/SQL.pm
+#line 472 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_21
 		 'identifier', 1,
 sub {
-#line 59 "SQL.eyp"
+#line 61 "SQL.eyp"
  $_[1] }
-#line 482 ../lib/Pg/SQL/Parser/SQL.pm
+#line 479 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_22
 		 'identifier', 1,
 sub {
-#line 60 "SQL.eyp"
+#line 62 "SQL.eyp"
  $_[1] }
-#line 489 ../lib/Pg/SQL/Parser/SQL.pm
+#line 486 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 492 ../lib/Pg/SQL/Parser/SQL.pm
+#line 489 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -529,7 +526,7 @@ sub {
   $self;
 }
 
-#line 63 "SQL.eyp"
+#line 65 "SQL.eyp"
 
 
 # vim: set ft=lex:
@@ -540,7 +537,7 @@ sub {
 =cut
 
 
-#line 543 ../lib/Pg/SQL/Parser/SQL.pm
+#line 540 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 

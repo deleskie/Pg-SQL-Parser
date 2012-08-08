@@ -3,6 +3,8 @@
     my $factory = Pg::SQL::Parser::Element->new();
 %}
 
+%left OPERATOR
+
 %%
 
 top: statements                { $_[1] }
