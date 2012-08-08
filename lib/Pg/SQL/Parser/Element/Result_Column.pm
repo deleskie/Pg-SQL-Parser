@@ -34,16 +34,33 @@ For example:
 
     $rc->value( $some_literal_value );
 
-    $rc->value( $some_literal_value, 'result_alias_name' );
-
 =cut
 
 sub value {
-    my $self  = shift;
-    my $value = shift;
-    my $alias = shift;
-    $self->{ 'value' } = $value;
-    $self->{ 'alias' } = $alias if defined $alias;
+    my $self = shift;
+    $self->{ 'value' } = shift;
+    return;
+}
+
+=head2 alias()
+
+Sets the alias of the column, if needed.
+
+For example:
+
+    # $some_literal_alias is object representing literal alias
+    my $rc = Pg::SQL::Parser::Element::Result_Column->new();
+
+    # SELECT 123 as x;
+
+    $rc->alias( 'x' );
+
+=cut
+
+sub alias {
+    my $self = shift;
+    $self->{ 'alias' } = shift;
+    return;
 }
 
 =head1 AUTHOR

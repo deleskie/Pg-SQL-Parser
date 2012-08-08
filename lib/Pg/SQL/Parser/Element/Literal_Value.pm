@@ -11,7 +11,7 @@ use base qw( Pg::SQL::Parser::Element );
 
 =head1 NAME
 
-Pg::SQL::Parser::Element::Select::Literal_Value - Class representing single, simple, literal value
+Pg::SQL::Parser::Element::Literal_Value - Class representing single, simple, literal value
 
 =head1 VERSION
 
@@ -32,15 +32,40 @@ For example:
     my $value = Pg::SQL::Parser::Element::Literal_Value->new();
 
     # 'whatever'
-    $value->value( 'STRING_CONSTANT', 'whatever' );
+    $value->value( "'whatever'" );
 
     # 123
-    $value->value( 'INTEGER_CONSTANT', '123' );
+    $value->value( '123' );
 
     # E'xxx'
-    $value->value( 'ESTRING_CONSTANT', 'xxx' );
+    $value->value( "E'xxx'" );
 
-All possible types of values:
+=cut
+
+sub value {
+    my $self = shift;
+    $self->{ 'value' } = shift;
+    return;
+}
+
+=head2 type()
+
+Sets the type of stored value.
+
+For example:
+
+    my $value = Pg::SQL::Parser::Element::Literal_Value->new();
+
+    # 'whatever'
+    $value-type( 'STRING_CONSTANT' );
+
+    # 123
+    $value-type( 'INTEGER_CONSTANT' );
+
+    # E'xxx'
+    $value-type( 'ESTRING_CONSTANT' );
+
+All possible types:
 
 =over
 
@@ -62,13 +87,11 @@ All possible types of values:
 
 =cut
 
-sub value {
-    my $self  = shift;
-    my $type  = shift;
-    my $value = shift;
+sub type {
+    my $self = shift;
+    my $type = shift;
     if ( $type =~ m{ \A (?: (?: U | E | X?BIT )? STRING | NUMERIC | INTEGER ) _CONSTANT \z }x ) {
-        $self->{ 'value' } = $value;
-        $self->{ 'type' }  = $type;
+        $self->{ 'type' } = $type;
         return;
     }
     croak( 'Unknown type for literal value: ' . $type );
