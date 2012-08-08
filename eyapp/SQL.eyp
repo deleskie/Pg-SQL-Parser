@@ -20,7 +20,8 @@ select_stmt: SELECT result_columns {
                                         my $select = $factory->make( 'Select' );
                                         for my $rc ( @{ $_[2] } ) {
                                             my $res = $factory->make('Result_Column');
-                                            $res->value( @{ $rc } );
+                                            $res->value( $rc->[0] );
+                                            $res->alias( $rc->[1] ) if defined $rc->[1];
                                             $select->add_result( $res )
                                         }
                                         $select
@@ -35,16 +36,23 @@ result_column: expr      { [ $_[1], undef ] }
     | expr AS identifier { [ $_[1], $_[3] ] }
 ;
 
-expr: literal_value { $_[1] }
+expr: literal_value         { $_[1] }
+    | expr OPERATOR expr    {
+                                my $op = $factory->make( 'Operation' );
+                                $op->operator( $_[2] );
+                                $op->left( $_[1] );
+                                $op->right( $_[3] );
+                                $op;
+                            }
 ;
 
-literal_value: STRING_CONSTANT  { my $val = $factory->make( 'Literal_Value' ); $val->value( 'STRING_CONSTANT', $_[1] ); $val }
-    | USTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'USTRING_CONSTANT', $_[1] ); $val }
-    | ESTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'ESTRING_CONSTANT', $_[1] ); $val }
-    | BITSTRING_CONSTANT        { my $val = $factory->make( 'Literal_Value' ); $val->value( 'BITSTRING_CONSTANT', $_[1] ); $val }
-    | XBITSTRING_CONSTANT       { my $val = $factory->make( 'Literal_Value' ); $val->value( 'XBITSTRING_CONSTANT', $_[1] ); $val }
-    | NUMERIC_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'NUMERIC_CONSTANT', $_[1] ); $val }
-    | INTEGER_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->value( 'INTEGER_CONSTANT', $_[1] ); $val }
+literal_value: STRING_CONSTANT  { my $val = $factory->make( 'Literal_Value' ); $val->type( 'STRING_CONSTANT' );     $val->value ( $_[1] ); $val }
+    | USTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'USTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
+    | ESTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'ESTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
+    | BITSTRING_CONSTANT        { my $val = $factory->make( 'Literal_Value' ); $val->type( 'BITSTRING_CONSTANT' );  $val->value ( $_[1] ); $val }
+    | XBITSTRING_CONSTANT       { my $val = $factory->make( 'Literal_Value' ); $val->type( 'XBITSTRING_CONSTANT' ); $val->value ( $_[1] ); $val }
+    | NUMERIC_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'NUMERIC_CONSTANT' );    $val->value ( $_[1] ); $val }
+    | INTEGER_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'INTEGER_CONSTANT' );    $val->value ( $_[1] ); $val }
 ;
 
 identifier: QUOTED_IDENTIFIER { $_[1] }

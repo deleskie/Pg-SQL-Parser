@@ -44,7 +44,7 @@ our $LEX = sub {
 
       m{\G(\s+)}gc and $self->tokenline($1 =~ tr{\n}{});
 
-      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|ESTRING_CONSTANT|NUMERIC_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|IDENTIFIER|SELECT|AS|\;|\,)}gc and return ($1, $1);
+      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|NUMERIC_CONSTANT|ESTRING_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|IDENTIFIER|OPERATOR|SELECT|AS|\;|\,)}gc and return ($1, $1);
 
 
 
@@ -89,16 +89,17 @@ sub new {
   [ 'result_column_9' => 'result_column', [ 'expr' ], 0 ],
   [ 'result_column_10' => 'result_column', [ 'expr', 'AS', 'identifier' ], 0 ],
   [ 'expr_11' => 'expr', [ 'literal_value' ], 0 ],
-  [ 'literal_value_12' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
-  [ 'literal_value_13' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_14' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_15' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_16' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_17' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
-  [ 'literal_value_18' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
-  [ 'identifier_19' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_20' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_21' => 'identifier', [ 'IDENTIFIER' ], 0 ],
+  [ 'expr_12' => 'expr', [ 'expr', 'OPERATOR', 'expr' ], 0 ],
+  [ 'literal_value_13' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
+  [ 'literal_value_14' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_15' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_16' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_17' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_18' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
+  [ 'literal_value_19' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
+  [ 'identifier_20' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_21' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_22' => 'identifier', [ 'IDENTIFIER' ], 0 ],
 ],
     yyLABELS  =>
 {
@@ -114,16 +115,17 @@ sub new {
   'result_column_9' => 9,
   'result_column_10' => 10,
   'expr_11' => 11,
-  'literal_value_12' => 12,
+  'expr_12' => 12,
   'literal_value_13' => 13,
   'literal_value_14' => 14,
   'literal_value_15' => 15,
   'literal_value_16' => 16,
   'literal_value_17' => 17,
   'literal_value_18' => 18,
-  'identifier_19' => 19,
+  'literal_value_19' => 19,
   'identifier_20' => 20,
   'identifier_21' => 21,
+  'identifier_22' => 22,
 },
     yyTERMS  =>
 { '' => { ISSEMANTIC => 0 },
@@ -135,6 +137,7 @@ sub new {
 	IDENTIFIER => { ISSEMANTIC => 1 },
 	INTEGER_CONSTANT => { ISSEMANTIC => 1 },
 	NUMERIC_CONSTANT => { ISSEMANTIC => 1 },
+	OPERATOR => { ISSEMANTIC => 1 },
 	QUOTED_IDENTIFIER => { ISSEMANTIC => 1 },
 	SELECT => { ISSEMANTIC => 1 },
 	STRING_CONSTANT => { ISSEMANTIC => 1 },
@@ -205,10 +208,10 @@ sub new {
 		DEFAULT => 0
 	},
 	{#State 8
-		DEFAULT => -16
+		DEFAULT => -17
 	},
 	{#State 9
-		DEFAULT => -15
+		DEFAULT => -16
 	},
 	{#State 10
 		ACTIONS => {
@@ -220,28 +223,29 @@ sub new {
 		DEFAULT => -11
 	},
 	{#State 12
-		DEFAULT => -12
-	},
-	{#State 13
 		DEFAULT => -13
 	},
+	{#State 13
+		DEFAULT => -14
+	},
 	{#State 14
-		DEFAULT => -17
+		DEFAULT => -18
 	},
 	{#State 15
 		ACTIONS => {
-			'AS' => 21
+			'AS' => 22,
+			'OPERATOR' => 21
 		},
 		DEFAULT => -9
 	},
 	{#State 16
-		DEFAULT => -14
+		DEFAULT => -15
 	},
 	{#State 17
 		DEFAULT => -7
 	},
 	{#State 18
-		DEFAULT => -18
+		DEFAULT => -19
 	},
 	{#State 19
 		DEFAULT => -3
@@ -259,75 +263,96 @@ sub new {
 		GOTOS => {
 			'literal_value' => 11,
 			'expr' => 15,
-			'result_column' => 22
+			'result_column' => 23
 		}
 	},
 	{#State 21
 		ACTIONS => {
-			'QUOTED_IDENTIFIER' => 24,
-			'IDENTIFIER' => 23,
-			'UQUOTED_IDENTIFIER' => 26
+			'STRING_CONSTANT' => 12,
+			'USTRING_CONSTANT' => 13,
+			'ESTRING_CONSTANT' => 16,
+			'NUMERIC_CONSTANT' => 14,
+			'BITSTRING_CONSTANT' => 9,
+			'XBITSTRING_CONSTANT' => 8,
+			'INTEGER_CONSTANT' => 18
 		},
 		GOTOS => {
-			'identifier' => 25
+			'literal_value' => 11,
+			'expr' => 24
 		}
 	},
 	{#State 22
-		DEFAULT => -8
+		ACTIONS => {
+			'QUOTED_IDENTIFIER' => 26,
+			'IDENTIFIER' => 25,
+			'UQUOTED_IDENTIFIER' => 28
+		},
+		GOTOS => {
+			'identifier' => 27
+		}
 	},
 	{#State 23
-		DEFAULT => -21
+		DEFAULT => -8
 	},
 	{#State 24
-		DEFAULT => -19
+		ACTIONS => {
+			'OPERATOR' => 21
+		},
+		DEFAULT => -12
 	},
 	{#State 25
-		DEFAULT => -10
+		DEFAULT => -22
 	},
 	{#State 26
 		DEFAULT => -20
+	},
+	{#State 27
+		DEFAULT => -10
+	},
+	{#State 28
+		DEFAULT => -21
 	}
 ],
     yyrules  =>
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 295 ../lib/Pg/SQL/Parser/SQL.pm
+#line 320 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
 #line 8 "SQL.eyp"
  $_[1] }
-#line 302 ../lib/Pg/SQL/Parser/SQL.pm
+#line 327 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
 #line 11 "SQL.eyp"
  [ $_[1] ] }
-#line 309 ../lib/Pg/SQL/Parser/SQL.pm
+#line 334 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
 #line 12 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 316 ../lib/Pg/SQL/Parser/SQL.pm
+#line 341 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
 #line 13 "SQL.eyp"
  $_[1] }
-#line 323 ../lib/Pg/SQL/Parser/SQL.pm
+#line 348 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
 #line 16 "SQL.eyp"
  $_[1] }
-#line 330 ../lib/Pg/SQL/Parser/SQL.pm
+#line 355 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
@@ -337,120 +362,134 @@ sub {
                                         my $select = $factory->make( 'Select' );
                                         for my $rc ( @{ $_[2] } ) {
                                             my $res = $factory->make('Result_Column');
-                                            $res->value( @{ $rc } );
+                                            $res->value( $rc->[0] );
+                                            $res->alias( $rc->[1] ) if defined $rc->[1];
                                             $select->add_result( $res )
                                         }
                                         $select
                                     }
-#line 345 ../lib/Pg/SQL/Parser/SQL.pm
+#line 371 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
-#line 30 "SQL.eyp"
+#line 31 "SQL.eyp"
  [ $_[1] ] }
-#line 352 ../lib/Pg/SQL/Parser/SQL.pm
+#line 378 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
-#line 31 "SQL.eyp"
+#line 32 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 359 ../lib/Pg/SQL/Parser/SQL.pm
+#line 385 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
-#line 34 "SQL.eyp"
+#line 35 "SQL.eyp"
  [ $_[1], undef ] }
-#line 366 ../lib/Pg/SQL/Parser/SQL.pm
+#line 392 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
-#line 35 "SQL.eyp"
+#line 36 "SQL.eyp"
  [ $_[1], $_[3] ] }
-#line 373 ../lib/Pg/SQL/Parser/SQL.pm
+#line 399 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
-#line 38 "SQL.eyp"
+#line 39 "SQL.eyp"
  $_[1] }
-#line 380 ../lib/Pg/SQL/Parser/SQL.pm
+#line 406 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_12
-		 'literal_value', 1,
+	[#Rule expr_12
+		 'expr', 3,
 sub {
-#line 41 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'STRING_CONSTANT', $_[1] ); $val }
-#line 387 ../lib/Pg/SQL/Parser/SQL.pm
+#line 40 "SQL.eyp"
+
+                                my $op = $factory->make( 'Operation' );
+                                $op->operator( $_[2] );
+                                $op->left( $_[1] );
+                                $op->right( $_[3] );
+                                $op;
+    }
+#line 419 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_13
 		 'literal_value', 1,
 sub {
-#line 42 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'USTRING_CONSTANT', $_[1] ); $val }
-#line 394 ../lib/Pg/SQL/Parser/SQL.pm
+#line 49 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'STRING_CONSTANT' );     $val->value ( $_[1] ); $val }
+#line 426 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_14
 		 'literal_value', 1,
 sub {
-#line 43 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'ESTRING_CONSTANT', $_[1] ); $val }
-#line 401 ../lib/Pg/SQL/Parser/SQL.pm
+#line 50 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'USTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
+#line 433 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_15
 		 'literal_value', 1,
 sub {
-#line 44 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'BITSTRING_CONSTANT', $_[1] ); $val }
-#line 408 ../lib/Pg/SQL/Parser/SQL.pm
+#line 51 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'ESTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
+#line 440 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_16
 		 'literal_value', 1,
 sub {
-#line 45 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'XBITSTRING_CONSTANT', $_[1] ); $val }
-#line 415 ../lib/Pg/SQL/Parser/SQL.pm
+#line 52 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'BITSTRING_CONSTANT' );  $val->value ( $_[1] ); $val }
+#line 447 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_17
 		 'literal_value', 1,
 sub {
-#line 46 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'NUMERIC_CONSTANT', $_[1] ); $val }
-#line 422 ../lib/Pg/SQL/Parser/SQL.pm
+#line 53 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'XBITSTRING_CONSTANT' ); $val->value ( $_[1] ); $val }
+#line 454 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_18
 		 'literal_value', 1,
 sub {
-#line 47 "SQL.eyp"
- my $val = $factory->make( 'Literal_Value' ); $val->value( 'INTEGER_CONSTANT', $_[1] ); $val }
-#line 429 ../lib/Pg/SQL/Parser/SQL.pm
+#line 54 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'NUMERIC_CONSTANT' );    $val->value ( $_[1] ); $val }
+#line 461 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_19
-		 'identifier', 1,
+	[#Rule literal_value_19
+		 'literal_value', 1,
 sub {
-#line 50 "SQL.eyp"
- $_[1] }
-#line 436 ../lib/Pg/SQL/Parser/SQL.pm
+#line 55 "SQL.eyp"
+ my $val = $factory->make( 'Literal_Value' ); $val->type( 'INTEGER_CONSTANT' );    $val->value ( $_[1] ); $val }
+#line 468 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_20
 		 'identifier', 1,
 sub {
-#line 51 "SQL.eyp"
+#line 58 "SQL.eyp"
  $_[1] }
-#line 443 ../lib/Pg/SQL/Parser/SQL.pm
+#line 475 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_21
 		 'identifier', 1,
 sub {
-#line 52 "SQL.eyp"
+#line 59 "SQL.eyp"
  $_[1] }
-#line 450 ../lib/Pg/SQL/Parser/SQL.pm
+#line 482 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule identifier_22
+		 'identifier', 1,
+sub {
+#line 60 "SQL.eyp"
+ $_[1] }
+#line 489 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 453 ../lib/Pg/SQL/Parser/SQL.pm
+#line 492 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -476,20 +515,21 @@ sub {
          'result_column_9', 
          'result_column_10', 
          'expr_11', 
-         'literal_value_12', 
+         'expr_12', 
          'literal_value_13', 
          'literal_value_14', 
          'literal_value_15', 
          'literal_value_16', 
          'literal_value_17', 
          'literal_value_18', 
-         'identifier_19', 
+         'literal_value_19', 
          'identifier_20', 
-         'identifier_21', );
+         'identifier_21', 
+         'identifier_22', );
   $self;
 }
 
-#line 55 "SQL.eyp"
+#line 63 "SQL.eyp"
 
 
 # vim: set ft=lex:
@@ -500,7 +540,7 @@ sub {
 =cut
 
 
-#line 503 ../lib/Pg/SQL/Parser/SQL.pm
+#line 543 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 
