@@ -41,7 +41,11 @@ Object constructor, doesn't get any arguments
 
 sub new {
     my $class = shift;
-    return bless {}, $class;
+    if ( 0 == scalar @_ ) {
+        return bless {}, $class;
+    }
+    my $self = { @_ };
+    return bless $self, $class;
 }
 
 =head2 make()
@@ -75,7 +79,7 @@ sub make {
         require $filename;
     }
 
-    my $new_object = $full_class->new();
+    my $new_object = $full_class->new( @_ );
     return $new_object;
 }
 

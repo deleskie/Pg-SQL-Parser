@@ -3,7 +3,17 @@
     my $factory = Pg::SQL::Parser::Element->new();
 %}
 
+/* %left OR */
+%left AND
+/* %left NOT */
+%right '='
+%left '<' '>'
+%left LIKE ILIKE
+%left BETWEEN
 %left OPERATOR
+%left '+' '-'
+%left '*' '/' '%'
+%left '^'
 
 %%
 
@@ -38,23 +48,35 @@ result_column: expr      { [ $_[1], undef ] }
     | expr AS identifier { [ $_[1], $_[3] ] }
 ;
 
-expr: literal_value         { $_[1] }
-    | expr OPERATOR expr    {
-                                my $op = $factory->make( 'Operation' );
-                                $op->operator( $_[2] );
-                                $op->left( $_[1] );
-                                $op->right( $_[3] );
-                                $op;
-                            }
+expr: expr_simple           { $_[1] }
+    | expr_simple BETWEEN expr AND expr { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
+    | expr OPERATOR         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | OPERATOR expr         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | expr '+' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '-' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '*' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '%' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '/' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '<' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '>' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '=' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '^' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr LIKE expr        { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr ILIKE expr       { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr OPERATOR expr    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 ;
 
-literal_value: STRING_CONSTANT  { my $val = $factory->make( 'Literal_Value' ); $val->type( 'STRING_CONSTANT' );     $val->value ( $_[1] ); $val }
-    | USTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'USTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
-    | ESTRING_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'ESTRING_CONSTANT' );    $val->value ( $_[1] ); $val }
-    | BITSTRING_CONSTANT        { my $val = $factory->make( 'Literal_Value' ); $val->type( 'BITSTRING_CONSTANT' );  $val->value ( $_[1] ); $val }
-    | XBITSTRING_CONSTANT       { my $val = $factory->make( 'Literal_Value' ); $val->type( 'XBITSTRING_CONSTANT' ); $val->value ( $_[1] ); $val }
-    | NUMERIC_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'NUMERIC_CONSTANT' );    $val->value ( $_[1] ); $val }
-    | INTEGER_CONSTANT          { my $val = $factory->make( 'Literal_Value' ); $val->type( 'INTEGER_CONSTANT' );    $val->value ( $_[1] ); $val }
+expr_simple: literal_value         { $_[1] }
+    | '(' expr ')'                 { $_[2] }
+;
+
+literal_value: STRING_CONSTANT  { $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
+    | USTRING_CONSTANT          { $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
+    | ESTRING_CONSTANT          { $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
+    | BITSTRING_CONSTANT        { $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
+    | XBITSTRING_CONSTANT       { $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
+    | NUMERIC_CONSTANT          { $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
+    | INTEGER_CONSTANT          { $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
 ;
 
 identifier: QUOTED_IDENTIFIER { $_[1] }

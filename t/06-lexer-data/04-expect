@@ -1,0 +1,34 @@
+[
+    [
+        'SELECT',
+        'SELECT'
+    ],
+    [
+        '(',
+        '('
+    ],
+    [
+        'INTEGER_CONSTANT',
+        '1'
+    ],
+    [
+        '+',
+        '+'
+    ],
+    [
+        'INTEGER_CONSTANT',
+        '2'
+    ],
+    [
+        ')',
+        ')'
+    ],
+    [
+        '*',
+        '*'
+    ],
+    [
+        'INTEGER_CONSTANT',
+        '3'
+    ]
+]

@@ -129,7 +129,10 @@ sub get_yylex {
         return ( 'WINDOW',            $1 ) if $sql =~ s{\A(window)\b}{}io;
         return ( 'WITH',              $1 ) if $sql =~ s{\A(with)\b}{}io;
         return ( 'COMMENT',           $1 ) if $sql =~ s{\A--([^\n]*)}{}o;
-        return ( 'BITSTRING',         $1 ) if $sql =~ s{\A(b'[01]*')}{}io;
+
+        return ( uc( $1 ), $1 ) if $sql =~ s{\A(like)}{}io;
+        return ( uc( $1 ), $1 ) if $sql =~ s{\A(ilike)}{}io;
+        return ( uc( $1 ), $1 ) if $sql =~ s{\A(between)}{}io;
 
         return ( 'QUOTED_IDENTIFIER',  $1 ) if $sql =~ s{\A("(?:[^"]*|"")+")}{}o;
         return ( 'UQUOTED_IDENTIFIER', $1 ) if $sql =~ s{\A(u\&"(?:[^"]*|"")+")}{}io;
@@ -151,6 +154,12 @@ sub get_yylex {
 
         return ( 'IDENTIFIER', $1 ) if $sql =~ s{\A([a-z_][a-z0-9_\$]*)}{}io;
 
+        # Regexps for operators are built based on information in:
+        # http://www.postgresql.org/docs/current/interactive/sql-createoperator.html
+
+        # Special case for single-character operators that need ordering/priorities
+        return ( $1, $1 ) if $sql =~ s{\A([+*/^%<>-])(?![+*/<>=~!@#%^&|`?-])}{}io;
+
         return ( 'OPERATOR', $1 ) if $sql =~ s{
             \A
             (
@@ -165,7 +174,7 @@ sub get_yylex {
             )
         }{}iox;
 
-        return ( $1, $1 ) if $sql =~ s{\A([.,;])}{}o;
+        return ( $1, $1 ) if $sql =~ s{\A([.,;()])}{}o;
 
         return ( 'UNKNOWN TOKEN', $1 ) if $sql =~ s{\A(.*)\z}{}so;
     };
