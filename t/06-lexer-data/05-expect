@@ -1,0 +1,18 @@
+[
+    [
+        'SELECT',
+        'select'
+    ],
+    [
+        'INTEGER_CONSTANT',
+        '1'
+    ],
+    [
+        '::',
+        '::'
+    ],
+    [
+        'IDENTIFIER',
+        'int4'
+    ],
+]

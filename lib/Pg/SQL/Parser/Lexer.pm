@@ -176,6 +176,8 @@ sub get_yylex {
 
         return ( $1, $1 ) if $sql =~ s{\A([.,;()])}{}o;
 
+        return ( $1, $1 ) if $sql =~ s{\A(::)}{}o;
+
         return ( 'UNKNOWN TOKEN', $1 ) if $sql =~ s{\A(.*)\z}{}so;
     };
 }

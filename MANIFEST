@@ -25,6 +25,8 @@ t/06-lexer-data/03-expect
 t/06-lexer-data/03-query
 t/06-lexer-data/04-expect
 t/06-lexer-data/04-query
+t/06-lexer-data/05-expect
+t/06-lexer-data/05-query
 t/06-lexer.t
 t/07-parser-data/01-expect
 t/07-parser-data/01-query
