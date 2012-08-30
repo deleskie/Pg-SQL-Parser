@@ -1,6 +1,6 @@
 Build.PL
 Changes
-eyapp/SQL.eyp
+helper/SQL.eyp
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Element.pm
 lib/Pg/SQL/Parser/Element/Literal_Value.pm
