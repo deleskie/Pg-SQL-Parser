@@ -26,6 +26,7 @@ find(
         $x =~ s/\.pm$//;
         $x =~ s{/}{::}g;
         return if $x eq 'Pg::SQL::Parser::SQL';
+        return if $x eq 'Pg::SQL::Parser::Lexer::Keywords';
         push @modules, $x;
     },
     'lib/'

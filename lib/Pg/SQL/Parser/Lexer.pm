@@ -6,6 +6,7 @@ use warnings qw( FATAL utf8 );
 use utf8;
 use Carp;
 use English qw( -no_match_vars );
+use Pg::SQL::Parser::Lexer::Keywords;
 
 =head1 NAME
 
@@ -18,6 +19,8 @@ Version 0.01
 =cut
 
 our $VERSION = '0.01';
+
+our $keywords = Pg::SQL::Parser::Lexer::Keywords::re();
 
 =head1 SYNOPSIS
 
@@ -52,87 +55,8 @@ sub get_yylex {
     return sub {
         $sql =~ s/\A\s*//;
         return ( '', undef ) if '' eq $sql;
-        return ( 'ALL',               $1 ) if $sql =~ s{\A(all)\b}{}io;
-        return ( 'ANALYSE',           $1 ) if $sql =~ s{\A(analyse)\b}{}io;
-        return ( 'ANALYZE',           $1 ) if $sql =~ s{\A(analyze)\b}{}io;
-        return ( 'AND',               $1 ) if $sql =~ s{\A(and)\b}{}io;
-        return ( 'ANY',               $1 ) if $sql =~ s{\A(any)\b}{}io;
-        return ( 'ARRAY',             $1 ) if $sql =~ s{\A(array)\b}{}io;
-        return ( 'AS',                $1 ) if $sql =~ s{\A(as)\b}{}io;
-        return ( 'ASC',               $1 ) if $sql =~ s{\A(asc)\b}{}io;
-        return ( 'ASYMMETRIC',        $1 ) if $sql =~ s{\A(asymmetric)\b}{}io;
-        return ( 'BOTH',              $1 ) if $sql =~ s{\A(both)\b}{}io;
-        return ( 'CASE',              $1 ) if $sql =~ s{\A(case)\b}{}io;
-        return ( 'CAST',              $1 ) if $sql =~ s{\A(cast)\b}{}io;
-        return ( 'CHECK',             $1 ) if $sql =~ s{\A(check)\b}{}io;
-        return ( 'COLLATE',           $1 ) if $sql =~ s{\A(collate)\b}{}io;
-        return ( 'COLUMN',            $1 ) if $sql =~ s{\A(column)\b}{}io;
-        return ( 'CONSTRAINT',        $1 ) if $sql =~ s{\A(constraint)\b}{}io;
-        return ( 'CREATE',            $1 ) if $sql =~ s{\A(create)\b}{}io;
-        return ( 'CURRENT_CATALOG',   $1 ) if $sql =~ s{\A(current_catalog)\b}{}io;
-        return ( 'CURRENT_DATE',      $1 ) if $sql =~ s{\A(current_date)\b}{}io;
-        return ( 'CURRENT_ROLE',      $1 ) if $sql =~ s{\A(current_role)\b}{}io;
-        return ( 'CURRENT_TIME',      $1 ) if $sql =~ s{\A(current_time)\b}{}io;
-        return ( 'CURRENT_TIMESTAMP', $1 ) if $sql =~ s{\A(current_timestamp)\b}{}io;
-        return ( 'CURRENT_USER',      $1 ) if $sql =~ s{\A(current_user)\b}{}io;
-        return ( 'DEFAULT',           $1 ) if $sql =~ s{\A(default)\b}{}io;
-        return ( 'DEFERRABLE',        $1 ) if $sql =~ s{\A(deferrable)\b}{}io;
-        return ( 'DESC',              $1 ) if $sql =~ s{\A(desc)\b}{}io;
-        return ( 'DISTINCT',          $1 ) if $sql =~ s{\A(distinct)\b}{}io;
-        return ( 'DO',                $1 ) if $sql =~ s{\A(do)\b}{}io;
-        return ( 'ELSE',              $1 ) if $sql =~ s{\A(else)\b}{}io;
-        return ( 'END',               $1 ) if $sql =~ s{\A(end)\b}{}io;
-        return ( 'EXCEPT',            $1 ) if $sql =~ s{\A(except)\b}{}io;
-        return ( 'FALSE',             $1 ) if $sql =~ s{\A(false)\b}{}io;
-        return ( 'FETCH',             $1 ) if $sql =~ s{\A(fetch)\b}{}io;
-        return ( 'FOR',               $1 ) if $sql =~ s{\A(for)\b}{}io;
-        return ( 'FOREIGN',           $1 ) if $sql =~ s{\A(foreign)\b}{}io;
-        return ( 'FROM',              $1 ) if $sql =~ s{\A(from)\b}{}io;
-        return ( 'GRANT',             $1 ) if $sql =~ s{\A(grant)\b}{}io;
-        return ( 'GROUP',             $1 ) if $sql =~ s{\A(group)\b}{}io;
-        return ( 'HAVING',            $1 ) if $sql =~ s{\A(having)\b}{}io;
-        return ( 'IN',                $1 ) if $sql =~ s{\A(in)\b}{}io;
-        return ( 'INITIALLY',         $1 ) if $sql =~ s{\A(initially)\b}{}io;
-        return ( 'INTERSECT',         $1 ) if $sql =~ s{\A(intersect)\b}{}io;
-        return ( 'INTO',              $1 ) if $sql =~ s{\A(into)\b}{}io;
-        return ( 'LEADING',           $1 ) if $sql =~ s{\A(leading)\b}{}io;
-        return ( 'LIMIT',             $1 ) if $sql =~ s{\A(limit)\b}{}io;
-        return ( 'LOCALTIME',         $1 ) if $sql =~ s{\A(localtime)\b}{}io;
-        return ( 'LOCALTIMESTAMP',    $1 ) if $sql =~ s{\A(localtimestamp)\b}{}io;
-        return ( 'NOT',               $1 ) if $sql =~ s{\A(not)\b}{}io;
-        return ( 'NULL',              $1 ) if $sql =~ s{\A(null)\b}{}io;
-        return ( 'OFFSET',            $1 ) if $sql =~ s{\A(offset)\b}{}io;
-        return ( 'ON',                $1 ) if $sql =~ s{\A(on)\b}{}io;
-        return ( 'ONLY',              $1 ) if $sql =~ s{\A(only)\b}{}io;
-        return ( 'OR',                $1 ) if $sql =~ s{\A(or)\b}{}io;
-        return ( 'ORDER',             $1 ) if $sql =~ s{\A(order)\b}{}io;
-        return ( 'PLACING',           $1 ) if $sql =~ s{\A(placing)\b}{}io;
-        return ( 'PRIMARY',           $1 ) if $sql =~ s{\A(primary)\b}{}io;
-        return ( 'REFERENCES',        $1 ) if $sql =~ s{\A(references)\b}{}io;
-        return ( 'RETURNING',         $1 ) if $sql =~ s{\A(returning)\b}{}io;
-        return ( 'SELECT',            $1 ) if $sql =~ s{\A(select)\b}{}io;
-        return ( 'SESSION_USER',      $1 ) if $sql =~ s{\A(session_user)\b}{}io;
-        return ( 'SOME',              $1 ) if $sql =~ s{\A(some)\b}{}io;
-        return ( 'SYMMETRIC',         $1 ) if $sql =~ s{\A(symmetric)\b}{}io;
-        return ( 'TABLE',             $1 ) if $sql =~ s{\A(table)\b}{}io;
-        return ( 'THEN',              $1 ) if $sql =~ s{\A(then)\b}{}io;
-        return ( 'TO',                $1 ) if $sql =~ s{\A(to)\b}{}io;
-        return ( 'TRAILING',          $1 ) if $sql =~ s{\A(trailing)\b}{}io;
-        return ( 'TRUE',              $1 ) if $sql =~ s{\A(true)\b}{}io;
-        return ( 'UNION',             $1 ) if $sql =~ s{\A(union)\b}{}io;
-        return ( 'UNIQUE',            $1 ) if $sql =~ s{\A(unique)\b}{}io;
-        return ( 'USER',              $1 ) if $sql =~ s{\A(user)\b}{}io;
-        return ( 'USING',             $1 ) if $sql =~ s{\A(using)\b}{}io;
-        return ( 'VARIADIC',          $1 ) if $sql =~ s{\A(variadic)\b}{}io;
-        return ( 'WHEN',              $1 ) if $sql =~ s{\A(when)\b}{}io;
-        return ( 'WHERE',             $1 ) if $sql =~ s{\A(where)\b}{}io;
-        return ( 'WINDOW',            $1 ) if $sql =~ s{\A(window)\b}{}io;
-        return ( 'WITH',              $1 ) if $sql =~ s{\A(with)\b}{}io;
-        return ( 'COMMENT',           $1 ) if $sql =~ s{\A--([^\n]*)}{}o;
 
-        return ( uc( $1 ), $1 ) if $sql =~ s{\A(like)}{}io;
-        return ( uc( $1 ), $1 ) if $sql =~ s{\A(ilike)}{}io;
-        return ( uc( $1 ), $1 ) if $sql =~ s{\A(between)}{}io;
+        return ( uc( $1 ), $1 ) if $sql =~ s{\A($keywords)\b}{}o;
 
         return ( 'QUOTED_IDENTIFIER',  $1 ) if $sql =~ s{\A("(?:[^"]*|"")+")}{}o;
         return ( 'UQUOTED_IDENTIFIER', $1 ) if $sql =~ s{\A(u\&"(?:[^"]*|"")+")}{}io;

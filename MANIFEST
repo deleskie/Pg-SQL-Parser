@@ -1,13 +1,17 @@
 Build.PL
 Changes
+helper/build_keywords_regexp_file.pl
+helper/keywords
 helper/SQL.eyp
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Element.pm
+lib/Pg/SQL/Parser/Element/Cast.pm
 lib/Pg/SQL/Parser/Element/Literal_Value.pm
 lib/Pg/SQL/Parser/Element/Operation.pm
 lib/Pg/SQL/Parser/Element/Result_Column.pm
 lib/Pg/SQL/Parser/Element/Select.pm
 lib/Pg/SQL/Parser/Lexer.pm
+lib/Pg/SQL/Parser/Lexer/Keywords.pm
 lib/Pg/SQL/Parser/SQL.pm
 MANIFEST			This list of files
 README
@@ -54,6 +58,8 @@ t/07-parser-data/12-expect
 t/07-parser-data/12-query
 t/07-parser-data/13-expect
 t/07-parser-data/13-query
+t/07-parser-data/14-expect
+t/07-parser-data/14-query
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc
