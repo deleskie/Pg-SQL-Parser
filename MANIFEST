@@ -3,6 +3,7 @@ Changes
 helper/build_keywords_regexp_file.pl
 helper/keywords
 helper/SQL.eyp
+helper/update_SQL_eyp_based_on_keywords
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Element.pm
 lib/Pg/SQL/Parser/Element/Cast.pm

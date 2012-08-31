@@ -1,0 +1,56 @@
+#!/usr/bin/env perl
+use v5.12;
+use strict;
+use warnings;
+use warnings qw( FATAL utf8 );
+use utf8;
+use open qw( :std :utf8 );
+use autodie;
+
+use Carp;
+use English qw( -no_match_vars );
+use Data::Dumper;
+use POSIX qw( strftime );
+
+our $fh;
+open $fh, '<', 'keywords';
+my @words = <$fh>;
+close $fh;
+
+my %classes = ();
+
+for ( @words ) {
+    next unless /^(\S+)\t(\S.*\S)\s*\z/;
+    push @{ $classes{ $2 } }, $1;
+}
+
+my $exact_time = strftime( '%Y%m%d-%H%M%S', localtime( time() ) );
+my $backup_file = sprintf 'SQL.eyp-%s.backup', $exact_time;
+
+croak "$backup_file already exists ?!" if -e $backup_file;
+
+croak( "rename SQL.eyp $backup_file failed: $OS_ERROR" ) unless rename( "SQL.eyp", $backup_file );
+
+open $fh, '<', $backup_file;
+my $whole_file = join '', <$fh>;
+close $fh;
+
+my @parts = split /^\%\%[ \t]*\r?\n/m, $whole_file;
+
+$parts[ 1 ] =~ s{
+    ^
+    (?:
+        keywords_notreserved
+        | keywords_reserved_ok_for_functions_or_types
+        | keywords_notreserver_not_ok_for_functions_or_types
+    )
+    :.*?\n;[ \t]*\r?\n}{}xmsg;
+
+$parts[ 1 ] =~ s/\s*\z/\n\n/;
+$parts[ 1 ] .= 'keywords_notreserved: ' . join( "\n    | ", @{ $classes{ 'non-reserved' } } ) . "\n;\n\n";
+$parts[ 1 ] .= 'keywords_reserved_ok_for_functions_or_types: ' . join( "\n    | ", @{ $classes{ 'reserved (can be function or type)' } } ) . "\n;\n\n";
+$parts[ 1 ] .= 'keywords_notreserver_not_ok_for_functions_or_types: ' . join( "\n    | ", @{ $classes{ 'non-reserved (cannot be function or type)' } } ) . "\n;\n\n";
+
+open $fh, '>', 'SQL.eyp';
+print $fh join( "%%\n", @parts );
+close $fh;

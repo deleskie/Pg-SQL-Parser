@@ -12,3 +12,4 @@ pod2htm*.tmp
 Pg-SQL-Parser-*
 MANIFEST.bak
 MYMETA.*
+*.backup
