@@ -13,3 +13,4 @@ Pg-SQL-Parser-*
 MANIFEST.bak
 MYMETA.*
 *.backup
+*.clog
