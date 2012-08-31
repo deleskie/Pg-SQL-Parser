@@ -1,0 +1,1 @@
+select 1::int4, 2::int8, 'x'::text, 'y'::varchar(15), 'a.b'::contrib.ltree, 'c'::"MagicType";

@@ -3,6 +3,7 @@ Changes
 helper/build_keywords_regexp_file.pl
 helper/keywords
 helper/SQL.eyp
+helper/SQL.output
 helper/update_SQL_eyp_based_on_keywords
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Element.pm
@@ -11,6 +12,7 @@ lib/Pg/SQL/Parser/Element/Literal_Value.pm
 lib/Pg/SQL/Parser/Element/Operation.pm
 lib/Pg/SQL/Parser/Element/Result_Column.pm
 lib/Pg/SQL/Parser/Element/Select.pm
+lib/Pg/SQL/Parser/Element/Type.pm
 lib/Pg/SQL/Parser/Lexer.pm
 lib/Pg/SQL/Parser/Lexer/Keywords.pm
 lib/Pg/SQL/Parser/SQL.pm
@@ -61,6 +63,8 @@ t/07-parser-data/13-expect
 t/07-parser-data/13-query
 t/07-parser-data/14-expect
 t/07-parser-data/14-query
+t/07-parser-data/15-expect
+t/07-parser-data/15-query
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc
