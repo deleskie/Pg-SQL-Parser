@@ -359,7 +359,7 @@ keywords_reserved_ok_for_functions_or_types: AUTHORIZATION
     | VERBOSE
 ;
 
-keywords_notreserver_not_ok_for_functions_or_types: BETWEEN
+keywords_notreserved_not_ok_for_functions_or_types: BETWEEN
     | BIGINT
     | BIT
     | BOOLEAN

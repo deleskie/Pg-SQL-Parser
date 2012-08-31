@@ -42,14 +42,14 @@ $parts[ 1 ] =~ s{
     (?:
         keywords_notreserved
         | keywords_reserved_ok_for_functions_or_types
-        | keywords_notreserver_not_ok_for_functions_or_types
+        | keywords_notreserved_not_ok_for_functions_or_types
     )
     :.*?\n;[ \t]*\r?\n}{}xmsg;
 
 $parts[ 1 ] =~ s/\s*\z/\n\n/;
 $parts[ 1 ] .= 'keywords_notreserved: ' . join( "\n    | ", @{ $classes{ 'non-reserved' } } ) . "\n;\n\n";
 $parts[ 1 ] .= 'keywords_reserved_ok_for_functions_or_types: ' . join( "\n    | ", @{ $classes{ 'reserved (can be function or type)' } } ) . "\n;\n\n";
-$parts[ 1 ] .= 'keywords_notreserver_not_ok_for_functions_or_types: ' . join( "\n    | ", @{ $classes{ 'non-reserved (cannot be function or type)' } } ) . "\n;\n\n";
+$parts[ 1 ] .= 'keywords_notreserved_not_ok_for_functions_or_types: ' . join( "\n    | ", @{ $classes{ 'non-reserved (cannot be function or type)' } } ) . "\n;\n\n";
 
 open $fh, '>', 'SQL.eyp';
 print $fh join( "%%\n", @parts );
