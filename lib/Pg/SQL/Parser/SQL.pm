@@ -3807,42 +3807,42 @@ sub new {
 	[#Rule top_1
 		 'top', 1,
 sub {
-#line 20 "SQL.eyp"
+#line 21 "SQL.eyp"
  $_[1] }
 #line 3812 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
-#line 23 "SQL.eyp"
+#line 24 "SQL.eyp"
  [ $_[1] ] }
 #line 3819 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
-#line 24 "SQL.eyp"
+#line 25 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
 #line 3826 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
-#line 25 "SQL.eyp"
+#line 26 "SQL.eyp"
  $_[1] }
 #line 3833 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
-#line 28 "SQL.eyp"
+#line 29 "SQL.eyp"
  $_[1] }
 #line 3840 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
 sub {
-#line 31 "SQL.eyp"
+#line 32 "SQL.eyp"
 
                                         my $select = $factory->make( 'Select' );
                                         for my $rc ( @{ $_[2] } ) {
@@ -3858,308 +3858,308 @@ sub {
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
-#line 43 "SQL.eyp"
+#line 44 "SQL.eyp"
  [ $_[1] ] }
 #line 3863 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
-#line 44 "SQL.eyp"
+#line 45 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
 #line 3870 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
-#line 47 "SQL.eyp"
+#line 48 "SQL.eyp"
  [ $_[1], undef ] }
 #line 3877 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
-#line 48 "SQL.eyp"
+#line 49 "SQL.eyp"
  [ $_[1], $_[3] ] }
 #line 3884 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
-#line 51 "SQL.eyp"
+#line 52 "SQL.eyp"
  $_[1] }
 #line 3891 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_12
 		 'expr', 5,
 sub {
-#line 52 "SQL.eyp"
+#line 53 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
 #line 3898 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_13
 		 'expr', 2,
 sub {
-#line 53 "SQL.eyp"
+#line 54 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
 #line 3905 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_14
 		 'expr', 2,
 sub {
-#line 54 "SQL.eyp"
+#line 55 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
 #line 3912 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_15
 		 'expr', 3,
 sub {
-#line 55 "SQL.eyp"
+#line 56 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3919 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_16
 		 'expr', 3,
 sub {
-#line 56 "SQL.eyp"
+#line 57 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3926 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_17
 		 'expr', 3,
 sub {
-#line 57 "SQL.eyp"
+#line 58 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3933 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_18
 		 'expr', 3,
 sub {
-#line 58 "SQL.eyp"
+#line 59 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3940 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_19
 		 'expr', 3,
 sub {
-#line 59 "SQL.eyp"
+#line 60 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3947 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_20
 		 'expr', 3,
 sub {
-#line 60 "SQL.eyp"
+#line 61 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3954 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_21
 		 'expr', 3,
 sub {
-#line 61 "SQL.eyp"
+#line 62 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3961 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_22
 		 'expr', 3,
 sub {
-#line 62 "SQL.eyp"
+#line 63 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3968 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_23
 		 'expr', 3,
 sub {
-#line 63 "SQL.eyp"
+#line 64 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3975 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_24
 		 'expr', 3,
 sub {
-#line 64 "SQL.eyp"
+#line 65 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3982 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_25
 		 'expr', 3,
 sub {
-#line 65 "SQL.eyp"
+#line 66 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3989 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_26
 		 'expr', 3,
 sub {
-#line 66 "SQL.eyp"
+#line 67 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 #line 3996 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_27
 		 'expr', 3,
 sub {
-#line 67 "SQL.eyp"
+#line 68 "SQL.eyp"
  $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
 #line 4003 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_28
 		 'expr_simple', 1,
 sub {
-#line 70 "SQL.eyp"
+#line 71 "SQL.eyp"
  $_[1] }
 #line 4010 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_29
 		 'expr_simple', 3,
 sub {
-#line 71 "SQL.eyp"
+#line 72 "SQL.eyp"
  $_[2] }
 #line 4017 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_30
 		 'literal_value', 1,
 sub {
-#line 74 "SQL.eyp"
+#line 75 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
 #line 4024 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_31
 		 'literal_value', 1,
 sub {
-#line 75 "SQL.eyp"
+#line 76 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
 #line 4031 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_32
 		 'literal_value', 1,
 sub {
-#line 76 "SQL.eyp"
+#line 77 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
 #line 4038 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_33
 		 'literal_value', 1,
 sub {
-#line 77 "SQL.eyp"
+#line 78 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
 #line 4045 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_34
 		 'literal_value', 1,
 sub {
-#line 78 "SQL.eyp"
+#line 79 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
 #line 4052 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_35
 		 'literal_value', 1,
 sub {
-#line 79 "SQL.eyp"
+#line 80 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
 #line 4059 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_36
 		 'literal_value', 1,
 sub {
-#line 80 "SQL.eyp"
+#line 81 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
 #line 4066 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_37
 		 'identifier', 1,
 sub {
-#line 83 "SQL.eyp"
+#line 84 "SQL.eyp"
  $_[1] }
 #line 4073 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_38
 		 'identifier', 1,
 sub {
-#line 84 "SQL.eyp"
+#line 85 "SQL.eyp"
  $_[1] }
 #line 4080 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_39
 		 'identifier', 1,
 sub {
-#line 85 "SQL.eyp"
+#line 86 "SQL.eyp"
  $_[1] }
 #line 4087 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_40
 		 'identifier', 1,
 sub {
-#line 86 "SQL.eyp"
+#line 87 "SQL.eyp"
  $_[1] }
 #line 4094 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_41
 		 'normal_type', 1,
 sub {
-#line 89 "SQL.eyp"
+#line 90 "SQL.eyp"
  $_[1] }
 #line 4101 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_42
 		 'normal_type', 3,
 sub {
-#line 90 "SQL.eyp"
+#line 91 "SQL.eyp"
  $_[3]->schema( $_[1] ); $_[3] }
 #line 4108 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_43
 		 'simple_type', 1,
 sub {
-#line 93 "SQL.eyp"
+#line 94 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
 #line 4115 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_44
 		 'simple_type', 1,
 sub {
-#line 94 "SQL.eyp"
+#line 95 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
 #line 4122 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_45
 		 'simple_type', 1,
 sub {
-#line 95 "SQL.eyp"
+#line 96 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
 #line 4129 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_46
 		 'simple_type', 4,
 sub {
-#line 96 "SQL.eyp"
+#line 97 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
 #line 4136 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_47
 		 'simple_type', 6,
 sub {
-#line 97 "SQL.eyp"
+#line 98 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
 #line 4143 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_48
 		 'simple_type', 4,
 sub {
-#line 98 "SQL.eyp"
+#line 99 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
 #line 4150 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_49
 		 'simple_type', 6,
 sub {
-#line 99 "SQL.eyp"
+#line 100 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
 #line 4157 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_50
 		 'simple_type', 4,
 sub {
-#line 100 "SQL.eyp"
+#line 101 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
 #line 4164 ../lib/Pg/SQL/Parser/SQL.pm
 	],
@@ -5817,7 +5817,7 @@ sub {
   $self;
 }
 
-#line 426 "SQL.eyp"
+#line 427 "SQL.eyp"
 
 
 # vim: set ft=lex:

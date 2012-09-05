@@ -3,9 +3,9 @@
     my $factory = Pg::SQL::Parser::Element->new();
 %}
 
-%left OR
+/* %left OR */
 %left AND
-%left NOT
+/* %left NOT */
 %right '='
 %left '<' '>'
 %left LIKE ILIKE
@@ -14,6 +14,7 @@
 %left '+' '-'
 %left '*' '/' '%'
 %left '^'
+%left '::'
 
 %%
 

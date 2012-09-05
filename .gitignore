@@ -13,3 +13,4 @@ MANIFEST.bak
 MYMETA.*
 *.backup
 *.clog
+helper/SQL.output
