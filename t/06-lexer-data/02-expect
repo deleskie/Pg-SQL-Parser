@@ -24,7 +24,7 @@
         'c'
     ],
     [
-        'OPERATOR',
+        'OPERATOR_NAME',
         '@>'
     ],
     [

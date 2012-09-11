@@ -44,7 +44,7 @@ our $LEX = sub {
 
       m{\G(\s+)}gc and $self->tokenline($1 =~ tr{\n}{});
 
-      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|ESTRING_CONSTANT|NUMERIC_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|CHARACTERISTICS|CURRENT_SCHEMA|AUTHORIZATION|XMLATTRIBUTES|CONFIGURATION|SERIALIZABLE|CONCURRENTLY|XMLSERIALIZE|INSENSITIVE|CONSTRAINTS|TRANSACTION|UNCOMMITTED|UNENCRYPTED|DICTIONARY|CONNECTION|PRIVILEGES|STATISTICS|DELIMITERS|DEALLOCATE|XMLELEMENT|TABLESPACE|REPEATABLE|CHECKPOINT|LC_COLLATE|ASSIGNMENT|IDENTIFIER|WHITESPACE|STANDALONE|PROCEDURAL|CONVERSION|PARTITION|INCREMENT|PROCEDURE|TIMESTAMP|IMMUTABLE|IMMEDIATE|DELIMITER|PRECISION|UNBOUNDED|XMLEXISTS|PRECEDING|AGGREGATE|ATTRIBUTE|EXCLUDING|ASSERTION|INCLUDING|EXCLUSIVE|CHARACTER|STATEMENT|EXTENSION|ENCRYPTED|RECURSIVE|VALIDATOR|SUBSTRING|SEQUENCES|XMLFOREST|FOLLOWING|XMLCONCAT|TEMPORARY|COMMITTED|ISOLATION|FUNCTIONS|SAVEPOINT|COLLATION|INHERITS|ENCODING|TEMPLATE|DEFAULTS|BACKWARD|SECURITY|PRESERVE|VALIDATE|REASSIGN|ROLLBACK|LOCATION|COMMENTS|CONTINUE|UNLOGGED|FUNCTION|OVERLAPS|DEFERRED|UNLISTEN|SMALLINT|EXTERNAL|XMLPARSE|NATIONAL|CASCADED|TRUNCATE|ABSOLUTE|GREATEST|VOLATILE|LANGUAGE|SEQUENCE|IDENTITY|POSITION|RELATIVE|IMPLICIT|PASSWORD|PREPARED|INTERVAL|LC_CTYPE|RESTRICT|MAXVALUE|DOCUMENT|MINVALUE|OPERATOR|DATABASE|COALESCE|REPLACE|RETURNS|INVOKER|PASSING|INTEGER|PREPARE|REPLICA|VARYING|HANDLER|RELEASE|BOOLEAN|VERBOSE|COMMENT|REINDEX|EXTRACT|CATALOG|MAPPING|RESTART|FORWARD|NOTHING|DECIMAL|INDEXES|DECLARE|SIMILAR|INHERIT|EXPLAIN|VARCHAR|DISABLE|DEFINER|INSTEAD|TRUSTED|CASCADE|NUMERIC|XMLROOT|DISCARD|BETWEEN|PARTIAL|EXCLUDE|WRAPPER|WITHOUT|OPTIONS|EXECUTE|UNKNOWN|CONTENT|CURRENT|CLUSTER|NATURAL|RECHECK|GRANTED|STORAGE|NOTNULL|SESSION|TRIGGER|OVERLAY|VERSION|ESCAPE|SEARCH|MINUTE|DELETE|NULLIF|CALLED|ISNULL|BINARY|UPDATE|STRICT|OBJECT|INSERT|EXISTS|NOWAIT|BIGINT|ACCESS|OPTION|STABLE|SCROLL|SYSTEM|ALWAYS|COMMIT|FAMILY|GLOBAL|STDOUT|REVOKE|VACUUM|SCHEMA|FREEZE|DOUBLE|INLINE|CURSOR|VALUES|BEFORE|SECOND|SELECT|LISTEN|SIMPLE|DOMAIN|SERVER|RENAME|PARSER|NOTIFY|HEADER|ACTION|ENABLE|TABLES|INPUT|SYSID|NCHAR|VALUE|MONTH|TREAT|RANGE|SHARE|LARGE|CLOSE|LEAST|FORCE|LEVEL|XMLPI|LABEL|NULLS|RESET|PRIOR|INNER|SETOF|INOUT|FLOAT|STRIP|CACHE|ILIKE|OUTER|AFTER|INDEX|OWNED|ADMIN|CROSS|OWNER|MATCH|CLASS|CHAIN|ABORT|PLANS|QUOTE|NAMES|ALTER|RIGHT|BEGIN|STDIN|CYCLE|START|UNTIL|WRITE|LOCAL|VALID|FIRST|JOIN|WORK|MODE|DROP|LOCK|FULL|DATA|REAL|OVER|COST|ZONE|RULE|TYPE|READ|LEFT|TEXT|ALSO|VIEW|LOAD|OIDS|EACH|MOVE|TIME|SHOW|HOUR|TEMP|YEAR|COPY|LIKE|CHAR|NEXT|NAME|TRIM|ROWS|LAST|HOLD|ROLE|ENUM|NONE|DAY|REF|OFF|SET|OUT|DEC|XML|ADD|CSV|ROW|AND|YES|BIT|KEY|INT|AT|BY|NO|\:\:|OF|AS|IS|IF|\+|\(|\^|\/|\,|\-|\<|\)|\;|\=|\%|\*|\.|\>)}gc and return ($1, $1);
+      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|ESTRING_CONSTANT|NUMERIC_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|CHARACTERISTICS|CURRENT_SCHEMA|AUTHORIZATION|OPERATOR_NAME|XMLATTRIBUTES|CONFIGURATION|SERIALIZABLE|CONCURRENTLY|XMLSERIALIZE|INSENSITIVE|CONSTRAINTS|TRANSACTION|UNCOMMITTED|UNENCRYPTED|DICTIONARY|CONNECTION|PRIVILEGES|STATISTICS|DELIMITERS|DEALLOCATE|XMLELEMENT|TABLESPACE|REPEATABLE|CHECKPOINT|LC_COLLATE|ASSIGNMENT|IDENTIFIER|WHITESPACE|STANDALONE|PROCEDURAL|CONVERSION|PARTITION|INCREMENT|PROCEDURE|TIMESTAMP|IMMUTABLE|IMMEDIATE|DELIMITER|PRECISION|UNBOUNDED|XMLEXISTS|PRECEDING|AGGREGATE|ATTRIBUTE|EXCLUDING|ASSERTION|INCLUDING|EXCLUSIVE|CHARACTER|STATEMENT|EXTENSION|ENCRYPTED|RECURSIVE|VALIDATOR|SUBSTRING|SEQUENCES|XMLFOREST|FOLLOWING|XMLCONCAT|TEMPORARY|COMMITTED|ISOLATION|FUNCTIONS|SAVEPOINT|COLLATION|INHERITS|ENCODING|TEMPLATE|DEFAULTS|BACKWARD|SECURITY|PRESERVE|VALIDATE|REASSIGN|ROLLBACK|LOCATION|COMMENTS|CONTINUE|UNLOGGED|FUNCTION|OVERLAPS|DEFERRED|UNLISTEN|SMALLINT|EXTERNAL|XMLPARSE|NATIONAL|CASCADED|TRUNCATE|ABSOLUTE|GREATEST|VOLATILE|LANGUAGE|SEQUENCE|IDENTITY|POSITION|RELATIVE|IMPLICIT|PASSWORD|PREPARED|INTERVAL|LC_CTYPE|RESTRICT|MAXVALUE|DOCUMENT|MINVALUE|OPERATOR|DATABASE|COALESCE|REPLACE|RETURNS|INVOKER|PASSING|INTEGER|PREPARE|REPLICA|VARYING|HANDLER|RELEASE|BOOLEAN|VERBOSE|COMMENT|REINDEX|EXTRACT|CATALOG|MAPPING|RESTART|FORWARD|NOTHING|DECIMAL|INDEXES|DECLARE|SIMILAR|INHERIT|EXPLAIN|VARCHAR|DISABLE|DEFINER|INSTEAD|TRUSTED|CASCADE|NUMERIC|XMLROOT|DISCARD|BETWEEN|PARTIAL|EXCLUDE|WRAPPER|WITHOUT|OPTIONS|EXECUTE|UNKNOWN|CONTENT|CURRENT|CLUSTER|NATURAL|RECHECK|GRANTED|STORAGE|NOTNULL|SESSION|TRIGGER|OVERLAY|VERSION|ESCAPE|SEARCH|MINUTE|DELETE|NULLIF|CALLED|ISNULL|BINARY|UPDATE|STRICT|OBJECT|INSERT|EXISTS|NOWAIT|BIGINT|ACCESS|OPTION|STABLE|SCROLL|SYSTEM|ALWAYS|COMMIT|FAMILY|GLOBAL|STDOUT|REVOKE|VACUUM|SCHEMA|FREEZE|DOUBLE|INLINE|CURSOR|VALUES|BEFORE|SECOND|SELECT|LISTEN|SIMPLE|DOMAIN|SERVER|RENAME|PARSER|NOTIFY|HEADER|ACTION|ENABLE|TABLES|INPUT|SYSID|NCHAR|VALUE|MONTH|TREAT|RANGE|SHARE|LARGE|CLOSE|LEAST|FORCE|LEVEL|XMLPI|LABEL|NULLS|RESET|PRIOR|INNER|SETOF|INOUT|FLOAT|STRIP|CACHE|ILIKE|OUTER|AFTER|INDEX|OWNED|ADMIN|CROSS|OWNER|MATCH|CLASS|CHAIN|ABORT|PLANS|QUOTE|NAMES|ALTER|RIGHT|BEGIN|STDIN|CYCLE|START|UNTIL|WRITE|LOCAL|VALID|FIRST|JOIN|WORK|MODE|DROP|LOCK|FULL|DATA|REAL|OVER|COST|ZONE|RULE|TYPE|READ|LEFT|TEXT|ALSO|VIEW|LOAD|OIDS|EACH|MOVE|TIME|SHOW|HOUR|TEMP|YEAR|COPY|LIKE|CHAR|NEXT|NAME|TRIM|ROWS|LAST|HOLD|ROLE|ENUM|NONE|DAY|REF|OFF|SET|OUT|DEC|XML|ADD|CSV|ROW|AND|YES|BIT|KEY|INT|AT|BY|NO|\:\:|OF|AS|IS|IF|\+|\(|\^|\/|\,|\-|\<|\)|\;|\=|\%|\*|\.|\>)}gc and return ($1, $1);
 
 
 
@@ -90,8 +90,8 @@ sub new {
   [ 'result_column_10' => 'result_column', [ 'expr', 'AS', 'identifier' ], 0 ],
   [ 'expr_11' => 'expr', [ 'expr_simple' ], 0 ],
   [ 'expr_12' => 'expr', [ 'expr', 'BETWEEN', 'expr', 'AND', 'expr' ], 0 ],
-  [ 'expr_13' => 'expr', [ 'expr', 'OPERATOR' ], 0 ],
-  [ 'expr_14' => 'expr', [ 'OPERATOR', 'expr' ], 0 ],
+  [ 'expr_13' => 'expr', [ 'expr', 'OPERATOR_NAME' ], 0 ],
+  [ 'expr_14' => 'expr', [ 'OPERATOR_NAME', 'expr' ], 0 ],
   [ 'expr_15' => 'expr', [ 'expr', '+', 'expr' ], 0 ],
   [ 'expr_16' => 'expr', [ 'expr', '-', 'expr' ], 0 ],
   [ 'expr_17' => 'expr', [ 'expr', '*', 'expr' ], 0 ],
@@ -103,7 +103,7 @@ sub new {
   [ 'expr_23' => 'expr', [ 'expr', '^', 'expr' ], 0 ],
   [ 'expr_24' => 'expr', [ 'expr', 'LIKE', 'expr' ], 0 ],
   [ 'expr_25' => 'expr', [ 'expr', 'ILIKE', 'expr' ], 0 ],
-  [ 'expr_26' => 'expr', [ 'expr', 'OPERATOR', 'expr' ], 0 ],
+  [ 'expr_26' => 'expr', [ 'expr', 'OPERATOR_NAME', 'expr' ], 0 ],
   [ 'expr_27' => 'expr', [ 'expr', '::', 'normal_type' ], 0 ],
   [ 'expr_simple_28' => 'expr_simple', [ 'literal_value' ], 0 ],
   [ 'expr_simple_29' => 'expr_simple', [ '(', 'expr', ')' ], 0 ],
@@ -1023,6 +1023,7 @@ sub new {
 	OFF => { ISSEMANTIC => 1 },
 	OIDS => { ISSEMANTIC => 1 },
 	OPERATOR => { ISSEMANTIC => 1 },
+	OPERATOR_NAME => { ISSEMANTIC => 1 },
 	OPTION => { ISSEMANTIC => 1 },
 	OPTIONS => { ISSEMANTIC => 1 },
 	OUT => { ISSEMANTIC => 1 },
@@ -1201,20 +1202,20 @@ sub new {
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'USTRING_CONSTANT' => 13,
-			'STRING_CONSTANT' => 15,
-			"(" => 16,
-			'NUMERIC_CONSTANT' => 17,
-			'ESTRING_CONSTANT' => 18,
+			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
+			"(" => 15,
+			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 19,
+			'literal_value' => 13,
+			'expr' => 18,
 			'result_column' => 20,
-			'result_columns' => 12,
-			'expr_simple' => 11
+			'result_columns' => 11,
+			'expr_simple' => 10
 		}
 	},
 	{#State 6
@@ -1237,84 +1238,84 @@ sub new {
 		DEFAULT => -33
 	},
 	{#State 10
-		ACTIONS => {
-			'BITSTRING_CONSTANT' => 9,
-			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'USTRING_CONSTANT' => 13,
-			'STRING_CONSTANT' => 15,
-			"(" => 16,
-			'NUMERIC_CONSTANT' => 17,
-			'ESTRING_CONSTANT' => 18,
-			'INTEGER_CONSTANT' => 21
-		},
-		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 23,
-			'expr_simple' => 11
-		}
-	},
-	{#State 11
 		DEFAULT => -11
 	},
-	{#State 12
+	{#State 11
 		ACTIONS => {
-			"," => 24
+			"," => 23
 		},
 		DEFAULT => -6
 	},
-	{#State 13
+	{#State 12
 		DEFAULT => -31
 	},
-	{#State 14
+	{#State 13
 		DEFAULT => -28
 	},
-	{#State 15
+	{#State 14
 		DEFAULT => -30
 	},
-	{#State 16
+	{#State 15
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'USTRING_CONSTANT' => 13,
-			'STRING_CONSTANT' => 15,
-			"(" => 16,
-			'NUMERIC_CONSTANT' => 17,
-			'ESTRING_CONSTANT' => 18,
+			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
+			"(" => 15,
+			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 25,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 24,
+			'expr_simple' => 10
 		}
 	},
-	{#State 17
+	{#State 16
 		DEFAULT => -35
 	},
-	{#State 18
+	{#State 17
 		DEFAULT => -32
+	},
+	{#State 18
+		ACTIONS => {
+			"-" => 25,
+			"::" => 26,
+			"<" => 28,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			'OPERATOR_NAME' => 37,
+			"*" => 36,
+			'AS' => 38,
+			'LIKE' => 27,
+			"/" => 31,
+			"=" => 33,
+			">" => 39
+		},
+		DEFAULT => -9
 	},
 	{#State 19
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"<" => 29,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'AS' => 39,
-			'LIKE' => 28,
-			'OPERATOR' => 31,
-			"/" => 33,
-			"=" => 35,
-			">" => 40
+			'BITSTRING_CONSTANT' => 9,
+			'XBITSTRING_CONSTANT' => 8,
+			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
+			"(" => 15,
+			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
+			'OPERATOR_NAME' => 19,
+			'INTEGER_CONSTANT' => 21
 		},
-		DEFAULT => -9
+		GOTOS => {
+			'literal_value' => 13,
+			'expr' => 40,
+			'expr_simple' => 10
+		}
 	},
 	{#State 20
 		DEFAULT => -7
@@ -1327,73 +1328,61 @@ sub new {
 	},
 	{#State 23
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			"%" => 34,
-			"^" => 37,
-			"*" => 38,
-			"/" => 33
-		},
-		DEFAULT => -14
-	},
-	{#State 24
-		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'USTRING_CONSTANT' => 13,
-			'STRING_CONSTANT' => 15,
-			"(" => 16,
-			'NUMERIC_CONSTANT' => 17,
-			'ESTRING_CONSTANT' => 18,
+			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
+			"(" => 15,
+			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 19,
+			'literal_value' => 13,
+			'expr' => 18,
 			'result_column' => 41,
-			'expr_simple' => 11
+			'expr_simple' => 10
+		}
+	},
+	{#State 24
+		ACTIONS => {
+			"-" => 25,
+			'LIKE' => 27,
+			"::" => 26,
+			"<" => 28,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			"/" => 31,
+			"=" => 33,
+			'BETWEEN' => 34,
+			"^" => 35,
+			'OPERATOR_NAME' => 37,
+			"*" => 36,
+			")" => 42,
+			">" => 39
 		}
 	},
 	{#State 25
 		ACTIONS => {
-			"-" => 26,
-			'LIKE' => 28,
-			"::" => 27,
-			"<" => 29,
-			'OPERATOR' => 31,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			"/" => 33,
-			"=" => 35,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			")" => 42,
-			">" => 40
-		}
-	},
-	{#State 26
-		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'USTRING_CONSTANT' => 13,
-			'STRING_CONSTANT' => 15,
-			"(" => 16,
-			'NUMERIC_CONSTANT' => 17,
-			'ESTRING_CONSTANT' => 18,
+			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
+			"(" => 15,
+			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
+			'literal_value' => 13,
 			'expr' => 43,
-			'expr_simple' => 11
+			'expr_simple' => 10
 		}
 	},
-	{#State 27
+	{#State 26
 		ACTIONS => {
 			'INPUT' => 46,
 			'SYSID' => 45,
@@ -1725,205 +1714,205 @@ sub new {
 			'normal_type' => 63
 		}
 	},
+	{#State 27
+		ACTIONS => {
+			'BITSTRING_CONSTANT' => 9,
+			'XBITSTRING_CONSTANT' => 8,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
+			'INTEGER_CONSTANT' => 21
+		},
+		GOTOS => {
+			'literal_value' => 13,
+			'expr' => 370,
+			'expr_simple' => 10
+		}
+	},
 	{#State 28
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 370,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 371,
+			'expr_simple' => 10
 		}
 	},
 	{#State 29
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 371,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 372,
+			'expr_simple' => 10
 		}
 	},
 	{#State 30
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 372,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 373,
+			'expr_simple' => 10
 		}
 	},
 	{#State 31
 		ACTIONS => {
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			'NUMERIC_CONSTANT' => 17,
-			'XBITSTRING_CONSTANT' => 8,
 			'BITSTRING_CONSTANT' => 9,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
+			'XBITSTRING_CONSTANT' => 8,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
-		DEFAULT => -13,
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 373,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 374,
+			'expr_simple' => 10
 		}
 	},
 	{#State 32
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 374,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 375,
+			'expr_simple' => 10
 		}
 	},
 	{#State 33
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 375,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 376,
+			'expr_simple' => 10
 		}
 	},
 	{#State 34
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 376,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 377,
+			'expr_simple' => 10
 		}
 	},
 	{#State 35
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 377,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 378,
+			'expr_simple' => 10
 		}
 	},
 	{#State 36
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 378,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 379,
+			'expr_simple' => 10
 		}
 	},
 	{#State 37
 		ACTIONS => {
-			'BITSTRING_CONSTANT' => 9,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			'NUMERIC_CONSTANT' => 16,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'BITSTRING_CONSTANT' => 9,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
 			'INTEGER_CONSTANT' => 21
 		},
+		DEFAULT => -13,
 		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 379,
-			'expr_simple' => 11
+			'literal_value' => 13,
+			'expr' => 380,
+			'expr_simple' => 10
 		}
 	},
 	{#State 38
-		ACTIONS => {
-			'BITSTRING_CONSTANT' => 9,
-			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
-			'INTEGER_CONSTANT' => 21
-		},
-		GOTOS => {
-			'literal_value' => 14,
-			'expr' => 380,
-			'expr_simple' => 11
-		}
-	},
-	{#State 39
 		ACTIONS => {
 			'VACUUM' => 214,
 			'INPUT' => 46,
@@ -2182,23 +2171,35 @@ sub new {
 			'keywords_notreserved' => 274
 		}
 	},
-	{#State 40
+	{#State 39
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
+			'literal_value' => 13,
 			'expr' => 382,
-			'expr_simple' => 11
+			'expr_simple' => 10
 		}
+	},
+	{#State 40
+		ACTIONS => {
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			"%" => 32,
+			"^" => 35,
+			"*" => 36,
+			"/" => 31
+		},
+		DEFAULT => -14
 	},
 	{#State 41
 		DEFAULT => -8
@@ -2208,11 +2209,11 @@ sub new {
 	},
 	{#State 43
 		ACTIONS => {
-			"::" => 27,
-			"%" => 34,
-			"^" => 37,
-			"*" => 38,
-			"/" => 33
+			"::" => 26,
+			"%" => 32,
+			"^" => 35,
+			"*" => 36,
+			"/" => 31
 		},
 		DEFAULT => -16
 	},
@@ -3208,151 +3209,151 @@ sub new {
 	},
 	{#State 370
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'OPERATOR' => 31,
-			"/" => 33
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			"/" => 31
 		},
 		DEFAULT => -24
 	},
 	{#State 371
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'LIKE' => 28,
-			'OPERATOR' => 31,
-			"/" => 33
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			'LIKE' => 27,
+			"/" => 31
 		},
 		DEFAULT => -20
 	},
 	{#State 372
 		ACTIONS => {
-			"::" => 27,
-			"%" => 34,
-			"^" => 37,
-			"*" => 38,
-			"/" => 33
+			"::" => 26,
+			"%" => 32,
+			"^" => 35,
+			"*" => 36,
+			"/" => 31
 		},
 		DEFAULT => -15
 	},
 	{#State 373
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			"%" => 34,
-			"^" => 37,
-			"*" => 38,
-			"/" => 33
-		},
-		DEFAULT => -26
-	},
-	{#State 374
-		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'OPERATOR' => 31,
-			"/" => 33
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			"/" => 31
 		},
 		DEFAULT => -25
 	},
-	{#State 375
+	{#State 374
 		ACTIONS => {
-			"::" => 27,
-			"^" => 37
+			"::" => 26,
+			"^" => 35
 		},
 		DEFAULT => -19
 	},
-	{#State 376
+	{#State 375
 		ACTIONS => {
-			"::" => 27,
-			"^" => 37
+			"::" => 26,
+			"^" => 35
 		},
 		DEFAULT => -18
 	},
-	{#State 377
+	{#State 376
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"<" => 29,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'LIKE' => 28,
-			'OPERATOR' => 31,
-			"/" => 33,
-			"=" => 35,
-			">" => 40
+			"-" => 25,
+			"::" => 26,
+			"<" => 28,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			'LIKE' => 27,
+			"/" => 31,
+			"=" => 33,
+			">" => 39
 		},
 		DEFAULT => -22
 	},
-	{#State 378
+	{#State 377
 		ACTIONS => {
-			"-" => 26,
-			'LIKE' => 28,
-			"::" => 27,
-			"<" => 29,
-			'OPERATOR' => 31,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			"/" => 33,
-			"=" => 35,
+			"-" => 25,
+			'LIKE' => 27,
+			"::" => 26,
+			"<" => 28,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			"/" => 31,
+			"=" => 33,
 			'AND' => 387,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			">" => 40
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			">" => 39
 		}
 	},
-	{#State 379
+	{#State 378
 		ACTIONS => {
-			"::" => 27
+			"::" => 26
 		},
 		DEFAULT => -23
 	},
-	{#State 380
+	{#State 379
 		ACTIONS => {
-			"::" => 27,
-			"^" => 37
+			"::" => 26,
+			"^" => 35
 		},
 		DEFAULT => -17
+	},
+	{#State 380
+		ACTIONS => {
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			"%" => 32,
+			"^" => 35,
+			"*" => 36,
+			"/" => 31
+		},
+		DEFAULT => -26
 	},
 	{#State 381
 		DEFAULT => -10
 	},
 	{#State 382
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'LIKE' => 28,
-			'OPERATOR' => 31,
-			"/" => 33
+			"-" => 25,
+			"::" => 26,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			'LIKE' => 27,
+			"/" => 31
 		},
 		DEFAULT => -21
 	},
@@ -3706,18 +3707,18 @@ sub new {
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'OPERATOR' => 10,
-			'STRING_CONSTANT' => 15,
-			'USTRING_CONSTANT' => 13,
-			"(" => 16,
-			'ESTRING_CONSTANT' => 18,
-			'NUMERIC_CONSTANT' => 17,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
-			'literal_value' => 14,
+			'literal_value' => 13,
 			'expr' => 393,
-			'expr_simple' => 11
+			'expr_simple' => 10
 		}
 	},
 	{#State 388
@@ -3745,20 +3746,20 @@ sub new {
 	},
 	{#State 393
 		ACTIONS => {
-			"-" => 26,
-			"::" => 27,
-			"<" => 29,
-			"+" => 30,
-			'ILIKE' => 32,
-			"%" => 34,
-			'BETWEEN' => 36,
-			"^" => 37,
-			"*" => 38,
-			'LIKE' => 28,
-			'OPERATOR' => 31,
-			"/" => 33,
-			"=" => 35,
-			">" => 40
+			"-" => 25,
+			"::" => 26,
+			"<" => 28,
+			"+" => 29,
+			'ILIKE' => 30,
+			"%" => 32,
+			'BETWEEN' => 34,
+			"^" => 35,
+			"*" => 36,
+			'OPERATOR_NAME' => 37,
+			'LIKE' => 27,
+			"/" => 31,
+			"=" => 33,
+			">" => 39
 		},
 		DEFAULT => -12
 	},
@@ -3802,42 +3803,42 @@ sub new {
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 3805 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3806 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
 #line 21 "SQL.eyp"
  $_[1] }
-#line 3812 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3813 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
 #line 24 "SQL.eyp"
  [ $_[1] ] }
-#line 3819 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3820 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
 #line 25 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 3826 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3827 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
 #line 26 "SQL.eyp"
  $_[1] }
-#line 3833 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3834 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
 #line 29 "SQL.eyp"
  $_[1] }
-#line 3840 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3841 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
@@ -3853,1586 +3854,1586 @@ sub {
                                         }
                                         $select
                                     }
-#line 3856 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3857 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
 #line 44 "SQL.eyp"
  [ $_[1] ] }
-#line 3863 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3864 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
 #line 45 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 3870 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3871 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
 #line 48 "SQL.eyp"
  [ $_[1], undef ] }
-#line 3877 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3878 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
 #line 49 "SQL.eyp"
  [ $_[1], $_[3] ] }
-#line 3884 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3885 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
 #line 52 "SQL.eyp"
  $_[1] }
-#line 3891 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3892 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_12
 		 'expr', 5,
 sub {
 #line 53 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-#line 3898 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3899 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_13
 		 'expr', 2,
 sub {
 #line 54 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-#line 3905 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3906 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_14
 		 'expr', 2,
 sub {
 #line 55 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-#line 3912 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3913 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_15
 		 'expr', 3,
 sub {
 #line 56 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3919 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3920 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_16
 		 'expr', 3,
 sub {
 #line 57 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3926 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3927 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_17
 		 'expr', 3,
 sub {
 #line 58 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3933 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3934 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_18
 		 'expr', 3,
 sub {
 #line 59 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3940 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3941 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_19
 		 'expr', 3,
 sub {
 #line 60 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3947 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3948 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_20
 		 'expr', 3,
 sub {
 #line 61 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3954 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3955 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_21
 		 'expr', 3,
 sub {
 #line 62 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3961 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3962 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_22
 		 'expr', 3,
 sub {
 #line 63 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3968 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3969 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_23
 		 'expr', 3,
 sub {
 #line 64 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3975 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3976 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_24
 		 'expr', 3,
 sub {
 #line 65 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3982 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3983 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_25
 		 'expr', 3,
 sub {
 #line 66 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3989 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3990 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_26
 		 'expr', 3,
 sub {
 #line 67 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3996 ../lib/Pg/SQL/Parser/SQL.pm
+#line 3997 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_27
 		 'expr', 3,
 sub {
 #line 68 "SQL.eyp"
  $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
-#line 4003 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4004 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_28
 		 'expr_simple', 1,
 sub {
 #line 71 "SQL.eyp"
  $_[1] }
-#line 4010 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4011 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_29
 		 'expr_simple', 3,
 sub {
 #line 72 "SQL.eyp"
  $_[2] }
-#line 4017 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4018 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_30
 		 'literal_value', 1,
 sub {
 #line 75 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
-#line 4024 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4025 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_31
 		 'literal_value', 1,
 sub {
 #line 76 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
-#line 4031 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4032 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_32
 		 'literal_value', 1,
 sub {
 #line 77 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
-#line 4038 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4039 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_33
 		 'literal_value', 1,
 sub {
 #line 78 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
-#line 4045 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4046 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_34
 		 'literal_value', 1,
 sub {
 #line 79 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
-#line 4052 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4053 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_35
 		 'literal_value', 1,
 sub {
 #line 80 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
-#line 4059 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4060 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_36
 		 'literal_value', 1,
 sub {
 #line 81 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
-#line 4066 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4067 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_37
 		 'identifier', 1,
 sub {
 #line 84 "SQL.eyp"
  $_[1] }
-#line 4073 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4074 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_38
 		 'identifier', 1,
 sub {
 #line 85 "SQL.eyp"
  $_[1] }
-#line 4080 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4081 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_39
 		 'identifier', 1,
 sub {
 #line 86 "SQL.eyp"
  $_[1] }
-#line 4087 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4088 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_40
 		 'identifier', 1,
 sub {
 #line 87 "SQL.eyp"
  $_[1] }
-#line 4094 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4095 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_41
 		 'normal_type', 1,
 sub {
 #line 90 "SQL.eyp"
  $_[1] }
-#line 4101 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4102 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_42
 		 'normal_type', 3,
 sub {
 #line 91 "SQL.eyp"
  $_[3]->schema( $_[1] ); $_[3] }
-#line 4108 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4109 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_43
 		 'simple_type', 1,
 sub {
 #line 94 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4115 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4116 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_44
 		 'simple_type', 1,
 sub {
 #line 95 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4122 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4123 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_45
 		 'simple_type', 1,
 sub {
 #line 96 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4129 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4130 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_46
 		 'simple_type', 4,
 sub {
 #line 97 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4136 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4137 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_47
 		 'simple_type', 6,
 sub {
 #line 98 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 4143 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4144 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_48
 		 'simple_type', 4,
 sub {
 #line 99 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4150 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4151 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_49
 		 'simple_type', 6,
 sub {
 #line 100 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 4157 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4158 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_50
 		 'simple_type', 4,
 sub {
 #line 101 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4164 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4165 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_51
 		 'keywords_notreserved', 1, undef
-#line 4168 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4169 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_52
 		 'keywords_notreserved', 1, undef
-#line 4172 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4173 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_53
 		 'keywords_notreserved', 1, undef
-#line 4176 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4177 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_54
 		 'keywords_notreserved', 1, undef
-#line 4180 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4181 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_55
 		 'keywords_notreserved', 1, undef
-#line 4184 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4185 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_56
 		 'keywords_notreserved', 1, undef
-#line 4188 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4189 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_57
 		 'keywords_notreserved', 1, undef
-#line 4192 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4193 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_58
 		 'keywords_notreserved', 1, undef
-#line 4196 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4197 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_59
 		 'keywords_notreserved', 1, undef
-#line 4200 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4201 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_60
 		 'keywords_notreserved', 1, undef
-#line 4204 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4205 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_61
 		 'keywords_notreserved', 1, undef
-#line 4208 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4209 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_62
 		 'keywords_notreserved', 1, undef
-#line 4212 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4213 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_63
 		 'keywords_notreserved', 1, undef
-#line 4216 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4217 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_64
 		 'keywords_notreserved', 1, undef
-#line 4220 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4221 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_65
 		 'keywords_notreserved', 1, undef
-#line 4224 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4225 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_66
 		 'keywords_notreserved', 1, undef
-#line 4228 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4229 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_67
 		 'keywords_notreserved', 1, undef
-#line 4232 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4233 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_68
 		 'keywords_notreserved', 1, undef
-#line 4236 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4237 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_69
 		 'keywords_notreserved', 1, undef
-#line 4240 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4241 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_70
 		 'keywords_notreserved', 1, undef
-#line 4244 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4245 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_71
 		 'keywords_notreserved', 1, undef
-#line 4248 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4249 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_72
 		 'keywords_notreserved', 1, undef
-#line 4252 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4253 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_73
 		 'keywords_notreserved', 1, undef
-#line 4256 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4257 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_74
 		 'keywords_notreserved', 1, undef
-#line 4260 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4261 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_75
 		 'keywords_notreserved', 1, undef
-#line 4264 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4265 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_76
 		 'keywords_notreserved', 1, undef
-#line 4268 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4269 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_77
 		 'keywords_notreserved', 1, undef
-#line 4272 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4273 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_78
 		 'keywords_notreserved', 1, undef
-#line 4276 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4277 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_79
 		 'keywords_notreserved', 1, undef
-#line 4280 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4281 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_80
 		 'keywords_notreserved', 1, undef
-#line 4284 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4285 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_81
 		 'keywords_notreserved', 1, undef
-#line 4288 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4289 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_82
 		 'keywords_notreserved', 1, undef
-#line 4292 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4293 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_83
 		 'keywords_notreserved', 1, undef
-#line 4296 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4297 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_84
 		 'keywords_notreserved', 1, undef
-#line 4300 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4301 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_85
 		 'keywords_notreserved', 1, undef
-#line 4304 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4305 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_86
 		 'keywords_notreserved', 1, undef
-#line 4308 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4309 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_87
 		 'keywords_notreserved', 1, undef
-#line 4312 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4313 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_88
 		 'keywords_notreserved', 1, undef
-#line 4316 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4317 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_89
 		 'keywords_notreserved', 1, undef
-#line 4320 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4321 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_90
 		 'keywords_notreserved', 1, undef
-#line 4324 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4325 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_91
 		 'keywords_notreserved', 1, undef
-#line 4328 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4329 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_92
 		 'keywords_notreserved', 1, undef
-#line 4332 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4333 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_93
 		 'keywords_notreserved', 1, undef
-#line 4336 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4337 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_94
 		 'keywords_notreserved', 1, undef
-#line 4340 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4341 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_95
 		 'keywords_notreserved', 1, undef
-#line 4344 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4345 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_96
 		 'keywords_notreserved', 1, undef
-#line 4348 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4349 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_97
 		 'keywords_notreserved', 1, undef
-#line 4352 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4353 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_98
 		 'keywords_notreserved', 1, undef
-#line 4356 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4357 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_99
 		 'keywords_notreserved', 1, undef
-#line 4360 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4361 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_100
 		 'keywords_notreserved', 1, undef
-#line 4364 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4365 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_101
 		 'keywords_notreserved', 1, undef
-#line 4368 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4369 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_102
 		 'keywords_notreserved', 1, undef
-#line 4372 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4373 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_103
 		 'keywords_notreserved', 1, undef
-#line 4376 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4377 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_104
 		 'keywords_notreserved', 1, undef
-#line 4380 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4381 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_105
 		 'keywords_notreserved', 1, undef
-#line 4384 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4385 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_106
 		 'keywords_notreserved', 1, undef
-#line 4388 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4389 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_107
 		 'keywords_notreserved', 1, undef
-#line 4392 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4393 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_108
 		 'keywords_notreserved', 1, undef
-#line 4396 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4397 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_109
 		 'keywords_notreserved', 1, undef
-#line 4400 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4401 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_110
 		 'keywords_notreserved', 1, undef
-#line 4404 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4405 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_111
 		 'keywords_notreserved', 1, undef
-#line 4408 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4409 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_112
 		 'keywords_notreserved', 1, undef
-#line 4412 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4413 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_113
 		 'keywords_notreserved', 1, undef
-#line 4416 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4417 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_114
 		 'keywords_notreserved', 1, undef
-#line 4420 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4421 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_115
 		 'keywords_notreserved', 1, undef
-#line 4424 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4425 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_116
 		 'keywords_notreserved', 1, undef
-#line 4428 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4429 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_117
 		 'keywords_notreserved', 1, undef
-#line 4432 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4433 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_118
 		 'keywords_notreserved', 1, undef
-#line 4436 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4437 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_119
 		 'keywords_notreserved', 1, undef
-#line 4440 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4441 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_120
 		 'keywords_notreserved', 1, undef
-#line 4444 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4445 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_121
 		 'keywords_notreserved', 1, undef
-#line 4448 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4449 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_122
 		 'keywords_notreserved', 1, undef
-#line 4452 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4453 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_123
 		 'keywords_notreserved', 1, undef
-#line 4456 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4457 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_124
 		 'keywords_notreserved', 1, undef
-#line 4460 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4461 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_125
 		 'keywords_notreserved', 1, undef
-#line 4464 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4465 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_126
 		 'keywords_notreserved', 1, undef
-#line 4468 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4469 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_127
 		 'keywords_notreserved', 1, undef
-#line 4472 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4473 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_128
 		 'keywords_notreserved', 1, undef
-#line 4476 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4477 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_129
 		 'keywords_notreserved', 1, undef
-#line 4480 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4481 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_130
 		 'keywords_notreserved', 1, undef
-#line 4484 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4485 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_131
 		 'keywords_notreserved', 1, undef
-#line 4488 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4489 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_132
 		 'keywords_notreserved', 1, undef
-#line 4492 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4493 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_133
 		 'keywords_notreserved', 1, undef
-#line 4496 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4497 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_134
 		 'keywords_notreserved', 1, undef
-#line 4500 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4501 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_135
 		 'keywords_notreserved', 1, undef
-#line 4504 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4505 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_136
 		 'keywords_notreserved', 1, undef
-#line 4508 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4509 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_137
 		 'keywords_notreserved', 1, undef
-#line 4512 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4513 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_138
 		 'keywords_notreserved', 1, undef
-#line 4516 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4517 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_139
 		 'keywords_notreserved', 1, undef
-#line 4520 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4521 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_140
 		 'keywords_notreserved', 1, undef
-#line 4524 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4525 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_141
 		 'keywords_notreserved', 1, undef
-#line 4528 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4529 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_142
 		 'keywords_notreserved', 1, undef
-#line 4532 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4533 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_143
 		 'keywords_notreserved', 1, undef
-#line 4536 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4537 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_144
 		 'keywords_notreserved', 1, undef
-#line 4540 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4541 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_145
 		 'keywords_notreserved', 1, undef
-#line 4544 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4545 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_146
 		 'keywords_notreserved', 1, undef
-#line 4548 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4549 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_147
 		 'keywords_notreserved', 1, undef
-#line 4552 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4553 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_148
 		 'keywords_notreserved', 1, undef
-#line 4556 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4557 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_149
 		 'keywords_notreserved', 1, undef
-#line 4560 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4561 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_150
 		 'keywords_notreserved', 1, undef
-#line 4564 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4565 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_151
 		 'keywords_notreserved', 1, undef
-#line 4568 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4569 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_152
 		 'keywords_notreserved', 1, undef
-#line 4572 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4573 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_153
 		 'keywords_notreserved', 1, undef
-#line 4576 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4577 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_154
 		 'keywords_notreserved', 1, undef
-#line 4580 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4581 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_155
 		 'keywords_notreserved', 1, undef
-#line 4584 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4585 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_156
 		 'keywords_notreserved', 1, undef
-#line 4588 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4589 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_157
 		 'keywords_notreserved', 1, undef
-#line 4592 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4593 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_158
 		 'keywords_notreserved', 1, undef
-#line 4596 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4597 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_159
 		 'keywords_notreserved', 1, undef
-#line 4600 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4601 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_160
 		 'keywords_notreserved', 1, undef
-#line 4604 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4605 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_161
 		 'keywords_notreserved', 1, undef
-#line 4608 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4609 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_162
 		 'keywords_notreserved', 1, undef
-#line 4612 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4613 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_163
 		 'keywords_notreserved', 1, undef
-#line 4616 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4617 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_164
 		 'keywords_notreserved', 1, undef
-#line 4620 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4621 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_165
 		 'keywords_notreserved', 1, undef
-#line 4624 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4625 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_166
 		 'keywords_notreserved', 1, undef
-#line 4628 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4629 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_167
 		 'keywords_notreserved', 1, undef
-#line 4632 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4633 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_168
 		 'keywords_notreserved', 1, undef
-#line 4636 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4637 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_169
 		 'keywords_notreserved', 1, undef
-#line 4640 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4641 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_170
 		 'keywords_notreserved', 1, undef
-#line 4644 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4645 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_171
 		 'keywords_notreserved', 1, undef
-#line 4648 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4649 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_172
 		 'keywords_notreserved', 1, undef
-#line 4652 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4653 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_173
 		 'keywords_notreserved', 1, undef
-#line 4656 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4657 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_174
 		 'keywords_notreserved', 1, undef
-#line 4660 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4661 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_175
 		 'keywords_notreserved', 1, undef
-#line 4664 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4665 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_176
 		 'keywords_notreserved', 1, undef
-#line 4668 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4669 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_177
 		 'keywords_notreserved', 1, undef
-#line 4672 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4673 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_178
 		 'keywords_notreserved', 1, undef
-#line 4676 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4677 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_179
 		 'keywords_notreserved', 1, undef
-#line 4680 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4681 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_180
 		 'keywords_notreserved', 1, undef
-#line 4684 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4685 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_181
 		 'keywords_notreserved', 1, undef
-#line 4688 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4689 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_182
 		 'keywords_notreserved', 1, undef
-#line 4692 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4693 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_183
 		 'keywords_notreserved', 1, undef
-#line 4696 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4697 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_184
 		 'keywords_notreserved', 1, undef
-#line 4700 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4701 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_185
 		 'keywords_notreserved', 1, undef
-#line 4704 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4705 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_186
 		 'keywords_notreserved', 1, undef
-#line 4708 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4709 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_187
 		 'keywords_notreserved', 1, undef
-#line 4712 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4713 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_188
 		 'keywords_notreserved', 1, undef
-#line 4716 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4717 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_189
 		 'keywords_notreserved', 1, undef
-#line 4720 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4721 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_190
 		 'keywords_notreserved', 1, undef
-#line 4724 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4725 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_191
 		 'keywords_notreserved', 1, undef
-#line 4728 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4729 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_192
 		 'keywords_notreserved', 1, undef
-#line 4732 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4733 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_193
 		 'keywords_notreserved', 1, undef
-#line 4736 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4737 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_194
 		 'keywords_notreserved', 1, undef
-#line 4740 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4741 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_195
 		 'keywords_notreserved', 1, undef
-#line 4744 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4745 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_196
 		 'keywords_notreserved', 1, undef
-#line 4748 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4749 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_197
 		 'keywords_notreserved', 1, undef
-#line 4752 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4753 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_198
 		 'keywords_notreserved', 1, undef
-#line 4756 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4757 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_199
 		 'keywords_notreserved', 1, undef
-#line 4760 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4761 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_200
 		 'keywords_notreserved', 1, undef
-#line 4764 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4765 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_201
 		 'keywords_notreserved', 1, undef
-#line 4768 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4769 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_202
 		 'keywords_notreserved', 1, undef
-#line 4772 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4773 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_203
 		 'keywords_notreserved', 1, undef
-#line 4776 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4777 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_204
 		 'keywords_notreserved', 1, undef
-#line 4780 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4781 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_205
 		 'keywords_notreserved', 1, undef
-#line 4784 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4785 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_206
 		 'keywords_notreserved', 1, undef
-#line 4788 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4789 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_207
 		 'keywords_notreserved', 1, undef
-#line 4792 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4793 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_208
 		 'keywords_notreserved', 1, undef
-#line 4796 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4797 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_209
 		 'keywords_notreserved', 1, undef
-#line 4800 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4801 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_210
 		 'keywords_notreserved', 1, undef
-#line 4804 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4805 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_211
 		 'keywords_notreserved', 1, undef
-#line 4808 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4809 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_212
 		 'keywords_notreserved', 1, undef
-#line 4812 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4813 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_213
 		 'keywords_notreserved', 1, undef
-#line 4816 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4817 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_214
 		 'keywords_notreserved', 1, undef
-#line 4820 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4821 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_215
 		 'keywords_notreserved', 1, undef
-#line 4824 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4825 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_216
 		 'keywords_notreserved', 1, undef
-#line 4828 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4829 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_217
 		 'keywords_notreserved', 1, undef
-#line 4832 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4833 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_218
 		 'keywords_notreserved', 1, undef
-#line 4836 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4837 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_219
 		 'keywords_notreserved', 1, undef
-#line 4840 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4841 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_220
 		 'keywords_notreserved', 1, undef
-#line 4844 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4845 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_221
 		 'keywords_notreserved', 1, undef
-#line 4848 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4849 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_222
 		 'keywords_notreserved', 1, undef
-#line 4852 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4853 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_223
 		 'keywords_notreserved', 1, undef
-#line 4856 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4857 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_224
 		 'keywords_notreserved', 1, undef
-#line 4860 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4861 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_225
 		 'keywords_notreserved', 1, undef
-#line 4864 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4865 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_226
 		 'keywords_notreserved', 1, undef
-#line 4868 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4869 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_227
 		 'keywords_notreserved', 1, undef
-#line 4872 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4873 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_228
 		 'keywords_notreserved', 1, undef
-#line 4876 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4877 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_229
 		 'keywords_notreserved', 1, undef
-#line 4880 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4881 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_230
 		 'keywords_notreserved', 1, undef
-#line 4884 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4885 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_231
 		 'keywords_notreserved', 1, undef
-#line 4888 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4889 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_232
 		 'keywords_notreserved', 1, undef
-#line 4892 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4893 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_233
 		 'keywords_notreserved', 1, undef
-#line 4896 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4897 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_234
 		 'keywords_notreserved', 1, undef
-#line 4900 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4901 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_235
 		 'keywords_notreserved', 1, undef
-#line 4904 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4905 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_236
 		 'keywords_notreserved', 1, undef
-#line 4908 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4909 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_237
 		 'keywords_notreserved', 1, undef
-#line 4912 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4913 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_238
 		 'keywords_notreserved', 1, undef
-#line 4916 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4917 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_239
 		 'keywords_notreserved', 1, undef
-#line 4920 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4921 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_240
 		 'keywords_notreserved', 1, undef
-#line 4924 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4925 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_241
 		 'keywords_notreserved', 1, undef
-#line 4928 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4929 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_242
 		 'keywords_notreserved', 1, undef
-#line 4932 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4933 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_243
 		 'keywords_notreserved', 1, undef
-#line 4936 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4937 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_244
 		 'keywords_notreserved', 1, undef
-#line 4940 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4941 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_245
 		 'keywords_notreserved', 1, undef
-#line 4944 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4945 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_246
 		 'keywords_notreserved', 1, undef
-#line 4948 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4949 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_247
 		 'keywords_notreserved', 1, undef
-#line 4952 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4953 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_248
 		 'keywords_notreserved', 1, undef
-#line 4956 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4957 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_249
 		 'keywords_notreserved', 1, undef
-#line 4960 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4961 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_250
 		 'keywords_notreserved', 1, undef
-#line 4964 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4965 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_251
 		 'keywords_notreserved', 1, undef
-#line 4968 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4969 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_252
 		 'keywords_notreserved', 1, undef
-#line 4972 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4973 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_253
 		 'keywords_notreserved', 1, undef
-#line 4976 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4977 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_254
 		 'keywords_notreserved', 1, undef
-#line 4980 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4981 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_255
 		 'keywords_notreserved', 1, undef
-#line 4984 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4985 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_256
 		 'keywords_notreserved', 1, undef
-#line 4988 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4989 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_257
 		 'keywords_notreserved', 1, undef
-#line 4992 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4993 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_258
 		 'keywords_notreserved', 1, undef
-#line 4996 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4997 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_259
 		 'keywords_notreserved', 1, undef
-#line 5000 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5001 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_260
 		 'keywords_notreserved', 1, undef
-#line 5004 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5005 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_261
 		 'keywords_notreserved', 1, undef
-#line 5008 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5009 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_262
 		 'keywords_notreserved', 1, undef
-#line 5012 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5013 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_263
 		 'keywords_notreserved', 1, undef
-#line 5016 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5017 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_264
 		 'keywords_notreserved', 1, undef
-#line 5020 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5021 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_265
 		 'keywords_notreserved', 1, undef
-#line 5024 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5025 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_266
 		 'keywords_notreserved', 1, undef
-#line 5028 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5029 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_267
 		 'keywords_notreserved', 1, undef
-#line 5032 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5033 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_268
 		 'keywords_notreserved', 1, undef
-#line 5036 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5037 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_269
 		 'keywords_notreserved', 1, undef
-#line 5040 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5041 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_270
 		 'keywords_notreserved', 1, undef
-#line 5044 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5045 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_271
 		 'keywords_notreserved', 1, undef
-#line 5048 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5049 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_272
 		 'keywords_notreserved', 1, undef
-#line 5052 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5053 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_273
 		 'keywords_notreserved', 1, undef
-#line 5056 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5057 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_274
 		 'keywords_notreserved', 1, undef
-#line 5060 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5061 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_275
 		 'keywords_notreserved', 1, undef
-#line 5064 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5065 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_276
 		 'keywords_notreserved', 1, undef
-#line 5068 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5069 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_277
 		 'keywords_notreserved', 1, undef
-#line 5072 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5073 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_278
 		 'keywords_notreserved', 1, undef
-#line 5076 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5077 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_279
 		 'keywords_notreserved', 1, undef
-#line 5080 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5081 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_280
 		 'keywords_notreserved', 1, undef
-#line 5084 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5085 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_281
 		 'keywords_notreserved', 1, undef
-#line 5088 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5089 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_282
 		 'keywords_notreserved', 1, undef
-#line 5092 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5093 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_283
 		 'keywords_notreserved', 1, undef
-#line 5096 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5097 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_284
 		 'keywords_notreserved', 1, undef
-#line 5100 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5101 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_285
 		 'keywords_notreserved', 1, undef
-#line 5104 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5105 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_286
 		 'keywords_notreserved', 1, undef
-#line 5108 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5109 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_287
 		 'keywords_notreserved', 1, undef
-#line 5112 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5113 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_288
 		 'keywords_notreserved', 1, undef
-#line 5116 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5117 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_289
 		 'keywords_notreserved', 1, undef
-#line 5120 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5121 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_290
 		 'keywords_notreserved', 1, undef
-#line 5124 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5125 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_291
 		 'keywords_notreserved', 1, undef
-#line 5128 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5129 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_292
 		 'keywords_notreserved', 1, undef
-#line 5132 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5133 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_293
 		 'keywords_notreserved', 1, undef
-#line 5136 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5137 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_294
 		 'keywords_notreserved', 1, undef
-#line 5140 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5141 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_295
 		 'keywords_notreserved', 1, undef
-#line 5144 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5145 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_296
 		 'keywords_notreserved', 1, undef
-#line 5148 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5149 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_297
 		 'keywords_notreserved', 1, undef
-#line 5152 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5153 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_298
 		 'keywords_notreserved', 1, undef
-#line 5156 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5157 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_299
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5160 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5161 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_300
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5164 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5165 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_301
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5168 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5169 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_302
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5172 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5173 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_303
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5176 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5177 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_304
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5180 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5181 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_305
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5184 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5185 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_306
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5188 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5189 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_307
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5192 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5193 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_308
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5196 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5197 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_309
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5200 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5201 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_310
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5204 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5205 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_311
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5208 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5209 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_312
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5212 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5213 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_313
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5216 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5217 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_314
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5220 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5221 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_315
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5224 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5225 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_316
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5228 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5229 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_317
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5232 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5233 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_318
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5236 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5237 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_319
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5240 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5241 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_320
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5244 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5245 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_321
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5248 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5249 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_322
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5252 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5253 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_323
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5256 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5257 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_324
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5260 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5261 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_325
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5264 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5265 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_326
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5268 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5269 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_327
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5272 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5273 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_328
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5276 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5277 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_329
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5280 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5281 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_330
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5284 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5285 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_331
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5288 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5289 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_332
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5292 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5293 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_333
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5296 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5297 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_334
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5300 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5301 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_335
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5304 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5305 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_336
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5308 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5309 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_337
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5312 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5313 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_338
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5316 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5317 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_339
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5320 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5321 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_340
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5324 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5325 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_341
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5328 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5329 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_342
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5332 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5333 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_343
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5336 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5337 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_344
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5340 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5341 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_345
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5344 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5345 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_346
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5348 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5349 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_347
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5352 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5353 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_348
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5356 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5357 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_349
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5360 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5361 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_350
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5364 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5365 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_351
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5368 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5369 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_352
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5372 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5373 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_353
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5376 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5377 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_354
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5380 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5381 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_355
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5384 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5385 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_356
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5388 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5389 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_357
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5392 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5393 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_358
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5396 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5397 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_359
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5400 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5401 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_360
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5404 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5405 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_361
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5408 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5409 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_362
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5412 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5413 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_363
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5416 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5417 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_364
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5420 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5421 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_365
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5424 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5425 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_366
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5428 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5429 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_367
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5432 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5433 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 5435 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5436 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -5828,7 +5829,7 @@ sub {
 =cut
 
 
-#line 5831 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5832 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 

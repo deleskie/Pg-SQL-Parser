@@ -10,7 +10,7 @@
 %left '<' '>'
 %left LIKE ILIKE
 %left BETWEEN
-%left OPERATOR
+%left OPERATOR_NAME
 %left '+' '-'
 %left '*' '/' '%'
 %left '^'
@@ -51,8 +51,8 @@ result_column: expr      { [ $_[1], undef ] }
 
 expr: expr_simple           { $_[1] }
     | expr BETWEEN expr AND expr { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-    | expr OPERATOR         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-    | OPERATOR expr         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | expr OPERATOR_NAME         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | OPERATOR_NAME expr         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
     | expr '+' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr '-' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr '*' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
@@ -64,7 +64,7 @@ expr: expr_simple           { $_[1] }
     | expr '^' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr LIKE expr        { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr ILIKE expr       { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr OPERATOR expr    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr OPERATOR_NAME expr    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr '::' normal_type { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
 ;
 

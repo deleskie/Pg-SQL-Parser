@@ -84,7 +84,7 @@ sub get_yylex {
         # Special case for single-character operators that need ordering/priorities
         return ( $1, $1 ) if $sql =~ s{\A([+*/^%<>-])(?![+*/<>=~!@#%^&|`?-])}{}io;
 
-        return ( 'OPERATOR', $1 ) if $sql =~ s{
+        return ( 'OPERATOR_NAME', $1 ) if $sql =~ s{
             \A
             (
             # Single character operator
