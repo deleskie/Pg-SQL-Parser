@@ -20,6 +20,8 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+our $AUTOLOAD;
+
 =head1 SYNOPSIS
 
 Pg::SQL::Parser::Element (more specificallty its descendant classes) represent parts of SQL query.
@@ -153,6 +155,22 @@ sub _element_copy {
         croak( "Don't know how to copy object " . ref( $element ) );
     }
     return $copy;
+}
+
+=head2 AUTOLOAD
+
+Helps using specific classes by auto-making base accessors
+
+=cut
+
+sub AUTOLOAD {
+    my $self   = shift;
+    my $called = $AUTOLOAD;
+    $called =~ s/.*:://;
+    if ( 0 < scalar @_ ) {
+        $self->{ $called } = $_[ 0 ];
+    }
+    return $self->{ $called };
 }
 
 =head1 AUTHOR

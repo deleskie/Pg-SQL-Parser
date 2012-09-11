@@ -14,6 +14,7 @@
 %left '+' '-'
 %left '*' '/' '%'
 %left '^'
+%left '(' ')'
 %left '::'
 
 %%
@@ -49,23 +50,24 @@ result_column: expr      { [ $_[1], undef ] }
     | expr AS identifier { [ $_[1], $_[3] ] }
 ;
 
-expr: expr_simple           { $_[1] }
-    | expr BETWEEN expr AND expr { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-    | expr OPERATOR_NAME         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-    | OPERATOR_NAME expr         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-    | expr '+' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '-' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '*' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '%' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '/' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '<' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '>' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '=' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '^' expr         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr LIKE expr        { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr ILIKE expr       { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr OPERATOR_NAME expr    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '::' normal_type { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+expr: expr_simple                      { $_[1] }
+    | expr BETWEEN expr AND expr       { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
+    | expr OPERATOR_NAME               { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | OPERATOR_NAME expr               { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | expr '+' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '-' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '*' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '%' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '/' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '<' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '>' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '=' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '^' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr LIKE expr                   { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr ILIKE expr                  { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr OPERATOR_NAME expr          { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '::' normal_type            { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+    | CAST '(' expr AS normal_type ')' { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
 ;
 
 expr_simple: literal_value         { $_[1] }
@@ -99,6 +101,71 @@ simple_type: identifier                                      { $factory->make( '
     | DECIMAL '(' INTEGER_CONSTANT ')'                       { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
     | DECIMAL '(' INTEGER_CONSTANT ',' INTEGER_CONSTANT ')'  { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
     | VARCHAR '(' INTEGER_CONSTANT ')'                       { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
+    | timestamp_type                                         { $_[1] }
+    | time_type                                              { $_[1] }
+    | interval_type                                          { $_[1] }
+;
+
+timestamp_type: TIMESTAMP WITH TIME ZONE                                           { $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
+    | TIMESTAMP WITHOUT TIME ZONE                                        { $factory->make( 'Type', 'name' => 'timestamp without time zone' ) }
+    | TIMESTAMP '(' INTEGER_CONSTANT ')'                                 { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp' ) }
+    | TIMESTAMP '(' INTEGER_CONSTANT ')' WITH TIME ZONE                  { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp with time zone' ) }
+    | TIMESTAMP '(' INTEGER_CONSTANT ')' WITHOUT TIME ZONE               { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp without time zone' ) }
+;
+
+time_type: TIME WITH TIME ZONE                                      { $factory->make( 'Type', 'name' => 'time with time zone' ) }
+    | TIME WITHOUT TIME ZONE                                   { $factory->make( 'Type', 'name' => 'time without time zone' ) }
+    | TIME '(' INTEGER_CONSTANT ')'                            { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time' ) }
+    | TIME '(' INTEGER_CONSTANT ')' WITH TIME ZONE             { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time with time zone' ) }
+    | TIME '(' INTEGER_CONSTANT ')' WITHOUT TIME ZONE          { $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time without time zone' ) }
+;
+
+interval_type: INTERVAL '(' INTEGER_CONSTANT ')'                    { $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
+    | base_interval_type YEAR                                       { $_[1]->name( $_[1]->name() . ' year' ); $_[1] }
+    | base_interval_type MONTH                                      { $_[1]->name( $_[1]->name() . ' month' ); $_[1] }
+    | base_interval_type DAY                                        { $_[1]->name( $_[1]->name() . ' day' ); $_[1] }
+    | base_interval_type HOUR                                       { $_[1]->name( $_[1]->name() . ' hour' ); $_[1] }
+    | base_interval_type MINUTE                                     { $_[1]->name( $_[1]->name() . ' minute' ); $_[1] }
+    | base_interval_type SECOND                                     { $_[1]->name( $_[1]->name() . ' second' ); $_[1] }
+    | base_interval_type YEAR TO MONTH                              { $_[1]->name( $_[1]->name() . ' year to month' ); $_[1] }
+    | base_interval_type DAY TO HOUR                                { $_[1]->name( $_[1]->name() . ' day to hour' ); $_[1] }
+    | base_interval_type DAY TO MINUTE                              { $_[1]->name( $_[1]->name() . ' day to minute' ); $_[1] }
+    | base_interval_type DAY TO SECOND                              { $_[1]->name( $_[1]->name() . ' day to second' ); $_[1] }
+    | base_interval_type HOUR TO MINUTE                             { $_[1]->name( $_[1]->name() . ' hour to minute' ); $_[1] }
+    | base_interval_type HOUR TO SECOND                             { $_[1]->name( $_[1]->name() . ' hour to second' ); $_[1] }
+    | base_interval_type MINUTE TO SECOND                           { $_[1]->name( $_[1]->name() . ' minute to second' ); $_[1] }
+    | base_interval_type SECOND '(' INTEGER_CONSTANT ')'            {
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[4];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' second' );
+                                                                        $_[1]
+                                                                    }
+    | base_interval_type DAY TO SECOND '(' INTEGER_CONSTANT ')'     {
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' day to second' );
+                                                                        $_[1]
+                                                                    }
+    | base_interval_type HOUR TO SECOND '(' INTEGER_CONSTANT ')'    {
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' hour to second' );
+                                                                        $_[1]
+                                                                    }
+    | base_interval_type MINUTE TO SECOND '(' INTEGER_CONSTANT ')'  {
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' minute to second' );
+                                                                        $_[1]
+                                                                    }
+;
+
+base_interval_type: INTERVAL               { $factory->make( 'Type', 'name' => 'interval' ) }
+    | INTERVAL '(' INTEGER_CONSTANT ')'    { $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
 ;
 
 keywords_notreserved: ABORT

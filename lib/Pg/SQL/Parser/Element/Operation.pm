@@ -36,12 +36,6 @@ For example:
 
 =cut
 
-sub operator {
-    my $self = shift;
-    $self->{ 'operator' } = shift;
-    return;
-}
-
 =head2 left()
 
 Sets the left operand.
@@ -57,12 +51,6 @@ Of course above example is simplification, because it should be an object (Pg::S
 
 =cut
 
-sub left {
-    my $self = shift;
-    $self->{ 'left' } = shift;
-    return;
-}
-
 =head2 right()
 
 Sets the right operand.
@@ -77,12 +65,6 @@ For example:
 Of course above example is simplification, because it should be an object (Pg::SQL::Parser::Element::Literal_Value in this case).
 
 =cut
-
-sub right {
-    my $self = shift;
-    $self->{ 'right' } = shift;
-    return;
-}
 
 =head1 AUTHOR
 

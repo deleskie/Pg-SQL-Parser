@@ -44,7 +44,7 @@ our $LEX = sub {
 
       m{\G(\s+)}gc and $self->tokenline($1 =~ tr{\n}{});
 
-      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|ESTRING_CONSTANT|NUMERIC_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|CHARACTERISTICS|CURRENT_SCHEMA|AUTHORIZATION|OPERATOR_NAME|XMLATTRIBUTES|CONFIGURATION|SERIALIZABLE|CONCURRENTLY|XMLSERIALIZE|INSENSITIVE|CONSTRAINTS|TRANSACTION|UNCOMMITTED|UNENCRYPTED|DICTIONARY|CONNECTION|PRIVILEGES|STATISTICS|DELIMITERS|DEALLOCATE|XMLELEMENT|TABLESPACE|REPEATABLE|CHECKPOINT|LC_COLLATE|ASSIGNMENT|IDENTIFIER|WHITESPACE|STANDALONE|PROCEDURAL|CONVERSION|PARTITION|INCREMENT|PROCEDURE|TIMESTAMP|IMMUTABLE|IMMEDIATE|DELIMITER|PRECISION|UNBOUNDED|XMLEXISTS|PRECEDING|AGGREGATE|ATTRIBUTE|EXCLUDING|ASSERTION|INCLUDING|EXCLUSIVE|CHARACTER|STATEMENT|EXTENSION|ENCRYPTED|RECURSIVE|VALIDATOR|SUBSTRING|SEQUENCES|XMLFOREST|FOLLOWING|XMLCONCAT|TEMPORARY|COMMITTED|ISOLATION|FUNCTIONS|SAVEPOINT|COLLATION|INHERITS|ENCODING|TEMPLATE|DEFAULTS|BACKWARD|SECURITY|PRESERVE|VALIDATE|REASSIGN|ROLLBACK|LOCATION|COMMENTS|CONTINUE|UNLOGGED|FUNCTION|OVERLAPS|DEFERRED|UNLISTEN|SMALLINT|EXTERNAL|XMLPARSE|NATIONAL|CASCADED|TRUNCATE|ABSOLUTE|GREATEST|VOLATILE|LANGUAGE|SEQUENCE|IDENTITY|POSITION|RELATIVE|IMPLICIT|PASSWORD|PREPARED|INTERVAL|LC_CTYPE|RESTRICT|MAXVALUE|DOCUMENT|MINVALUE|OPERATOR|DATABASE|COALESCE|REPLACE|RETURNS|INVOKER|PASSING|INTEGER|PREPARE|REPLICA|VARYING|HANDLER|RELEASE|BOOLEAN|VERBOSE|COMMENT|REINDEX|EXTRACT|CATALOG|MAPPING|RESTART|FORWARD|NOTHING|DECIMAL|INDEXES|DECLARE|SIMILAR|INHERIT|EXPLAIN|VARCHAR|DISABLE|DEFINER|INSTEAD|TRUSTED|CASCADE|NUMERIC|XMLROOT|DISCARD|BETWEEN|PARTIAL|EXCLUDE|WRAPPER|WITHOUT|OPTIONS|EXECUTE|UNKNOWN|CONTENT|CURRENT|CLUSTER|NATURAL|RECHECK|GRANTED|STORAGE|NOTNULL|SESSION|TRIGGER|OVERLAY|VERSION|ESCAPE|SEARCH|MINUTE|DELETE|NULLIF|CALLED|ISNULL|BINARY|UPDATE|STRICT|OBJECT|INSERT|EXISTS|NOWAIT|BIGINT|ACCESS|OPTION|STABLE|SCROLL|SYSTEM|ALWAYS|COMMIT|FAMILY|GLOBAL|STDOUT|REVOKE|VACUUM|SCHEMA|FREEZE|DOUBLE|INLINE|CURSOR|VALUES|BEFORE|SECOND|SELECT|LISTEN|SIMPLE|DOMAIN|SERVER|RENAME|PARSER|NOTIFY|HEADER|ACTION|ENABLE|TABLES|INPUT|SYSID|NCHAR|VALUE|MONTH|TREAT|RANGE|SHARE|LARGE|CLOSE|LEAST|FORCE|LEVEL|XMLPI|LABEL|NULLS|RESET|PRIOR|INNER|SETOF|INOUT|FLOAT|STRIP|CACHE|ILIKE|OUTER|AFTER|INDEX|OWNED|ADMIN|CROSS|OWNER|MATCH|CLASS|CHAIN|ABORT|PLANS|QUOTE|NAMES|ALTER|RIGHT|BEGIN|STDIN|CYCLE|START|UNTIL|WRITE|LOCAL|VALID|FIRST|JOIN|WORK|MODE|DROP|LOCK|FULL|DATA|REAL|OVER|COST|ZONE|RULE|TYPE|READ|LEFT|TEXT|ALSO|VIEW|LOAD|OIDS|EACH|MOVE|TIME|SHOW|HOUR|TEMP|YEAR|COPY|LIKE|CHAR|NEXT|NAME|TRIM|ROWS|LAST|HOLD|ROLE|ENUM|NONE|DAY|REF|OFF|SET|OUT|DEC|XML|ADD|CSV|ROW|AND|YES|BIT|KEY|INT|AT|BY|NO|\:\:|OF|AS|IS|IF|\+|\(|\^|\/|\,|\-|\<|\)|\;|\=|\%|\*|\.|\>)}gc and return ($1, $1);
+      m{\G(XBITSTRING_CONSTANT|BITSTRING_CONSTANT|UQUOTED_IDENTIFIER|QUOTED_IDENTIFIER|USTRING_CONSTANT|ESTRING_CONSTANT|NUMERIC_CONSTANT|INTEGER_CONSTANT|STRING_CONSTANT|CHARACTERISTICS|CURRENT_SCHEMA|AUTHORIZATION|OPERATOR_NAME|XMLATTRIBUTES|CONFIGURATION|SERIALIZABLE|CONCURRENTLY|XMLSERIALIZE|INSENSITIVE|CONSTRAINTS|TRANSACTION|UNCOMMITTED|UNENCRYPTED|DICTIONARY|CONNECTION|PRIVILEGES|STATISTICS|DELIMITERS|DEALLOCATE|XMLELEMENT|TABLESPACE|REPEATABLE|CHECKPOINT|LC_COLLATE|ASSIGNMENT|IDENTIFIER|WHITESPACE|STANDALONE|PROCEDURAL|CONVERSION|PARTITION|INCREMENT|TIMESTAMP|PROCEDURE|IMMUTABLE|IMMEDIATE|DELIMITER|PRECISION|XMLEXISTS|UNBOUNDED|PRECEDING|AGGREGATE|ATTRIBUTE|EXCLUDING|ASSERTION|INCLUDING|EXCLUSIVE|CHARACTER|STATEMENT|EXTENSION|ENCRYPTED|RECURSIVE|VALIDATOR|SUBSTRING|SEQUENCES|XMLFOREST|FOLLOWING|XMLCONCAT|TEMPORARY|COMMITTED|ISOLATION|FUNCTIONS|SAVEPOINT|COLLATION|INHERITS|ENCODING|TEMPLATE|DEFAULTS|BACKWARD|SECURITY|PRESERVE|VALIDATE|REASSIGN|ROLLBACK|LOCATION|COMMENTS|CONTINUE|UNLOGGED|FUNCTION|OVERLAPS|DEFERRED|UNLISTEN|SMALLINT|EXTERNAL|XMLPARSE|NATIONAL|CASCADED|TRUNCATE|ABSOLUTE|GREATEST|VOLATILE|LANGUAGE|SEQUENCE|IDENTITY|POSITION|RELATIVE|IMPLICIT|PASSWORD|PREPARED|INTERVAL|LC_CTYPE|RESTRICT|MAXVALUE|DOCUMENT|MINVALUE|OPERATOR|DATABASE|COALESCE|REPLACE|RETURNS|INVOKER|PASSING|INTEGER|PREPARE|REPLICA|VARYING|HANDLER|RELEASE|BOOLEAN|VERBOSE|COMMENT|REINDEX|EXTRACT|CATALOG|MAPPING|RESTART|FORWARD|NOTHING|DECIMAL|INDEXES|DECLARE|SIMILAR|INHERIT|EXPLAIN|VARCHAR|DISABLE|DEFINER|INSTEAD|TRUSTED|CASCADE|NUMERIC|XMLROOT|DISCARD|BETWEEN|PARTIAL|EXCLUDE|WRAPPER|WITHOUT|OPTIONS|EXECUTE|UNKNOWN|CONTENT|CURRENT|CLUSTER|NATURAL|RECHECK|GRANTED|STORAGE|NOTNULL|SESSION|TRIGGER|OVERLAY|VERSION|ESCAPE|SEARCH|MINUTE|DELETE|NULLIF|CALLED|ISNULL|BINARY|UPDATE|STRICT|OBJECT|INSERT|EXISTS|NOWAIT|BIGINT|ACCESS|OPTION|STABLE|SCROLL|SYSTEM|ALWAYS|COMMIT|FAMILY|GLOBAL|STDOUT|REVOKE|VACUUM|SCHEMA|FREEZE|DOUBLE|INLINE|CURSOR|VALUES|BEFORE|SECOND|SELECT|LISTEN|SIMPLE|DOMAIN|SERVER|RENAME|PARSER|NOTIFY|HEADER|ACTION|ENABLE|TABLES|INPUT|SYSID|NCHAR|VALUE|MONTH|TREAT|RANGE|SHARE|LARGE|CLOSE|LEAST|FORCE|LEVEL|XMLPI|LABEL|NULLS|RESET|PRIOR|INNER|SETOF|INOUT|FLOAT|STRIP|CACHE|ILIKE|OUTER|AFTER|INDEX|OWNED|ADMIN|CROSS|OWNER|MATCH|CLASS|CHAIN|ABORT|PLANS|QUOTE|NAMES|ALTER|RIGHT|BEGIN|STDIN|CYCLE|START|UNTIL|WRITE|LOCAL|VALID|FIRST|JOIN|WORK|MODE|DROP|LOCK|FULL|DATA|REAL|OVER|COST|ZONE|RULE|TYPE|READ|LEFT|TEXT|ALSO|VIEW|LOAD|WITH|OIDS|EACH|MOVE|TIME|SHOW|HOUR|YEAR|TEMP|COPY|CAST|LIKE|CHAR|NEXT|NAME|TRIM|ROWS|LAST|HOLD|ROLE|ENUM|NONE|DAY|REF|OFF|SET|OUT|DEC|XML|ADD|CSV|ROW|AND|YES|BIT|KEY|INT|AT|BY|NO|TO|\:\:|OF|AS|IS|IF|\+|\(|\^|\/|\,|\-|\<|\)|\;|\=|\%|\*|\.|\>)}gc and return ($1, $1);
 
 
 
@@ -105,346 +105,380 @@ sub new {
   [ 'expr_25' => 'expr', [ 'expr', 'ILIKE', 'expr' ], 0 ],
   [ 'expr_26' => 'expr', [ 'expr', 'OPERATOR_NAME', 'expr' ], 0 ],
   [ 'expr_27' => 'expr', [ 'expr', '::', 'normal_type' ], 0 ],
-  [ 'expr_simple_28' => 'expr_simple', [ 'literal_value' ], 0 ],
-  [ 'expr_simple_29' => 'expr_simple', [ '(', 'expr', ')' ], 0 ],
-  [ 'literal_value_30' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
-  [ 'literal_value_31' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_32' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_33' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_34' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_35' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
-  [ 'literal_value_36' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
-  [ 'identifier_37' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_38' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_39' => 'identifier', [ 'IDENTIFIER' ], 0 ],
-  [ 'identifier_40' => 'identifier', [ 'keywords_notreserved' ], 0 ],
-  [ 'normal_type_41' => 'normal_type', [ 'simple_type' ], 0 ],
-  [ 'normal_type_42' => 'normal_type', [ 'identifier', '.', 'simple_type' ], 0 ],
-  [ 'simple_type_43' => 'simple_type', [ 'identifier' ], 0 ],
-  [ 'simple_type_44' => 'simple_type', [ 'keywords_reserved_ok_for_functions_or_types' ], 0 ],
-  [ 'simple_type_45' => 'simple_type', [ 'keywords_notreserved_not_ok_for_functions_or_types' ], 0 ],
-  [ 'simple_type_46' => 'simple_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'simple_type_47' => 'simple_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'simple_type_48' => 'simple_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'simple_type_49' => 'simple_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'simple_type_50' => 'simple_type', [ 'VARCHAR', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'keywords_notreserved_51' => 'keywords_notreserved', [ 'ABORT' ], 0 ],
-  [ 'keywords_notreserved_52' => 'keywords_notreserved', [ 'ABSOLUTE' ], 0 ],
-  [ 'keywords_notreserved_53' => 'keywords_notreserved', [ 'ACCESS' ], 0 ],
-  [ 'keywords_notreserved_54' => 'keywords_notreserved', [ 'ACTION' ], 0 ],
-  [ 'keywords_notreserved_55' => 'keywords_notreserved', [ 'ADD' ], 0 ],
-  [ 'keywords_notreserved_56' => 'keywords_notreserved', [ 'ADMIN' ], 0 ],
-  [ 'keywords_notreserved_57' => 'keywords_notreserved', [ 'AFTER' ], 0 ],
-  [ 'keywords_notreserved_58' => 'keywords_notreserved', [ 'AGGREGATE' ], 0 ],
-  [ 'keywords_notreserved_59' => 'keywords_notreserved', [ 'ALSO' ], 0 ],
-  [ 'keywords_notreserved_60' => 'keywords_notreserved', [ 'ALTER' ], 0 ],
-  [ 'keywords_notreserved_61' => 'keywords_notreserved', [ 'ALWAYS' ], 0 ],
-  [ 'keywords_notreserved_62' => 'keywords_notreserved', [ 'ASSERTION' ], 0 ],
-  [ 'keywords_notreserved_63' => 'keywords_notreserved', [ 'ASSIGNMENT' ], 0 ],
-  [ 'keywords_notreserved_64' => 'keywords_notreserved', [ 'AT' ], 0 ],
-  [ 'keywords_notreserved_65' => 'keywords_notreserved', [ 'ATTRIBUTE' ], 0 ],
-  [ 'keywords_notreserved_66' => 'keywords_notreserved', [ 'BACKWARD' ], 0 ],
-  [ 'keywords_notreserved_67' => 'keywords_notreserved', [ 'BEFORE' ], 0 ],
-  [ 'keywords_notreserved_68' => 'keywords_notreserved', [ 'BEGIN' ], 0 ],
-  [ 'keywords_notreserved_69' => 'keywords_notreserved', [ 'BY' ], 0 ],
-  [ 'keywords_notreserved_70' => 'keywords_notreserved', [ 'CACHE' ], 0 ],
-  [ 'keywords_notreserved_71' => 'keywords_notreserved', [ 'CALLED' ], 0 ],
-  [ 'keywords_notreserved_72' => 'keywords_notreserved', [ 'CASCADE' ], 0 ],
-  [ 'keywords_notreserved_73' => 'keywords_notreserved', [ 'CASCADED' ], 0 ],
-  [ 'keywords_notreserved_74' => 'keywords_notreserved', [ 'CATALOG' ], 0 ],
-  [ 'keywords_notreserved_75' => 'keywords_notreserved', [ 'CHAIN' ], 0 ],
-  [ 'keywords_notreserved_76' => 'keywords_notreserved', [ 'CHARACTERISTICS' ], 0 ],
-  [ 'keywords_notreserved_77' => 'keywords_notreserved', [ 'CHECKPOINT' ], 0 ],
-  [ 'keywords_notreserved_78' => 'keywords_notreserved', [ 'CLASS' ], 0 ],
-  [ 'keywords_notreserved_79' => 'keywords_notreserved', [ 'CLOSE' ], 0 ],
-  [ 'keywords_notreserved_80' => 'keywords_notreserved', [ 'CLUSTER' ], 0 ],
-  [ 'keywords_notreserved_81' => 'keywords_notreserved', [ 'COLLATION' ], 0 ],
-  [ 'keywords_notreserved_82' => 'keywords_notreserved', [ 'COMMENT' ], 0 ],
-  [ 'keywords_notreserved_83' => 'keywords_notreserved', [ 'COMMENTS' ], 0 ],
-  [ 'keywords_notreserved_84' => 'keywords_notreserved', [ 'COMMIT' ], 0 ],
-  [ 'keywords_notreserved_85' => 'keywords_notreserved', [ 'COMMITTED' ], 0 ],
-  [ 'keywords_notreserved_86' => 'keywords_notreserved', [ 'CONFIGURATION' ], 0 ],
-  [ 'keywords_notreserved_87' => 'keywords_notreserved', [ 'CONNECTION' ], 0 ],
-  [ 'keywords_notreserved_88' => 'keywords_notreserved', [ 'CONSTRAINTS' ], 0 ],
-  [ 'keywords_notreserved_89' => 'keywords_notreserved', [ 'CONTENT' ], 0 ],
-  [ 'keywords_notreserved_90' => 'keywords_notreserved', [ 'CONTINUE' ], 0 ],
-  [ 'keywords_notreserved_91' => 'keywords_notreserved', [ 'CONVERSION' ], 0 ],
-  [ 'keywords_notreserved_92' => 'keywords_notreserved', [ 'COPY' ], 0 ],
-  [ 'keywords_notreserved_93' => 'keywords_notreserved', [ 'COST' ], 0 ],
-  [ 'keywords_notreserved_94' => 'keywords_notreserved', [ 'CSV' ], 0 ],
-  [ 'keywords_notreserved_95' => 'keywords_notreserved', [ 'CURRENT' ], 0 ],
-  [ 'keywords_notreserved_96' => 'keywords_notreserved', [ 'CURSOR' ], 0 ],
-  [ 'keywords_notreserved_97' => 'keywords_notreserved', [ 'CYCLE' ], 0 ],
-  [ 'keywords_notreserved_98' => 'keywords_notreserved', [ 'DATA' ], 0 ],
-  [ 'keywords_notreserved_99' => 'keywords_notreserved', [ 'DATABASE' ], 0 ],
-  [ 'keywords_notreserved_100' => 'keywords_notreserved', [ 'DAY' ], 0 ],
-  [ 'keywords_notreserved_101' => 'keywords_notreserved', [ 'DEALLOCATE' ], 0 ],
-  [ 'keywords_notreserved_102' => 'keywords_notreserved', [ 'DECLARE' ], 0 ],
-  [ 'keywords_notreserved_103' => 'keywords_notreserved', [ 'DEFAULTS' ], 0 ],
-  [ 'keywords_notreserved_104' => 'keywords_notreserved', [ 'DEFERRED' ], 0 ],
-  [ 'keywords_notreserved_105' => 'keywords_notreserved', [ 'DEFINER' ], 0 ],
-  [ 'keywords_notreserved_106' => 'keywords_notreserved', [ 'DELETE' ], 0 ],
-  [ 'keywords_notreserved_107' => 'keywords_notreserved', [ 'DELIMITER' ], 0 ],
-  [ 'keywords_notreserved_108' => 'keywords_notreserved', [ 'DELIMITERS' ], 0 ],
-  [ 'keywords_notreserved_109' => 'keywords_notreserved', [ 'DICTIONARY' ], 0 ],
-  [ 'keywords_notreserved_110' => 'keywords_notreserved', [ 'DISABLE' ], 0 ],
-  [ 'keywords_notreserved_111' => 'keywords_notreserved', [ 'DISCARD' ], 0 ],
-  [ 'keywords_notreserved_112' => 'keywords_notreserved', [ 'DOCUMENT' ], 0 ],
-  [ 'keywords_notreserved_113' => 'keywords_notreserved', [ 'DOMAIN' ], 0 ],
-  [ 'keywords_notreserved_114' => 'keywords_notreserved', [ 'DOUBLE' ], 0 ],
-  [ 'keywords_notreserved_115' => 'keywords_notreserved', [ 'DROP' ], 0 ],
-  [ 'keywords_notreserved_116' => 'keywords_notreserved', [ 'EACH' ], 0 ],
-  [ 'keywords_notreserved_117' => 'keywords_notreserved', [ 'ENABLE' ], 0 ],
-  [ 'keywords_notreserved_118' => 'keywords_notreserved', [ 'ENCODING' ], 0 ],
-  [ 'keywords_notreserved_119' => 'keywords_notreserved', [ 'ENCRYPTED' ], 0 ],
-  [ 'keywords_notreserved_120' => 'keywords_notreserved', [ 'ENUM' ], 0 ],
-  [ 'keywords_notreserved_121' => 'keywords_notreserved', [ 'ESCAPE' ], 0 ],
-  [ 'keywords_notreserved_122' => 'keywords_notreserved', [ 'EXCLUDE' ], 0 ],
-  [ 'keywords_notreserved_123' => 'keywords_notreserved', [ 'EXCLUDING' ], 0 ],
-  [ 'keywords_notreserved_124' => 'keywords_notreserved', [ 'EXCLUSIVE' ], 0 ],
-  [ 'keywords_notreserved_125' => 'keywords_notreserved', [ 'EXECUTE' ], 0 ],
-  [ 'keywords_notreserved_126' => 'keywords_notreserved', [ 'EXPLAIN' ], 0 ],
-  [ 'keywords_notreserved_127' => 'keywords_notreserved', [ 'EXTENSION' ], 0 ],
-  [ 'keywords_notreserved_128' => 'keywords_notreserved', [ 'EXTERNAL' ], 0 ],
-  [ 'keywords_notreserved_129' => 'keywords_notreserved', [ 'FAMILY' ], 0 ],
-  [ 'keywords_notreserved_130' => 'keywords_notreserved', [ 'FIRST' ], 0 ],
-  [ 'keywords_notreserved_131' => 'keywords_notreserved', [ 'FOLLOWING' ], 0 ],
-  [ 'keywords_notreserved_132' => 'keywords_notreserved', [ 'FORCE' ], 0 ],
-  [ 'keywords_notreserved_133' => 'keywords_notreserved', [ 'FORWARD' ], 0 ],
-  [ 'keywords_notreserved_134' => 'keywords_notreserved', [ 'FUNCTION' ], 0 ],
-  [ 'keywords_notreserved_135' => 'keywords_notreserved', [ 'FUNCTIONS' ], 0 ],
-  [ 'keywords_notreserved_136' => 'keywords_notreserved', [ 'GLOBAL' ], 0 ],
-  [ 'keywords_notreserved_137' => 'keywords_notreserved', [ 'GRANTED' ], 0 ],
-  [ 'keywords_notreserved_138' => 'keywords_notreserved', [ 'HANDLER' ], 0 ],
-  [ 'keywords_notreserved_139' => 'keywords_notreserved', [ 'HEADER' ], 0 ],
-  [ 'keywords_notreserved_140' => 'keywords_notreserved', [ 'HOLD' ], 0 ],
-  [ 'keywords_notreserved_141' => 'keywords_notreserved', [ 'HOUR' ], 0 ],
-  [ 'keywords_notreserved_142' => 'keywords_notreserved', [ 'IDENTITY' ], 0 ],
-  [ 'keywords_notreserved_143' => 'keywords_notreserved', [ 'IF' ], 0 ],
-  [ 'keywords_notreserved_144' => 'keywords_notreserved', [ 'IMMEDIATE' ], 0 ],
-  [ 'keywords_notreserved_145' => 'keywords_notreserved', [ 'IMMUTABLE' ], 0 ],
-  [ 'keywords_notreserved_146' => 'keywords_notreserved', [ 'IMPLICIT' ], 0 ],
-  [ 'keywords_notreserved_147' => 'keywords_notreserved', [ 'INCLUDING' ], 0 ],
-  [ 'keywords_notreserved_148' => 'keywords_notreserved', [ 'INCREMENT' ], 0 ],
-  [ 'keywords_notreserved_149' => 'keywords_notreserved', [ 'INDEX' ], 0 ],
-  [ 'keywords_notreserved_150' => 'keywords_notreserved', [ 'INDEXES' ], 0 ],
-  [ 'keywords_notreserved_151' => 'keywords_notreserved', [ 'INHERIT' ], 0 ],
-  [ 'keywords_notreserved_152' => 'keywords_notreserved', [ 'INHERITS' ], 0 ],
-  [ 'keywords_notreserved_153' => 'keywords_notreserved', [ 'INLINE' ], 0 ],
-  [ 'keywords_notreserved_154' => 'keywords_notreserved', [ 'INPUT' ], 0 ],
-  [ 'keywords_notreserved_155' => 'keywords_notreserved', [ 'INSENSITIVE' ], 0 ],
-  [ 'keywords_notreserved_156' => 'keywords_notreserved', [ 'INSERT' ], 0 ],
-  [ 'keywords_notreserved_157' => 'keywords_notreserved', [ 'INSTEAD' ], 0 ],
-  [ 'keywords_notreserved_158' => 'keywords_notreserved', [ 'INVOKER' ], 0 ],
-  [ 'keywords_notreserved_159' => 'keywords_notreserved', [ 'ISOLATION' ], 0 ],
-  [ 'keywords_notreserved_160' => 'keywords_notreserved', [ 'KEY' ], 0 ],
-  [ 'keywords_notreserved_161' => 'keywords_notreserved', [ 'LABEL' ], 0 ],
-  [ 'keywords_notreserved_162' => 'keywords_notreserved', [ 'LANGUAGE' ], 0 ],
-  [ 'keywords_notreserved_163' => 'keywords_notreserved', [ 'LARGE' ], 0 ],
-  [ 'keywords_notreserved_164' => 'keywords_notreserved', [ 'LAST' ], 0 ],
-  [ 'keywords_notreserved_165' => 'keywords_notreserved', [ 'LC_COLLATE' ], 0 ],
-  [ 'keywords_notreserved_166' => 'keywords_notreserved', [ 'LC_CTYPE' ], 0 ],
-  [ 'keywords_notreserved_167' => 'keywords_notreserved', [ 'LEVEL' ], 0 ],
-  [ 'keywords_notreserved_168' => 'keywords_notreserved', [ 'LISTEN' ], 0 ],
-  [ 'keywords_notreserved_169' => 'keywords_notreserved', [ 'LOAD' ], 0 ],
-  [ 'keywords_notreserved_170' => 'keywords_notreserved', [ 'LOCAL' ], 0 ],
-  [ 'keywords_notreserved_171' => 'keywords_notreserved', [ 'LOCATION' ], 0 ],
-  [ 'keywords_notreserved_172' => 'keywords_notreserved', [ 'LOCK' ], 0 ],
-  [ 'keywords_notreserved_173' => 'keywords_notreserved', [ 'MAPPING' ], 0 ],
-  [ 'keywords_notreserved_174' => 'keywords_notreserved', [ 'MATCH' ], 0 ],
-  [ 'keywords_notreserved_175' => 'keywords_notreserved', [ 'MAXVALUE' ], 0 ],
-  [ 'keywords_notreserved_176' => 'keywords_notreserved', [ 'MINUTE' ], 0 ],
-  [ 'keywords_notreserved_177' => 'keywords_notreserved', [ 'MINVALUE' ], 0 ],
-  [ 'keywords_notreserved_178' => 'keywords_notreserved', [ 'MODE' ], 0 ],
-  [ 'keywords_notreserved_179' => 'keywords_notreserved', [ 'MONTH' ], 0 ],
-  [ 'keywords_notreserved_180' => 'keywords_notreserved', [ 'MOVE' ], 0 ],
-  [ 'keywords_notreserved_181' => 'keywords_notreserved', [ 'NAME' ], 0 ],
-  [ 'keywords_notreserved_182' => 'keywords_notreserved', [ 'NAMES' ], 0 ],
-  [ 'keywords_notreserved_183' => 'keywords_notreserved', [ 'NEXT' ], 0 ],
-  [ 'keywords_notreserved_184' => 'keywords_notreserved', [ 'NO' ], 0 ],
-  [ 'keywords_notreserved_185' => 'keywords_notreserved', [ 'NOTHING' ], 0 ],
-  [ 'keywords_notreserved_186' => 'keywords_notreserved', [ 'NOTIFY' ], 0 ],
-  [ 'keywords_notreserved_187' => 'keywords_notreserved', [ 'NOWAIT' ], 0 ],
-  [ 'keywords_notreserved_188' => 'keywords_notreserved', [ 'NULLS' ], 0 ],
-  [ 'keywords_notreserved_189' => 'keywords_notreserved', [ 'OBJECT' ], 0 ],
-  [ 'keywords_notreserved_190' => 'keywords_notreserved', [ 'OF' ], 0 ],
-  [ 'keywords_notreserved_191' => 'keywords_notreserved', [ 'OFF' ], 0 ],
-  [ 'keywords_notreserved_192' => 'keywords_notreserved', [ 'OIDS' ], 0 ],
-  [ 'keywords_notreserved_193' => 'keywords_notreserved', [ 'OPERATOR' ], 0 ],
-  [ 'keywords_notreserved_194' => 'keywords_notreserved', [ 'OPTION' ], 0 ],
-  [ 'keywords_notreserved_195' => 'keywords_notreserved', [ 'OPTIONS' ], 0 ],
-  [ 'keywords_notreserved_196' => 'keywords_notreserved', [ 'OWNED' ], 0 ],
-  [ 'keywords_notreserved_197' => 'keywords_notreserved', [ 'OWNER' ], 0 ],
-  [ 'keywords_notreserved_198' => 'keywords_notreserved', [ 'PARSER' ], 0 ],
-  [ 'keywords_notreserved_199' => 'keywords_notreserved', [ 'PARTIAL' ], 0 ],
-  [ 'keywords_notreserved_200' => 'keywords_notreserved', [ 'PARTITION' ], 0 ],
-  [ 'keywords_notreserved_201' => 'keywords_notreserved', [ 'PASSING' ], 0 ],
-  [ 'keywords_notreserved_202' => 'keywords_notreserved', [ 'PASSWORD' ], 0 ],
-  [ 'keywords_notreserved_203' => 'keywords_notreserved', [ 'PLANS' ], 0 ],
-  [ 'keywords_notreserved_204' => 'keywords_notreserved', [ 'PRECEDING' ], 0 ],
-  [ 'keywords_notreserved_205' => 'keywords_notreserved', [ 'PREPARE' ], 0 ],
-  [ 'keywords_notreserved_206' => 'keywords_notreserved', [ 'PREPARED' ], 0 ],
-  [ 'keywords_notreserved_207' => 'keywords_notreserved', [ 'PRESERVE' ], 0 ],
-  [ 'keywords_notreserved_208' => 'keywords_notreserved', [ 'PRIOR' ], 0 ],
-  [ 'keywords_notreserved_209' => 'keywords_notreserved', [ 'PRIVILEGES' ], 0 ],
-  [ 'keywords_notreserved_210' => 'keywords_notreserved', [ 'PROCEDURAL' ], 0 ],
-  [ 'keywords_notreserved_211' => 'keywords_notreserved', [ 'PROCEDURE' ], 0 ],
-  [ 'keywords_notreserved_212' => 'keywords_notreserved', [ 'QUOTE' ], 0 ],
-  [ 'keywords_notreserved_213' => 'keywords_notreserved', [ 'RANGE' ], 0 ],
-  [ 'keywords_notreserved_214' => 'keywords_notreserved', [ 'READ' ], 0 ],
-  [ 'keywords_notreserved_215' => 'keywords_notreserved', [ 'REASSIGN' ], 0 ],
-  [ 'keywords_notreserved_216' => 'keywords_notreserved', [ 'RECHECK' ], 0 ],
-  [ 'keywords_notreserved_217' => 'keywords_notreserved', [ 'RECURSIVE' ], 0 ],
-  [ 'keywords_notreserved_218' => 'keywords_notreserved', [ 'REF' ], 0 ],
-  [ 'keywords_notreserved_219' => 'keywords_notreserved', [ 'REINDEX' ], 0 ],
-  [ 'keywords_notreserved_220' => 'keywords_notreserved', [ 'RELATIVE' ], 0 ],
-  [ 'keywords_notreserved_221' => 'keywords_notreserved', [ 'RELEASE' ], 0 ],
-  [ 'keywords_notreserved_222' => 'keywords_notreserved', [ 'RENAME' ], 0 ],
-  [ 'keywords_notreserved_223' => 'keywords_notreserved', [ 'REPEATABLE' ], 0 ],
-  [ 'keywords_notreserved_224' => 'keywords_notreserved', [ 'REPLACE' ], 0 ],
-  [ 'keywords_notreserved_225' => 'keywords_notreserved', [ 'REPLICA' ], 0 ],
-  [ 'keywords_notreserved_226' => 'keywords_notreserved', [ 'RESET' ], 0 ],
-  [ 'keywords_notreserved_227' => 'keywords_notreserved', [ 'RESTART' ], 0 ],
-  [ 'keywords_notreserved_228' => 'keywords_notreserved', [ 'RESTRICT' ], 0 ],
-  [ 'keywords_notreserved_229' => 'keywords_notreserved', [ 'RETURNS' ], 0 ],
-  [ 'keywords_notreserved_230' => 'keywords_notreserved', [ 'REVOKE' ], 0 ],
-  [ 'keywords_notreserved_231' => 'keywords_notreserved', [ 'ROLE' ], 0 ],
-  [ 'keywords_notreserved_232' => 'keywords_notreserved', [ 'ROLLBACK' ], 0 ],
-  [ 'keywords_notreserved_233' => 'keywords_notreserved', [ 'ROWS' ], 0 ],
-  [ 'keywords_notreserved_234' => 'keywords_notreserved', [ 'RULE' ], 0 ],
-  [ 'keywords_notreserved_235' => 'keywords_notreserved', [ 'SAVEPOINT' ], 0 ],
-  [ 'keywords_notreserved_236' => 'keywords_notreserved', [ 'SCHEMA' ], 0 ],
-  [ 'keywords_notreserved_237' => 'keywords_notreserved', [ 'SCROLL' ], 0 ],
-  [ 'keywords_notreserved_238' => 'keywords_notreserved', [ 'SEARCH' ], 0 ],
-  [ 'keywords_notreserved_239' => 'keywords_notreserved', [ 'SECOND' ], 0 ],
-  [ 'keywords_notreserved_240' => 'keywords_notreserved', [ 'SECURITY' ], 0 ],
-  [ 'keywords_notreserved_241' => 'keywords_notreserved', [ 'SEQUENCE' ], 0 ],
-  [ 'keywords_notreserved_242' => 'keywords_notreserved', [ 'SEQUENCES' ], 0 ],
-  [ 'keywords_notreserved_243' => 'keywords_notreserved', [ 'SERIALIZABLE' ], 0 ],
-  [ 'keywords_notreserved_244' => 'keywords_notreserved', [ 'SERVER' ], 0 ],
-  [ 'keywords_notreserved_245' => 'keywords_notreserved', [ 'SESSION' ], 0 ],
-  [ 'keywords_notreserved_246' => 'keywords_notreserved', [ 'SET' ], 0 ],
-  [ 'keywords_notreserved_247' => 'keywords_notreserved', [ 'SHARE' ], 0 ],
-  [ 'keywords_notreserved_248' => 'keywords_notreserved', [ 'SHOW' ], 0 ],
-  [ 'keywords_notreserved_249' => 'keywords_notreserved', [ 'SIMPLE' ], 0 ],
-  [ 'keywords_notreserved_250' => 'keywords_notreserved', [ 'STABLE' ], 0 ],
-  [ 'keywords_notreserved_251' => 'keywords_notreserved', [ 'STANDALONE' ], 0 ],
-  [ 'keywords_notreserved_252' => 'keywords_notreserved', [ 'START' ], 0 ],
-  [ 'keywords_notreserved_253' => 'keywords_notreserved', [ 'STATEMENT' ], 0 ],
-  [ 'keywords_notreserved_254' => 'keywords_notreserved', [ 'STATISTICS' ], 0 ],
-  [ 'keywords_notreserved_255' => 'keywords_notreserved', [ 'STDIN' ], 0 ],
-  [ 'keywords_notreserved_256' => 'keywords_notreserved', [ 'STDOUT' ], 0 ],
-  [ 'keywords_notreserved_257' => 'keywords_notreserved', [ 'STORAGE' ], 0 ],
-  [ 'keywords_notreserved_258' => 'keywords_notreserved', [ 'STRICT' ], 0 ],
-  [ 'keywords_notreserved_259' => 'keywords_notreserved', [ 'STRIP' ], 0 ],
-  [ 'keywords_notreserved_260' => 'keywords_notreserved', [ 'SYSID' ], 0 ],
-  [ 'keywords_notreserved_261' => 'keywords_notreserved', [ 'SYSTEM' ], 0 ],
-  [ 'keywords_notreserved_262' => 'keywords_notreserved', [ 'TABLES' ], 0 ],
-  [ 'keywords_notreserved_263' => 'keywords_notreserved', [ 'TABLESPACE' ], 0 ],
-  [ 'keywords_notreserved_264' => 'keywords_notreserved', [ 'TEMP' ], 0 ],
-  [ 'keywords_notreserved_265' => 'keywords_notreserved', [ 'TEMPLATE' ], 0 ],
-  [ 'keywords_notreserved_266' => 'keywords_notreserved', [ 'TEMPORARY' ], 0 ],
-  [ 'keywords_notreserved_267' => 'keywords_notreserved', [ 'TEXT' ], 0 ],
-  [ 'keywords_notreserved_268' => 'keywords_notreserved', [ 'TRANSACTION' ], 0 ],
-  [ 'keywords_notreserved_269' => 'keywords_notreserved', [ 'TRIGGER' ], 0 ],
-  [ 'keywords_notreserved_270' => 'keywords_notreserved', [ 'TRUNCATE' ], 0 ],
-  [ 'keywords_notreserved_271' => 'keywords_notreserved', [ 'TRUSTED' ], 0 ],
-  [ 'keywords_notreserved_272' => 'keywords_notreserved', [ 'TYPE' ], 0 ],
-  [ 'keywords_notreserved_273' => 'keywords_notreserved', [ 'UNBOUNDED' ], 0 ],
-  [ 'keywords_notreserved_274' => 'keywords_notreserved', [ 'UNCOMMITTED' ], 0 ],
-  [ 'keywords_notreserved_275' => 'keywords_notreserved', [ 'UNENCRYPTED' ], 0 ],
-  [ 'keywords_notreserved_276' => 'keywords_notreserved', [ 'UNKNOWN' ], 0 ],
-  [ 'keywords_notreserved_277' => 'keywords_notreserved', [ 'UNLISTEN' ], 0 ],
-  [ 'keywords_notreserved_278' => 'keywords_notreserved', [ 'UNLOGGED' ], 0 ],
-  [ 'keywords_notreserved_279' => 'keywords_notreserved', [ 'UNTIL' ], 0 ],
-  [ 'keywords_notreserved_280' => 'keywords_notreserved', [ 'UPDATE' ], 0 ],
-  [ 'keywords_notreserved_281' => 'keywords_notreserved', [ 'VACUUM' ], 0 ],
-  [ 'keywords_notreserved_282' => 'keywords_notreserved', [ 'VALID' ], 0 ],
-  [ 'keywords_notreserved_283' => 'keywords_notreserved', [ 'VALIDATE' ], 0 ],
-  [ 'keywords_notreserved_284' => 'keywords_notreserved', [ 'VALIDATOR' ], 0 ],
-  [ 'keywords_notreserved_285' => 'keywords_notreserved', [ 'VALUE' ], 0 ],
-  [ 'keywords_notreserved_286' => 'keywords_notreserved', [ 'VARYING' ], 0 ],
-  [ 'keywords_notreserved_287' => 'keywords_notreserved', [ 'VERSION' ], 0 ],
-  [ 'keywords_notreserved_288' => 'keywords_notreserved', [ 'VIEW' ], 0 ],
-  [ 'keywords_notreserved_289' => 'keywords_notreserved', [ 'VOLATILE' ], 0 ],
-  [ 'keywords_notreserved_290' => 'keywords_notreserved', [ 'WHITESPACE' ], 0 ],
-  [ 'keywords_notreserved_291' => 'keywords_notreserved', [ 'WITHOUT' ], 0 ],
-  [ 'keywords_notreserved_292' => 'keywords_notreserved', [ 'WORK' ], 0 ],
-  [ 'keywords_notreserved_293' => 'keywords_notreserved', [ 'WRAPPER' ], 0 ],
-  [ 'keywords_notreserved_294' => 'keywords_notreserved', [ 'WRITE' ], 0 ],
-  [ 'keywords_notreserved_295' => 'keywords_notreserved', [ 'XML' ], 0 ],
-  [ 'keywords_notreserved_296' => 'keywords_notreserved', [ 'YEAR' ], 0 ],
-  [ 'keywords_notreserved_297' => 'keywords_notreserved', [ 'YES' ], 0 ],
-  [ 'keywords_notreserved_298' => 'keywords_notreserved', [ 'ZONE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_299' => 'keywords_reserved_ok_for_functions_or_types', [ 'AUTHORIZATION' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_300' => 'keywords_reserved_ok_for_functions_or_types', [ 'BINARY' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_301' => 'keywords_reserved_ok_for_functions_or_types', [ 'CONCURRENTLY' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_302' => 'keywords_reserved_ok_for_functions_or_types', [ 'CROSS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_303' => 'keywords_reserved_ok_for_functions_or_types', [ 'CURRENT_SCHEMA' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_304' => 'keywords_reserved_ok_for_functions_or_types', [ 'FREEZE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_305' => 'keywords_reserved_ok_for_functions_or_types', [ 'FULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_306' => 'keywords_reserved_ok_for_functions_or_types', [ 'ILIKE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_307' => 'keywords_reserved_ok_for_functions_or_types', [ 'INNER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_308' => 'keywords_reserved_ok_for_functions_or_types', [ 'IS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_309' => 'keywords_reserved_ok_for_functions_or_types', [ 'ISNULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_310' => 'keywords_reserved_ok_for_functions_or_types', [ 'JOIN' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_311' => 'keywords_reserved_ok_for_functions_or_types', [ 'LEFT' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_312' => 'keywords_reserved_ok_for_functions_or_types', [ 'LIKE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_313' => 'keywords_reserved_ok_for_functions_or_types', [ 'NATURAL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_314' => 'keywords_reserved_ok_for_functions_or_types', [ 'NOTNULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_315' => 'keywords_reserved_ok_for_functions_or_types', [ 'OUTER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_316' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_317' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVERLAPS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_318' => 'keywords_reserved_ok_for_functions_or_types', [ 'RIGHT' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_319' => 'keywords_reserved_ok_for_functions_or_types', [ 'SIMILAR' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_320' => 'keywords_reserved_ok_for_functions_or_types', [ 'VERBOSE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_321' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BETWEEN' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_322' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIGINT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_323' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_324' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BOOLEAN' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_325' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_326' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHARACTER' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_327' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'COALESCE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_328' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DEC' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_329' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DECIMAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_330' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXISTS' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_331' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXTRACT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_332' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'FLOAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_333' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'GREATEST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_334' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INOUT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_335' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_336' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTEGER' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_337' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTERVAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_338' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'LEAST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_339' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NATIONAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_340' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NCHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_341' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NONE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_342' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NULLIF' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_343' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NUMERIC' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_344' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OUT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_345' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OVERLAY' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_346' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'POSITION' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_347' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'PRECISION' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_348' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'REAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_349' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'ROW' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_350' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SETOF' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_351' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SMALLINT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_352' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SUBSTRING' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_353' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIME' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_354' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIMESTAMP' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_355' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TREAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_356' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TRIM' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_357' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VALUES' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_358' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VARCHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_359' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLATTRIBUTES' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_360' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLCONCAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_361' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLELEMENT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_362' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLEXISTS' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_363' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLFOREST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_364' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPARSE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_365' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPI' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_366' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLROOT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_367' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLSERIALIZE' ], 0 ],
+  [ 'expr_28' => 'expr', [ 'CAST', '(', 'expr', 'AS', 'normal_type', ')' ], 0 ],
+  [ 'expr_simple_29' => 'expr_simple', [ 'literal_value' ], 0 ],
+  [ 'expr_simple_30' => 'expr_simple', [ '(', 'expr', ')' ], 0 ],
+  [ 'literal_value_31' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
+  [ 'literal_value_32' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_33' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_34' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_35' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_36' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
+  [ 'literal_value_37' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
+  [ 'identifier_38' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_39' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_40' => 'identifier', [ 'IDENTIFIER' ], 0 ],
+  [ 'identifier_41' => 'identifier', [ 'keywords_notreserved' ], 0 ],
+  [ 'normal_type_42' => 'normal_type', [ 'simple_type' ], 0 ],
+  [ 'normal_type_43' => 'normal_type', [ 'identifier', '.', 'simple_type' ], 0 ],
+  [ 'simple_type_44' => 'simple_type', [ 'identifier' ], 0 ],
+  [ 'simple_type_45' => 'simple_type', [ 'keywords_reserved_ok_for_functions_or_types' ], 0 ],
+  [ 'simple_type_46' => 'simple_type', [ 'keywords_notreserved_not_ok_for_functions_or_types' ], 0 ],
+  [ 'simple_type_47' => 'simple_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'simple_type_48' => 'simple_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'simple_type_49' => 'simple_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'simple_type_50' => 'simple_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'simple_type_51' => 'simple_type', [ 'VARCHAR', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'simple_type_52' => 'simple_type', [ 'timestamp_type' ], 0 ],
+  [ 'simple_type_53' => 'simple_type', [ 'time_type' ], 0 ],
+  [ 'simple_type_54' => 'simple_type', [ 'interval_type' ], 0 ],
+  [ 'timestamp_type_55' => 'timestamp_type', [ 'TIMESTAMP', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_56' => 'timestamp_type', [ 'TIMESTAMP', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_57' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'timestamp_type_58' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_59' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_60' => 'time_type', [ 'TIME', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_61' => 'time_type', [ 'TIME', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_62' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'time_type_63' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_64' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'interval_type_65' => 'interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_66' => 'interval_type', [ 'base_interval_type', 'YEAR' ], 0 ],
+  [ 'interval_type_67' => 'interval_type', [ 'base_interval_type', 'MONTH' ], 0 ],
+  [ 'interval_type_68' => 'interval_type', [ 'base_interval_type', 'DAY' ], 0 ],
+  [ 'interval_type_69' => 'interval_type', [ 'base_interval_type', 'HOUR' ], 0 ],
+  [ 'interval_type_70' => 'interval_type', [ 'base_interval_type', 'MINUTE' ], 0 ],
+  [ 'interval_type_71' => 'interval_type', [ 'base_interval_type', 'SECOND' ], 0 ],
+  [ 'interval_type_72' => 'interval_type', [ 'base_interval_type', 'YEAR', 'TO', 'MONTH' ], 0 ],
+  [ 'interval_type_73' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'HOUR' ], 0 ],
+  [ 'interval_type_74' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'MINUTE' ], 0 ],
+  [ 'interval_type_75' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_76' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'MINUTE' ], 0 ],
+  [ 'interval_type_77' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_78' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_79' => 'interval_type', [ 'base_interval_type', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_80' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_81' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_82' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'base_interval_type_83' => 'base_interval_type', [ 'INTERVAL' ], 0 ],
+  [ 'base_interval_type_84' => 'base_interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'keywords_notreserved_85' => 'keywords_notreserved', [ 'ABORT' ], 0 ],
+  [ 'keywords_notreserved_86' => 'keywords_notreserved', [ 'ABSOLUTE' ], 0 ],
+  [ 'keywords_notreserved_87' => 'keywords_notreserved', [ 'ACCESS' ], 0 ],
+  [ 'keywords_notreserved_88' => 'keywords_notreserved', [ 'ACTION' ], 0 ],
+  [ 'keywords_notreserved_89' => 'keywords_notreserved', [ 'ADD' ], 0 ],
+  [ 'keywords_notreserved_90' => 'keywords_notreserved', [ 'ADMIN' ], 0 ],
+  [ 'keywords_notreserved_91' => 'keywords_notreserved', [ 'AFTER' ], 0 ],
+  [ 'keywords_notreserved_92' => 'keywords_notreserved', [ 'AGGREGATE' ], 0 ],
+  [ 'keywords_notreserved_93' => 'keywords_notreserved', [ 'ALSO' ], 0 ],
+  [ 'keywords_notreserved_94' => 'keywords_notreserved', [ 'ALTER' ], 0 ],
+  [ 'keywords_notreserved_95' => 'keywords_notreserved', [ 'ALWAYS' ], 0 ],
+  [ 'keywords_notreserved_96' => 'keywords_notreserved', [ 'ASSERTION' ], 0 ],
+  [ 'keywords_notreserved_97' => 'keywords_notreserved', [ 'ASSIGNMENT' ], 0 ],
+  [ 'keywords_notreserved_98' => 'keywords_notreserved', [ 'AT' ], 0 ],
+  [ 'keywords_notreserved_99' => 'keywords_notreserved', [ 'ATTRIBUTE' ], 0 ],
+  [ 'keywords_notreserved_100' => 'keywords_notreserved', [ 'BACKWARD' ], 0 ],
+  [ 'keywords_notreserved_101' => 'keywords_notreserved', [ 'BEFORE' ], 0 ],
+  [ 'keywords_notreserved_102' => 'keywords_notreserved', [ 'BEGIN' ], 0 ],
+  [ 'keywords_notreserved_103' => 'keywords_notreserved', [ 'BY' ], 0 ],
+  [ 'keywords_notreserved_104' => 'keywords_notreserved', [ 'CACHE' ], 0 ],
+  [ 'keywords_notreserved_105' => 'keywords_notreserved', [ 'CALLED' ], 0 ],
+  [ 'keywords_notreserved_106' => 'keywords_notreserved', [ 'CASCADE' ], 0 ],
+  [ 'keywords_notreserved_107' => 'keywords_notreserved', [ 'CASCADED' ], 0 ],
+  [ 'keywords_notreserved_108' => 'keywords_notreserved', [ 'CATALOG' ], 0 ],
+  [ 'keywords_notreserved_109' => 'keywords_notreserved', [ 'CHAIN' ], 0 ],
+  [ 'keywords_notreserved_110' => 'keywords_notreserved', [ 'CHARACTERISTICS' ], 0 ],
+  [ 'keywords_notreserved_111' => 'keywords_notreserved', [ 'CHECKPOINT' ], 0 ],
+  [ 'keywords_notreserved_112' => 'keywords_notreserved', [ 'CLASS' ], 0 ],
+  [ 'keywords_notreserved_113' => 'keywords_notreserved', [ 'CLOSE' ], 0 ],
+  [ 'keywords_notreserved_114' => 'keywords_notreserved', [ 'CLUSTER' ], 0 ],
+  [ 'keywords_notreserved_115' => 'keywords_notreserved', [ 'COLLATION' ], 0 ],
+  [ 'keywords_notreserved_116' => 'keywords_notreserved', [ 'COMMENT' ], 0 ],
+  [ 'keywords_notreserved_117' => 'keywords_notreserved', [ 'COMMENTS' ], 0 ],
+  [ 'keywords_notreserved_118' => 'keywords_notreserved', [ 'COMMIT' ], 0 ],
+  [ 'keywords_notreserved_119' => 'keywords_notreserved', [ 'COMMITTED' ], 0 ],
+  [ 'keywords_notreserved_120' => 'keywords_notreserved', [ 'CONFIGURATION' ], 0 ],
+  [ 'keywords_notreserved_121' => 'keywords_notreserved', [ 'CONNECTION' ], 0 ],
+  [ 'keywords_notreserved_122' => 'keywords_notreserved', [ 'CONSTRAINTS' ], 0 ],
+  [ 'keywords_notreserved_123' => 'keywords_notreserved', [ 'CONTENT' ], 0 ],
+  [ 'keywords_notreserved_124' => 'keywords_notreserved', [ 'CONTINUE' ], 0 ],
+  [ 'keywords_notreserved_125' => 'keywords_notreserved', [ 'CONVERSION' ], 0 ],
+  [ 'keywords_notreserved_126' => 'keywords_notreserved', [ 'COPY' ], 0 ],
+  [ 'keywords_notreserved_127' => 'keywords_notreserved', [ 'COST' ], 0 ],
+  [ 'keywords_notreserved_128' => 'keywords_notreserved', [ 'CSV' ], 0 ],
+  [ 'keywords_notreserved_129' => 'keywords_notreserved', [ 'CURRENT' ], 0 ],
+  [ 'keywords_notreserved_130' => 'keywords_notreserved', [ 'CURSOR' ], 0 ],
+  [ 'keywords_notreserved_131' => 'keywords_notreserved', [ 'CYCLE' ], 0 ],
+  [ 'keywords_notreserved_132' => 'keywords_notreserved', [ 'DATA' ], 0 ],
+  [ 'keywords_notreserved_133' => 'keywords_notreserved', [ 'DATABASE' ], 0 ],
+  [ 'keywords_notreserved_134' => 'keywords_notreserved', [ 'DAY' ], 0 ],
+  [ 'keywords_notreserved_135' => 'keywords_notreserved', [ 'DEALLOCATE' ], 0 ],
+  [ 'keywords_notreserved_136' => 'keywords_notreserved', [ 'DECLARE' ], 0 ],
+  [ 'keywords_notreserved_137' => 'keywords_notreserved', [ 'DEFAULTS' ], 0 ],
+  [ 'keywords_notreserved_138' => 'keywords_notreserved', [ 'DEFERRED' ], 0 ],
+  [ 'keywords_notreserved_139' => 'keywords_notreserved', [ 'DEFINER' ], 0 ],
+  [ 'keywords_notreserved_140' => 'keywords_notreserved', [ 'DELETE' ], 0 ],
+  [ 'keywords_notreserved_141' => 'keywords_notreserved', [ 'DELIMITER' ], 0 ],
+  [ 'keywords_notreserved_142' => 'keywords_notreserved', [ 'DELIMITERS' ], 0 ],
+  [ 'keywords_notreserved_143' => 'keywords_notreserved', [ 'DICTIONARY' ], 0 ],
+  [ 'keywords_notreserved_144' => 'keywords_notreserved', [ 'DISABLE' ], 0 ],
+  [ 'keywords_notreserved_145' => 'keywords_notreserved', [ 'DISCARD' ], 0 ],
+  [ 'keywords_notreserved_146' => 'keywords_notreserved', [ 'DOCUMENT' ], 0 ],
+  [ 'keywords_notreserved_147' => 'keywords_notreserved', [ 'DOMAIN' ], 0 ],
+  [ 'keywords_notreserved_148' => 'keywords_notreserved', [ 'DOUBLE' ], 0 ],
+  [ 'keywords_notreserved_149' => 'keywords_notreserved', [ 'DROP' ], 0 ],
+  [ 'keywords_notreserved_150' => 'keywords_notreserved', [ 'EACH' ], 0 ],
+  [ 'keywords_notreserved_151' => 'keywords_notreserved', [ 'ENABLE' ], 0 ],
+  [ 'keywords_notreserved_152' => 'keywords_notreserved', [ 'ENCODING' ], 0 ],
+  [ 'keywords_notreserved_153' => 'keywords_notreserved', [ 'ENCRYPTED' ], 0 ],
+  [ 'keywords_notreserved_154' => 'keywords_notreserved', [ 'ENUM' ], 0 ],
+  [ 'keywords_notreserved_155' => 'keywords_notreserved', [ 'ESCAPE' ], 0 ],
+  [ 'keywords_notreserved_156' => 'keywords_notreserved', [ 'EXCLUDE' ], 0 ],
+  [ 'keywords_notreserved_157' => 'keywords_notreserved', [ 'EXCLUDING' ], 0 ],
+  [ 'keywords_notreserved_158' => 'keywords_notreserved', [ 'EXCLUSIVE' ], 0 ],
+  [ 'keywords_notreserved_159' => 'keywords_notreserved', [ 'EXECUTE' ], 0 ],
+  [ 'keywords_notreserved_160' => 'keywords_notreserved', [ 'EXPLAIN' ], 0 ],
+  [ 'keywords_notreserved_161' => 'keywords_notreserved', [ 'EXTENSION' ], 0 ],
+  [ 'keywords_notreserved_162' => 'keywords_notreserved', [ 'EXTERNAL' ], 0 ],
+  [ 'keywords_notreserved_163' => 'keywords_notreserved', [ 'FAMILY' ], 0 ],
+  [ 'keywords_notreserved_164' => 'keywords_notreserved', [ 'FIRST' ], 0 ],
+  [ 'keywords_notreserved_165' => 'keywords_notreserved', [ 'FOLLOWING' ], 0 ],
+  [ 'keywords_notreserved_166' => 'keywords_notreserved', [ 'FORCE' ], 0 ],
+  [ 'keywords_notreserved_167' => 'keywords_notreserved', [ 'FORWARD' ], 0 ],
+  [ 'keywords_notreserved_168' => 'keywords_notreserved', [ 'FUNCTION' ], 0 ],
+  [ 'keywords_notreserved_169' => 'keywords_notreserved', [ 'FUNCTIONS' ], 0 ],
+  [ 'keywords_notreserved_170' => 'keywords_notreserved', [ 'GLOBAL' ], 0 ],
+  [ 'keywords_notreserved_171' => 'keywords_notreserved', [ 'GRANTED' ], 0 ],
+  [ 'keywords_notreserved_172' => 'keywords_notreserved', [ 'HANDLER' ], 0 ],
+  [ 'keywords_notreserved_173' => 'keywords_notreserved', [ 'HEADER' ], 0 ],
+  [ 'keywords_notreserved_174' => 'keywords_notreserved', [ 'HOLD' ], 0 ],
+  [ 'keywords_notreserved_175' => 'keywords_notreserved', [ 'HOUR' ], 0 ],
+  [ 'keywords_notreserved_176' => 'keywords_notreserved', [ 'IDENTITY' ], 0 ],
+  [ 'keywords_notreserved_177' => 'keywords_notreserved', [ 'IF' ], 0 ],
+  [ 'keywords_notreserved_178' => 'keywords_notreserved', [ 'IMMEDIATE' ], 0 ],
+  [ 'keywords_notreserved_179' => 'keywords_notreserved', [ 'IMMUTABLE' ], 0 ],
+  [ 'keywords_notreserved_180' => 'keywords_notreserved', [ 'IMPLICIT' ], 0 ],
+  [ 'keywords_notreserved_181' => 'keywords_notreserved', [ 'INCLUDING' ], 0 ],
+  [ 'keywords_notreserved_182' => 'keywords_notreserved', [ 'INCREMENT' ], 0 ],
+  [ 'keywords_notreserved_183' => 'keywords_notreserved', [ 'INDEX' ], 0 ],
+  [ 'keywords_notreserved_184' => 'keywords_notreserved', [ 'INDEXES' ], 0 ],
+  [ 'keywords_notreserved_185' => 'keywords_notreserved', [ 'INHERIT' ], 0 ],
+  [ 'keywords_notreserved_186' => 'keywords_notreserved', [ 'INHERITS' ], 0 ],
+  [ 'keywords_notreserved_187' => 'keywords_notreserved', [ 'INLINE' ], 0 ],
+  [ 'keywords_notreserved_188' => 'keywords_notreserved', [ 'INPUT' ], 0 ],
+  [ 'keywords_notreserved_189' => 'keywords_notreserved', [ 'INSENSITIVE' ], 0 ],
+  [ 'keywords_notreserved_190' => 'keywords_notreserved', [ 'INSERT' ], 0 ],
+  [ 'keywords_notreserved_191' => 'keywords_notreserved', [ 'INSTEAD' ], 0 ],
+  [ 'keywords_notreserved_192' => 'keywords_notreserved', [ 'INVOKER' ], 0 ],
+  [ 'keywords_notreserved_193' => 'keywords_notreserved', [ 'ISOLATION' ], 0 ],
+  [ 'keywords_notreserved_194' => 'keywords_notreserved', [ 'KEY' ], 0 ],
+  [ 'keywords_notreserved_195' => 'keywords_notreserved', [ 'LABEL' ], 0 ],
+  [ 'keywords_notreserved_196' => 'keywords_notreserved', [ 'LANGUAGE' ], 0 ],
+  [ 'keywords_notreserved_197' => 'keywords_notreserved', [ 'LARGE' ], 0 ],
+  [ 'keywords_notreserved_198' => 'keywords_notreserved', [ 'LAST' ], 0 ],
+  [ 'keywords_notreserved_199' => 'keywords_notreserved', [ 'LC_COLLATE' ], 0 ],
+  [ 'keywords_notreserved_200' => 'keywords_notreserved', [ 'LC_CTYPE' ], 0 ],
+  [ 'keywords_notreserved_201' => 'keywords_notreserved', [ 'LEVEL' ], 0 ],
+  [ 'keywords_notreserved_202' => 'keywords_notreserved', [ 'LISTEN' ], 0 ],
+  [ 'keywords_notreserved_203' => 'keywords_notreserved', [ 'LOAD' ], 0 ],
+  [ 'keywords_notreserved_204' => 'keywords_notreserved', [ 'LOCAL' ], 0 ],
+  [ 'keywords_notreserved_205' => 'keywords_notreserved', [ 'LOCATION' ], 0 ],
+  [ 'keywords_notreserved_206' => 'keywords_notreserved', [ 'LOCK' ], 0 ],
+  [ 'keywords_notreserved_207' => 'keywords_notreserved', [ 'MAPPING' ], 0 ],
+  [ 'keywords_notreserved_208' => 'keywords_notreserved', [ 'MATCH' ], 0 ],
+  [ 'keywords_notreserved_209' => 'keywords_notreserved', [ 'MAXVALUE' ], 0 ],
+  [ 'keywords_notreserved_210' => 'keywords_notreserved', [ 'MINUTE' ], 0 ],
+  [ 'keywords_notreserved_211' => 'keywords_notreserved', [ 'MINVALUE' ], 0 ],
+  [ 'keywords_notreserved_212' => 'keywords_notreserved', [ 'MODE' ], 0 ],
+  [ 'keywords_notreserved_213' => 'keywords_notreserved', [ 'MONTH' ], 0 ],
+  [ 'keywords_notreserved_214' => 'keywords_notreserved', [ 'MOVE' ], 0 ],
+  [ 'keywords_notreserved_215' => 'keywords_notreserved', [ 'NAME' ], 0 ],
+  [ 'keywords_notreserved_216' => 'keywords_notreserved', [ 'NAMES' ], 0 ],
+  [ 'keywords_notreserved_217' => 'keywords_notreserved', [ 'NEXT' ], 0 ],
+  [ 'keywords_notreserved_218' => 'keywords_notreserved', [ 'NO' ], 0 ],
+  [ 'keywords_notreserved_219' => 'keywords_notreserved', [ 'NOTHING' ], 0 ],
+  [ 'keywords_notreserved_220' => 'keywords_notreserved', [ 'NOTIFY' ], 0 ],
+  [ 'keywords_notreserved_221' => 'keywords_notreserved', [ 'NOWAIT' ], 0 ],
+  [ 'keywords_notreserved_222' => 'keywords_notreserved', [ 'NULLS' ], 0 ],
+  [ 'keywords_notreserved_223' => 'keywords_notreserved', [ 'OBJECT' ], 0 ],
+  [ 'keywords_notreserved_224' => 'keywords_notreserved', [ 'OF' ], 0 ],
+  [ 'keywords_notreserved_225' => 'keywords_notreserved', [ 'OFF' ], 0 ],
+  [ 'keywords_notreserved_226' => 'keywords_notreserved', [ 'OIDS' ], 0 ],
+  [ 'keywords_notreserved_227' => 'keywords_notreserved', [ 'OPERATOR' ], 0 ],
+  [ 'keywords_notreserved_228' => 'keywords_notreserved', [ 'OPTION' ], 0 ],
+  [ 'keywords_notreserved_229' => 'keywords_notreserved', [ 'OPTIONS' ], 0 ],
+  [ 'keywords_notreserved_230' => 'keywords_notreserved', [ 'OWNED' ], 0 ],
+  [ 'keywords_notreserved_231' => 'keywords_notreserved', [ 'OWNER' ], 0 ],
+  [ 'keywords_notreserved_232' => 'keywords_notreserved', [ 'PARSER' ], 0 ],
+  [ 'keywords_notreserved_233' => 'keywords_notreserved', [ 'PARTIAL' ], 0 ],
+  [ 'keywords_notreserved_234' => 'keywords_notreserved', [ 'PARTITION' ], 0 ],
+  [ 'keywords_notreserved_235' => 'keywords_notreserved', [ 'PASSING' ], 0 ],
+  [ 'keywords_notreserved_236' => 'keywords_notreserved', [ 'PASSWORD' ], 0 ],
+  [ 'keywords_notreserved_237' => 'keywords_notreserved', [ 'PLANS' ], 0 ],
+  [ 'keywords_notreserved_238' => 'keywords_notreserved', [ 'PRECEDING' ], 0 ],
+  [ 'keywords_notreserved_239' => 'keywords_notreserved', [ 'PREPARE' ], 0 ],
+  [ 'keywords_notreserved_240' => 'keywords_notreserved', [ 'PREPARED' ], 0 ],
+  [ 'keywords_notreserved_241' => 'keywords_notreserved', [ 'PRESERVE' ], 0 ],
+  [ 'keywords_notreserved_242' => 'keywords_notreserved', [ 'PRIOR' ], 0 ],
+  [ 'keywords_notreserved_243' => 'keywords_notreserved', [ 'PRIVILEGES' ], 0 ],
+  [ 'keywords_notreserved_244' => 'keywords_notreserved', [ 'PROCEDURAL' ], 0 ],
+  [ 'keywords_notreserved_245' => 'keywords_notreserved', [ 'PROCEDURE' ], 0 ],
+  [ 'keywords_notreserved_246' => 'keywords_notreserved', [ 'QUOTE' ], 0 ],
+  [ 'keywords_notreserved_247' => 'keywords_notreserved', [ 'RANGE' ], 0 ],
+  [ 'keywords_notreserved_248' => 'keywords_notreserved', [ 'READ' ], 0 ],
+  [ 'keywords_notreserved_249' => 'keywords_notreserved', [ 'REASSIGN' ], 0 ],
+  [ 'keywords_notreserved_250' => 'keywords_notreserved', [ 'RECHECK' ], 0 ],
+  [ 'keywords_notreserved_251' => 'keywords_notreserved', [ 'RECURSIVE' ], 0 ],
+  [ 'keywords_notreserved_252' => 'keywords_notreserved', [ 'REF' ], 0 ],
+  [ 'keywords_notreserved_253' => 'keywords_notreserved', [ 'REINDEX' ], 0 ],
+  [ 'keywords_notreserved_254' => 'keywords_notreserved', [ 'RELATIVE' ], 0 ],
+  [ 'keywords_notreserved_255' => 'keywords_notreserved', [ 'RELEASE' ], 0 ],
+  [ 'keywords_notreserved_256' => 'keywords_notreserved', [ 'RENAME' ], 0 ],
+  [ 'keywords_notreserved_257' => 'keywords_notreserved', [ 'REPEATABLE' ], 0 ],
+  [ 'keywords_notreserved_258' => 'keywords_notreserved', [ 'REPLACE' ], 0 ],
+  [ 'keywords_notreserved_259' => 'keywords_notreserved', [ 'REPLICA' ], 0 ],
+  [ 'keywords_notreserved_260' => 'keywords_notreserved', [ 'RESET' ], 0 ],
+  [ 'keywords_notreserved_261' => 'keywords_notreserved', [ 'RESTART' ], 0 ],
+  [ 'keywords_notreserved_262' => 'keywords_notreserved', [ 'RESTRICT' ], 0 ],
+  [ 'keywords_notreserved_263' => 'keywords_notreserved', [ 'RETURNS' ], 0 ],
+  [ 'keywords_notreserved_264' => 'keywords_notreserved', [ 'REVOKE' ], 0 ],
+  [ 'keywords_notreserved_265' => 'keywords_notreserved', [ 'ROLE' ], 0 ],
+  [ 'keywords_notreserved_266' => 'keywords_notreserved', [ 'ROLLBACK' ], 0 ],
+  [ 'keywords_notreserved_267' => 'keywords_notreserved', [ 'ROWS' ], 0 ],
+  [ 'keywords_notreserved_268' => 'keywords_notreserved', [ 'RULE' ], 0 ],
+  [ 'keywords_notreserved_269' => 'keywords_notreserved', [ 'SAVEPOINT' ], 0 ],
+  [ 'keywords_notreserved_270' => 'keywords_notreserved', [ 'SCHEMA' ], 0 ],
+  [ 'keywords_notreserved_271' => 'keywords_notreserved', [ 'SCROLL' ], 0 ],
+  [ 'keywords_notreserved_272' => 'keywords_notreserved', [ 'SEARCH' ], 0 ],
+  [ 'keywords_notreserved_273' => 'keywords_notreserved', [ 'SECOND' ], 0 ],
+  [ 'keywords_notreserved_274' => 'keywords_notreserved', [ 'SECURITY' ], 0 ],
+  [ 'keywords_notreserved_275' => 'keywords_notreserved', [ 'SEQUENCE' ], 0 ],
+  [ 'keywords_notreserved_276' => 'keywords_notreserved', [ 'SEQUENCES' ], 0 ],
+  [ 'keywords_notreserved_277' => 'keywords_notreserved', [ 'SERIALIZABLE' ], 0 ],
+  [ 'keywords_notreserved_278' => 'keywords_notreserved', [ 'SERVER' ], 0 ],
+  [ 'keywords_notreserved_279' => 'keywords_notreserved', [ 'SESSION' ], 0 ],
+  [ 'keywords_notreserved_280' => 'keywords_notreserved', [ 'SET' ], 0 ],
+  [ 'keywords_notreserved_281' => 'keywords_notreserved', [ 'SHARE' ], 0 ],
+  [ 'keywords_notreserved_282' => 'keywords_notreserved', [ 'SHOW' ], 0 ],
+  [ 'keywords_notreserved_283' => 'keywords_notreserved', [ 'SIMPLE' ], 0 ],
+  [ 'keywords_notreserved_284' => 'keywords_notreserved', [ 'STABLE' ], 0 ],
+  [ 'keywords_notreserved_285' => 'keywords_notreserved', [ 'STANDALONE' ], 0 ],
+  [ 'keywords_notreserved_286' => 'keywords_notreserved', [ 'START' ], 0 ],
+  [ 'keywords_notreserved_287' => 'keywords_notreserved', [ 'STATEMENT' ], 0 ],
+  [ 'keywords_notreserved_288' => 'keywords_notreserved', [ 'STATISTICS' ], 0 ],
+  [ 'keywords_notreserved_289' => 'keywords_notreserved', [ 'STDIN' ], 0 ],
+  [ 'keywords_notreserved_290' => 'keywords_notreserved', [ 'STDOUT' ], 0 ],
+  [ 'keywords_notreserved_291' => 'keywords_notreserved', [ 'STORAGE' ], 0 ],
+  [ 'keywords_notreserved_292' => 'keywords_notreserved', [ 'STRICT' ], 0 ],
+  [ 'keywords_notreserved_293' => 'keywords_notreserved', [ 'STRIP' ], 0 ],
+  [ 'keywords_notreserved_294' => 'keywords_notreserved', [ 'SYSID' ], 0 ],
+  [ 'keywords_notreserved_295' => 'keywords_notreserved', [ 'SYSTEM' ], 0 ],
+  [ 'keywords_notreserved_296' => 'keywords_notreserved', [ 'TABLES' ], 0 ],
+  [ 'keywords_notreserved_297' => 'keywords_notreserved', [ 'TABLESPACE' ], 0 ],
+  [ 'keywords_notreserved_298' => 'keywords_notreserved', [ 'TEMP' ], 0 ],
+  [ 'keywords_notreserved_299' => 'keywords_notreserved', [ 'TEMPLATE' ], 0 ],
+  [ 'keywords_notreserved_300' => 'keywords_notreserved', [ 'TEMPORARY' ], 0 ],
+  [ 'keywords_notreserved_301' => 'keywords_notreserved', [ 'TEXT' ], 0 ],
+  [ 'keywords_notreserved_302' => 'keywords_notreserved', [ 'TRANSACTION' ], 0 ],
+  [ 'keywords_notreserved_303' => 'keywords_notreserved', [ 'TRIGGER' ], 0 ],
+  [ 'keywords_notreserved_304' => 'keywords_notreserved', [ 'TRUNCATE' ], 0 ],
+  [ 'keywords_notreserved_305' => 'keywords_notreserved', [ 'TRUSTED' ], 0 ],
+  [ 'keywords_notreserved_306' => 'keywords_notreserved', [ 'TYPE' ], 0 ],
+  [ 'keywords_notreserved_307' => 'keywords_notreserved', [ 'UNBOUNDED' ], 0 ],
+  [ 'keywords_notreserved_308' => 'keywords_notreserved', [ 'UNCOMMITTED' ], 0 ],
+  [ 'keywords_notreserved_309' => 'keywords_notreserved', [ 'UNENCRYPTED' ], 0 ],
+  [ 'keywords_notreserved_310' => 'keywords_notreserved', [ 'UNKNOWN' ], 0 ],
+  [ 'keywords_notreserved_311' => 'keywords_notreserved', [ 'UNLISTEN' ], 0 ],
+  [ 'keywords_notreserved_312' => 'keywords_notreserved', [ 'UNLOGGED' ], 0 ],
+  [ 'keywords_notreserved_313' => 'keywords_notreserved', [ 'UNTIL' ], 0 ],
+  [ 'keywords_notreserved_314' => 'keywords_notreserved', [ 'UPDATE' ], 0 ],
+  [ 'keywords_notreserved_315' => 'keywords_notreserved', [ 'VACUUM' ], 0 ],
+  [ 'keywords_notreserved_316' => 'keywords_notreserved', [ 'VALID' ], 0 ],
+  [ 'keywords_notreserved_317' => 'keywords_notreserved', [ 'VALIDATE' ], 0 ],
+  [ 'keywords_notreserved_318' => 'keywords_notreserved', [ 'VALIDATOR' ], 0 ],
+  [ 'keywords_notreserved_319' => 'keywords_notreserved', [ 'VALUE' ], 0 ],
+  [ 'keywords_notreserved_320' => 'keywords_notreserved', [ 'VARYING' ], 0 ],
+  [ 'keywords_notreserved_321' => 'keywords_notreserved', [ 'VERSION' ], 0 ],
+  [ 'keywords_notreserved_322' => 'keywords_notreserved', [ 'VIEW' ], 0 ],
+  [ 'keywords_notreserved_323' => 'keywords_notreserved', [ 'VOLATILE' ], 0 ],
+  [ 'keywords_notreserved_324' => 'keywords_notreserved', [ 'WHITESPACE' ], 0 ],
+  [ 'keywords_notreserved_325' => 'keywords_notreserved', [ 'WITHOUT' ], 0 ],
+  [ 'keywords_notreserved_326' => 'keywords_notreserved', [ 'WORK' ], 0 ],
+  [ 'keywords_notreserved_327' => 'keywords_notreserved', [ 'WRAPPER' ], 0 ],
+  [ 'keywords_notreserved_328' => 'keywords_notreserved', [ 'WRITE' ], 0 ],
+  [ 'keywords_notreserved_329' => 'keywords_notreserved', [ 'XML' ], 0 ],
+  [ 'keywords_notreserved_330' => 'keywords_notreserved', [ 'YEAR' ], 0 ],
+  [ 'keywords_notreserved_331' => 'keywords_notreserved', [ 'YES' ], 0 ],
+  [ 'keywords_notreserved_332' => 'keywords_notreserved', [ 'ZONE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_333' => 'keywords_reserved_ok_for_functions_or_types', [ 'AUTHORIZATION' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_334' => 'keywords_reserved_ok_for_functions_or_types', [ 'BINARY' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_335' => 'keywords_reserved_ok_for_functions_or_types', [ 'CONCURRENTLY' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_336' => 'keywords_reserved_ok_for_functions_or_types', [ 'CROSS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_337' => 'keywords_reserved_ok_for_functions_or_types', [ 'CURRENT_SCHEMA' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_338' => 'keywords_reserved_ok_for_functions_or_types', [ 'FREEZE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_339' => 'keywords_reserved_ok_for_functions_or_types', [ 'FULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_340' => 'keywords_reserved_ok_for_functions_or_types', [ 'ILIKE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_341' => 'keywords_reserved_ok_for_functions_or_types', [ 'INNER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_342' => 'keywords_reserved_ok_for_functions_or_types', [ 'IS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_343' => 'keywords_reserved_ok_for_functions_or_types', [ 'ISNULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_344' => 'keywords_reserved_ok_for_functions_or_types', [ 'JOIN' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_345' => 'keywords_reserved_ok_for_functions_or_types', [ 'LEFT' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_346' => 'keywords_reserved_ok_for_functions_or_types', [ 'LIKE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_347' => 'keywords_reserved_ok_for_functions_or_types', [ 'NATURAL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_348' => 'keywords_reserved_ok_for_functions_or_types', [ 'NOTNULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_349' => 'keywords_reserved_ok_for_functions_or_types', [ 'OUTER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_350' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_351' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVERLAPS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_352' => 'keywords_reserved_ok_for_functions_or_types', [ 'RIGHT' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_353' => 'keywords_reserved_ok_for_functions_or_types', [ 'SIMILAR' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_354' => 'keywords_reserved_ok_for_functions_or_types', [ 'VERBOSE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_355' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BETWEEN' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_356' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIGINT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_357' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_358' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BOOLEAN' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_359' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_360' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHARACTER' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_361' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'COALESCE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_362' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DEC' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_363' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DECIMAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_364' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXISTS' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_365' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXTRACT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_366' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'FLOAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_367' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'GREATEST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_368' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INOUT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_369' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_370' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTEGER' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_371' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTERVAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_372' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'LEAST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_373' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NATIONAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_374' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NCHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_375' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NONE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_376' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NULLIF' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_377' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NUMERIC' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_378' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OUT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_379' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OVERLAY' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_380' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'POSITION' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_381' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'PRECISION' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_382' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'REAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_383' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'ROW' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_384' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SETOF' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_385' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SMALLINT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_386' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SUBSTRING' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_387' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIME' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_388' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIMESTAMP' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_389' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TREAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_390' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TRIM' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_391' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VALUES' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_392' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VARCHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_393' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLATTRIBUTES' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_394' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLCONCAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_395' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLELEMENT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_396' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLEXISTS' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_397' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLFOREST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_398' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPARSE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_399' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPI' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_400' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLROOT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_401' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLSERIALIZE' ], 0 ],
 ],
     yyLABELS  =>
 {
@@ -476,22 +510,22 @@ sub new {
   'expr_25' => 25,
   'expr_26' => 26,
   'expr_27' => 27,
-  'expr_simple_28' => 28,
+  'expr_28' => 28,
   'expr_simple_29' => 29,
-  'literal_value_30' => 30,
+  'expr_simple_30' => 30,
   'literal_value_31' => 31,
   'literal_value_32' => 32,
   'literal_value_33' => 33,
   'literal_value_34' => 34,
   'literal_value_35' => 35,
   'literal_value_36' => 36,
-  'identifier_37' => 37,
+  'literal_value_37' => 37,
   'identifier_38' => 38,
   'identifier_39' => 39,
   'identifier_40' => 40,
-  'normal_type_41' => 41,
+  'identifier_41' => 41,
   'normal_type_42' => 42,
-  'simple_type_43' => 43,
+  'normal_type_43' => 43,
   'simple_type_44' => 44,
   'simple_type_45' => 45,
   'simple_type_46' => 46,
@@ -499,40 +533,40 @@ sub new {
   'simple_type_48' => 48,
   'simple_type_49' => 49,
   'simple_type_50' => 50,
-  'keywords_notreserved_51' => 51,
-  'keywords_notreserved_52' => 52,
-  'keywords_notreserved_53' => 53,
-  'keywords_notreserved_54' => 54,
-  'keywords_notreserved_55' => 55,
-  'keywords_notreserved_56' => 56,
-  'keywords_notreserved_57' => 57,
-  'keywords_notreserved_58' => 58,
-  'keywords_notreserved_59' => 59,
-  'keywords_notreserved_60' => 60,
-  'keywords_notreserved_61' => 61,
-  'keywords_notreserved_62' => 62,
-  'keywords_notreserved_63' => 63,
-  'keywords_notreserved_64' => 64,
-  'keywords_notreserved_65' => 65,
-  'keywords_notreserved_66' => 66,
-  'keywords_notreserved_67' => 67,
-  'keywords_notreserved_68' => 68,
-  'keywords_notreserved_69' => 69,
-  'keywords_notreserved_70' => 70,
-  'keywords_notreserved_71' => 71,
-  'keywords_notreserved_72' => 72,
-  'keywords_notreserved_73' => 73,
-  'keywords_notreserved_74' => 74,
-  'keywords_notreserved_75' => 75,
-  'keywords_notreserved_76' => 76,
-  'keywords_notreserved_77' => 77,
-  'keywords_notreserved_78' => 78,
-  'keywords_notreserved_79' => 79,
-  'keywords_notreserved_80' => 80,
-  'keywords_notreserved_81' => 81,
-  'keywords_notreserved_82' => 82,
-  'keywords_notreserved_83' => 83,
-  'keywords_notreserved_84' => 84,
+  'simple_type_51' => 51,
+  'simple_type_52' => 52,
+  'simple_type_53' => 53,
+  'simple_type_54' => 54,
+  'timestamp_type_55' => 55,
+  'timestamp_type_56' => 56,
+  'timestamp_type_57' => 57,
+  'timestamp_type_58' => 58,
+  'timestamp_type_59' => 59,
+  'time_type_60' => 60,
+  'time_type_61' => 61,
+  'time_type_62' => 62,
+  'time_type_63' => 63,
+  'time_type_64' => 64,
+  'interval_type_65' => 65,
+  'interval_type_66' => 66,
+  'interval_type_67' => 67,
+  'interval_type_68' => 68,
+  'interval_type_69' => 69,
+  'interval_type_70' => 70,
+  'interval_type_71' => 71,
+  'interval_type_72' => 72,
+  'interval_type_73' => 73,
+  'interval_type_74' => 74,
+  'interval_type_75' => 75,
+  'interval_type_76' => 76,
+  'interval_type_77' => 77,
+  'interval_type_78' => 78,
+  'interval_type_79' => 79,
+  'interval_type_80' => 80,
+  'interval_type_81' => 81,
+  'interval_type_82' => 82,
+  'base_interval_type_83' => 83,
+  'base_interval_type_84' => 84,
   'keywords_notreserved_85' => 85,
   'keywords_notreserved_86' => 86,
   'keywords_notreserved_87' => 87,
@@ -747,62 +781,62 @@ sub new {
   'keywords_notreserved_296' => 296,
   'keywords_notreserved_297' => 297,
   'keywords_notreserved_298' => 298,
-  'keywords_reserved_ok_for_functions_or_types_299' => 299,
-  'keywords_reserved_ok_for_functions_or_types_300' => 300,
-  'keywords_reserved_ok_for_functions_or_types_301' => 301,
-  'keywords_reserved_ok_for_functions_or_types_302' => 302,
-  'keywords_reserved_ok_for_functions_or_types_303' => 303,
-  'keywords_reserved_ok_for_functions_or_types_304' => 304,
-  'keywords_reserved_ok_for_functions_or_types_305' => 305,
-  'keywords_reserved_ok_for_functions_or_types_306' => 306,
-  'keywords_reserved_ok_for_functions_or_types_307' => 307,
-  'keywords_reserved_ok_for_functions_or_types_308' => 308,
-  'keywords_reserved_ok_for_functions_or_types_309' => 309,
-  'keywords_reserved_ok_for_functions_or_types_310' => 310,
-  'keywords_reserved_ok_for_functions_or_types_311' => 311,
-  'keywords_reserved_ok_for_functions_or_types_312' => 312,
-  'keywords_reserved_ok_for_functions_or_types_313' => 313,
-  'keywords_reserved_ok_for_functions_or_types_314' => 314,
-  'keywords_reserved_ok_for_functions_or_types_315' => 315,
-  'keywords_reserved_ok_for_functions_or_types_316' => 316,
-  'keywords_reserved_ok_for_functions_or_types_317' => 317,
-  'keywords_reserved_ok_for_functions_or_types_318' => 318,
-  'keywords_reserved_ok_for_functions_or_types_319' => 319,
-  'keywords_reserved_ok_for_functions_or_types_320' => 320,
-  'keywords_notreserved_not_ok_for_functions_or_types_321' => 321,
-  'keywords_notreserved_not_ok_for_functions_or_types_322' => 322,
-  'keywords_notreserved_not_ok_for_functions_or_types_323' => 323,
-  'keywords_notreserved_not_ok_for_functions_or_types_324' => 324,
-  'keywords_notreserved_not_ok_for_functions_or_types_325' => 325,
-  'keywords_notreserved_not_ok_for_functions_or_types_326' => 326,
-  'keywords_notreserved_not_ok_for_functions_or_types_327' => 327,
-  'keywords_notreserved_not_ok_for_functions_or_types_328' => 328,
-  'keywords_notreserved_not_ok_for_functions_or_types_329' => 329,
-  'keywords_notreserved_not_ok_for_functions_or_types_330' => 330,
-  'keywords_notreserved_not_ok_for_functions_or_types_331' => 331,
-  'keywords_notreserved_not_ok_for_functions_or_types_332' => 332,
-  'keywords_notreserved_not_ok_for_functions_or_types_333' => 333,
-  'keywords_notreserved_not_ok_for_functions_or_types_334' => 334,
-  'keywords_notreserved_not_ok_for_functions_or_types_335' => 335,
-  'keywords_notreserved_not_ok_for_functions_or_types_336' => 336,
-  'keywords_notreserved_not_ok_for_functions_or_types_337' => 337,
-  'keywords_notreserved_not_ok_for_functions_or_types_338' => 338,
-  'keywords_notreserved_not_ok_for_functions_or_types_339' => 339,
-  'keywords_notreserved_not_ok_for_functions_or_types_340' => 340,
-  'keywords_notreserved_not_ok_for_functions_or_types_341' => 341,
-  'keywords_notreserved_not_ok_for_functions_or_types_342' => 342,
-  'keywords_notreserved_not_ok_for_functions_or_types_343' => 343,
-  'keywords_notreserved_not_ok_for_functions_or_types_344' => 344,
-  'keywords_notreserved_not_ok_for_functions_or_types_345' => 345,
-  'keywords_notreserved_not_ok_for_functions_or_types_346' => 346,
-  'keywords_notreserved_not_ok_for_functions_or_types_347' => 347,
-  'keywords_notreserved_not_ok_for_functions_or_types_348' => 348,
-  'keywords_notreserved_not_ok_for_functions_or_types_349' => 349,
-  'keywords_notreserved_not_ok_for_functions_or_types_350' => 350,
-  'keywords_notreserved_not_ok_for_functions_or_types_351' => 351,
-  'keywords_notreserved_not_ok_for_functions_or_types_352' => 352,
-  'keywords_notreserved_not_ok_for_functions_or_types_353' => 353,
-  'keywords_notreserved_not_ok_for_functions_or_types_354' => 354,
+  'keywords_notreserved_299' => 299,
+  'keywords_notreserved_300' => 300,
+  'keywords_notreserved_301' => 301,
+  'keywords_notreserved_302' => 302,
+  'keywords_notreserved_303' => 303,
+  'keywords_notreserved_304' => 304,
+  'keywords_notreserved_305' => 305,
+  'keywords_notreserved_306' => 306,
+  'keywords_notreserved_307' => 307,
+  'keywords_notreserved_308' => 308,
+  'keywords_notreserved_309' => 309,
+  'keywords_notreserved_310' => 310,
+  'keywords_notreserved_311' => 311,
+  'keywords_notreserved_312' => 312,
+  'keywords_notreserved_313' => 313,
+  'keywords_notreserved_314' => 314,
+  'keywords_notreserved_315' => 315,
+  'keywords_notreserved_316' => 316,
+  'keywords_notreserved_317' => 317,
+  'keywords_notreserved_318' => 318,
+  'keywords_notreserved_319' => 319,
+  'keywords_notreserved_320' => 320,
+  'keywords_notreserved_321' => 321,
+  'keywords_notreserved_322' => 322,
+  'keywords_notreserved_323' => 323,
+  'keywords_notreserved_324' => 324,
+  'keywords_notreserved_325' => 325,
+  'keywords_notreserved_326' => 326,
+  'keywords_notreserved_327' => 327,
+  'keywords_notreserved_328' => 328,
+  'keywords_notreserved_329' => 329,
+  'keywords_notreserved_330' => 330,
+  'keywords_notreserved_331' => 331,
+  'keywords_notreserved_332' => 332,
+  'keywords_reserved_ok_for_functions_or_types_333' => 333,
+  'keywords_reserved_ok_for_functions_or_types_334' => 334,
+  'keywords_reserved_ok_for_functions_or_types_335' => 335,
+  'keywords_reserved_ok_for_functions_or_types_336' => 336,
+  'keywords_reserved_ok_for_functions_or_types_337' => 337,
+  'keywords_reserved_ok_for_functions_or_types_338' => 338,
+  'keywords_reserved_ok_for_functions_or_types_339' => 339,
+  'keywords_reserved_ok_for_functions_or_types_340' => 340,
+  'keywords_reserved_ok_for_functions_or_types_341' => 341,
+  'keywords_reserved_ok_for_functions_or_types_342' => 342,
+  'keywords_reserved_ok_for_functions_or_types_343' => 343,
+  'keywords_reserved_ok_for_functions_or_types_344' => 344,
+  'keywords_reserved_ok_for_functions_or_types_345' => 345,
+  'keywords_reserved_ok_for_functions_or_types_346' => 346,
+  'keywords_reserved_ok_for_functions_or_types_347' => 347,
+  'keywords_reserved_ok_for_functions_or_types_348' => 348,
+  'keywords_reserved_ok_for_functions_or_types_349' => 349,
+  'keywords_reserved_ok_for_functions_or_types_350' => 350,
+  'keywords_reserved_ok_for_functions_or_types_351' => 351,
+  'keywords_reserved_ok_for_functions_or_types_352' => 352,
+  'keywords_reserved_ok_for_functions_or_types_353' => 353,
+  'keywords_reserved_ok_for_functions_or_types_354' => 354,
   'keywords_notreserved_not_ok_for_functions_or_types_355' => 355,
   'keywords_notreserved_not_ok_for_functions_or_types_356' => 356,
   'keywords_notreserved_not_ok_for_functions_or_types_357' => 357,
@@ -816,6 +850,40 @@ sub new {
   'keywords_notreserved_not_ok_for_functions_or_types_365' => 365,
   'keywords_notreserved_not_ok_for_functions_or_types_366' => 366,
   'keywords_notreserved_not_ok_for_functions_or_types_367' => 367,
+  'keywords_notreserved_not_ok_for_functions_or_types_368' => 368,
+  'keywords_notreserved_not_ok_for_functions_or_types_369' => 369,
+  'keywords_notreserved_not_ok_for_functions_or_types_370' => 370,
+  'keywords_notreserved_not_ok_for_functions_or_types_371' => 371,
+  'keywords_notreserved_not_ok_for_functions_or_types_372' => 372,
+  'keywords_notreserved_not_ok_for_functions_or_types_373' => 373,
+  'keywords_notreserved_not_ok_for_functions_or_types_374' => 374,
+  'keywords_notreserved_not_ok_for_functions_or_types_375' => 375,
+  'keywords_notreserved_not_ok_for_functions_or_types_376' => 376,
+  'keywords_notreserved_not_ok_for_functions_or_types_377' => 377,
+  'keywords_notreserved_not_ok_for_functions_or_types_378' => 378,
+  'keywords_notreserved_not_ok_for_functions_or_types_379' => 379,
+  'keywords_notreserved_not_ok_for_functions_or_types_380' => 380,
+  'keywords_notreserved_not_ok_for_functions_or_types_381' => 381,
+  'keywords_notreserved_not_ok_for_functions_or_types_382' => 382,
+  'keywords_notreserved_not_ok_for_functions_or_types_383' => 383,
+  'keywords_notreserved_not_ok_for_functions_or_types_384' => 384,
+  'keywords_notreserved_not_ok_for_functions_or_types_385' => 385,
+  'keywords_notreserved_not_ok_for_functions_or_types_386' => 386,
+  'keywords_notreserved_not_ok_for_functions_or_types_387' => 387,
+  'keywords_notreserved_not_ok_for_functions_or_types_388' => 388,
+  'keywords_notreserved_not_ok_for_functions_or_types_389' => 389,
+  'keywords_notreserved_not_ok_for_functions_or_types_390' => 390,
+  'keywords_notreserved_not_ok_for_functions_or_types_391' => 391,
+  'keywords_notreserved_not_ok_for_functions_or_types_392' => 392,
+  'keywords_notreserved_not_ok_for_functions_or_types_393' => 393,
+  'keywords_notreserved_not_ok_for_functions_or_types_394' => 394,
+  'keywords_notreserved_not_ok_for_functions_or_types_395' => 395,
+  'keywords_notreserved_not_ok_for_functions_or_types_396' => 396,
+  'keywords_notreserved_not_ok_for_functions_or_types_397' => 397,
+  'keywords_notreserved_not_ok_for_functions_or_types_398' => 398,
+  'keywords_notreserved_not_ok_for_functions_or_types_399' => 399,
+  'keywords_notreserved_not_ok_for_functions_or_types_400' => 400,
+  'keywords_notreserved_not_ok_for_functions_or_types_401' => 401,
 },
     yyTERMS  =>
 { '' => { ISSEMANTIC => 0 },
@@ -866,6 +934,7 @@ sub new {
 	CALLED => { ISSEMANTIC => 1 },
 	CASCADE => { ISSEMANTIC => 1 },
 	CASCADED => { ISSEMANTIC => 1 },
+	CAST => { ISSEMANTIC => 1 },
 	CATALOG => { ISSEMANTIC => 1 },
 	CHAIN => { ISSEMANTIC => 1 },
 	CHAR => { ISSEMANTIC => 1 },
@@ -1117,6 +1186,7 @@ sub new {
 	TEXT => { ISSEMANTIC => 1 },
 	TIME => { ISSEMANTIC => 1 },
 	TIMESTAMP => { ISSEMANTIC => 1 },
+	TO => { ISSEMANTIC => 1 },
 	TRANSACTION => { ISSEMANTIC => 1 },
 	TREAT => { ISSEMANTIC => 1 },
 	TRIGGER => { ISSEMANTIC => 1 },
@@ -1147,6 +1217,7 @@ sub new {
 	VIEW => { ISSEMANTIC => 1 },
 	VOLATILE => { ISSEMANTIC => 1 },
 	WHITESPACE => { ISSEMANTIC => 1 },
+	WITH => { ISSEMANTIC => 1 },
 	WITHOUT => { ISSEMANTIC => 1 },
 	WORK => { ISSEMANTIC => 1 },
 	WRAPPER => { ISSEMANTIC => 1 },
@@ -1208,6 +1279,7 @@ sub new {
 			'NUMERIC_CONSTANT' => 16,
 			'ESTRING_CONSTANT' => 17,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
@@ -1225,35 +1297,35 @@ sub new {
 		DEFAULT => -4,
 		GOTOS => {
 			'select_stmt' => 1,
-			'statement' => 22
+			'statement' => 23
 		}
 	},
 	{#State 7
 		DEFAULT => 0
 	},
 	{#State 8
-		DEFAULT => -34
+		DEFAULT => -35
 	},
 	{#State 9
-		DEFAULT => -33
+		DEFAULT => -34
 	},
 	{#State 10
 		DEFAULT => -11
 	},
 	{#State 11
 		ACTIONS => {
-			"," => 23
+			"," => 24
 		},
 		DEFAULT => -6
 	},
 	{#State 12
-		DEFAULT => -31
+		DEFAULT => -32
 	},
 	{#State 13
-		DEFAULT => -28
+		DEFAULT => -29
 	},
 	{#State 14
-		DEFAULT => -30
+		DEFAULT => -31
 	},
 	{#State 15
 		ACTIONS => {
@@ -1265,37 +1337,38 @@ sub new {
 			'NUMERIC_CONSTANT' => 16,
 			'ESTRING_CONSTANT' => 17,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 24,
+			'expr' => 25,
 			'expr_simple' => 10
 		}
 	},
 	{#State 16
-		DEFAULT => -35
+		DEFAULT => -36
 	},
 	{#State 17
-		DEFAULT => -32
+		DEFAULT => -33
 	},
 	{#State 18
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"<" => 28,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			'OPERATOR_NAME' => 37,
-			"*" => 36,
-			'AS' => 38,
-			'LIKE' => 27,
-			"/" => 31,
-			"=" => 33,
-			">" => 39
+			"-" => 26,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			'OPERATOR_NAME' => 38,
+			"*" => 37,
+			'AS' => 39,
+			'LIKE' => 28,
+			"/" => 32,
+			"=" => 34,
+			">" => 40
 		},
 		DEFAULT => -9
 	},
@@ -1309,11 +1382,12 @@ sub new {
 			'NUMERIC_CONSTANT' => 16,
 			'ESTRING_CONSTANT' => 17,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 40,
+			'expr' => 41,
 			'expr_simple' => 10
 		}
 	},
@@ -1321,12 +1395,17 @@ sub new {
 		DEFAULT => -7
 	},
 	{#State 21
-		DEFAULT => -36
+		DEFAULT => -37
 	},
 	{#State 22
-		DEFAULT => -3
+		ACTIONS => {
+			"(" => 42
+		}
 	},
 	{#State 23
+		DEFAULT => -3
+	},
+	{#State 24
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
@@ -1336,400 +1415,388 @@ sub new {
 			'NUMERIC_CONSTANT' => 16,
 			'ESTRING_CONSTANT' => 17,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
 			'expr' => 18,
-			'result_column' => 41,
+			'result_column' => 43,
 			'expr_simple' => 10
-		}
-	},
-	{#State 24
-		ACTIONS => {
-			"-" => 25,
-			'LIKE' => 27,
-			"::" => 26,
-			"<" => 28,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			"/" => 31,
-			"=" => 33,
-			'BETWEEN' => 34,
-			"^" => 35,
-			'OPERATOR_NAME' => 37,
-			"*" => 36,
-			")" => 42,
-			">" => 39
 		}
 	},
 	{#State 25
 		ACTIONS => {
-			'BITSTRING_CONSTANT' => 9,
-			'XBITSTRING_CONSTANT' => 8,
-			'USTRING_CONSTANT' => 12,
-			'STRING_CONSTANT' => 14,
-			"(" => 15,
-			'NUMERIC_CONSTANT' => 16,
-			'ESTRING_CONSTANT' => 17,
-			'OPERATOR_NAME' => 19,
-			'INTEGER_CONSTANT' => 21
-		},
-		GOTOS => {
-			'literal_value' => 13,
-			'expr' => 43,
-			'expr_simple' => 10
+			"-" => 26,
+			'LIKE' => 28,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			"/" => 32,
+			"=" => 34,
+			'BETWEEN' => 35,
+			"^" => 36,
+			'OPERATOR_NAME' => 38,
+			"*" => 37,
+			")" => 44,
+			">" => 40
 		}
 	},
 	{#State 26
 		ACTIONS => {
-			'INPUT' => 46,
-			'SYSID' => 45,
-			'JOIN' => 44,
-			'REPLACE' => 48,
-			'SERIALIZABLE' => 47,
-			'AT' => 50,
-			'INSENSITIVE' => 49,
-			'RETURNS' => 51,
-			'NCHAR' => 52,
-			'INVOKER' => 53,
-			'WORK' => 54,
-			'PASSING' => 55,
-			'MODE' => 56,
-			'INTEGER' => 57,
-			'INHERITS' => 58,
-			'ESCAPE' => 60,
-			'VALUE' => 59,
-			'DROP' => 61,
-			'MONTH' => 62,
-			'ENCODING' => 64,
-			'TEMPLATE' => 65,
-			'DICTIONARY' => 66,
-			'SEARCH' => 67,
-			'PREPARE' => 68,
-			'LOCK' => 69,
-			'DEFAULTS' => 70,
-			'FULL' => 71,
-			'TREAT' => 72,
-			'BY' => 73,
-			'NO' => 74,
-			'MINUTE' => 75,
-			'DATA' => 79,
-			'DAY' => 78,
-			'PARTITION' => 77,
-			'RANGE' => 76,
-			'REF' => 82,
-			'SHARE' => 81,
-			'REAL' => 80,
-			'OVER' => 83,
-			'LARGE' => 85,
-			'CURRENT_SCHEMA' => 84,
-			'DELETE' => 86,
-			'NULLIF' => 87,
-			'CONNECTION' => 88,
-			'BACKWARD' => 90,
-			'CLOSE' => 89,
-			'COST' => 91,
-			'REPLICA' => 92,
-			'PRIVILEGES' => 93,
-			'ZONE' => 94,
-			'LEAST' => 95,
-			'STATISTICS' => 96,
-			'ISNULL' => 97,
-			'CALLED' => 98,
-			'SECURITY' => 99,
-			'INCREMENT' => 101,
-			'BINARY' => 102,
-			'LEVEL' => 103,
-			'FORCE' => 104,
-			'CONCURRENTLY' => 105,
-			'UPDATE' => 107,
-			'PRESERVE' => 108,
-			'XMLPI' => 109,
-			'CHARACTERISTICS' => 110,
-			'VALIDATE' => 111,
-			'STRICT' => 112,
-			'VARYING' => 113,
-			'AUTHORIZATION' => 114,
-			'REASSIGN' => 115,
-			'LABEL' => 117,
-			'ROLLBACK' => 116,
-			'OBJECT' => 118,
-			'DELIMITERS' => 121,
-			'PROCEDURE' => 120,
-			'TIMESTAMP' => 119,
-			'RULE' => 122,
-			'INSERT' => 123,
-			'HANDLER' => 124,
-			'LOCATION' => 126,
-			'EXISTS' => 125,
-			'IMMUTABLE' => 127,
-			'RELEASE' => 129,
-			'BOOLEAN' => 128,
-			'NULLS' => 130,
-			'TYPE' => 131,
-			'RESET' => 132,
-			'NOWAIT' => 133,
-			'PRIOR' => 134,
-			'OFF' => 137,
-			'BIGINT' => 136,
-			'XMLSERIALIZE' => 135,
-			'VERBOSE' => 138,
-			'SET' => 139,
-			'COMMENT' => 140,
-			'IMMEDIATE' => 141,
-			'DELIMITER' => 142,
-			'SETOF' => 143,
-			'INNER' => 144,
-			'EXTRACT' => 145,
-			'REINDEX' => 146,
-			'PRECISION' => 147,
-			'ACCESS' => 148,
-			'OPTION' => 149,
-			'COMMENTS' => 150,
-			'INOUT' => 151,
-			'DEALLOCATE' => 152,
-			'CATALOG' => 153,
-			'OUT' => 154,
-			'RESTART' => 155,
-			'MAPPING' => 156,
-			'OF' => 157,
-			'UNLOGGED' => 158,
-			'CONTINUE' => 159,
-			'XMLEXISTS' => 160,
-			'UNBOUNDED' => 161,
-			'READ' => 162,
-			'LEFT' => 163,
-			'PRECEDING' => 164,
-			'STABLE' => 165,
-			'DEC' => 166,
-			'XMLELEMENT' => 167,
-			'XML' => 168,
-			'SCROLL' => 169,
-			'TEXT' => 170,
-			'ALSO' => 171,
-			'FUNCTION' => 172,
-			'SYSTEM' => 173,
-			'AGGREGATE' => 174,
-			'FLOAT' => 175,
-			'ATTRIBUTE' => 176,
-			'ADD' => 177,
-			'STRIP' => 178,
-			'TABLESPACE' => 179,
-			'OVERLAPS' => 180,
-			'DEFERRED' => 182,
-			'VIEW' => 181,
-			'REPEATABLE' => 183,
-			'ALWAYS' => 184,
-			'FORWARD' => 186,
-			'CONSTRAINTS' => 185,
-			'NOTHING' => 187,
-			'EXCLUDING' => 188,
-			'DECIMAL' => 189,
-			'INDEXES' => 191,
-			'CHECKPOINT' => 190,
-			'CACHE' => 192,
-			'COMMIT' => 193,
-			'DECLARE' => 194,
-			'UNLISTEN' => 195,
-			'LOAD' => 196,
-			'FAMILY' => 197,
-			'SMALLINT' => 198,
-			'ASSERTION' => 199,
-			'ILIKE' => 200,
-			'GLOBAL' => 201,
-			'EXTERNAL' => 202,
-			'SIMILAR' => 203,
-			'STDOUT' => 204,
-			'REVOKE' => 205,
-			'INHERIT' => 206,
-			'OUTER' => 207,
-			'EXPLAIN' => 208,
-			'VARCHAR' => 210,
-			'OIDS' => 209,
-			'AFTER' => 211,
-			'DISABLE' => 213,
-			'CSV' => 212,
-			'VACUUM' => 214,
-			'SCHEMA' => 215,
-			'ROW' => 216,
-			'LC_COLLATE' => 217,
-			'FREEZE' => 218,
-			'INDEX' => 219,
-			'DEFINER' => 220,
-			'XMLPARSE' => 221,
-			'ADMIN' => 222,
-			'INCLUDING' => 223,
-			'OWNED' => 224,
-			'CROSS' => 225,
-			'INSTEAD' => 226,
-			'NATIONAL' => 227,
-			'EACH' => 228,
-			'TRUSTED' => 229,
-			'EXCLUSIVE' => 230,
-			'OWNER' => 231,
-			'CHARACTER' => 232,
-			'CASCADE' => 233,
-			'STATEMENT' => 234,
-			'ASSIGNMENT' => 235,
-			'MATCH' => 237,
-			'CLASS' => 238,
-			'DOUBLE' => 239,
-			'MOVE' => 240,
-			'TIME' => 241,
-			'NUMERIC' => 242,
-			'CURSOR' => 243,
-			'INLINE' => 244,
-			'ENCRYPTED' => 245,
-			'EXTENSION' => 246,
-			'CHAIN' => 247,
-			'RECURSIVE' => 248,
-			'VALIDATOR' => 249,
-			'XMLROOT' => 250,
-			'UQUOTED_IDENTIFIER' => 251,
-			'SUBSTRING' => 252,
-			'CASCADED' => 253,
-			'DISCARD' => 254,
-			'BETWEEN' => 255,
-			'ABORT' => 256,
-			'XMLATTRIBUTES' => 257,
-			'VALUES' => 258,
-			'BEFORE' => 259,
-			'TRUNCATE' => 260,
-			'IDENTIFIER' => 261,
-			'ABSOLUTE' => 262,
-			'SHOW' => 263,
-			'GREATEST' => 264,
-			'PLANS' => 265,
-			'PARTIAL' => 266,
-			'SEQUENCES' => 267,
-			'EXCLUDE' => 268,
-			'SECOND' => 270,
-			'WHITESPACE' => 271,
-			'HOUR' => 272,
-			'XMLFOREST' => 273,
-			'FOLLOWING' => 275,
-			'LISTEN' => 276,
-			'WRAPPER' => 277,
-			'VOLATILE' => 278,
-			'LANGUAGE' => 279,
-			'YEAR' => 280,
-			'STANDALONE' => 281,
-			'TEMP' => 282,
-			'COPY' => 283,
-			'WITHOUT' => 284,
-			'OPTIONS' => 285,
-			'YES' => 286,
-			'PROCEDURAL' => 287,
-			'SEQUENCE' => 288,
-			'LIKE' => 289,
-			'SIMPLE' => 290,
-			'IDENTITY' => 291,
-			'QUOTE' => 292,
-			'POSITION' => 293,
-			'DOMAIN' => 294,
-			'EXECUTE' => 295,
-			'UNKNOWN' => 296,
-			'CONTENT' => 297,
-			'QUOTED_IDENTIFIER' => 298,
-			'SERVER' => 299,
-			'RELATIVE' => 300,
-			'TRANSACTION' => 301,
-			'CONFIGURATION' => 302,
-			'NAMES' => 303,
-			'PARSER' => 304,
-			'RENAME' => 305,
-			'ALTER' => 308,
-			'CURRENT' => 307,
-			'RIGHT' => 306,
-			'IMPLICIT' => 309,
-			'CLUSTER' => 310,
-			'NATURAL' => 311,
-			'XMLCONCAT' => 312,
-			'PASSWORD' => 313,
-			'CHAR' => 314,
-			'RECHECK' => 315,
-			'PREPARED' => 317,
-			'NEXT' => 316,
-			'TEMPORARY' => 318,
-			'COMMITTED' => 319,
-			'GRANTED' => 321,
-			'BIT' => 320,
-			'NOTIFY' => 323,
-			'BEGIN' => 322,
-			'HEADER' => 324,
-			'INTERVAL' => 325,
-			'LC_CTYPE' => 326,
-			'NAME' => 327,
-			'STORAGE' => 330,
-			'FUNCTIONS' => 329,
-			'ISOLATION' => 328,
-			'STDIN' => 331,
-			'RESTRICT' => 332,
-			'UNCOMMITTED' => 336,
-			'CYCLE' => 335,
-			'IS' => 334,
-			'TRIM' => 333,
-			'MAXVALUE' => 337,
-			'START' => 338,
-			'SAVEPOINT' => 341,
-			'DOCUMENT' => 340,
-			'IF' => 339,
-			'ROWS' => 342,
-			'MINVALUE' => 344,
-			'LAST' => 343,
-			'KEY' => 345,
-			'UNTIL' => 347,
-			'OPERATOR' => 346,
-			'HOLD' => 348,
-			'ACTION' => 349,
-			'WRITE' => 350,
-			'ROLE' => 351,
-			'NOTNULL' => 352,
-			'SESSION' => 353,
-			'CONVERSION' => 354,
-			'DATABASE' => 356,
-			'ENUM' => 355,
-			'ENABLE' => 357,
-			'LOCAL' => 358,
-			'NONE' => 359,
-			'VALID' => 362,
-			'TABLES' => 361,
-			'INT' => 360,
-			'TRIGGER' => 363,
-			'COLLATION' => 364,
-			'UNENCRYPTED' => 365,
-			'OVERLAY' => 366,
-			'FIRST' => 368,
-			'COALESCE' => 367,
-			'VERSION' => 369
-		},
-		GOTOS => {
-			'identifier' => 100,
-			'keywords_reserved_ok_for_functions_or_types' => 106,
-			'simple_type' => 236,
-			'keywords_notreserved' => 274,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 269,
-			'normal_type' => 63
-		}
-	},
-	{#State 27
-		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
-			'STRING_CONSTANT' => 14,
 			'USTRING_CONSTANT' => 12,
+			'STRING_CONSTANT' => 14,
 			"(" => 15,
-			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
+			'ESTRING_CONSTANT' => 17,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 370,
+			'expr' => 45,
 			'expr_simple' => 10
+		}
+	},
+	{#State 27
+		ACTIONS => {
+			'INPUT' => 48,
+			'SYSID' => 47,
+			'JOIN' => 46,
+			'REPLACE' => 50,
+			'SERIALIZABLE' => 49,
+			'AT' => 52,
+			'INSENSITIVE' => 51,
+			'RETURNS' => 53,
+			'NCHAR' => 54,
+			'INVOKER' => 55,
+			'WORK' => 56,
+			'PASSING' => 57,
+			'MODE' => 58,
+			'INTEGER' => 59,
+			'INHERITS' => 60,
+			'ESCAPE' => 62,
+			'VALUE' => 61,
+			'DROP' => 63,
+			'MONTH' => 64,
+			'ENCODING' => 66,
+			'TEMPLATE' => 67,
+			'DICTIONARY' => 68,
+			'SEARCH' => 69,
+			'PREPARE' => 70,
+			'LOCK' => 71,
+			'DEFAULTS' => 72,
+			'FULL' => 73,
+			'TREAT' => 74,
+			'BY' => 75,
+			'NO' => 76,
+			'MINUTE' => 77,
+			'DATA' => 81,
+			'DAY' => 80,
+			'PARTITION' => 79,
+			'RANGE' => 78,
+			'REF' => 84,
+			'SHARE' => 83,
+			'REAL' => 82,
+			'OVER' => 85,
+			'LARGE' => 87,
+			'CURRENT_SCHEMA' => 86,
+			'DELETE' => 88,
+			'NULLIF' => 89,
+			'CONNECTION' => 90,
+			'BACKWARD' => 92,
+			'CLOSE' => 91,
+			'COST' => 93,
+			'REPLICA' => 94,
+			'PRIVILEGES' => 95,
+			'ZONE' => 96,
+			'LEAST' => 97,
+			'STATISTICS' => 98,
+			'ISNULL' => 99,
+			'CALLED' => 100,
+			'SECURITY' => 101,
+			'INCREMENT' => 103,
+			'BINARY' => 104,
+			'LEVEL' => 105,
+			'FORCE' => 106,
+			'CONCURRENTLY' => 107,
+			'UPDATE' => 109,
+			'PRESERVE' => 110,
+			'XMLPI' => 111,
+			'CHARACTERISTICS' => 112,
+			'VALIDATE' => 113,
+			'STRICT' => 114,
+			'VARYING' => 115,
+			'AUTHORIZATION' => 116,
+			'REASSIGN' => 117,
+			'LABEL' => 119,
+			'ROLLBACK' => 118,
+			'OBJECT' => 120,
+			'TIMESTAMP' => 123,
+			'DELIMITERS' => 122,
+			'PROCEDURE' => 121,
+			'RULE' => 124,
+			'INSERT' => 125,
+			'HANDLER' => 126,
+			'LOCATION' => 128,
+			'EXISTS' => 127,
+			'IMMUTABLE' => 129,
+			'RELEASE' => 131,
+			'BOOLEAN' => 130,
+			'NULLS' => 132,
+			'TYPE' => 133,
+			'RESET' => 134,
+			'NOWAIT' => 135,
+			'PRIOR' => 136,
+			'OFF' => 139,
+			'BIGINT' => 138,
+			'XMLSERIALIZE' => 137,
+			'VERBOSE' => 140,
+			'SET' => 141,
+			'COMMENT' => 142,
+			'IMMEDIATE' => 143,
+			'DELIMITER' => 144,
+			'SETOF' => 145,
+			'INNER' => 146,
+			'EXTRACT' => 147,
+			'REINDEX' => 148,
+			'PRECISION' => 149,
+			'ACCESS' => 150,
+			'OPTION' => 151,
+			'COMMENTS' => 152,
+			'INOUT' => 153,
+			'DEALLOCATE' => 154,
+			'CATALOG' => 155,
+			'OUT' => 156,
+			'RESTART' => 157,
+			'MAPPING' => 158,
+			'OF' => 159,
+			'UNLOGGED' => 160,
+			'CONTINUE' => 161,
+			'XMLEXISTS' => 162,
+			'UNBOUNDED' => 163,
+			'READ' => 164,
+			'LEFT' => 165,
+			'PRECEDING' => 166,
+			'STABLE' => 167,
+			'DEC' => 168,
+			'XMLELEMENT' => 169,
+			'XML' => 170,
+			'SCROLL' => 171,
+			'TEXT' => 172,
+			'ALSO' => 173,
+			'FUNCTION' => 174,
+			'SYSTEM' => 175,
+			'AGGREGATE' => 176,
+			'FLOAT' => 177,
+			'ATTRIBUTE' => 178,
+			'ADD' => 180,
+			'STRIP' => 181,
+			'TABLESPACE' => 182,
+			'OVERLAPS' => 183,
+			'DEFERRED' => 185,
+			'VIEW' => 184,
+			'REPEATABLE' => 186,
+			'ALWAYS' => 187,
+			'FORWARD' => 189,
+			'CONSTRAINTS' => 188,
+			'NOTHING' => 190,
+			'EXCLUDING' => 191,
+			'DECIMAL' => 192,
+			'INDEXES' => 194,
+			'CHECKPOINT' => 193,
+			'CACHE' => 195,
+			'COMMIT' => 196,
+			'DECLARE' => 197,
+			'UNLISTEN' => 198,
+			'LOAD' => 199,
+			'FAMILY' => 200,
+			'SMALLINT' => 201,
+			'ASSERTION' => 202,
+			'ILIKE' => 203,
+			'GLOBAL' => 204,
+			'EXTERNAL' => 205,
+			'SIMILAR' => 206,
+			'STDOUT' => 207,
+			'REVOKE' => 208,
+			'INHERIT' => 209,
+			'OUTER' => 210,
+			'EXPLAIN' => 211,
+			'VARCHAR' => 213,
+			'OIDS' => 212,
+			'AFTER' => 214,
+			'DISABLE' => 216,
+			'CSV' => 215,
+			'VACUUM' => 217,
+			'SCHEMA' => 218,
+			'ROW' => 219,
+			'LC_COLLATE' => 220,
+			'FREEZE' => 221,
+			'INDEX' => 222,
+			'DEFINER' => 223,
+			'XMLPARSE' => 224,
+			'ADMIN' => 225,
+			'INCLUDING' => 226,
+			'OWNED' => 227,
+			'CROSS' => 228,
+			'INSTEAD' => 229,
+			'NATIONAL' => 230,
+			'EACH' => 231,
+			'TRUSTED' => 232,
+			'EXCLUSIVE' => 233,
+			'OWNER' => 234,
+			'CHARACTER' => 235,
+			'CASCADE' => 236,
+			'STATEMENT' => 237,
+			'ASSIGNMENT' => 238,
+			'MATCH' => 240,
+			'CLASS' => 241,
+			'DOUBLE' => 242,
+			'MOVE' => 243,
+			'TIME' => 244,
+			'NUMERIC' => 245,
+			'CURSOR' => 246,
+			'INLINE' => 247,
+			'ENCRYPTED' => 248,
+			'EXTENSION' => 249,
+			'CHAIN' => 250,
+			'RECURSIVE' => 251,
+			'VALIDATOR' => 252,
+			'XMLROOT' => 253,
+			'UQUOTED_IDENTIFIER' => 254,
+			'SUBSTRING' => 255,
+			'CASCADED' => 256,
+			'DISCARD' => 257,
+			'BETWEEN' => 258,
+			'ABORT' => 259,
+			'XMLATTRIBUTES' => 260,
+			'VALUES' => 261,
+			'BEFORE' => 263,
+			'TRUNCATE' => 264,
+			'ABSOLUTE' => 265,
+			'IDENTIFIER' => 266,
+			'SHOW' => 267,
+			'GREATEST' => 268,
+			'PLANS' => 269,
+			'PARTIAL' => 270,
+			'SEQUENCES' => 271,
+			'EXCLUDE' => 272,
+			'WHITESPACE' => 273,
+			'SECOND' => 275,
+			'HOUR' => 276,
+			'XMLFOREST' => 277,
+			'FOLLOWING' => 279,
+			'WRAPPER' => 280,
+			'LISTEN' => 281,
+			'VOLATILE' => 282,
+			'LANGUAGE' => 283,
+			'YEAR' => 284,
+			'STANDALONE' => 285,
+			'TEMP' => 286,
+			'COPY' => 287,
+			'WITHOUT' => 288,
+			'OPTIONS' => 289,
+			'YES' => 290,
+			'PROCEDURAL' => 291,
+			'SEQUENCE' => 292,
+			'LIKE' => 293,
+			'SIMPLE' => 294,
+			'IDENTITY' => 295,
+			'QUOTE' => 296,
+			'POSITION' => 297,
+			'DOMAIN' => 298,
+			'EXECUTE' => 299,
+			'UNKNOWN' => 300,
+			'CONTENT' => 301,
+			'QUOTED_IDENTIFIER' => 302,
+			'SERVER' => 303,
+			'RELATIVE' => 304,
+			'TRANSACTION' => 305,
+			'CONFIGURATION' => 306,
+			'NAMES' => 307,
+			'PARSER' => 308,
+			'RENAME' => 309,
+			'ALTER' => 312,
+			'CURRENT' => 311,
+			'RIGHT' => 310,
+			'IMPLICIT' => 313,
+			'CLUSTER' => 315,
+			'NATURAL' => 316,
+			'XMLCONCAT' => 317,
+			'PASSWORD' => 318,
+			'CHAR' => 319,
+			'RECHECK' => 320,
+			'PREPARED' => 322,
+			'NEXT' => 321,
+			'TEMPORARY' => 323,
+			'COMMITTED' => 324,
+			'GRANTED' => 326,
+			'BIT' => 325,
+			'NOTIFY' => 328,
+			'BEGIN' => 327,
+			'HEADER' => 329,
+			'INTERVAL' => 330,
+			'LC_CTYPE' => 331,
+			'NAME' => 332,
+			'STORAGE' => 335,
+			'FUNCTIONS' => 334,
+			'ISOLATION' => 333,
+			'STDIN' => 336,
+			'RESTRICT' => 337,
+			'UNCOMMITTED' => 341,
+			'CYCLE' => 340,
+			'IS' => 339,
+			'TRIM' => 338,
+			'MAXVALUE' => 342,
+			'START' => 343,
+			'SAVEPOINT' => 346,
+			'DOCUMENT' => 345,
+			'IF' => 344,
+			'ROWS' => 347,
+			'MINVALUE' => 349,
+			'LAST' => 348,
+			'KEY' => 350,
+			'UNTIL' => 352,
+			'OPERATOR' => 351,
+			'HOLD' => 353,
+			'ACTION' => 354,
+			'WRITE' => 355,
+			'ROLE' => 356,
+			'NOTNULL' => 357,
+			'SESSION' => 358,
+			'CONVERSION' => 359,
+			'DATABASE' => 361,
+			'ENUM' => 360,
+			'ENABLE' => 362,
+			'LOCAL' => 363,
+			'NONE' => 364,
+			'VALID' => 367,
+			'TABLES' => 366,
+			'INT' => 365,
+			'TRIGGER' => 369,
+			'COLLATION' => 370,
+			'UNENCRYPTED' => 371,
+			'OVERLAY' => 372,
+			'FIRST' => 374,
+			'COALESCE' => 373,
+			'VERSION' => 375
+		},
+		GOTOS => {
+			'time_type' => 179,
+			'keywords_reserved_ok_for_functions_or_types' => 108,
+			'base_interval_type' => 368,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 274,
+			'normal_type' => 65,
+			'interval_type' => 314,
+			'identifier' => 102,
+			'timestamp_type' => 262,
+			'simple_type' => 239,
+			'keywords_notreserved' => 278
 		}
 	},
 	{#State 28
@@ -1742,11 +1809,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 371,
+			'expr' => 376,
 			'expr_simple' => 10
 		}
 	},
@@ -1760,11 +1828,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 372,
+			'expr' => 377,
 			'expr_simple' => 10
 		}
 	},
@@ -1778,11 +1847,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 373,
+			'expr' => 378,
 			'expr_simple' => 10
 		}
 	},
@@ -1796,11 +1866,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 374,
+			'expr' => 379,
 			'expr_simple' => 10
 		}
 	},
@@ -1814,11 +1885,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 375,
+			'expr' => 380,
 			'expr_simple' => 10
 		}
 	},
@@ -1832,11 +1904,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 376,
+			'expr' => 381,
 			'expr_simple' => 10
 		}
 	},
@@ -1850,11 +1923,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 377,
+			'expr' => 382,
 			'expr_simple' => 10
 		}
 	},
@@ -1868,11 +1942,12 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 378,
+			'expr' => 383,
 			'expr_simple' => 10
 		}
 	},
@@ -1886,19 +1961,40 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 379,
+			'expr' => 384,
 			'expr_simple' => 10
 		}
 	},
 	{#State 37
 		ACTIONS => {
+			'BITSTRING_CONSTANT' => 9,
+			'XBITSTRING_CONSTANT' => 8,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
+			'INTEGER_CONSTANT' => 21
+		},
+		GOTOS => {
+			'literal_value' => 13,
+			'expr' => 385,
+			'expr_simple' => 10
+		}
+	},
+	{#State 38
+		ACTIONS => {
 			'STRING_CONSTANT' => 14,
 			'USTRING_CONSTANT' => 12,
 			'NUMERIC_CONSTANT' => 16,
+			'CAST' => 22,
 			'XBITSTRING_CONSTANT' => 8,
 			'BITSTRING_CONSTANT' => 9,
 			"(" => 15,
@@ -1908,270 +2004,270 @@ sub new {
 		DEFAULT => -13,
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 380,
+			'expr' => 386,
 			'expr_simple' => 10
 		}
 	},
-	{#State 38
+	{#State 39
 		ACTIONS => {
-			'VACUUM' => 214,
-			'INPUT' => 46,
-			'SYSID' => 45,
-			'REPLACE' => 48,
-			'SERIALIZABLE' => 47,
-			'SCHEMA' => 215,
-			'AT' => 50,
-			'INSENSITIVE' => 49,
-			'RETURNS' => 51,
-			'LC_COLLATE' => 217,
-			'INDEX' => 219,
-			'DEFINER' => 220,
-			'INVOKER' => 53,
-			'WORK' => 54,
-			'ADMIN' => 222,
-			'INCLUDING' => 223,
-			'OWNED' => 224,
-			'PASSING' => 55,
-			'INSTEAD' => 226,
-			'MODE' => 56,
-			'INHERITS' => 58,
-			'VALUE' => 59,
-			'ESCAPE' => 60,
-			'DROP' => 61,
-			'MONTH' => 62,
-			'EACH' => 228,
-			'ENCODING' => 64,
-			'TRUSTED' => 229,
-			'EXCLUSIVE' => 230,
-			'OWNER' => 231,
-			'TEMPLATE' => 65,
-			'DICTIONARY' => 66,
-			'SEARCH' => 67,
-			'PREPARE' => 68,
-			'LOCK' => 69,
-			'DEFAULTS' => 70,
-			'CASCADE' => 233,
-			'STATEMENT' => 234,
-			'BY' => 73,
-			'NO' => 74,
-			'MINUTE' => 75,
-			'ASSIGNMENT' => 235,
-			'RANGE' => 76,
-			'PARTITION' => 77,
-			'DAY' => 78,
-			'DATA' => 79,
-			'SHARE' => 81,
-			'REF' => 82,
-			'MATCH' => 237,
-			'CLASS' => 238,
-			'DOUBLE' => 239,
-			'MOVE' => 240,
-			'LARGE' => 85,
-			'DELETE' => 86,
-			'CURSOR' => 243,
-			'INLINE' => 244,
-			'CONNECTION' => 88,
-			'BACKWARD' => 90,
-			'CLOSE' => 89,
-			'COST' => 91,
-			'ENCRYPTED' => 245,
-			'EXTENSION' => 246,
-			'REPLICA' => 92,
-			'CHAIN' => 247,
-			'RECURSIVE' => 248,
-			'PRIVILEGES' => 93,
-			'VALIDATOR' => 249,
-			'UQUOTED_IDENTIFIER' => 251,
-			'ZONE' => 94,
-			'CASCADED' => 253,
-			'DISCARD' => 254,
-			'STATISTICS' => 96,
-			'CALLED' => 98,
-			'SECURITY' => 99,
-			'ABORT' => 256,
-			'INCREMENT' => 101,
-			'LEVEL' => 103,
-			'FORCE' => 104,
-			'BEFORE' => 259,
-			'TRUNCATE' => 260,
-			'IDENTIFIER' => 261,
-			'ABSOLUTE' => 262,
-			'SHOW' => 263,
-			'PLANS' => 265,
-			'PARTIAL' => 266,
-			'SEQUENCES' => 267,
-			'EXCLUDE' => 268,
-			'UPDATE' => 107,
-			'PRESERVE' => 108,
-			'SECOND' => 270,
-			'WHITESPACE' => 271,
-			'CHARACTERISTICS' => 110,
-			'VALIDATE' => 111,
-			'STRICT' => 112,
-			'HOUR' => 272,
-			'VARYING' => 113,
-			'FOLLOWING' => 275,
-			'LISTEN' => 276,
-			'WRAPPER' => 277,
-			'REASSIGN' => 115,
-			'VOLATILE' => 278,
-			'LANGUAGE' => 279,
-			'STANDALONE' => 281,
-			'TEMP' => 282,
-			'YEAR' => 280,
-			'ROLLBACK' => 116,
-			'LABEL' => 117,
-			'COPY' => 283,
-			'WITHOUT' => 284,
-			'OBJECT' => 118,
-			'PROCEDURE' => 120,
-			'DELIMITERS' => 121,
-			'RULE' => 122,
-			'OPTIONS' => 285,
-			'INSERT' => 123,
-			'PROCEDURAL' => 287,
-			'YES' => 286,
-			'HANDLER' => 124,
-			'SEQUENCE' => 288,
-			'SIMPLE' => 290,
-			'LOCATION' => 126,
-			'IMMUTABLE' => 127,
-			'RELEASE' => 129,
-			'NULLS' => 130,
-			'TYPE' => 131,
-			'IDENTITY' => 291,
-			'QUOTE' => 292,
-			'RESET' => 132,
-			'NOWAIT' => 133,
-			'DOMAIN' => 294,
-			'EXECUTE' => 295,
-			'PRIOR' => 134,
-			'UNKNOWN' => 296,
-			'OFF' => 137,
-			'SET' => 139,
-			'IMMEDIATE' => 141,
-			'COMMENT' => 140,
-			'DELIMITER' => 142,
-			'CONTENT' => 297,
-			'QUOTED_IDENTIFIER' => 298,
-			'REINDEX' => 146,
-			'SERVER' => 299,
-			'ACCESS' => 148,
-			'RELATIVE' => 300,
-			'TRANSACTION' => 301,
-			'OPTION' => 149,
-			'COMMENTS' => 150,
-			'CONFIGURATION' => 302,
-			'NAMES' => 303,
-			'DEALLOCATE' => 152,
-			'PARSER' => 304,
-			'RENAME' => 305,
-			'CATALOG' => 153,
-			'ALTER' => 308,
-			'CURRENT' => 307,
-			'RESTART' => 155,
-			'MAPPING' => 156,
-			'OF' => 157,
-			'IMPLICIT' => 309,
-			'UNLOGGED' => 158,
-			'CONTINUE' => 159,
-			'CLUSTER' => 310,
-			'UNBOUNDED' => 161,
-			'READ' => 162,
-			'PRECEDING' => 164,
-			'STABLE' => 165,
-			'PASSWORD' => 313,
-			'RECHECK' => 315,
-			'NEXT' => 316,
-			'PREPARED' => 317,
-			'XML' => 168,
-			'TEMPORARY' => 318,
-			'COMMITTED' => 319,
-			'SCROLL' => 169,
-			'TEXT' => 170,
-			'GRANTED' => 321,
-			'BEGIN' => 322,
-			'NOTIFY' => 323,
-			'FUNCTION' => 172,
-			'ALSO' => 171,
-			'HEADER' => 324,
-			'SYSTEM' => 173,
-			'AGGREGATE' => 174,
-			'ATTRIBUTE' => 176,
-			'LC_CTYPE' => 326,
-			'NAME' => 327,
-			'ADD' => 177,
-			'STRIP' => 178,
-			'TABLESPACE' => 179,
-			'FUNCTIONS' => 329,
-			'ISOLATION' => 328,
-			'STORAGE' => 330,
-			'STDIN' => 331,
-			'VIEW' => 181,
-			'DEFERRED' => 182,
-			'REPEATABLE' => 183,
-			'RESTRICT' => 332,
-			'CYCLE' => 335,
-			'UNCOMMITTED' => 336,
-			'ALWAYS' => 184,
-			'MAXVALUE' => 337,
-			'FORWARD' => 186,
-			'CONSTRAINTS' => 185,
-			'START' => 338,
-			'NOTHING' => 187,
-			'DOCUMENT' => 340,
-			'IF' => 339,
-			'SAVEPOINT' => 341,
-			'EXCLUDING' => 188,
-			'ROWS' => 342,
-			'LAST' => 343,
-			'MINVALUE' => 344,
-			'INDEXES' => 191,
-			'CHECKPOINT' => 190,
-			'KEY' => 345,
-			'CACHE' => 192,
-			'OPERATOR' => 346,
-			'UNTIL' => 347,
-			'HOLD' => 348,
-			'COMMIT' => 193,
-			'DECLARE' => 194,
-			'ACTION' => 349,
-			'UNLISTEN' => 195,
-			'WRITE' => 350,
-			'LOAD' => 196,
-			'ROLE' => 351,
-			'SESSION' => 353,
-			'FAMILY' => 197,
-			'CONVERSION' => 354,
-			'DATABASE' => 356,
-			'ENUM' => 355,
-			'ASSERTION' => 199,
-			'GLOBAL' => 201,
-			'EXTERNAL' => 202,
-			'ENABLE' => 357,
-			'LOCAL' => 358,
-			'STDOUT' => 204,
-			'REVOKE' => 205,
-			'TABLES' => 361,
-			'VALID' => 362,
-			'INHERIT' => 206,
-			'TRIGGER' => 363,
-			'COLLATION' => 364,
-			'EXPLAIN' => 208,
-			'UNENCRYPTED' => 365,
-			'OIDS' => 209,
-			'FIRST' => 368,
-			'AFTER' => 211,
-			'DISABLE' => 213,
-			'CSV' => 212,
-			'VERSION' => 369
+			'VACUUM' => 217,
+			'INPUT' => 48,
+			'SYSID' => 47,
+			'REPLACE' => 50,
+			'SERIALIZABLE' => 49,
+			'SCHEMA' => 218,
+			'AT' => 52,
+			'INSENSITIVE' => 51,
+			'RETURNS' => 53,
+			'LC_COLLATE' => 220,
+			'INDEX' => 222,
+			'DEFINER' => 223,
+			'INVOKER' => 55,
+			'WORK' => 56,
+			'ADMIN' => 225,
+			'INCLUDING' => 226,
+			'OWNED' => 227,
+			'PASSING' => 57,
+			'INSTEAD' => 229,
+			'MODE' => 58,
+			'INHERITS' => 60,
+			'VALUE' => 61,
+			'ESCAPE' => 62,
+			'DROP' => 63,
+			'MONTH' => 64,
+			'EACH' => 231,
+			'ENCODING' => 66,
+			'TRUSTED' => 232,
+			'EXCLUSIVE' => 233,
+			'OWNER' => 234,
+			'TEMPLATE' => 67,
+			'DICTIONARY' => 68,
+			'SEARCH' => 69,
+			'PREPARE' => 70,
+			'LOCK' => 71,
+			'DEFAULTS' => 72,
+			'CASCADE' => 236,
+			'STATEMENT' => 237,
+			'BY' => 75,
+			'NO' => 76,
+			'MINUTE' => 77,
+			'ASSIGNMENT' => 238,
+			'RANGE' => 78,
+			'PARTITION' => 79,
+			'DAY' => 80,
+			'DATA' => 81,
+			'SHARE' => 83,
+			'REF' => 84,
+			'MATCH' => 240,
+			'CLASS' => 241,
+			'DOUBLE' => 242,
+			'MOVE' => 243,
+			'LARGE' => 87,
+			'DELETE' => 88,
+			'CURSOR' => 246,
+			'INLINE' => 247,
+			'CONNECTION' => 90,
+			'BACKWARD' => 92,
+			'CLOSE' => 91,
+			'COST' => 93,
+			'ENCRYPTED' => 248,
+			'EXTENSION' => 249,
+			'REPLICA' => 94,
+			'CHAIN' => 250,
+			'RECURSIVE' => 251,
+			'PRIVILEGES' => 95,
+			'VALIDATOR' => 252,
+			'UQUOTED_IDENTIFIER' => 254,
+			'ZONE' => 96,
+			'CASCADED' => 256,
+			'DISCARD' => 257,
+			'STATISTICS' => 98,
+			'CALLED' => 100,
+			'SECURITY' => 101,
+			'ABORT' => 259,
+			'INCREMENT' => 103,
+			'LEVEL' => 105,
+			'FORCE' => 106,
+			'BEFORE' => 263,
+			'TRUNCATE' => 264,
+			'IDENTIFIER' => 266,
+			'ABSOLUTE' => 265,
+			'SHOW' => 267,
+			'PLANS' => 269,
+			'PARTIAL' => 270,
+			'SEQUENCES' => 271,
+			'EXCLUDE' => 272,
+			'UPDATE' => 109,
+			'PRESERVE' => 110,
+			'SECOND' => 275,
+			'WHITESPACE' => 273,
+			'CHARACTERISTICS' => 112,
+			'VALIDATE' => 113,
+			'STRICT' => 114,
+			'HOUR' => 276,
+			'VARYING' => 115,
+			'FOLLOWING' => 279,
+			'LISTEN' => 281,
+			'WRAPPER' => 280,
+			'REASSIGN' => 117,
+			'VOLATILE' => 282,
+			'LANGUAGE' => 283,
+			'STANDALONE' => 285,
+			'TEMP' => 286,
+			'YEAR' => 284,
+			'ROLLBACK' => 118,
+			'LABEL' => 119,
+			'COPY' => 287,
+			'WITHOUT' => 288,
+			'OBJECT' => 120,
+			'PROCEDURE' => 121,
+			'DELIMITERS' => 122,
+			'RULE' => 124,
+			'OPTIONS' => 289,
+			'INSERT' => 125,
+			'PROCEDURAL' => 291,
+			'YES' => 290,
+			'HANDLER' => 126,
+			'SEQUENCE' => 292,
+			'SIMPLE' => 294,
+			'LOCATION' => 128,
+			'IMMUTABLE' => 129,
+			'RELEASE' => 131,
+			'NULLS' => 132,
+			'TYPE' => 133,
+			'IDENTITY' => 295,
+			'QUOTE' => 296,
+			'RESET' => 134,
+			'NOWAIT' => 135,
+			'DOMAIN' => 298,
+			'EXECUTE' => 299,
+			'PRIOR' => 136,
+			'UNKNOWN' => 300,
+			'OFF' => 139,
+			'SET' => 141,
+			'IMMEDIATE' => 143,
+			'COMMENT' => 142,
+			'DELIMITER' => 144,
+			'CONTENT' => 301,
+			'QUOTED_IDENTIFIER' => 302,
+			'REINDEX' => 148,
+			'SERVER' => 303,
+			'ACCESS' => 150,
+			'RELATIVE' => 304,
+			'TRANSACTION' => 305,
+			'OPTION' => 151,
+			'COMMENTS' => 152,
+			'CONFIGURATION' => 306,
+			'NAMES' => 307,
+			'DEALLOCATE' => 154,
+			'PARSER' => 308,
+			'RENAME' => 309,
+			'CATALOG' => 155,
+			'ALTER' => 312,
+			'CURRENT' => 311,
+			'RESTART' => 157,
+			'MAPPING' => 158,
+			'OF' => 159,
+			'IMPLICIT' => 313,
+			'UNLOGGED' => 160,
+			'CONTINUE' => 161,
+			'CLUSTER' => 315,
+			'UNBOUNDED' => 163,
+			'READ' => 164,
+			'PRECEDING' => 166,
+			'STABLE' => 167,
+			'PASSWORD' => 318,
+			'RECHECK' => 320,
+			'NEXT' => 321,
+			'PREPARED' => 322,
+			'XML' => 170,
+			'TEMPORARY' => 323,
+			'COMMITTED' => 324,
+			'SCROLL' => 171,
+			'TEXT' => 172,
+			'GRANTED' => 326,
+			'BEGIN' => 327,
+			'NOTIFY' => 328,
+			'FUNCTION' => 174,
+			'ALSO' => 173,
+			'HEADER' => 329,
+			'SYSTEM' => 175,
+			'AGGREGATE' => 176,
+			'ATTRIBUTE' => 178,
+			'LC_CTYPE' => 331,
+			'NAME' => 332,
+			'ADD' => 180,
+			'STRIP' => 181,
+			'TABLESPACE' => 182,
+			'FUNCTIONS' => 334,
+			'ISOLATION' => 333,
+			'STORAGE' => 335,
+			'STDIN' => 336,
+			'VIEW' => 184,
+			'DEFERRED' => 185,
+			'REPEATABLE' => 186,
+			'RESTRICT' => 337,
+			'CYCLE' => 340,
+			'UNCOMMITTED' => 341,
+			'ALWAYS' => 187,
+			'MAXVALUE' => 342,
+			'FORWARD' => 189,
+			'CONSTRAINTS' => 188,
+			'START' => 343,
+			'NOTHING' => 190,
+			'DOCUMENT' => 345,
+			'IF' => 344,
+			'SAVEPOINT' => 346,
+			'EXCLUDING' => 191,
+			'ROWS' => 347,
+			'LAST' => 348,
+			'MINVALUE' => 349,
+			'INDEXES' => 194,
+			'CHECKPOINT' => 193,
+			'KEY' => 350,
+			'CACHE' => 195,
+			'OPERATOR' => 351,
+			'UNTIL' => 352,
+			'HOLD' => 353,
+			'COMMIT' => 196,
+			'DECLARE' => 197,
+			'ACTION' => 354,
+			'UNLISTEN' => 198,
+			'WRITE' => 355,
+			'LOAD' => 199,
+			'ROLE' => 356,
+			'SESSION' => 358,
+			'FAMILY' => 200,
+			'CONVERSION' => 359,
+			'DATABASE' => 361,
+			'ENUM' => 360,
+			'ASSERTION' => 202,
+			'GLOBAL' => 204,
+			'EXTERNAL' => 205,
+			'ENABLE' => 362,
+			'LOCAL' => 363,
+			'STDOUT' => 207,
+			'REVOKE' => 208,
+			'TABLES' => 366,
+			'VALID' => 367,
+			'INHERIT' => 209,
+			'TRIGGER' => 369,
+			'COLLATION' => 370,
+			'EXPLAIN' => 211,
+			'UNENCRYPTED' => 371,
+			'OIDS' => 212,
+			'FIRST' => 374,
+			'AFTER' => 214,
+			'DISABLE' => 216,
+			'CSV' => 215,
+			'VERSION' => 375
 		},
 		GOTOS => {
-			'identifier' => 381,
-			'keywords_notreserved' => 274
+			'identifier' => 387,
+			'keywords_notreserved' => 278
 		}
 	},
-	{#State 39
+	{#State 40
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
@@ -2181,1529 +2277,1678 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 382,
+			'expr' => 388,
 			'expr_simple' => 10
 		}
 	},
-	{#State 40
+	{#State 41
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			"%" => 32,
-			"^" => 35,
-			"*" => 36,
-			"/" => 31
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			"%" => 33,
+			"^" => 36,
+			"*" => 37,
+			"/" => 32
 		},
 		DEFAULT => -14
 	},
-	{#State 41
-		DEFAULT => -8
-	},
 	{#State 42
-		DEFAULT => -29
+		ACTIONS => {
+			'BITSTRING_CONSTANT' => 9,
+			'XBITSTRING_CONSTANT' => 8,
+			'STRING_CONSTANT' => 14,
+			'USTRING_CONSTANT' => 12,
+			"(" => 15,
+			'ESTRING_CONSTANT' => 17,
+			'NUMERIC_CONSTANT' => 16,
+			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
+			'INTEGER_CONSTANT' => 21
+		},
+		GOTOS => {
+			'literal_value' => 13,
+			'expr' => 389,
+			'expr_simple' => 10
+		}
 	},
 	{#State 43
+		DEFAULT => -8
+	},
+	{#State 44
+		DEFAULT => -30
+	},
+	{#State 45
 		ACTIONS => {
-			"::" => 26,
-			"%" => 32,
-			"^" => 35,
-			"*" => 36,
-			"/" => 31
+			"::" => 27,
+			"%" => 33,
+			"^" => 36,
+			"*" => 37,
+			"/" => 32
 		},
 		DEFAULT => -16
 	},
-	{#State 44
-		DEFAULT => -310
-	},
-	{#State 45
-		DEFAULT => -260
-	},
 	{#State 46
-		DEFAULT => -154
-	},
-	{#State 47
-		DEFAULT => -243
-	},
-	{#State 48
-		DEFAULT => -224
-	},
-	{#State 49
-		DEFAULT => -155
-	},
-	{#State 50
-		DEFAULT => -64
-	},
-	{#State 51
-		DEFAULT => -229
-	},
-	{#State 52
-		DEFAULT => -340
-	},
-	{#State 53
-		DEFAULT => -158
-	},
-	{#State 54
-		DEFAULT => -292
-	},
-	{#State 55
-		DEFAULT => -201
-	},
-	{#State 56
-		DEFAULT => -178
-	},
-	{#State 57
-		DEFAULT => -336
-	},
-	{#State 58
-		DEFAULT => -152
-	},
-	{#State 59
-		DEFAULT => -285
-	},
-	{#State 60
-		DEFAULT => -121
-	},
-	{#State 61
-		DEFAULT => -115
-	},
-	{#State 62
-		DEFAULT => -179
-	},
-	{#State 63
-		DEFAULT => -27
-	},
-	{#State 64
-		DEFAULT => -118
-	},
-	{#State 65
-		DEFAULT => -265
-	},
-	{#State 66
-		DEFAULT => -109
-	},
-	{#State 67
-		DEFAULT => -238
-	},
-	{#State 68
-		DEFAULT => -205
-	},
-	{#State 69
-		DEFAULT => -172
-	},
-	{#State 70
-		DEFAULT => -103
-	},
-	{#State 71
-		DEFAULT => -305
-	},
-	{#State 72
-		DEFAULT => -355
-	},
-	{#State 73
-		DEFAULT => -69
-	},
-	{#State 74
-		DEFAULT => -184
-	},
-	{#State 75
-		DEFAULT => -176
-	},
-	{#State 76
-		DEFAULT => -213
-	},
-	{#State 77
-		DEFAULT => -200
-	},
-	{#State 78
-		DEFAULT => -100
-	},
-	{#State 79
-		DEFAULT => -98
-	},
-	{#State 80
-		DEFAULT => -348
-	},
-	{#State 81
-		DEFAULT => -247
-	},
-	{#State 82
-		DEFAULT => -218
-	},
-	{#State 83
-		DEFAULT => -316
-	},
-	{#State 84
-		DEFAULT => -303
-	},
-	{#State 85
-		DEFAULT => -163
-	},
-	{#State 86
-		DEFAULT => -106
-	},
-	{#State 87
-		DEFAULT => -342
-	},
-	{#State 88
-		DEFAULT => -87
-	},
-	{#State 89
-		DEFAULT => -79
-	},
-	{#State 90
-		DEFAULT => -66
-	},
-	{#State 91
-		DEFAULT => -93
-	},
-	{#State 92
-		DEFAULT => -225
-	},
-	{#State 93
-		DEFAULT => -209
-	},
-	{#State 94
-		DEFAULT => -298
-	},
-	{#State 95
-		DEFAULT => -338
-	},
-	{#State 96
-		DEFAULT => -254
-	},
-	{#State 97
-		DEFAULT => -309
-	},
-	{#State 98
-		DEFAULT => -71
-	},
-	{#State 99
-		DEFAULT => -240
-	},
-	{#State 100
-		ACTIONS => {
-			"." => 383
-		},
-		DEFAULT => -43
-	},
-	{#State 101
-		DEFAULT => -148
-	},
-	{#State 102
-		DEFAULT => -300
-	},
-	{#State 103
-		DEFAULT => -167
-	},
-	{#State 104
-		DEFAULT => -132
-	},
-	{#State 105
-		DEFAULT => -301
-	},
-	{#State 106
-		DEFAULT => -44
-	},
-	{#State 107
-		DEFAULT => -280
-	},
-	{#State 108
-		DEFAULT => -207
-	},
-	{#State 109
-		DEFAULT => -365
-	},
-	{#State 110
-		DEFAULT => -76
-	},
-	{#State 111
-		DEFAULT => -283
-	},
-	{#State 112
-		DEFAULT => -258
-	},
-	{#State 113
-		DEFAULT => -286
-	},
-	{#State 114
-		DEFAULT => -299
-	},
-	{#State 115
-		DEFAULT => -215
-	},
-	{#State 116
-		DEFAULT => -232
-	},
-	{#State 117
-		DEFAULT => -161
-	},
-	{#State 118
-		DEFAULT => -189
-	},
-	{#State 119
-		DEFAULT => -354
-	},
-	{#State 120
-		DEFAULT => -211
-	},
-	{#State 121
-		DEFAULT => -108
-	},
-	{#State 122
-		DEFAULT => -234
-	},
-	{#State 123
-		DEFAULT => -156
-	},
-	{#State 124
-		DEFAULT => -138
-	},
-	{#State 125
-		DEFAULT => -330
-	},
-	{#State 126
-		DEFAULT => -171
-	},
-	{#State 127
-		DEFAULT => -145
-	},
-	{#State 128
-		DEFAULT => -324
-	},
-	{#State 129
-		DEFAULT => -221
-	},
-	{#State 130
-		DEFAULT => -188
-	},
-	{#State 131
-		DEFAULT => -272
-	},
-	{#State 132
-		DEFAULT => -226
-	},
-	{#State 133
-		DEFAULT => -187
-	},
-	{#State 134
-		DEFAULT => -208
-	},
-	{#State 135
-		DEFAULT => -367
-	},
-	{#State 136
-		DEFAULT => -322
-	},
-	{#State 137
-		DEFAULT => -191
-	},
-	{#State 138
-		DEFAULT => -320
-	},
-	{#State 139
-		DEFAULT => -246
-	},
-	{#State 140
-		DEFAULT => -82
-	},
-	{#State 141
-		DEFAULT => -144
-	},
-	{#State 142
-		DEFAULT => -107
-	},
-	{#State 143
-		DEFAULT => -350
-	},
-	{#State 144
-		DEFAULT => -307
-	},
-	{#State 145
-		DEFAULT => -331
-	},
-	{#State 146
-		DEFAULT => -219
-	},
-	{#State 147
-		DEFAULT => -347
-	},
-	{#State 148
-		DEFAULT => -53
-	},
-	{#State 149
-		DEFAULT => -194
-	},
-	{#State 150
-		DEFAULT => -83
-	},
-	{#State 151
-		DEFAULT => -334
-	},
-	{#State 152
-		DEFAULT => -101
-	},
-	{#State 153
-		DEFAULT => -74
-	},
-	{#State 154
 		DEFAULT => -344
 	},
-	{#State 155
-		DEFAULT => -227
+	{#State 47
+		DEFAULT => -294
 	},
-	{#State 156
-		DEFAULT => -173
+	{#State 48
+		DEFAULT => -188
 	},
-	{#State 157
-		DEFAULT => -190
-	},
-	{#State 158
-		DEFAULT => -278
-	},
-	{#State 159
-		DEFAULT => -90
-	},
-	{#State 160
-		DEFAULT => -362
-	},
-	{#State 161
-		DEFAULT => -273
-	},
-	{#State 162
-		DEFAULT => -214
-	},
-	{#State 163
-		DEFAULT => -311
-	},
-	{#State 164
-		DEFAULT => -204
-	},
-	{#State 165
-		DEFAULT => -250
-	},
-	{#State 166
-		DEFAULT => -328
-	},
-	{#State 167
-		DEFAULT => -361
-	},
-	{#State 168
-		DEFAULT => -295
-	},
-	{#State 169
-		DEFAULT => -237
-	},
-	{#State 170
-		DEFAULT => -267
-	},
-	{#State 171
-		DEFAULT => -59
-	},
-	{#State 172
-		DEFAULT => -134
-	},
-	{#State 173
-		DEFAULT => -261
-	},
-	{#State 174
-		DEFAULT => -58
-	},
-	{#State 175
-		DEFAULT => -332
-	},
-	{#State 176
-		DEFAULT => -65
-	},
-	{#State 177
-		DEFAULT => -55
-	},
-	{#State 178
-		DEFAULT => -259
-	},
-	{#State 179
-		DEFAULT => -263
-	},
-	{#State 180
-		DEFAULT => -317
-	},
-	{#State 181
-		DEFAULT => -288
-	},
-	{#State 182
-		DEFAULT => -104
-	},
-	{#State 183
-		DEFAULT => -223
-	},
-	{#State 184
-		DEFAULT => -61
-	},
-	{#State 185
-		DEFAULT => -88
-	},
-	{#State 186
-		DEFAULT => -133
-	},
-	{#State 187
-		DEFAULT => -185
-	},
-	{#State 188
-		DEFAULT => -123
-	},
-	{#State 189
-		ACTIONS => {
-			"(" => 384
-		},
-		DEFAULT => -329
-	},
-	{#State 190
-		DEFAULT => -77
-	},
-	{#State 191
-		DEFAULT => -150
-	},
-	{#State 192
-		DEFAULT => -70
-	},
-	{#State 193
-		DEFAULT => -84
-	},
-	{#State 194
-		DEFAULT => -102
-	},
-	{#State 195
+	{#State 49
 		DEFAULT => -277
 	},
-	{#State 196
-		DEFAULT => -169
+	{#State 50
+		DEFAULT => -258
 	},
-	{#State 197
-		DEFAULT => -129
+	{#State 51
+		DEFAULT => -189
 	},
-	{#State 198
-		DEFAULT => -351
+	{#State 52
+		DEFAULT => -98
 	},
-	{#State 199
-		DEFAULT => -62
+	{#State 53
+		DEFAULT => -263
 	},
-	{#State 200
-		DEFAULT => -306
+	{#State 54
+		DEFAULT => -374
 	},
-	{#State 201
-		DEFAULT => -136
-	},
-	{#State 202
-		DEFAULT => -128
-	},
-	{#State 203
-		DEFAULT => -319
-	},
-	{#State 204
-		DEFAULT => -256
-	},
-	{#State 205
-		DEFAULT => -230
-	},
-	{#State 206
-		DEFAULT => -151
-	},
-	{#State 207
-		DEFAULT => -315
-	},
-	{#State 208
-		DEFAULT => -126
-	},
-	{#State 209
+	{#State 55
 		DEFAULT => -192
 	},
-	{#State 210
-		ACTIONS => {
-			"(" => 385
-		},
-		DEFAULT => -358
-	},
-	{#State 211
-		DEFAULT => -57
-	},
-	{#State 212
-		DEFAULT => -94
-	},
-	{#State 213
-		DEFAULT => -110
-	},
-	{#State 214
-		DEFAULT => -281
-	},
-	{#State 215
-		DEFAULT => -236
-	},
-	{#State 216
-		DEFAULT => -349
-	},
-	{#State 217
-		DEFAULT => -165
-	},
-	{#State 218
-		DEFAULT => -304
-	},
-	{#State 219
-		DEFAULT => -149
-	},
-	{#State 220
-		DEFAULT => -105
-	},
-	{#State 221
-		DEFAULT => -364
-	},
-	{#State 222
-		DEFAULT => -56
-	},
-	{#State 223
-		DEFAULT => -147
-	},
-	{#State 224
-		DEFAULT => -196
-	},
-	{#State 225
-		DEFAULT => -302
-	},
-	{#State 226
-		DEFAULT => -157
-	},
-	{#State 227
-		DEFAULT => -339
-	},
-	{#State 228
-		DEFAULT => -116
-	},
-	{#State 229
-		DEFAULT => -271
-	},
-	{#State 230
-		DEFAULT => -124
-	},
-	{#State 231
-		DEFAULT => -197
-	},
-	{#State 232
+	{#State 56
 		DEFAULT => -326
 	},
-	{#State 233
-		DEFAULT => -72
+	{#State 57
+		DEFAULT => -235
 	},
-	{#State 234
-		DEFAULT => -253
+	{#State 58
+		DEFAULT => -212
 	},
-	{#State 235
-		DEFAULT => -63
+	{#State 59
+		DEFAULT => -370
 	},
-	{#State 236
-		DEFAULT => -41
+	{#State 60
+		DEFAULT => -186
 	},
-	{#State 237
-		DEFAULT => -174
+	{#State 61
+		DEFAULT => -319
 	},
-	{#State 238
-		DEFAULT => -78
+	{#State 62
+		DEFAULT => -155
 	},
-	{#State 239
-		DEFAULT => -114
+	{#State 63
+		DEFAULT => -149
 	},
-	{#State 240
-		DEFAULT => -180
+	{#State 64
+		DEFAULT => -213
 	},
-	{#State 241
-		DEFAULT => -353
+	{#State 65
+		DEFAULT => -27
 	},
-	{#State 242
-		ACTIONS => {
-			"(" => 386
-		},
-		DEFAULT => -343
+	{#State 66
+		DEFAULT => -152
 	},
-	{#State 243
-		DEFAULT => -96
+	{#State 67
+		DEFAULT => -299
 	},
-	{#State 244
-		DEFAULT => -153
+	{#State 68
+		DEFAULT => -143
 	},
-	{#State 245
-		DEFAULT => -119
+	{#State 69
+		DEFAULT => -272
 	},
-	{#State 246
+	{#State 70
+		DEFAULT => -239
+	},
+	{#State 71
+		DEFAULT => -206
+	},
+	{#State 72
+		DEFAULT => -137
+	},
+	{#State 73
+		DEFAULT => -339
+	},
+	{#State 74
+		DEFAULT => -389
+	},
+	{#State 75
+		DEFAULT => -103
+	},
+	{#State 76
+		DEFAULT => -218
+	},
+	{#State 77
+		DEFAULT => -210
+	},
+	{#State 78
+		DEFAULT => -247
+	},
+	{#State 79
+		DEFAULT => -234
+	},
+	{#State 80
+		DEFAULT => -134
+	},
+	{#State 81
+		DEFAULT => -132
+	},
+	{#State 82
+		DEFAULT => -382
+	},
+	{#State 83
+		DEFAULT => -281
+	},
+	{#State 84
+		DEFAULT => -252
+	},
+	{#State 85
+		DEFAULT => -350
+	},
+	{#State 86
+		DEFAULT => -337
+	},
+	{#State 87
+		DEFAULT => -197
+	},
+	{#State 88
+		DEFAULT => -140
+	},
+	{#State 89
+		DEFAULT => -376
+	},
+	{#State 90
+		DEFAULT => -121
+	},
+	{#State 91
+		DEFAULT => -113
+	},
+	{#State 92
+		DEFAULT => -100
+	},
+	{#State 93
 		DEFAULT => -127
 	},
-	{#State 247
-		DEFAULT => -75
+	{#State 94
+		DEFAULT => -259
 	},
-	{#State 248
-		DEFAULT => -217
+	{#State 95
+		DEFAULT => -243
 	},
-	{#State 249
+	{#State 96
+		DEFAULT => -332
+	},
+	{#State 97
+		DEFAULT => -372
+	},
+	{#State 98
+		DEFAULT => -288
+	},
+	{#State 99
+		DEFAULT => -343
+	},
+	{#State 100
+		DEFAULT => -105
+	},
+	{#State 101
+		DEFAULT => -274
+	},
+	{#State 102
+		ACTIONS => {
+			"." => 390
+		},
+		DEFAULT => -44
+	},
+	{#State 103
+		DEFAULT => -182
+	},
+	{#State 104
+		DEFAULT => -334
+	},
+	{#State 105
+		DEFAULT => -201
+	},
+	{#State 106
+		DEFAULT => -166
+	},
+	{#State 107
+		DEFAULT => -335
+	},
+	{#State 108
+		DEFAULT => -45
+	},
+	{#State 109
+		DEFAULT => -314
+	},
+	{#State 110
+		DEFAULT => -241
+	},
+	{#State 111
+		DEFAULT => -399
+	},
+	{#State 112
+		DEFAULT => -110
+	},
+	{#State 113
+		DEFAULT => -317
+	},
+	{#State 114
+		DEFAULT => -292
+	},
+	{#State 115
+		DEFAULT => -320
+	},
+	{#State 116
+		DEFAULT => -333
+	},
+	{#State 117
+		DEFAULT => -249
+	},
+	{#State 118
+		DEFAULT => -266
+	},
+	{#State 119
+		DEFAULT => -195
+	},
+	{#State 120
+		DEFAULT => -223
+	},
+	{#State 121
+		DEFAULT => -245
+	},
+	{#State 122
+		DEFAULT => -142
+	},
+	{#State 123
+		ACTIONS => {
+			'WITHOUT' => 393,
+			'WITH' => 392,
+			"(" => 391
+		},
+		DEFAULT => -388
+	},
+	{#State 124
+		DEFAULT => -268
+	},
+	{#State 125
+		DEFAULT => -190
+	},
+	{#State 126
+		DEFAULT => -172
+	},
+	{#State 127
+		DEFAULT => -364
+	},
+	{#State 128
+		DEFAULT => -205
+	},
+	{#State 129
+		DEFAULT => -179
+	},
+	{#State 130
+		DEFAULT => -358
+	},
+	{#State 131
+		DEFAULT => -255
+	},
+	{#State 132
+		DEFAULT => -222
+	},
+	{#State 133
+		DEFAULT => -306
+	},
+	{#State 134
+		DEFAULT => -260
+	},
+	{#State 135
+		DEFAULT => -221
+	},
+	{#State 136
+		DEFAULT => -242
+	},
+	{#State 137
+		DEFAULT => -401
+	},
+	{#State 138
+		DEFAULT => -356
+	},
+	{#State 139
+		DEFAULT => -225
+	},
+	{#State 140
+		DEFAULT => -354
+	},
+	{#State 141
+		DEFAULT => -280
+	},
+	{#State 142
+		DEFAULT => -116
+	},
+	{#State 143
+		DEFAULT => -178
+	},
+	{#State 144
+		DEFAULT => -141
+	},
+	{#State 145
+		DEFAULT => -384
+	},
+	{#State 146
+		DEFAULT => -341
+	},
+	{#State 147
+		DEFAULT => -365
+	},
+	{#State 148
+		DEFAULT => -253
+	},
+	{#State 149
+		DEFAULT => -381
+	},
+	{#State 150
+		DEFAULT => -87
+	},
+	{#State 151
+		DEFAULT => -228
+	},
+	{#State 152
+		DEFAULT => -117
+	},
+	{#State 153
+		DEFAULT => -368
+	},
+	{#State 154
+		DEFAULT => -135
+	},
+	{#State 155
+		DEFAULT => -108
+	},
+	{#State 156
+		DEFAULT => -378
+	},
+	{#State 157
+		DEFAULT => -261
+	},
+	{#State 158
+		DEFAULT => -207
+	},
+	{#State 159
+		DEFAULT => -224
+	},
+	{#State 160
+		DEFAULT => -312
+	},
+	{#State 161
+		DEFAULT => -124
+	},
+	{#State 162
+		DEFAULT => -396
+	},
+	{#State 163
+		DEFAULT => -307
+	},
+	{#State 164
+		DEFAULT => -248
+	},
+	{#State 165
+		DEFAULT => -345
+	},
+	{#State 166
+		DEFAULT => -238
+	},
+	{#State 167
 		DEFAULT => -284
 	},
-	{#State 250
+	{#State 168
+		DEFAULT => -362
+	},
+	{#State 169
+		DEFAULT => -395
+	},
+	{#State 170
+		DEFAULT => -329
+	},
+	{#State 171
+		DEFAULT => -271
+	},
+	{#State 172
+		DEFAULT => -301
+	},
+	{#State 173
+		DEFAULT => -93
+	},
+	{#State 174
+		DEFAULT => -168
+	},
+	{#State 175
+		DEFAULT => -295
+	},
+	{#State 176
+		DEFAULT => -92
+	},
+	{#State 177
 		DEFAULT => -366
 	},
-	{#State 251
-		DEFAULT => -38
+	{#State 178
+		DEFAULT => -99
 	},
-	{#State 252
-		DEFAULT => -352
+	{#State 179
+		DEFAULT => -53
 	},
-	{#State 253
-		DEFAULT => -73
+	{#State 180
+		DEFAULT => -89
 	},
-	{#State 254
+	{#State 181
+		DEFAULT => -293
+	},
+	{#State 182
+		DEFAULT => -297
+	},
+	{#State 183
+		DEFAULT => -351
+	},
+	{#State 184
+		DEFAULT => -322
+	},
+	{#State 185
+		DEFAULT => -138
+	},
+	{#State 186
+		DEFAULT => -257
+	},
+	{#State 187
+		DEFAULT => -95
+	},
+	{#State 188
+		DEFAULT => -122
+	},
+	{#State 189
+		DEFAULT => -167
+	},
+	{#State 190
+		DEFAULT => -219
+	},
+	{#State 191
+		DEFAULT => -157
+	},
+	{#State 192
+		ACTIONS => {
+			"(" => 394
+		},
+		DEFAULT => -363
+	},
+	{#State 193
 		DEFAULT => -111
 	},
-	{#State 255
-		DEFAULT => -321
+	{#State 194
+		DEFAULT => -184
 	},
-	{#State 256
-		DEFAULT => -51
+	{#State 195
+		DEFAULT => -104
 	},
-	{#State 257
-		DEFAULT => -359
+	{#State 196
+		DEFAULT => -118
 	},
-	{#State 258
-		DEFAULT => -357
+	{#State 197
+		DEFAULT => -136
 	},
-	{#State 259
-		DEFAULT => -67
+	{#State 198
+		DEFAULT => -311
 	},
-	{#State 260
+	{#State 199
+		DEFAULT => -203
+	},
+	{#State 200
+		DEFAULT => -163
+	},
+	{#State 201
+		DEFAULT => -385
+	},
+	{#State 202
+		DEFAULT => -96
+	},
+	{#State 203
+		DEFAULT => -340
+	},
+	{#State 204
+		DEFAULT => -170
+	},
+	{#State 205
+		DEFAULT => -162
+	},
+	{#State 206
+		DEFAULT => -353
+	},
+	{#State 207
+		DEFAULT => -290
+	},
+	{#State 208
+		DEFAULT => -264
+	},
+	{#State 209
+		DEFAULT => -185
+	},
+	{#State 210
+		DEFAULT => -349
+	},
+	{#State 211
+		DEFAULT => -160
+	},
+	{#State 212
+		DEFAULT => -226
+	},
+	{#State 213
+		ACTIONS => {
+			"(" => 395
+		},
+		DEFAULT => -392
+	},
+	{#State 214
+		DEFAULT => -91
+	},
+	{#State 215
+		DEFAULT => -128
+	},
+	{#State 216
+		DEFAULT => -144
+	},
+	{#State 217
+		DEFAULT => -315
+	},
+	{#State 218
 		DEFAULT => -270
 	},
-	{#State 261
+	{#State 219
+		DEFAULT => -383
+	},
+	{#State 220
+		DEFAULT => -199
+	},
+	{#State 221
+		DEFAULT => -338
+	},
+	{#State 222
+		DEFAULT => -183
+	},
+	{#State 223
+		DEFAULT => -139
+	},
+	{#State 224
+		DEFAULT => -398
+	},
+	{#State 225
+		DEFAULT => -90
+	},
+	{#State 226
+		DEFAULT => -181
+	},
+	{#State 227
+		DEFAULT => -230
+	},
+	{#State 228
+		DEFAULT => -336
+	},
+	{#State 229
+		DEFAULT => -191
+	},
+	{#State 230
+		DEFAULT => -373
+	},
+	{#State 231
+		DEFAULT => -150
+	},
+	{#State 232
+		DEFAULT => -305
+	},
+	{#State 233
+		DEFAULT => -158
+	},
+	{#State 234
+		DEFAULT => -231
+	},
+	{#State 235
+		DEFAULT => -360
+	},
+	{#State 236
+		DEFAULT => -106
+	},
+	{#State 237
+		DEFAULT => -287
+	},
+	{#State 238
+		DEFAULT => -97
+	},
+	{#State 239
+		DEFAULT => -42
+	},
+	{#State 240
+		DEFAULT => -208
+	},
+	{#State 241
+		DEFAULT => -112
+	},
+	{#State 242
+		DEFAULT => -148
+	},
+	{#State 243
+		DEFAULT => -214
+	},
+	{#State 244
+		ACTIONS => {
+			'WITHOUT' => 398,
+			'WITH' => 397,
+			"(" => 396
+		},
+		DEFAULT => -387
+	},
+	{#State 245
+		ACTIONS => {
+			"(" => 399
+		},
+		DEFAULT => -377
+	},
+	{#State 246
+		DEFAULT => -130
+	},
+	{#State 247
+		DEFAULT => -187
+	},
+	{#State 248
+		DEFAULT => -153
+	},
+	{#State 249
+		DEFAULT => -161
+	},
+	{#State 250
+		DEFAULT => -109
+	},
+	{#State 251
+		DEFAULT => -251
+	},
+	{#State 252
+		DEFAULT => -318
+	},
+	{#State 253
+		DEFAULT => -400
+	},
+	{#State 254
 		DEFAULT => -39
+	},
+	{#State 255
+		DEFAULT => -386
+	},
+	{#State 256
+		DEFAULT => -107
+	},
+	{#State 257
+		DEFAULT => -145
+	},
+	{#State 258
+		DEFAULT => -355
+	},
+	{#State 259
+		DEFAULT => -85
+	},
+	{#State 260
+		DEFAULT => -393
+	},
+	{#State 261
+		DEFAULT => -391
 	},
 	{#State 262
 		DEFAULT => -52
 	},
 	{#State 263
-		DEFAULT => -248
+		DEFAULT => -101
 	},
 	{#State 264
-		DEFAULT => -333
+		DEFAULT => -304
 	},
 	{#State 265
-		DEFAULT => -203
+		DEFAULT => -86
 	},
 	{#State 266
-		DEFAULT => -199
-	},
-	{#State 267
-		DEFAULT => -242
-	},
-	{#State 268
-		DEFAULT => -122
-	},
-	{#State 269
-		DEFAULT => -45
-	},
-	{#State 270
-		DEFAULT => -239
-	},
-	{#State 271
-		DEFAULT => -290
-	},
-	{#State 272
-		DEFAULT => -141
-	},
-	{#State 273
-		DEFAULT => -363
-	},
-	{#State 274
 		DEFAULT => -40
 	},
+	{#State 267
+		DEFAULT => -282
+	},
+	{#State 268
+		DEFAULT => -367
+	},
+	{#State 269
+		DEFAULT => -237
+	},
+	{#State 270
+		DEFAULT => -233
+	},
+	{#State 271
+		DEFAULT => -276
+	},
+	{#State 272
+		DEFAULT => -156
+	},
+	{#State 273
+		DEFAULT => -324
+	},
+	{#State 274
+		DEFAULT => -46
+	},
 	{#State 275
-		DEFAULT => -131
+		DEFAULT => -273
 	},
 	{#State 276
-		DEFAULT => -168
+		DEFAULT => -175
 	},
 	{#State 277
-		DEFAULT => -293
+		DEFAULT => -397
 	},
 	{#State 278
-		DEFAULT => -289
+		DEFAULT => -41
 	},
 	{#State 279
-		DEFAULT => -162
+		DEFAULT => -165
 	},
 	{#State 280
-		DEFAULT => -296
+		DEFAULT => -327
 	},
 	{#State 281
-		DEFAULT => -251
+		DEFAULT => -202
 	},
 	{#State 282
-		DEFAULT => -264
+		DEFAULT => -323
 	},
 	{#State 283
-		DEFAULT => -92
+		DEFAULT => -196
 	},
 	{#State 284
-		DEFAULT => -291
+		DEFAULT => -330
 	},
 	{#State 285
-		DEFAULT => -195
+		DEFAULT => -285
 	},
 	{#State 286
-		DEFAULT => -297
+		DEFAULT => -298
 	},
 	{#State 287
-		DEFAULT => -210
+		DEFAULT => -126
 	},
 	{#State 288
-		DEFAULT => -241
+		DEFAULT => -325
 	},
 	{#State 289
-		DEFAULT => -312
+		DEFAULT => -229
 	},
 	{#State 290
-		DEFAULT => -249
+		DEFAULT => -331
 	},
 	{#State 291
-		DEFAULT => -142
+		DEFAULT => -244
 	},
 	{#State 292
-		DEFAULT => -212
+		DEFAULT => -275
 	},
 	{#State 293
 		DEFAULT => -346
 	},
 	{#State 294
-		DEFAULT => -113
+		DEFAULT => -283
 	},
 	{#State 295
-		DEFAULT => -125
+		DEFAULT => -176
 	},
 	{#State 296
-		DEFAULT => -276
+		DEFAULT => -246
 	},
 	{#State 297
-		DEFAULT => -89
+		DEFAULT => -380
 	},
 	{#State 298
-		DEFAULT => -37
+		DEFAULT => -147
 	},
 	{#State 299
-		DEFAULT => -244
-	},
-	{#State 300
-		DEFAULT => -220
-	},
-	{#State 301
-		DEFAULT => -268
-	},
-	{#State 302
-		DEFAULT => -86
-	},
-	{#State 303
-		DEFAULT => -182
-	},
-	{#State 304
-		DEFAULT => -198
-	},
-	{#State 305
-		DEFAULT => -222
-	},
-	{#State 306
-		DEFAULT => -318
-	},
-	{#State 307
-		DEFAULT => -95
-	},
-	{#State 308
-		DEFAULT => -60
-	},
-	{#State 309
-		DEFAULT => -146
-	},
-	{#State 310
-		DEFAULT => -80
-	},
-	{#State 311
-		DEFAULT => -313
-	},
-	{#State 312
-		DEFAULT => -360
-	},
-	{#State 313
-		DEFAULT => -202
-	},
-	{#State 314
-		DEFAULT => -325
-	},
-	{#State 315
-		DEFAULT => -216
-	},
-	{#State 316
-		DEFAULT => -183
-	},
-	{#State 317
-		DEFAULT => -206
-	},
-	{#State 318
-		DEFAULT => -266
-	},
-	{#State 319
-		DEFAULT => -85
-	},
-	{#State 320
-		DEFAULT => -323
-	},
-	{#State 321
-		DEFAULT => -137
-	},
-	{#State 322
-		DEFAULT => -68
-	},
-	{#State 323
-		DEFAULT => -186
-	},
-	{#State 324
-		DEFAULT => -139
-	},
-	{#State 325
-		DEFAULT => -337
-	},
-	{#State 326
-		DEFAULT => -166
-	},
-	{#State 327
-		DEFAULT => -181
-	},
-	{#State 328
 		DEFAULT => -159
 	},
+	{#State 300
+		DEFAULT => -310
+	},
+	{#State 301
+		DEFAULT => -123
+	},
+	{#State 302
+		DEFAULT => -38
+	},
+	{#State 303
+		DEFAULT => -278
+	},
+	{#State 304
+		DEFAULT => -254
+	},
+	{#State 305
+		DEFAULT => -302
+	},
+	{#State 306
+		DEFAULT => -120
+	},
+	{#State 307
+		DEFAULT => -216
+	},
+	{#State 308
+		DEFAULT => -232
+	},
+	{#State 309
+		DEFAULT => -256
+	},
+	{#State 310
+		DEFAULT => -352
+	},
+	{#State 311
+		DEFAULT => -129
+	},
+	{#State 312
+		DEFAULT => -94
+	},
+	{#State 313
+		DEFAULT => -180
+	},
+	{#State 314
+		DEFAULT => -54
+	},
+	{#State 315
+		DEFAULT => -114
+	},
+	{#State 316
+		DEFAULT => -347
+	},
+	{#State 317
+		DEFAULT => -394
+	},
+	{#State 318
+		DEFAULT => -236
+	},
+	{#State 319
+		DEFAULT => -359
+	},
+	{#State 320
+		DEFAULT => -250
+	},
+	{#State 321
+		DEFAULT => -217
+	},
+	{#State 322
+		DEFAULT => -240
+	},
+	{#State 323
+		DEFAULT => -300
+	},
+	{#State 324
+		DEFAULT => -119
+	},
+	{#State 325
+		DEFAULT => -357
+	},
+	{#State 326
+		DEFAULT => -171
+	},
+	{#State 327
+		DEFAULT => -102
+	},
+	{#State 328
+		DEFAULT => -220
+	},
 	{#State 329
-		DEFAULT => -135
+		DEFAULT => -173
 	},
 	{#State 330
-		DEFAULT => -257
+		ACTIONS => {
+			'YEAR' => -83,
+			'MINUTE' => -83,
+			'DAY' => -83,
+			'MONTH' => -83,
+			'SECOND' => -83,
+			"(" => 400,
+			'HOUR' => -83
+		},
+		DEFAULT => -371
 	},
 	{#State 331
-		DEFAULT => -255
+		DEFAULT => -200
 	},
 	{#State 332
-		DEFAULT => -228
+		DEFAULT => -215
 	},
 	{#State 333
-		DEFAULT => -356
+		DEFAULT => -193
 	},
 	{#State 334
-		DEFAULT => -308
+		DEFAULT => -169
 	},
 	{#State 335
-		DEFAULT => -97
+		DEFAULT => -291
 	},
 	{#State 336
-		DEFAULT => -274
+		DEFAULT => -289
 	},
 	{#State 337
-		DEFAULT => -175
+		DEFAULT => -262
 	},
 	{#State 338
-		DEFAULT => -252
+		DEFAULT => -390
 	},
 	{#State 339
-		DEFAULT => -143
+		DEFAULT => -342
 	},
 	{#State 340
-		DEFAULT => -112
+		DEFAULT => -131
 	},
 	{#State 341
-		DEFAULT => -235
+		DEFAULT => -308
 	},
 	{#State 342
-		DEFAULT => -233
+		DEFAULT => -209
 	},
 	{#State 343
-		DEFAULT => -164
+		DEFAULT => -286
 	},
 	{#State 344
 		DEFAULT => -177
 	},
 	{#State 345
-		DEFAULT => -160
+		DEFAULT => -146
 	},
 	{#State 346
-		DEFAULT => -193
-	},
-	{#State 347
-		DEFAULT => -279
-	},
-	{#State 348
-		DEFAULT => -140
-	},
-	{#State 349
-		DEFAULT => -54
-	},
-	{#State 350
-		DEFAULT => -294
-	},
-	{#State 351
-		DEFAULT => -231
-	},
-	{#State 352
-		DEFAULT => -314
-	},
-	{#State 353
-		DEFAULT => -245
-	},
-	{#State 354
-		DEFAULT => -91
-	},
-	{#State 355
-		DEFAULT => -120
-	},
-	{#State 356
-		DEFAULT => -99
-	},
-	{#State 357
-		DEFAULT => -117
-	},
-	{#State 358
-		DEFAULT => -170
-	},
-	{#State 359
-		DEFAULT => -341
-	},
-	{#State 360
-		DEFAULT => -335
-	},
-	{#State 361
-		DEFAULT => -262
-	},
-	{#State 362
-		DEFAULT => -282
-	},
-	{#State 363
 		DEFAULT => -269
 	},
+	{#State 347
+		DEFAULT => -267
+	},
+	{#State 348
+		DEFAULT => -198
+	},
+	{#State 349
+		DEFAULT => -211
+	},
+	{#State 350
+		DEFAULT => -194
+	},
+	{#State 351
+		DEFAULT => -227
+	},
+	{#State 352
+		DEFAULT => -313
+	},
+	{#State 353
+		DEFAULT => -174
+	},
+	{#State 354
+		DEFAULT => -88
+	},
+	{#State 355
+		DEFAULT => -328
+	},
+	{#State 356
+		DEFAULT => -265
+	},
+	{#State 357
+		DEFAULT => -348
+	},
+	{#State 358
+		DEFAULT => -279
+	},
+	{#State 359
+		DEFAULT => -125
+	},
+	{#State 360
+		DEFAULT => -154
+	},
+	{#State 361
+		DEFAULT => -133
+	},
+	{#State 362
+		DEFAULT => -151
+	},
+	{#State 363
+		DEFAULT => -204
+	},
 	{#State 364
-		DEFAULT => -81
+		DEFAULT => -375
 	},
 	{#State 365
-		DEFAULT => -275
+		DEFAULT => -369
 	},
 	{#State 366
-		DEFAULT => -345
+		DEFAULT => -296
 	},
 	{#State 367
-		DEFAULT => -327
+		DEFAULT => -316
 	},
 	{#State 368
-		DEFAULT => -130
+		ACTIONS => {
+			'YEAR' => 406,
+			'MINUTE' => 402,
+			'HOUR' => 405,
+			'MONTH' => 401,
+			'DAY' => 403,
+			'SECOND' => 404
+		}
 	},
 	{#State 369
-		DEFAULT => -287
+		DEFAULT => -303
 	},
 	{#State 370
-		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			"/" => 31
-		},
-		DEFAULT => -24
+		DEFAULT => -115
 	},
 	{#State 371
-		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			'LIKE' => 27,
-			"/" => 31
-		},
-		DEFAULT => -20
+		DEFAULT => -309
 	},
 	{#State 372
-		ACTIONS => {
-			"::" => 26,
-			"%" => 32,
-			"^" => 35,
-			"*" => 36,
-			"/" => 31
-		},
-		DEFAULT => -15
+		DEFAULT => -379
 	},
 	{#State 373
-		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			"/" => 31
-		},
-		DEFAULT => -25
+		DEFAULT => -361
 	},
 	{#State 374
-		ACTIONS => {
-			"::" => 26,
-			"^" => 35
-		},
-		DEFAULT => -19
+		DEFAULT => -164
 	},
 	{#State 375
-		ACTIONS => {
-			"::" => 26,
-			"^" => 35
-		},
-		DEFAULT => -18
+		DEFAULT => -321
 	},
 	{#State 376
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"<" => 28,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			'LIKE' => 27,
-			"/" => 31,
-			"=" => 33,
-			">" => 39
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			"/" => 32
 		},
-		DEFAULT => -22
+		DEFAULT => -24
 	},
 	{#State 377
 		ACTIONS => {
-			"-" => 25,
-			'LIKE' => 27,
-			"::" => 26,
-			"<" => 28,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			"/" => 31,
-			"=" => 33,
-			'AND' => 387,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			">" => 39
-		}
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			'LIKE' => 28,
+			"/" => 32
+		},
+		DEFAULT => -20
 	},
 	{#State 378
 		ACTIONS => {
-			"::" => 26
+			"::" => 27,
+			"%" => 33,
+			"^" => 36,
+			"*" => 37,
+			"/" => 32
 		},
-		DEFAULT => -23
+		DEFAULT => -15
 	},
 	{#State 379
 		ACTIONS => {
-			"::" => 26,
-			"^" => 35
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			"/" => 32
 		},
-		DEFAULT => -17
+		DEFAULT => -25
 	},
 	{#State 380
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			"%" => 32,
-			"^" => 35,
-			"*" => 36,
-			"/" => 31
+			"::" => 27,
+			"^" => 36
 		},
-		DEFAULT => -26
+		DEFAULT => -19
 	},
 	{#State 381
-		DEFAULT => -10
+		ACTIONS => {
+			"::" => 27,
+			"^" => 36
+		},
+		DEFAULT => -18
 	},
 	{#State 382
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			'LIKE' => 27,
-			"/" => 31
+			"-" => 26,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			'LIKE' => 28,
+			"/" => 32,
+			"=" => 34,
+			">" => 40
 		},
-		DEFAULT => -21
+		DEFAULT => -22
 	},
 	{#State 383
 		ACTIONS => {
-			'INPUT' => 46,
-			'SYSID' => 45,
-			'JOIN' => 44,
-			'REPLACE' => 48,
-			'SERIALIZABLE' => 47,
-			'AT' => 50,
-			'INSENSITIVE' => 49,
-			'RETURNS' => 51,
-			'NCHAR' => 52,
-			'INVOKER' => 53,
-			'WORK' => 54,
-			'PASSING' => 55,
-			'MODE' => 56,
-			'INTEGER' => 57,
-			'INHERITS' => 58,
-			'ESCAPE' => 60,
-			'VALUE' => 59,
-			'DROP' => 61,
-			'MONTH' => 62,
-			'ENCODING' => 64,
-			'TEMPLATE' => 65,
-			'DICTIONARY' => 66,
-			'SEARCH' => 67,
-			'PREPARE' => 68,
-			'LOCK' => 69,
-			'DEFAULTS' => 70,
-			'FULL' => 71,
-			'TREAT' => 72,
-			'BY' => 73,
-			'NO' => 74,
-			'MINUTE' => 75,
-			'DATA' => 79,
-			'DAY' => 78,
-			'PARTITION' => 77,
-			'RANGE' => 76,
-			'REF' => 82,
-			'SHARE' => 81,
-			'REAL' => 80,
-			'OVER' => 83,
-			'LARGE' => 85,
-			'CURRENT_SCHEMA' => 84,
-			'DELETE' => 86,
-			'NULLIF' => 87,
-			'CONNECTION' => 88,
-			'BACKWARD' => 90,
-			'CLOSE' => 89,
-			'COST' => 91,
-			'REPLICA' => 92,
-			'PRIVILEGES' => 93,
-			'ZONE' => 94,
-			'LEAST' => 95,
-			'STATISTICS' => 96,
-			'ISNULL' => 97,
-			'CALLED' => 98,
-			'SECURITY' => 99,
-			'INCREMENT' => 101,
-			'BINARY' => 102,
-			'LEVEL' => 103,
-			'FORCE' => 104,
-			'CONCURRENTLY' => 105,
-			'UPDATE' => 107,
-			'PRESERVE' => 108,
-			'XMLPI' => 109,
-			'CHARACTERISTICS' => 110,
-			'VALIDATE' => 111,
-			'STRICT' => 112,
-			'VARYING' => 113,
-			'AUTHORIZATION' => 114,
-			'REASSIGN' => 115,
-			'LABEL' => 117,
-			'ROLLBACK' => 116,
-			'OBJECT' => 118,
-			'DELIMITERS' => 121,
-			'PROCEDURE' => 120,
-			'TIMESTAMP' => 119,
-			'RULE' => 122,
-			'INSERT' => 123,
-			'HANDLER' => 124,
-			'LOCATION' => 126,
-			'EXISTS' => 125,
-			'IMMUTABLE' => 127,
-			'RELEASE' => 129,
-			'BOOLEAN' => 128,
-			'NULLS' => 130,
-			'TYPE' => 131,
-			'RESET' => 132,
-			'NOWAIT' => 133,
-			'PRIOR' => 134,
-			'OFF' => 137,
-			'BIGINT' => 136,
-			'XMLSERIALIZE' => 135,
-			'VERBOSE' => 138,
-			'SET' => 139,
-			'IMMEDIATE' => 141,
-			'COMMENT' => 140,
-			'DELIMITER' => 142,
-			'SETOF' => 143,
-			'INNER' => 144,
-			'EXTRACT' => 145,
-			'REINDEX' => 146,
-			'PRECISION' => 147,
-			'ACCESS' => 148,
-			'OPTION' => 149,
-			'COMMENTS' => 150,
-			'INOUT' => 151,
-			'DEALLOCATE' => 152,
-			'CATALOG' => 153,
-			'OUT' => 154,
-			'RESTART' => 155,
-			'MAPPING' => 156,
-			'OF' => 157,
-			'UNLOGGED' => 158,
-			'CONTINUE' => 159,
-			'XMLEXISTS' => 160,
-			'UNBOUNDED' => 161,
-			'READ' => 162,
-			'LEFT' => 163,
-			'PRECEDING' => 164,
-			'STABLE' => 165,
-			'DEC' => 166,
-			'XMLELEMENT' => 167,
-			'XML' => 168,
-			'SCROLL' => 169,
-			'TEXT' => 170,
-			'FUNCTION' => 172,
-			'ALSO' => 171,
-			'SYSTEM' => 173,
-			'AGGREGATE' => 174,
-			'FLOAT' => 175,
-			'ATTRIBUTE' => 176,
-			'ADD' => 177,
-			'STRIP' => 178,
-			'TABLESPACE' => 179,
-			'OVERLAPS' => 180,
-			'DEFERRED' => 182,
-			'VIEW' => 181,
-			'REPEATABLE' => 183,
-			'ALWAYS' => 184,
-			'CONSTRAINTS' => 185,
-			'FORWARD' => 186,
-			'NOTHING' => 187,
-			'EXCLUDING' => 188,
-			'DECIMAL' => 189,
-			'CHECKPOINT' => 190,
-			'INDEXES' => 191,
-			'CACHE' => 192,
-			'COMMIT' => 193,
-			'DECLARE' => 194,
-			'UNLISTEN' => 195,
-			'LOAD' => 196,
-			'FAMILY' => 197,
-			'SMALLINT' => 198,
-			'ASSERTION' => 199,
-			'ILIKE' => 200,
-			'GLOBAL' => 201,
-			'EXTERNAL' => 202,
-			'SIMILAR' => 203,
-			'STDOUT' => 204,
-			'REVOKE' => 205,
-			'INHERIT' => 206,
-			'OUTER' => 207,
-			'EXPLAIN' => 208,
-			'VARCHAR' => 210,
-			'OIDS' => 209,
-			'AFTER' => 211,
-			'CSV' => 212,
-			'DISABLE' => 213,
-			'VACUUM' => 214,
-			'SCHEMA' => 215,
-			'ROW' => 216,
-			'LC_COLLATE' => 217,
-			'FREEZE' => 218,
-			'INDEX' => 219,
-			'DEFINER' => 220,
-			'XMLPARSE' => 221,
-			'OWNED' => 224,
-			'INCLUDING' => 223,
-			'ADMIN' => 222,
-			'CROSS' => 225,
-			'INSTEAD' => 226,
-			'NATIONAL' => 227,
-			'EACH' => 228,
-			'TRUSTED' => 229,
-			'OWNER' => 231,
-			'EXCLUSIVE' => 230,
-			'CHARACTER' => 232,
-			'STATEMENT' => 234,
-			'CASCADE' => 233,
-			'ASSIGNMENT' => 235,
-			'MATCH' => 237,
-			'MOVE' => 240,
-			'DOUBLE' => 239,
-			'CLASS' => 238,
-			'TIME' => 241,
-			'NUMERIC' => 242,
-			'INLINE' => 244,
-			'CURSOR' => 243,
-			'EXTENSION' => 246,
-			'ENCRYPTED' => 245,
-			'CHAIN' => 247,
-			'RECURSIVE' => 248,
-			'VALIDATOR' => 249,
-			'XMLROOT' => 250,
-			'UQUOTED_IDENTIFIER' => 251,
-			'SUBSTRING' => 252,
-			'CASCADED' => 253,
-			'DISCARD' => 254,
-			'BETWEEN' => 255,
-			'ABORT' => 256,
-			'XMLATTRIBUTES' => 257,
-			'VALUES' => 258,
-			'TRUNCATE' => 260,
-			'BEFORE' => 259,
-			'SHOW' => 263,
-			'ABSOLUTE' => 262,
-			'IDENTIFIER' => 261,
-			'GREATEST' => 264,
-			'PLANS' => 265,
-			'PARTIAL' => 266,
-			'SEQUENCES' => 267,
-			'EXCLUDE' => 268,
-			'WHITESPACE' => 271,
-			'SECOND' => 270,
-			'HOUR' => 272,
-			'XMLFOREST' => 273,
-			'FOLLOWING' => 275,
-			'WRAPPER' => 277,
-			'LISTEN' => 276,
-			'VOLATILE' => 278,
-			'LANGUAGE' => 279,
-			'YEAR' => 280,
-			'TEMP' => 282,
-			'STANDALONE' => 281,
-			'COPY' => 283,
-			'WITHOUT' => 284,
-			'OPTIONS' => 285,
-			'YES' => 286,
-			'PROCEDURAL' => 287,
-			'SEQUENCE' => 288,
-			'LIKE' => 289,
-			'SIMPLE' => 290,
-			'QUOTE' => 292,
-			'IDENTITY' => 291,
-			'POSITION' => 293,
-			'EXECUTE' => 295,
-			'DOMAIN' => 294,
-			'UNKNOWN' => 296,
-			'CONTENT' => 297,
-			'QUOTED_IDENTIFIER' => 298,
-			'SERVER' => 299,
-			'RELATIVE' => 300,
-			'TRANSACTION' => 301,
-			'NAMES' => 303,
-			'CONFIGURATION' => 302,
-			'RENAME' => 305,
-			'PARSER' => 304,
-			'ALTER' => 308,
-			'CURRENT' => 307,
-			'RIGHT' => 306,
-			'IMPLICIT' => 309,
-			'CLUSTER' => 310,
-			'NATURAL' => 311,
-			'XMLCONCAT' => 312,
-			'PASSWORD' => 313,
-			'CHAR' => 314,
-			'RECHECK' => 315,
-			'NEXT' => 316,
-			'PREPARED' => 317,
-			'TEMPORARY' => 318,
-			'COMMITTED' => 319,
-			'GRANTED' => 321,
-			'BIT' => 320,
-			'BEGIN' => 322,
-			'NOTIFY' => 323,
-			'HEADER' => 324,
-			'INTERVAL' => 325,
-			'LC_CTYPE' => 326,
-			'NAME' => 327,
-			'FUNCTIONS' => 329,
-			'ISOLATION' => 328,
-			'STORAGE' => 330,
-			'STDIN' => 331,
-			'RESTRICT' => 332,
-			'CYCLE' => 335,
-			'UNCOMMITTED' => 336,
-			'IS' => 334,
-			'TRIM' => 333,
-			'MAXVALUE' => 337,
-			'START' => 338,
-			'DOCUMENT' => 340,
-			'IF' => 339,
-			'SAVEPOINT' => 341,
-			'ROWS' => 342,
-			'LAST' => 343,
-			'MINVALUE' => 344,
-			'KEY' => 345,
-			'OPERATOR' => 346,
-			'UNTIL' => 347,
-			'HOLD' => 348,
-			'ACTION' => 349,
-			'WRITE' => 350,
-			'ROLE' => 351,
-			'NOTNULL' => 352,
-			'SESSION' => 353,
-			'CONVERSION' => 354,
-			'DATABASE' => 356,
-			'ENUM' => 355,
-			'ENABLE' => 357,
-			'LOCAL' => 358,
-			'NONE' => 359,
-			'TABLES' => 361,
-			'VALID' => 362,
-			'INT' => 360,
-			'TRIGGER' => 363,
-			'COLLATION' => 364,
-			'UNENCRYPTED' => 365,
-			'OVERLAY' => 366,
-			'FIRST' => 368,
-			'COALESCE' => 367,
-			'VERSION' => 369
-		},
-		GOTOS => {
-			'identifier' => 388,
-			'keywords_reserved_ok_for_functions_or_types' => 106,
-			'simple_type' => 389,
-			'keywords_notreserved' => 274,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 269
+			"-" => 26,
+			'LIKE' => 28,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			"/" => 32,
+			"=" => 34,
+			'AND' => 407,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			">" => 40
 		}
 	},
 	{#State 384
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 390
-		}
+			"::" => 27
+		},
+		DEFAULT => -23
 	},
 	{#State 385
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 391
-		}
+			"::" => 27,
+			"^" => 36
+		},
+		DEFAULT => -17
 	},
 	{#State 386
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 392
-		}
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			"%" => 33,
+			"^" => 36,
+			"*" => 37,
+			"/" => 32
+		},
+		DEFAULT => -26
 	},
 	{#State 387
+		DEFAULT => -10
+	},
+	{#State 388
+		ACTIONS => {
+			"-" => 26,
+			"::" => 27,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			'LIKE' => 28,
+			"/" => 32
+		},
+		DEFAULT => -21
+	},
+	{#State 389
+		ACTIONS => {
+			"-" => 26,
+			'LIKE' => 28,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			"/" => 32,
+			"=" => 34,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			'AS' => 408,
+			">" => 40
+		}
+	},
+	{#State 390
+		ACTIONS => {
+			'INPUT' => 48,
+			'SYSID' => 47,
+			'JOIN' => 46,
+			'REPLACE' => 50,
+			'SERIALIZABLE' => 49,
+			'AT' => 52,
+			'INSENSITIVE' => 51,
+			'RETURNS' => 53,
+			'NCHAR' => 54,
+			'INVOKER' => 55,
+			'WORK' => 56,
+			'PASSING' => 57,
+			'MODE' => 58,
+			'INTEGER' => 59,
+			'INHERITS' => 60,
+			'ESCAPE' => 62,
+			'VALUE' => 61,
+			'DROP' => 63,
+			'MONTH' => 64,
+			'ENCODING' => 66,
+			'TEMPLATE' => 67,
+			'DICTIONARY' => 68,
+			'SEARCH' => 69,
+			'PREPARE' => 70,
+			'LOCK' => 71,
+			'DEFAULTS' => 72,
+			'FULL' => 73,
+			'TREAT' => 74,
+			'BY' => 75,
+			'NO' => 76,
+			'MINUTE' => 77,
+			'DATA' => 81,
+			'DAY' => 80,
+			'PARTITION' => 79,
+			'RANGE' => 78,
+			'REF' => 84,
+			'SHARE' => 83,
+			'REAL' => 82,
+			'OVER' => 85,
+			'LARGE' => 87,
+			'CURRENT_SCHEMA' => 86,
+			'DELETE' => 88,
+			'NULLIF' => 89,
+			'CONNECTION' => 90,
+			'BACKWARD' => 92,
+			'CLOSE' => 91,
+			'COST' => 93,
+			'REPLICA' => 94,
+			'PRIVILEGES' => 95,
+			'ZONE' => 96,
+			'LEAST' => 97,
+			'STATISTICS' => 98,
+			'ISNULL' => 99,
+			'CALLED' => 100,
+			'SECURITY' => 101,
+			'INCREMENT' => 103,
+			'BINARY' => 104,
+			'LEVEL' => 105,
+			'FORCE' => 106,
+			'CONCURRENTLY' => 107,
+			'UPDATE' => 109,
+			'PRESERVE' => 110,
+			'XMLPI' => 111,
+			'CHARACTERISTICS' => 112,
+			'VALIDATE' => 113,
+			'STRICT' => 114,
+			'VARYING' => 115,
+			'AUTHORIZATION' => 116,
+			'REASSIGN' => 117,
+			'LABEL' => 119,
+			'ROLLBACK' => 118,
+			'OBJECT' => 120,
+			'TIMESTAMP' => 123,
+			'DELIMITERS' => 122,
+			'PROCEDURE' => 121,
+			'RULE' => 124,
+			'INSERT' => 125,
+			'HANDLER' => 126,
+			'LOCATION' => 128,
+			'EXISTS' => 127,
+			'IMMUTABLE' => 129,
+			'RELEASE' => 131,
+			'BOOLEAN' => 130,
+			'NULLS' => 132,
+			'TYPE' => 133,
+			'RESET' => 134,
+			'NOWAIT' => 135,
+			'PRIOR' => 136,
+			'OFF' => 139,
+			'BIGINT' => 138,
+			'XMLSERIALIZE' => 137,
+			'VERBOSE' => 140,
+			'SET' => 141,
+			'IMMEDIATE' => 143,
+			'COMMENT' => 142,
+			'DELIMITER' => 144,
+			'SETOF' => 145,
+			'INNER' => 146,
+			'EXTRACT' => 147,
+			'REINDEX' => 148,
+			'PRECISION' => 149,
+			'ACCESS' => 150,
+			'OPTION' => 151,
+			'COMMENTS' => 152,
+			'INOUT' => 153,
+			'DEALLOCATE' => 154,
+			'CATALOG' => 155,
+			'OUT' => 156,
+			'RESTART' => 157,
+			'MAPPING' => 158,
+			'OF' => 159,
+			'UNLOGGED' => 160,
+			'CONTINUE' => 161,
+			'XMLEXISTS' => 162,
+			'UNBOUNDED' => 163,
+			'READ' => 164,
+			'LEFT' => 165,
+			'PRECEDING' => 166,
+			'STABLE' => 167,
+			'DEC' => 168,
+			'XMLELEMENT' => 169,
+			'XML' => 170,
+			'SCROLL' => 171,
+			'TEXT' => 172,
+			'FUNCTION' => 174,
+			'ALSO' => 173,
+			'SYSTEM' => 175,
+			'AGGREGATE' => 176,
+			'FLOAT' => 177,
+			'ATTRIBUTE' => 178,
+			'ADD' => 180,
+			'STRIP' => 181,
+			'TABLESPACE' => 182,
+			'OVERLAPS' => 183,
+			'DEFERRED' => 185,
+			'VIEW' => 184,
+			'REPEATABLE' => 186,
+			'ALWAYS' => 187,
+			'CONSTRAINTS' => 188,
+			'FORWARD' => 189,
+			'NOTHING' => 190,
+			'EXCLUDING' => 191,
+			'DECIMAL' => 192,
+			'CHECKPOINT' => 193,
+			'INDEXES' => 194,
+			'CACHE' => 195,
+			'COMMIT' => 196,
+			'DECLARE' => 197,
+			'UNLISTEN' => 198,
+			'LOAD' => 199,
+			'FAMILY' => 200,
+			'SMALLINT' => 201,
+			'ASSERTION' => 202,
+			'ILIKE' => 203,
+			'GLOBAL' => 204,
+			'EXTERNAL' => 205,
+			'SIMILAR' => 206,
+			'STDOUT' => 207,
+			'REVOKE' => 208,
+			'INHERIT' => 209,
+			'OUTER' => 210,
+			'EXPLAIN' => 211,
+			'VARCHAR' => 213,
+			'OIDS' => 212,
+			'AFTER' => 214,
+			'CSV' => 215,
+			'DISABLE' => 216,
+			'VACUUM' => 217,
+			'SCHEMA' => 218,
+			'ROW' => 219,
+			'LC_COLLATE' => 220,
+			'FREEZE' => 221,
+			'INDEX' => 222,
+			'DEFINER' => 223,
+			'XMLPARSE' => 224,
+			'OWNED' => 227,
+			'INCLUDING' => 226,
+			'ADMIN' => 225,
+			'CROSS' => 228,
+			'INSTEAD' => 229,
+			'NATIONAL' => 230,
+			'EACH' => 231,
+			'TRUSTED' => 232,
+			'OWNER' => 234,
+			'EXCLUSIVE' => 233,
+			'CHARACTER' => 235,
+			'STATEMENT' => 237,
+			'CASCADE' => 236,
+			'ASSIGNMENT' => 238,
+			'MATCH' => 240,
+			'MOVE' => 243,
+			'DOUBLE' => 242,
+			'CLASS' => 241,
+			'TIME' => 244,
+			'NUMERIC' => 245,
+			'INLINE' => 247,
+			'CURSOR' => 246,
+			'EXTENSION' => 249,
+			'ENCRYPTED' => 248,
+			'CHAIN' => 250,
+			'RECURSIVE' => 251,
+			'VALIDATOR' => 252,
+			'XMLROOT' => 253,
+			'UQUOTED_IDENTIFIER' => 254,
+			'SUBSTRING' => 255,
+			'CASCADED' => 256,
+			'DISCARD' => 257,
+			'BETWEEN' => 258,
+			'ABORT' => 259,
+			'XMLATTRIBUTES' => 260,
+			'VALUES' => 261,
+			'TRUNCATE' => 264,
+			'BEFORE' => 263,
+			'SHOW' => 267,
+			'ABSOLUTE' => 265,
+			'IDENTIFIER' => 266,
+			'GREATEST' => 268,
+			'PLANS' => 269,
+			'PARTIAL' => 270,
+			'SEQUENCES' => 271,
+			'EXCLUDE' => 272,
+			'WHITESPACE' => 273,
+			'SECOND' => 275,
+			'HOUR' => 276,
+			'XMLFOREST' => 277,
+			'FOLLOWING' => 279,
+			'WRAPPER' => 280,
+			'LISTEN' => 281,
+			'VOLATILE' => 282,
+			'LANGUAGE' => 283,
+			'YEAR' => 284,
+			'TEMP' => 286,
+			'STANDALONE' => 285,
+			'COPY' => 287,
+			'WITHOUT' => 288,
+			'OPTIONS' => 289,
+			'YES' => 290,
+			'PROCEDURAL' => 291,
+			'SEQUENCE' => 292,
+			'LIKE' => 293,
+			'SIMPLE' => 294,
+			'QUOTE' => 296,
+			'IDENTITY' => 295,
+			'POSITION' => 297,
+			'EXECUTE' => 299,
+			'DOMAIN' => 298,
+			'UNKNOWN' => 300,
+			'CONTENT' => 301,
+			'QUOTED_IDENTIFIER' => 302,
+			'SERVER' => 303,
+			'RELATIVE' => 304,
+			'TRANSACTION' => 305,
+			'NAMES' => 307,
+			'CONFIGURATION' => 306,
+			'RENAME' => 309,
+			'PARSER' => 308,
+			'ALTER' => 312,
+			'CURRENT' => 311,
+			'RIGHT' => 310,
+			'IMPLICIT' => 313,
+			'CLUSTER' => 315,
+			'NATURAL' => 316,
+			'XMLCONCAT' => 317,
+			'PASSWORD' => 318,
+			'CHAR' => 319,
+			'RECHECK' => 320,
+			'NEXT' => 321,
+			'PREPARED' => 322,
+			'TEMPORARY' => 323,
+			'COMMITTED' => 324,
+			'GRANTED' => 326,
+			'BIT' => 325,
+			'BEGIN' => 327,
+			'NOTIFY' => 328,
+			'HEADER' => 329,
+			'INTERVAL' => 330,
+			'LC_CTYPE' => 331,
+			'NAME' => 332,
+			'FUNCTIONS' => 334,
+			'ISOLATION' => 333,
+			'STORAGE' => 335,
+			'STDIN' => 336,
+			'RESTRICT' => 337,
+			'CYCLE' => 340,
+			'UNCOMMITTED' => 341,
+			'IS' => 339,
+			'TRIM' => 338,
+			'MAXVALUE' => 342,
+			'START' => 343,
+			'DOCUMENT' => 345,
+			'IF' => 344,
+			'SAVEPOINT' => 346,
+			'ROWS' => 347,
+			'LAST' => 348,
+			'MINVALUE' => 349,
+			'KEY' => 350,
+			'OPERATOR' => 351,
+			'UNTIL' => 352,
+			'HOLD' => 353,
+			'ACTION' => 354,
+			'WRITE' => 355,
+			'ROLE' => 356,
+			'NOTNULL' => 357,
+			'SESSION' => 358,
+			'CONVERSION' => 359,
+			'DATABASE' => 361,
+			'ENUM' => 360,
+			'ENABLE' => 362,
+			'LOCAL' => 363,
+			'NONE' => 364,
+			'TABLES' => 366,
+			'VALID' => 367,
+			'INT' => 365,
+			'TRIGGER' => 369,
+			'COLLATION' => 370,
+			'UNENCRYPTED' => 371,
+			'OVERLAY' => 372,
+			'FIRST' => 374,
+			'COALESCE' => 373,
+			'VERSION' => 375
+		},
+		GOTOS => {
+			'time_type' => 179,
+			'keywords_reserved_ok_for_functions_or_types' => 108,
+			'base_interval_type' => 368,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 274,
+			'interval_type' => 314,
+			'identifier' => 409,
+			'timestamp_type' => 262,
+			'simple_type' => 410,
+			'keywords_notreserved' => 278
+		}
+	},
+	{#State 391
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 411
+		}
+	},
+	{#State 392
+		ACTIONS => {
+			'TIME' => 412
+		}
+	},
+	{#State 393
+		ACTIONS => {
+			'TIME' => 413
+		}
+	},
+	{#State 394
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 414
+		}
+	},
+	{#State 395
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 415
+		}
+	},
+	{#State 396
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 416
+		}
+	},
+	{#State 397
+		ACTIONS => {
+			'TIME' => 417
+		}
+	},
+	{#State 398
+		ACTIONS => {
+			'TIME' => 418
+		}
+	},
+	{#State 399
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 419
+		}
+	},
+	{#State 400
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 420
+		}
+	},
+	{#State 401
+		DEFAULT => -67
+	},
+	{#State 402
+		ACTIONS => {
+			'TO' => 421
+		},
+		DEFAULT => -70
+	},
+	{#State 403
+		ACTIONS => {
+			'TO' => 422
+		},
+		DEFAULT => -68
+	},
+	{#State 404
+		ACTIONS => {
+			"(" => 423
+		},
+		DEFAULT => -71
+	},
+	{#State 405
+		ACTIONS => {
+			'TO' => 424
+		},
+		DEFAULT => -69
+	},
+	{#State 406
+		ACTIONS => {
+			'TO' => 425
+		},
+		DEFAULT => -66
+	},
+	{#State 407
 		ACTIONS => {
 			'BITSTRING_CONSTANT' => 9,
 			'XBITSTRING_CONSTANT' => 8,
@@ -3713,137 +3958,711 @@ sub new {
 			'ESTRING_CONSTANT' => 17,
 			'NUMERIC_CONSTANT' => 16,
 			'OPERATOR_NAME' => 19,
+			'CAST' => 22,
 			'INTEGER_CONSTANT' => 21
 		},
 		GOTOS => {
 			'literal_value' => 13,
-			'expr' => 393,
+			'expr' => 426,
 			'expr_simple' => 10
 		}
 	},
-	{#State 388
+	{#State 408
+		ACTIONS => {
+			'INPUT' => 48,
+			'SYSID' => 47,
+			'JOIN' => 46,
+			'REPLACE' => 50,
+			'SERIALIZABLE' => 49,
+			'AT' => 52,
+			'INSENSITIVE' => 51,
+			'RETURNS' => 53,
+			'NCHAR' => 54,
+			'INVOKER' => 55,
+			'WORK' => 56,
+			'PASSING' => 57,
+			'MODE' => 58,
+			'INTEGER' => 59,
+			'INHERITS' => 60,
+			'ESCAPE' => 62,
+			'VALUE' => 61,
+			'DROP' => 63,
+			'MONTH' => 64,
+			'ENCODING' => 66,
+			'TEMPLATE' => 67,
+			'DICTIONARY' => 68,
+			'SEARCH' => 69,
+			'PREPARE' => 70,
+			'LOCK' => 71,
+			'DEFAULTS' => 72,
+			'FULL' => 73,
+			'TREAT' => 74,
+			'BY' => 75,
+			'NO' => 76,
+			'MINUTE' => 77,
+			'DATA' => 81,
+			'DAY' => 80,
+			'PARTITION' => 79,
+			'RANGE' => 78,
+			'REF' => 84,
+			'SHARE' => 83,
+			'REAL' => 82,
+			'OVER' => 85,
+			'LARGE' => 87,
+			'CURRENT_SCHEMA' => 86,
+			'DELETE' => 88,
+			'NULLIF' => 89,
+			'CONNECTION' => 90,
+			'BACKWARD' => 92,
+			'CLOSE' => 91,
+			'COST' => 93,
+			'REPLICA' => 94,
+			'PRIVILEGES' => 95,
+			'ZONE' => 96,
+			'LEAST' => 97,
+			'STATISTICS' => 98,
+			'ISNULL' => 99,
+			'CALLED' => 100,
+			'SECURITY' => 101,
+			'INCREMENT' => 103,
+			'BINARY' => 104,
+			'LEVEL' => 105,
+			'FORCE' => 106,
+			'CONCURRENTLY' => 107,
+			'UPDATE' => 109,
+			'PRESERVE' => 110,
+			'XMLPI' => 111,
+			'CHARACTERISTICS' => 112,
+			'VALIDATE' => 113,
+			'STRICT' => 114,
+			'VARYING' => 115,
+			'AUTHORIZATION' => 116,
+			'REASSIGN' => 117,
+			'LABEL' => 119,
+			'ROLLBACK' => 118,
+			'OBJECT' => 120,
+			'TIMESTAMP' => 123,
+			'DELIMITERS' => 122,
+			'PROCEDURE' => 121,
+			'RULE' => 124,
+			'INSERT' => 125,
+			'HANDLER' => 126,
+			'LOCATION' => 128,
+			'EXISTS' => 127,
+			'IMMUTABLE' => 129,
+			'RELEASE' => 131,
+			'BOOLEAN' => 130,
+			'NULLS' => 132,
+			'TYPE' => 133,
+			'RESET' => 134,
+			'NOWAIT' => 135,
+			'PRIOR' => 136,
+			'OFF' => 139,
+			'BIGINT' => 138,
+			'XMLSERIALIZE' => 137,
+			'VERBOSE' => 140,
+			'SET' => 141,
+			'IMMEDIATE' => 143,
+			'COMMENT' => 142,
+			'DELIMITER' => 144,
+			'SETOF' => 145,
+			'INNER' => 146,
+			'EXTRACT' => 147,
+			'REINDEX' => 148,
+			'PRECISION' => 149,
+			'ACCESS' => 150,
+			'OPTION' => 151,
+			'COMMENTS' => 152,
+			'INOUT' => 153,
+			'DEALLOCATE' => 154,
+			'CATALOG' => 155,
+			'OUT' => 156,
+			'RESTART' => 157,
+			'MAPPING' => 158,
+			'OF' => 159,
+			'UNLOGGED' => 160,
+			'CONTINUE' => 161,
+			'XMLEXISTS' => 162,
+			'UNBOUNDED' => 163,
+			'READ' => 164,
+			'LEFT' => 165,
+			'PRECEDING' => 166,
+			'STABLE' => 167,
+			'DEC' => 168,
+			'XMLELEMENT' => 169,
+			'XML' => 170,
+			'SCROLL' => 171,
+			'TEXT' => 172,
+			'FUNCTION' => 174,
+			'ALSO' => 173,
+			'SYSTEM' => 175,
+			'AGGREGATE' => 176,
+			'FLOAT' => 177,
+			'ATTRIBUTE' => 178,
+			'ADD' => 180,
+			'STRIP' => 181,
+			'TABLESPACE' => 182,
+			'OVERLAPS' => 183,
+			'DEFERRED' => 185,
+			'VIEW' => 184,
+			'REPEATABLE' => 186,
+			'ALWAYS' => 187,
+			'CONSTRAINTS' => 188,
+			'FORWARD' => 189,
+			'NOTHING' => 190,
+			'EXCLUDING' => 191,
+			'DECIMAL' => 192,
+			'CHECKPOINT' => 193,
+			'INDEXES' => 194,
+			'CACHE' => 195,
+			'COMMIT' => 196,
+			'DECLARE' => 197,
+			'UNLISTEN' => 198,
+			'LOAD' => 199,
+			'FAMILY' => 200,
+			'SMALLINT' => 201,
+			'ASSERTION' => 202,
+			'ILIKE' => 203,
+			'GLOBAL' => 204,
+			'EXTERNAL' => 205,
+			'SIMILAR' => 206,
+			'STDOUT' => 207,
+			'REVOKE' => 208,
+			'INHERIT' => 209,
+			'OUTER' => 210,
+			'EXPLAIN' => 211,
+			'VARCHAR' => 213,
+			'OIDS' => 212,
+			'AFTER' => 214,
+			'CSV' => 215,
+			'DISABLE' => 216,
+			'VACUUM' => 217,
+			'SCHEMA' => 218,
+			'ROW' => 219,
+			'LC_COLLATE' => 220,
+			'FREEZE' => 221,
+			'INDEX' => 222,
+			'DEFINER' => 223,
+			'XMLPARSE' => 224,
+			'OWNED' => 227,
+			'INCLUDING' => 226,
+			'ADMIN' => 225,
+			'CROSS' => 228,
+			'INSTEAD' => 229,
+			'NATIONAL' => 230,
+			'EACH' => 231,
+			'TRUSTED' => 232,
+			'OWNER' => 234,
+			'EXCLUSIVE' => 233,
+			'CHARACTER' => 235,
+			'STATEMENT' => 237,
+			'CASCADE' => 236,
+			'ASSIGNMENT' => 238,
+			'MATCH' => 240,
+			'MOVE' => 243,
+			'DOUBLE' => 242,
+			'CLASS' => 241,
+			'TIME' => 244,
+			'NUMERIC' => 245,
+			'INLINE' => 247,
+			'CURSOR' => 246,
+			'EXTENSION' => 249,
+			'ENCRYPTED' => 248,
+			'CHAIN' => 250,
+			'RECURSIVE' => 251,
+			'VALIDATOR' => 252,
+			'XMLROOT' => 253,
+			'UQUOTED_IDENTIFIER' => 254,
+			'SUBSTRING' => 255,
+			'CASCADED' => 256,
+			'DISCARD' => 257,
+			'BETWEEN' => 258,
+			'ABORT' => 259,
+			'XMLATTRIBUTES' => 260,
+			'VALUES' => 261,
+			'TRUNCATE' => 264,
+			'BEFORE' => 263,
+			'SHOW' => 267,
+			'ABSOLUTE' => 265,
+			'IDENTIFIER' => 266,
+			'GREATEST' => 268,
+			'PLANS' => 269,
+			'PARTIAL' => 270,
+			'SEQUENCES' => 271,
+			'EXCLUDE' => 272,
+			'WHITESPACE' => 273,
+			'SECOND' => 275,
+			'HOUR' => 276,
+			'XMLFOREST' => 277,
+			'FOLLOWING' => 279,
+			'WRAPPER' => 280,
+			'LISTEN' => 281,
+			'VOLATILE' => 282,
+			'LANGUAGE' => 283,
+			'YEAR' => 284,
+			'TEMP' => 286,
+			'STANDALONE' => 285,
+			'COPY' => 287,
+			'WITHOUT' => 288,
+			'OPTIONS' => 289,
+			'YES' => 290,
+			'PROCEDURAL' => 291,
+			'SEQUENCE' => 292,
+			'LIKE' => 293,
+			'SIMPLE' => 294,
+			'QUOTE' => 296,
+			'IDENTITY' => 295,
+			'POSITION' => 297,
+			'EXECUTE' => 299,
+			'DOMAIN' => 298,
+			'UNKNOWN' => 300,
+			'CONTENT' => 301,
+			'QUOTED_IDENTIFIER' => 302,
+			'SERVER' => 303,
+			'RELATIVE' => 304,
+			'TRANSACTION' => 305,
+			'NAMES' => 307,
+			'CONFIGURATION' => 306,
+			'RENAME' => 309,
+			'PARSER' => 308,
+			'ALTER' => 312,
+			'CURRENT' => 311,
+			'RIGHT' => 310,
+			'IMPLICIT' => 313,
+			'CLUSTER' => 315,
+			'NATURAL' => 316,
+			'XMLCONCAT' => 317,
+			'PASSWORD' => 318,
+			'CHAR' => 319,
+			'RECHECK' => 320,
+			'NEXT' => 321,
+			'PREPARED' => 322,
+			'TEMPORARY' => 323,
+			'COMMITTED' => 324,
+			'GRANTED' => 326,
+			'BIT' => 325,
+			'BEGIN' => 327,
+			'NOTIFY' => 328,
+			'HEADER' => 329,
+			'INTERVAL' => 330,
+			'LC_CTYPE' => 331,
+			'NAME' => 332,
+			'FUNCTIONS' => 334,
+			'ISOLATION' => 333,
+			'STORAGE' => 335,
+			'STDIN' => 336,
+			'RESTRICT' => 337,
+			'CYCLE' => 340,
+			'UNCOMMITTED' => 341,
+			'IS' => 339,
+			'TRIM' => 338,
+			'MAXVALUE' => 342,
+			'START' => 343,
+			'DOCUMENT' => 345,
+			'IF' => 344,
+			'SAVEPOINT' => 346,
+			'ROWS' => 347,
+			'LAST' => 348,
+			'MINVALUE' => 349,
+			'KEY' => 350,
+			'OPERATOR' => 351,
+			'UNTIL' => 352,
+			'HOLD' => 353,
+			'ACTION' => 354,
+			'WRITE' => 355,
+			'ROLE' => 356,
+			'NOTNULL' => 357,
+			'SESSION' => 358,
+			'CONVERSION' => 359,
+			'DATABASE' => 361,
+			'ENUM' => 360,
+			'ENABLE' => 362,
+			'LOCAL' => 363,
+			'NONE' => 364,
+			'TABLES' => 366,
+			'VALID' => 367,
+			'INT' => 365,
+			'TRIGGER' => 369,
+			'COLLATION' => 370,
+			'UNENCRYPTED' => 371,
+			'OVERLAY' => 372,
+			'FIRST' => 374,
+			'COALESCE' => 373,
+			'VERSION' => 375
+		},
+		GOTOS => {
+			'time_type' => 179,
+			'keywords_reserved_ok_for_functions_or_types' => 108,
+			'base_interval_type' => 368,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 274,
+			'normal_type' => 427,
+			'interval_type' => 314,
+			'identifier' => 102,
+			'timestamp_type' => 262,
+			'simple_type' => 239,
+			'keywords_notreserved' => 278
+		}
+	},
+	{#State 409
+		DEFAULT => -44
+	},
+	{#State 410
 		DEFAULT => -43
 	},
-	{#State 389
-		DEFAULT => -42
-	},
-	{#State 390
+	{#State 411
 		ACTIONS => {
-			"," => 394,
-			")" => 395
+			")" => 428
 		}
 	},
-	{#State 391
+	{#State 412
 		ACTIONS => {
-			")" => 396
+			'ZONE' => 429
 		}
 	},
-	{#State 392
+	{#State 413
 		ACTIONS => {
-			"," => 397,
-			")" => 398
+			'ZONE' => 430
 		}
 	},
-	{#State 393
+	{#State 414
 		ACTIONS => {
-			"-" => 25,
-			"::" => 26,
-			"<" => 28,
-			"+" => 29,
-			'ILIKE' => 30,
-			"%" => 32,
-			'BETWEEN' => 34,
-			"^" => 35,
-			"*" => 36,
-			'OPERATOR_NAME' => 37,
-			'LIKE' => 27,
-			"/" => 31,
-			"=" => 33,
-			">" => 39
+			"," => 431,
+			")" => 432
+		}
+	},
+	{#State 415
+		ACTIONS => {
+			")" => 433
+		}
+	},
+	{#State 416
+		ACTIONS => {
+			")" => 434
+		}
+	},
+	{#State 417
+		ACTIONS => {
+			'ZONE' => 435
+		}
+	},
+	{#State 418
+		ACTIONS => {
+			'ZONE' => 436
+		}
+	},
+	{#State 419
+		ACTIONS => {
+			"," => 437,
+			")" => 438
+		}
+	},
+	{#State 420
+		ACTIONS => {
+			")" => 439
+		}
+	},
+	{#State 421
+		ACTIONS => {
+			'SECOND' => 440
+		}
+	},
+	{#State 422
+		ACTIONS => {
+			'MINUTE' => 441,
+			'HOUR' => 443,
+			'SECOND' => 442
+		}
+	},
+	{#State 423
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 444
+		}
+	},
+	{#State 424
+		ACTIONS => {
+			'MINUTE' => 445,
+			'SECOND' => 446
+		}
+	},
+	{#State 425
+		ACTIONS => {
+			'MONTH' => 447
+		}
+	},
+	{#State 426
+		ACTIONS => {
+			"-" => 26,
+			"::" => 27,
+			"<" => 29,
+			"+" => 30,
+			'ILIKE' => 31,
+			"%" => 33,
+			'BETWEEN' => 35,
+			"^" => 36,
+			"*" => 37,
+			'OPERATOR_NAME' => 38,
+			'LIKE' => 28,
+			"/" => 32,
+			"=" => 34,
+			">" => 40
 		},
 		DEFAULT => -12
 	},
-	{#State 394
+	{#State 427
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 399
+			")" => 448
 		}
 	},
-	{#State 395
-		DEFAULT => -48
-	},
-	{#State 396
-		DEFAULT => -50
-	},
-	{#State 397
+	{#State 428
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 400
+			'WITHOUT' => 450,
+			'WITH' => 449
+		},
+		DEFAULT => -57
+	},
+	{#State 429
+		DEFAULT => -55
+	},
+	{#State 430
+		DEFAULT => -56
+	},
+	{#State 431
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 451
 		}
 	},
-	{#State 398
-		DEFAULT => -46
-	},
-	{#State 399
-		ACTIONS => {
-			")" => 401
-		}
-	},
-	{#State 400
-		ACTIONS => {
-			")" => 402
-		}
-	},
-	{#State 401
+	{#State 432
 		DEFAULT => -49
 	},
-	{#State 402
+	{#State 433
+		DEFAULT => -51
+	},
+	{#State 434
+		ACTIONS => {
+			'WITHOUT' => 453,
+			'WITH' => 452
+		},
+		DEFAULT => -62
+	},
+	{#State 435
+		DEFAULT => -60
+	},
+	{#State 436
+		DEFAULT => -61
+	},
+	{#State 437
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 454
+		}
+	},
+	{#State 438
 		DEFAULT => -47
+	},
+	{#State 439
+		ACTIONS => {
+			'YEAR' => -84,
+			'MINUTE' => -84,
+			'DAY' => -84,
+			'MONTH' => -84,
+			'SECOND' => -84,
+			'HOUR' => -84
+		},
+		DEFAULT => -65
+	},
+	{#State 440
+		ACTIONS => {
+			"(" => 455
+		},
+		DEFAULT => -78
+	},
+	{#State 441
+		DEFAULT => -74
+	},
+	{#State 442
+		ACTIONS => {
+			"(" => 456
+		},
+		DEFAULT => -75
+	},
+	{#State 443
+		DEFAULT => -73
+	},
+	{#State 444
+		ACTIONS => {
+			")" => 457
+		}
+	},
+	{#State 445
+		DEFAULT => -76
+	},
+	{#State 446
+		ACTIONS => {
+			"(" => 458
+		},
+		DEFAULT => -77
+	},
+	{#State 447
+		DEFAULT => -72
+	},
+	{#State 448
+		DEFAULT => -28
+	},
+	{#State 449
+		ACTIONS => {
+			'TIME' => 459
+		}
+	},
+	{#State 450
+		ACTIONS => {
+			'TIME' => 460
+		}
+	},
+	{#State 451
+		ACTIONS => {
+			")" => 461
+		}
+	},
+	{#State 452
+		ACTIONS => {
+			'TIME' => 462
+		}
+	},
+	{#State 453
+		ACTIONS => {
+			'TIME' => 463
+		}
+	},
+	{#State 454
+		ACTIONS => {
+			")" => 464
+		}
+	},
+	{#State 455
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 465
+		}
+	},
+	{#State 456
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 466
+		}
+	},
+	{#State 457
+		DEFAULT => -79
+	},
+	{#State 458
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 467
+		}
+	},
+	{#State 459
+		ACTIONS => {
+			'ZONE' => 468
+		}
+	},
+	{#State 460
+		ACTIONS => {
+			'ZONE' => 469
+		}
+	},
+	{#State 461
+		DEFAULT => -50
+	},
+	{#State 462
+		ACTIONS => {
+			'ZONE' => 470
+		}
+	},
+	{#State 463
+		ACTIONS => {
+			'ZONE' => 471
+		}
+	},
+	{#State 464
+		DEFAULT => -48
+	},
+	{#State 465
+		ACTIONS => {
+			")" => 472
+		}
+	},
+	{#State 466
+		ACTIONS => {
+			")" => 473
+		}
+	},
+	{#State 467
+		ACTIONS => {
+			")" => 474
+		}
+	},
+	{#State 468
+		DEFAULT => -58
+	},
+	{#State 469
+		DEFAULT => -59
+	},
+	{#State 470
+		DEFAULT => -63
+	},
+	{#State 471
+		DEFAULT => -64
+	},
+	{#State 472
+		DEFAULT => -82
+	},
+	{#State 473
+		DEFAULT => -80
+	},
+	{#State 474
+		DEFAULT => -81
 	}
 ],
     yyrules  =>
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 3806 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4625 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
-#line 21 "SQL.eyp"
+#line 22 "SQL.eyp"
  $_[1] }
-#line 3813 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4632 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
-#line 24 "SQL.eyp"
+#line 25 "SQL.eyp"
  [ $_[1] ] }
-#line 3820 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4639 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
-#line 25 "SQL.eyp"
+#line 26 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 3827 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4646 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
-#line 26 "SQL.eyp"
+#line 27 "SQL.eyp"
  $_[1] }
-#line 3834 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4653 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
-#line 29 "SQL.eyp"
+#line 30 "SQL.eyp"
  $_[1] }
-#line 3841 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4660 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
 sub {
-#line 32 "SQL.eyp"
+#line 33 "SQL.eyp"
 
                                         my $select = $factory->make( 'Select' );
                                         for my $rc ( @{ $_[2] } ) {
@@ -3854,1586 +4673,1848 @@ sub {
                                         }
                                         $select
                                     }
-#line 3857 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4676 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
-#line 44 "SQL.eyp"
+#line 45 "SQL.eyp"
  [ $_[1] ] }
-#line 3864 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4683 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
-#line 45 "SQL.eyp"
+#line 46 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 3871 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4690 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
-#line 48 "SQL.eyp"
+#line 49 "SQL.eyp"
  [ $_[1], undef ] }
-#line 3878 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4697 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
-#line 49 "SQL.eyp"
+#line 50 "SQL.eyp"
  [ $_[1], $_[3] ] }
-#line 3885 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4704 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
-#line 52 "SQL.eyp"
+#line 53 "SQL.eyp"
  $_[1] }
-#line 3892 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4711 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_12
 		 'expr', 5,
 sub {
-#line 53 "SQL.eyp"
+#line 54 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-#line 3899 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4718 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_13
 		 'expr', 2,
 sub {
-#line 54 "SQL.eyp"
+#line 55 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-#line 3906 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4725 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_14
 		 'expr', 2,
 sub {
-#line 55 "SQL.eyp"
+#line 56 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-#line 3913 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4732 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_15
 		 'expr', 3,
 sub {
-#line 56 "SQL.eyp"
+#line 57 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3920 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4739 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_16
 		 'expr', 3,
 sub {
-#line 57 "SQL.eyp"
+#line 58 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3927 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4746 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_17
 		 'expr', 3,
 sub {
-#line 58 "SQL.eyp"
+#line 59 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3934 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4753 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_18
 		 'expr', 3,
 sub {
-#line 59 "SQL.eyp"
+#line 60 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3941 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4760 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_19
 		 'expr', 3,
 sub {
-#line 60 "SQL.eyp"
+#line 61 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3948 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4767 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_20
 		 'expr', 3,
 sub {
-#line 61 "SQL.eyp"
+#line 62 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3955 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4774 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_21
 		 'expr', 3,
 sub {
-#line 62 "SQL.eyp"
+#line 63 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3962 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4781 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_22
 		 'expr', 3,
 sub {
-#line 63 "SQL.eyp"
+#line 64 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3969 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4788 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_23
 		 'expr', 3,
 sub {
-#line 64 "SQL.eyp"
+#line 65 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3976 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4795 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_24
 		 'expr', 3,
 sub {
-#line 65 "SQL.eyp"
+#line 66 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3983 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4802 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_25
 		 'expr', 3,
 sub {
-#line 66 "SQL.eyp"
+#line 67 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3990 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4809 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_26
 		 'expr', 3,
 sub {
-#line 67 "SQL.eyp"
+#line 68 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 3997 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4816 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_27
 		 'expr', 3,
 sub {
-#line 68 "SQL.eyp"
+#line 69 "SQL.eyp"
  $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
-#line 4004 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4823 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule expr_simple_28
-		 'expr_simple', 1,
+	[#Rule expr_28
+		 'expr', 6,
 sub {
-#line 71 "SQL.eyp"
- $_[1] }
-#line 4011 ../lib/Pg/SQL/Parser/SQL.pm
+#line 70 "SQL.eyp"
+ $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
+#line 4830 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_29
+		 'expr_simple', 1,
+sub {
+#line 73 "SQL.eyp"
+ $_[1] }
+#line 4837 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule expr_simple_30
 		 'expr_simple', 3,
 sub {
-#line 72 "SQL.eyp"
+#line 74 "SQL.eyp"
  $_[2] }
-#line 4018 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule literal_value_30
-		 'literal_value', 1,
-sub {
-#line 75 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
-#line 4025 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4844 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_31
 		 'literal_value', 1,
 sub {
-#line 76 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
-#line 4032 ../lib/Pg/SQL/Parser/SQL.pm
+#line 77 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
+#line 4851 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_32
 		 'literal_value', 1,
 sub {
-#line 77 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
-#line 4039 ../lib/Pg/SQL/Parser/SQL.pm
+#line 78 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
+#line 4858 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_33
 		 'literal_value', 1,
 sub {
-#line 78 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
-#line 4046 ../lib/Pg/SQL/Parser/SQL.pm
+#line 79 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
+#line 4865 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_34
 		 'literal_value', 1,
 sub {
-#line 79 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
-#line 4053 ../lib/Pg/SQL/Parser/SQL.pm
+#line 80 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
+#line 4872 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_35
 		 'literal_value', 1,
 sub {
-#line 80 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
-#line 4060 ../lib/Pg/SQL/Parser/SQL.pm
+#line 81 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
+#line 4879 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_36
 		 'literal_value', 1,
 sub {
-#line 81 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
-#line 4067 ../lib/Pg/SQL/Parser/SQL.pm
+#line 82 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
+#line 4886 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_37
-		 'identifier', 1,
+	[#Rule literal_value_37
+		 'literal_value', 1,
 sub {
-#line 84 "SQL.eyp"
- $_[1] }
-#line 4074 ../lib/Pg/SQL/Parser/SQL.pm
+#line 83 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
+#line 4893 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_38
 		 'identifier', 1,
 sub {
-#line 85 "SQL.eyp"
+#line 86 "SQL.eyp"
  $_[1] }
-#line 4081 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4900 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_39
 		 'identifier', 1,
 sub {
-#line 86 "SQL.eyp"
+#line 87 "SQL.eyp"
  $_[1] }
-#line 4088 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4907 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_40
 		 'identifier', 1,
 sub {
-#line 87 "SQL.eyp"
+#line 88 "SQL.eyp"
  $_[1] }
-#line 4095 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4914 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_41
-		 'normal_type', 1,
+	[#Rule identifier_41
+		 'identifier', 1,
 sub {
-#line 90 "SQL.eyp"
+#line 89 "SQL.eyp"
  $_[1] }
-#line 4102 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4921 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_42
+		 'normal_type', 1,
+sub {
+#line 92 "SQL.eyp"
+ $_[1] }
+#line 4928 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule normal_type_43
 		 'normal_type', 3,
 sub {
-#line 91 "SQL.eyp"
+#line 93 "SQL.eyp"
  $_[3]->schema( $_[1] ); $_[3] }
-#line 4109 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule simple_type_43
-		 'simple_type', 1,
-sub {
-#line 94 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4116 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4935 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_44
 		 'simple_type', 1,
 sub {
-#line 95 "SQL.eyp"
+#line 96 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4123 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4942 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_45
 		 'simple_type', 1,
 sub {
-#line 96 "SQL.eyp"
+#line 97 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 4130 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4949 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_46
-		 'simple_type', 4,
-sub {
-#line 97 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4137 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule simple_type_47
-		 'simple_type', 6,
+		 'simple_type', 1,
 sub {
 #line 98 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 4144 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1] ) }
+#line 4956 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule simple_type_48
+	[#Rule simple_type_47
 		 'simple_type', 4,
 sub {
 #line 99 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4151 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4963 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule simple_type_49
+	[#Rule simple_type_48
 		 'simple_type', 6,
 sub {
 #line 100 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 4158 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4970 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule simple_type_50
+	[#Rule simple_type_49
 		 'simple_type', 4,
 sub {
 #line 101 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 4165 ../lib/Pg/SQL/Parser/SQL.pm
+#line 4977 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_51
-		 'keywords_notreserved', 1, undef
-#line 4169 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule simple_type_50
+		 'simple_type', 6,
+sub {
+#line 102 "SQL.eyp"
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
+#line 4984 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_52
-		 'keywords_notreserved', 1, undef
-#line 4173 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule simple_type_51
+		 'simple_type', 4,
+sub {
+#line 103 "SQL.eyp"
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
+#line 4991 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_53
-		 'keywords_notreserved', 1, undef
-#line 4177 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule simple_type_52
+		 'simple_type', 1,
+sub {
+#line 104 "SQL.eyp"
+ $_[1] }
+#line 4998 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_54
-		 'keywords_notreserved', 1, undef
-#line 4181 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule simple_type_53
+		 'simple_type', 1,
+sub {
+#line 105 "SQL.eyp"
+ $_[1] }
+#line 5005 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_55
-		 'keywords_notreserved', 1, undef
-#line 4185 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule simple_type_54
+		 'simple_type', 1,
+sub {
+#line 106 "SQL.eyp"
+ $_[1] }
+#line 5012 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_56
-		 'keywords_notreserved', 1, undef
-#line 4189 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule timestamp_type_55
+		 'timestamp_type', 4,
+sub {
+#line 109 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
+#line 5019 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_57
-		 'keywords_notreserved', 1, undef
-#line 4193 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule timestamp_type_56
+		 'timestamp_type', 4,
+sub {
+#line 110 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'timestamp without time zone' ) }
+#line 5026 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_58
-		 'keywords_notreserved', 1, undef
-#line 4197 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule timestamp_type_57
+		 'timestamp_type', 4,
+sub {
+#line 111 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp' ) }
+#line 5033 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_59
-		 'keywords_notreserved', 1, undef
-#line 4201 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule timestamp_type_58
+		 'timestamp_type', 7,
+sub {
+#line 112 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp with time zone' ) }
+#line 5040 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_60
-		 'keywords_notreserved', 1, undef
-#line 4205 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule timestamp_type_59
+		 'timestamp_type', 7,
+sub {
+#line 113 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp without time zone' ) }
+#line 5047 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_61
-		 'keywords_notreserved', 1, undef
-#line 4209 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule time_type_60
+		 'time_type', 4,
+sub {
+#line 116 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'time with time zone' ) }
+#line 5054 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_62
-		 'keywords_notreserved', 1, undef
-#line 4213 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule time_type_61
+		 'time_type', 4,
+sub {
+#line 117 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'time without time zone' ) }
+#line 5061 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_63
-		 'keywords_notreserved', 1, undef
-#line 4217 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule time_type_62
+		 'time_type', 4,
+sub {
+#line 118 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time' ) }
+#line 5068 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_64
-		 'keywords_notreserved', 1, undef
-#line 4221 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule time_type_63
+		 'time_type', 7,
+sub {
+#line 119 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time with time zone' ) }
+#line 5075 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_65
-		 'keywords_notreserved', 1, undef
-#line 4225 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule time_type_64
+		 'time_type', 7,
+sub {
+#line 120 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time without time zone' ) }
+#line 5082 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_66
-		 'keywords_notreserved', 1, undef
-#line 4229 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_65
+		 'interval_type', 4,
+sub {
+#line 123 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
+#line 5089 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_67
-		 'keywords_notreserved', 1, undef
-#line 4233 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_66
+		 'interval_type', 2,
+sub {
+#line 124 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' year' ); $_[1] }
+#line 5096 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_68
-		 'keywords_notreserved', 1, undef
-#line 4237 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_67
+		 'interval_type', 2,
+sub {
+#line 125 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' month' ); $_[1] }
+#line 5103 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_69
-		 'keywords_notreserved', 1, undef
-#line 4241 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_68
+		 'interval_type', 2,
+sub {
+#line 126 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day' ); $_[1] }
+#line 5110 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_70
-		 'keywords_notreserved', 1, undef
-#line 4245 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_69
+		 'interval_type', 2,
+sub {
+#line 127 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour' ); $_[1] }
+#line 5117 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_71
-		 'keywords_notreserved', 1, undef
-#line 4249 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_70
+		 'interval_type', 2,
+sub {
+#line 128 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' minute' ); $_[1] }
+#line 5124 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_72
-		 'keywords_notreserved', 1, undef
-#line 4253 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_71
+		 'interval_type', 2,
+sub {
+#line 129 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' second' ); $_[1] }
+#line 5131 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_73
-		 'keywords_notreserved', 1, undef
-#line 4257 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_72
+		 'interval_type', 4,
+sub {
+#line 130 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' year to month' ); $_[1] }
+#line 5138 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_74
-		 'keywords_notreserved', 1, undef
-#line 4261 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_73
+		 'interval_type', 4,
+sub {
+#line 131 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to hour' ); $_[1] }
+#line 5145 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_75
-		 'keywords_notreserved', 1, undef
-#line 4265 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_74
+		 'interval_type', 4,
+sub {
+#line 132 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to minute' ); $_[1] }
+#line 5152 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_76
-		 'keywords_notreserved', 1, undef
-#line 4269 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_75
+		 'interval_type', 4,
+sub {
+#line 133 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to second' ); $_[1] }
+#line 5159 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_77
-		 'keywords_notreserved', 1, undef
-#line 4273 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_76
+		 'interval_type', 4,
+sub {
+#line 134 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour to minute' ); $_[1] }
+#line 5166 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_78
-		 'keywords_notreserved', 1, undef
-#line 4277 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_77
+		 'interval_type', 4,
+sub {
+#line 135 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour to second' ); $_[1] }
+#line 5173 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_79
-		 'keywords_notreserved', 1, undef
-#line 4281 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_78
+		 'interval_type', 4,
+sub {
+#line 136 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' minute to second' ); $_[1] }
+#line 5180 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_80
-		 'keywords_notreserved', 1, undef
-#line 4285 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_79
+		 'interval_type', 5,
+sub {
+#line 137 "SQL.eyp"
+
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[4];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' second' );
+                                                                        $_[1]
+                                                                    }
+#line 5193 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_81
-		 'keywords_notreserved', 1, undef
-#line 4289 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_80
+		 'interval_type', 7,
+sub {
+#line 144 "SQL.eyp"
+
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' day to second' );
+                                                                        $_[1]
+                                                                    }
+#line 5206 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_82
-		 'keywords_notreserved', 1, undef
-#line 4293 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_81
+		 'interval_type', 7,
+sub {
+#line 151 "SQL.eyp"
+
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' hour to second' );
+                                                                        $_[1]
+                                                                    }
+#line 5219 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_83
-		 'keywords_notreserved', 1, undef
-#line 4297 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule interval_type_82
+		 'interval_type', 7,
+sub {
+#line 158 "SQL.eyp"
+
+                                                                        my $l = $_[1]->limits() // [];
+                                                                        $l->[1] = $_[6];
+                                                                        $_[1]->limits( $l );
+                                                                        $_[1]->name( $_[1]->name() . ' minute to second' );
+                                                                        $_[1]
+                                                                    }
+#line 5232 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_84
-		 'keywords_notreserved', 1, undef
-#line 4301 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule base_interval_type_83
+		 'base_interval_type', 1,
+sub {
+#line 167 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'interval' ) }
+#line 5239 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule base_interval_type_84
+		 'base_interval_type', 4,
+sub {
+#line 168 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
+#line 5246 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_85
 		 'keywords_notreserved', 1, undef
-#line 4305 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5250 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_86
 		 'keywords_notreserved', 1, undef
-#line 4309 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5254 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_87
 		 'keywords_notreserved', 1, undef
-#line 4313 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5258 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_88
 		 'keywords_notreserved', 1, undef
-#line 4317 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5262 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_89
 		 'keywords_notreserved', 1, undef
-#line 4321 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5266 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_90
 		 'keywords_notreserved', 1, undef
-#line 4325 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5270 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_91
 		 'keywords_notreserved', 1, undef
-#line 4329 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5274 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_92
 		 'keywords_notreserved', 1, undef
-#line 4333 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5278 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_93
 		 'keywords_notreserved', 1, undef
-#line 4337 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5282 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_94
 		 'keywords_notreserved', 1, undef
-#line 4341 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5286 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_95
 		 'keywords_notreserved', 1, undef
-#line 4345 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5290 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_96
 		 'keywords_notreserved', 1, undef
-#line 4349 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5294 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_97
 		 'keywords_notreserved', 1, undef
-#line 4353 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5298 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_98
 		 'keywords_notreserved', 1, undef
-#line 4357 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5302 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_99
 		 'keywords_notreserved', 1, undef
-#line 4361 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5306 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_100
 		 'keywords_notreserved', 1, undef
-#line 4365 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5310 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_101
 		 'keywords_notreserved', 1, undef
-#line 4369 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5314 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_102
 		 'keywords_notreserved', 1, undef
-#line 4373 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5318 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_103
 		 'keywords_notreserved', 1, undef
-#line 4377 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5322 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_104
 		 'keywords_notreserved', 1, undef
-#line 4381 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5326 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_105
 		 'keywords_notreserved', 1, undef
-#line 4385 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5330 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_106
 		 'keywords_notreserved', 1, undef
-#line 4389 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5334 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_107
 		 'keywords_notreserved', 1, undef
-#line 4393 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5338 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_108
 		 'keywords_notreserved', 1, undef
-#line 4397 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5342 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_109
 		 'keywords_notreserved', 1, undef
-#line 4401 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5346 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_110
 		 'keywords_notreserved', 1, undef
-#line 4405 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5350 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_111
 		 'keywords_notreserved', 1, undef
-#line 4409 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5354 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_112
 		 'keywords_notreserved', 1, undef
-#line 4413 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5358 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_113
 		 'keywords_notreserved', 1, undef
-#line 4417 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5362 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_114
 		 'keywords_notreserved', 1, undef
-#line 4421 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5366 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_115
 		 'keywords_notreserved', 1, undef
-#line 4425 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5370 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_116
 		 'keywords_notreserved', 1, undef
-#line 4429 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5374 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_117
 		 'keywords_notreserved', 1, undef
-#line 4433 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5378 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_118
 		 'keywords_notreserved', 1, undef
-#line 4437 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5382 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_119
 		 'keywords_notreserved', 1, undef
-#line 4441 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5386 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_120
 		 'keywords_notreserved', 1, undef
-#line 4445 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5390 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_121
 		 'keywords_notreserved', 1, undef
-#line 4449 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5394 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_122
 		 'keywords_notreserved', 1, undef
-#line 4453 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5398 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_123
 		 'keywords_notreserved', 1, undef
-#line 4457 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5402 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_124
 		 'keywords_notreserved', 1, undef
-#line 4461 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5406 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_125
 		 'keywords_notreserved', 1, undef
-#line 4465 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5410 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_126
 		 'keywords_notreserved', 1, undef
-#line 4469 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5414 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_127
 		 'keywords_notreserved', 1, undef
-#line 4473 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5418 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_128
 		 'keywords_notreserved', 1, undef
-#line 4477 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5422 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_129
 		 'keywords_notreserved', 1, undef
-#line 4481 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5426 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_130
 		 'keywords_notreserved', 1, undef
-#line 4485 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5430 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_131
 		 'keywords_notreserved', 1, undef
-#line 4489 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5434 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_132
 		 'keywords_notreserved', 1, undef
-#line 4493 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5438 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_133
 		 'keywords_notreserved', 1, undef
-#line 4497 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5442 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_134
 		 'keywords_notreserved', 1, undef
-#line 4501 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5446 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_135
 		 'keywords_notreserved', 1, undef
-#line 4505 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5450 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_136
 		 'keywords_notreserved', 1, undef
-#line 4509 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5454 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_137
 		 'keywords_notreserved', 1, undef
-#line 4513 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5458 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_138
 		 'keywords_notreserved', 1, undef
-#line 4517 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5462 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_139
 		 'keywords_notreserved', 1, undef
-#line 4521 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5466 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_140
 		 'keywords_notreserved', 1, undef
-#line 4525 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5470 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_141
 		 'keywords_notreserved', 1, undef
-#line 4529 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5474 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_142
 		 'keywords_notreserved', 1, undef
-#line 4533 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5478 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_143
 		 'keywords_notreserved', 1, undef
-#line 4537 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5482 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_144
 		 'keywords_notreserved', 1, undef
-#line 4541 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5486 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_145
 		 'keywords_notreserved', 1, undef
-#line 4545 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5490 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_146
 		 'keywords_notreserved', 1, undef
-#line 4549 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5494 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_147
 		 'keywords_notreserved', 1, undef
-#line 4553 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5498 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_148
 		 'keywords_notreserved', 1, undef
-#line 4557 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5502 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_149
 		 'keywords_notreserved', 1, undef
-#line 4561 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5506 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_150
 		 'keywords_notreserved', 1, undef
-#line 4565 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5510 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_151
 		 'keywords_notreserved', 1, undef
-#line 4569 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5514 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_152
 		 'keywords_notreserved', 1, undef
-#line 4573 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5518 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_153
 		 'keywords_notreserved', 1, undef
-#line 4577 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5522 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_154
 		 'keywords_notreserved', 1, undef
-#line 4581 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5526 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_155
 		 'keywords_notreserved', 1, undef
-#line 4585 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5530 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_156
 		 'keywords_notreserved', 1, undef
-#line 4589 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5534 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_157
 		 'keywords_notreserved', 1, undef
-#line 4593 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5538 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_158
 		 'keywords_notreserved', 1, undef
-#line 4597 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5542 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_159
 		 'keywords_notreserved', 1, undef
-#line 4601 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5546 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_160
 		 'keywords_notreserved', 1, undef
-#line 4605 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5550 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_161
 		 'keywords_notreserved', 1, undef
-#line 4609 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5554 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_162
 		 'keywords_notreserved', 1, undef
-#line 4613 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5558 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_163
 		 'keywords_notreserved', 1, undef
-#line 4617 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5562 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_164
 		 'keywords_notreserved', 1, undef
-#line 4621 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5566 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_165
 		 'keywords_notreserved', 1, undef
-#line 4625 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5570 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_166
 		 'keywords_notreserved', 1, undef
-#line 4629 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5574 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_167
 		 'keywords_notreserved', 1, undef
-#line 4633 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5578 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_168
 		 'keywords_notreserved', 1, undef
-#line 4637 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5582 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_169
 		 'keywords_notreserved', 1, undef
-#line 4641 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5586 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_170
 		 'keywords_notreserved', 1, undef
-#line 4645 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5590 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_171
 		 'keywords_notreserved', 1, undef
-#line 4649 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5594 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_172
 		 'keywords_notreserved', 1, undef
-#line 4653 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5598 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_173
 		 'keywords_notreserved', 1, undef
-#line 4657 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5602 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_174
 		 'keywords_notreserved', 1, undef
-#line 4661 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5606 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_175
 		 'keywords_notreserved', 1, undef
-#line 4665 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5610 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_176
 		 'keywords_notreserved', 1, undef
-#line 4669 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5614 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_177
 		 'keywords_notreserved', 1, undef
-#line 4673 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5618 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_178
 		 'keywords_notreserved', 1, undef
-#line 4677 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5622 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_179
 		 'keywords_notreserved', 1, undef
-#line 4681 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5626 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_180
 		 'keywords_notreserved', 1, undef
-#line 4685 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5630 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_181
 		 'keywords_notreserved', 1, undef
-#line 4689 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5634 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_182
 		 'keywords_notreserved', 1, undef
-#line 4693 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5638 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_183
 		 'keywords_notreserved', 1, undef
-#line 4697 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5642 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_184
 		 'keywords_notreserved', 1, undef
-#line 4701 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5646 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_185
 		 'keywords_notreserved', 1, undef
-#line 4705 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5650 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_186
 		 'keywords_notreserved', 1, undef
-#line 4709 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5654 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_187
 		 'keywords_notreserved', 1, undef
-#line 4713 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5658 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_188
 		 'keywords_notreserved', 1, undef
-#line 4717 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5662 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_189
 		 'keywords_notreserved', 1, undef
-#line 4721 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5666 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_190
 		 'keywords_notreserved', 1, undef
-#line 4725 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5670 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_191
 		 'keywords_notreserved', 1, undef
-#line 4729 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5674 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_192
 		 'keywords_notreserved', 1, undef
-#line 4733 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5678 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_193
 		 'keywords_notreserved', 1, undef
-#line 4737 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5682 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_194
 		 'keywords_notreserved', 1, undef
-#line 4741 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5686 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_195
 		 'keywords_notreserved', 1, undef
-#line 4745 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5690 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_196
 		 'keywords_notreserved', 1, undef
-#line 4749 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5694 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_197
 		 'keywords_notreserved', 1, undef
-#line 4753 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5698 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_198
 		 'keywords_notreserved', 1, undef
-#line 4757 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5702 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_199
 		 'keywords_notreserved', 1, undef
-#line 4761 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5706 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_200
 		 'keywords_notreserved', 1, undef
-#line 4765 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5710 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_201
 		 'keywords_notreserved', 1, undef
-#line 4769 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5714 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_202
 		 'keywords_notreserved', 1, undef
-#line 4773 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5718 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_203
 		 'keywords_notreserved', 1, undef
-#line 4777 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5722 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_204
 		 'keywords_notreserved', 1, undef
-#line 4781 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5726 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_205
 		 'keywords_notreserved', 1, undef
-#line 4785 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5730 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_206
 		 'keywords_notreserved', 1, undef
-#line 4789 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5734 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_207
 		 'keywords_notreserved', 1, undef
-#line 4793 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5738 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_208
 		 'keywords_notreserved', 1, undef
-#line 4797 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5742 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_209
 		 'keywords_notreserved', 1, undef
-#line 4801 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5746 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_210
 		 'keywords_notreserved', 1, undef
-#line 4805 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5750 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_211
 		 'keywords_notreserved', 1, undef
-#line 4809 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5754 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_212
 		 'keywords_notreserved', 1, undef
-#line 4813 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5758 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_213
 		 'keywords_notreserved', 1, undef
-#line 4817 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5762 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_214
 		 'keywords_notreserved', 1, undef
-#line 4821 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5766 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_215
 		 'keywords_notreserved', 1, undef
-#line 4825 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5770 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_216
 		 'keywords_notreserved', 1, undef
-#line 4829 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5774 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_217
 		 'keywords_notreserved', 1, undef
-#line 4833 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5778 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_218
 		 'keywords_notreserved', 1, undef
-#line 4837 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5782 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_219
 		 'keywords_notreserved', 1, undef
-#line 4841 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5786 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_220
 		 'keywords_notreserved', 1, undef
-#line 4845 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5790 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_221
 		 'keywords_notreserved', 1, undef
-#line 4849 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5794 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_222
 		 'keywords_notreserved', 1, undef
-#line 4853 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5798 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_223
 		 'keywords_notreserved', 1, undef
-#line 4857 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5802 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_224
 		 'keywords_notreserved', 1, undef
-#line 4861 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5806 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_225
 		 'keywords_notreserved', 1, undef
-#line 4865 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5810 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_226
 		 'keywords_notreserved', 1, undef
-#line 4869 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5814 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_227
 		 'keywords_notreserved', 1, undef
-#line 4873 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5818 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_228
 		 'keywords_notreserved', 1, undef
-#line 4877 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5822 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_229
 		 'keywords_notreserved', 1, undef
-#line 4881 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5826 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_230
 		 'keywords_notreserved', 1, undef
-#line 4885 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5830 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_231
 		 'keywords_notreserved', 1, undef
-#line 4889 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5834 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_232
 		 'keywords_notreserved', 1, undef
-#line 4893 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5838 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_233
 		 'keywords_notreserved', 1, undef
-#line 4897 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5842 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_234
 		 'keywords_notreserved', 1, undef
-#line 4901 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5846 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_235
 		 'keywords_notreserved', 1, undef
-#line 4905 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5850 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_236
 		 'keywords_notreserved', 1, undef
-#line 4909 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5854 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_237
 		 'keywords_notreserved', 1, undef
-#line 4913 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5858 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_238
 		 'keywords_notreserved', 1, undef
-#line 4917 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5862 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_239
 		 'keywords_notreserved', 1, undef
-#line 4921 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5866 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_240
 		 'keywords_notreserved', 1, undef
-#line 4925 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5870 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_241
 		 'keywords_notreserved', 1, undef
-#line 4929 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5874 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_242
 		 'keywords_notreserved', 1, undef
-#line 4933 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5878 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_243
 		 'keywords_notreserved', 1, undef
-#line 4937 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5882 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_244
 		 'keywords_notreserved', 1, undef
-#line 4941 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5886 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_245
 		 'keywords_notreserved', 1, undef
-#line 4945 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5890 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_246
 		 'keywords_notreserved', 1, undef
-#line 4949 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5894 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_247
 		 'keywords_notreserved', 1, undef
-#line 4953 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5898 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_248
 		 'keywords_notreserved', 1, undef
-#line 4957 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5902 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_249
 		 'keywords_notreserved', 1, undef
-#line 4961 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5906 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_250
 		 'keywords_notreserved', 1, undef
-#line 4965 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5910 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_251
 		 'keywords_notreserved', 1, undef
-#line 4969 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5914 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_252
 		 'keywords_notreserved', 1, undef
-#line 4973 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5918 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_253
 		 'keywords_notreserved', 1, undef
-#line 4977 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5922 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_254
 		 'keywords_notreserved', 1, undef
-#line 4981 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5926 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_255
 		 'keywords_notreserved', 1, undef
-#line 4985 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5930 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_256
 		 'keywords_notreserved', 1, undef
-#line 4989 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5934 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_257
 		 'keywords_notreserved', 1, undef
-#line 4993 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5938 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_258
 		 'keywords_notreserved', 1, undef
-#line 4997 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5942 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_259
 		 'keywords_notreserved', 1, undef
-#line 5001 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5946 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_260
 		 'keywords_notreserved', 1, undef
-#line 5005 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5950 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_261
 		 'keywords_notreserved', 1, undef
-#line 5009 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5954 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_262
 		 'keywords_notreserved', 1, undef
-#line 5013 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5958 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_263
 		 'keywords_notreserved', 1, undef
-#line 5017 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5962 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_264
 		 'keywords_notreserved', 1, undef
-#line 5021 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5966 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_265
 		 'keywords_notreserved', 1, undef
-#line 5025 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5970 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_266
 		 'keywords_notreserved', 1, undef
-#line 5029 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5974 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_267
 		 'keywords_notreserved', 1, undef
-#line 5033 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5978 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_268
 		 'keywords_notreserved', 1, undef
-#line 5037 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5982 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_269
 		 'keywords_notreserved', 1, undef
-#line 5041 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5986 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_270
 		 'keywords_notreserved', 1, undef
-#line 5045 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5990 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_271
 		 'keywords_notreserved', 1, undef
-#line 5049 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5994 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_272
 		 'keywords_notreserved', 1, undef
-#line 5053 ../lib/Pg/SQL/Parser/SQL.pm
+#line 5998 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_273
 		 'keywords_notreserved', 1, undef
-#line 5057 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6002 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_274
 		 'keywords_notreserved', 1, undef
-#line 5061 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6006 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_275
 		 'keywords_notreserved', 1, undef
-#line 5065 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6010 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_276
 		 'keywords_notreserved', 1, undef
-#line 5069 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6014 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_277
 		 'keywords_notreserved', 1, undef
-#line 5073 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6018 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_278
 		 'keywords_notreserved', 1, undef
-#line 5077 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6022 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_279
 		 'keywords_notreserved', 1, undef
-#line 5081 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6026 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_280
 		 'keywords_notreserved', 1, undef
-#line 5085 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6030 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_281
 		 'keywords_notreserved', 1, undef
-#line 5089 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6034 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_282
 		 'keywords_notreserved', 1, undef
-#line 5093 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6038 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_283
 		 'keywords_notreserved', 1, undef
-#line 5097 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6042 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_284
 		 'keywords_notreserved', 1, undef
-#line 5101 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6046 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_285
 		 'keywords_notreserved', 1, undef
-#line 5105 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6050 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_286
 		 'keywords_notreserved', 1, undef
-#line 5109 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6054 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_287
 		 'keywords_notreserved', 1, undef
-#line 5113 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6058 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_288
 		 'keywords_notreserved', 1, undef
-#line 5117 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6062 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_289
 		 'keywords_notreserved', 1, undef
-#line 5121 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6066 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_290
 		 'keywords_notreserved', 1, undef
-#line 5125 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6070 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_291
 		 'keywords_notreserved', 1, undef
-#line 5129 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6074 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_292
 		 'keywords_notreserved', 1, undef
-#line 5133 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6078 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_293
 		 'keywords_notreserved', 1, undef
-#line 5137 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6082 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_294
 		 'keywords_notreserved', 1, undef
-#line 5141 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6086 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_295
 		 'keywords_notreserved', 1, undef
-#line 5145 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6090 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_296
 		 'keywords_notreserved', 1, undef
-#line 5149 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6094 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_297
 		 'keywords_notreserved', 1, undef
-#line 5153 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6098 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_298
 		 'keywords_notreserved', 1, undef
-#line 5157 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6102 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_299
+	[#Rule keywords_notreserved_299
+		 'keywords_notreserved', 1, undef
+#line 6106 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_300
+		 'keywords_notreserved', 1, undef
+#line 6110 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_301
+		 'keywords_notreserved', 1, undef
+#line 6114 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_302
+		 'keywords_notreserved', 1, undef
+#line 6118 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_303
+		 'keywords_notreserved', 1, undef
+#line 6122 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_304
+		 'keywords_notreserved', 1, undef
+#line 6126 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_305
+		 'keywords_notreserved', 1, undef
+#line 6130 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_306
+		 'keywords_notreserved', 1, undef
+#line 6134 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_307
+		 'keywords_notreserved', 1, undef
+#line 6138 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_308
+		 'keywords_notreserved', 1, undef
+#line 6142 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_309
+		 'keywords_notreserved', 1, undef
+#line 6146 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_310
+		 'keywords_notreserved', 1, undef
+#line 6150 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_311
+		 'keywords_notreserved', 1, undef
+#line 6154 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_312
+		 'keywords_notreserved', 1, undef
+#line 6158 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_313
+		 'keywords_notreserved', 1, undef
+#line 6162 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_314
+		 'keywords_notreserved', 1, undef
+#line 6166 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_315
+		 'keywords_notreserved', 1, undef
+#line 6170 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_316
+		 'keywords_notreserved', 1, undef
+#line 6174 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_317
+		 'keywords_notreserved', 1, undef
+#line 6178 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_318
+		 'keywords_notreserved', 1, undef
+#line 6182 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_319
+		 'keywords_notreserved', 1, undef
+#line 6186 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_320
+		 'keywords_notreserved', 1, undef
+#line 6190 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_321
+		 'keywords_notreserved', 1, undef
+#line 6194 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_322
+		 'keywords_notreserved', 1, undef
+#line 6198 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_323
+		 'keywords_notreserved', 1, undef
+#line 6202 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_324
+		 'keywords_notreserved', 1, undef
+#line 6206 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_325
+		 'keywords_notreserved', 1, undef
+#line 6210 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_326
+		 'keywords_notreserved', 1, undef
+#line 6214 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_327
+		 'keywords_notreserved', 1, undef
+#line 6218 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_328
+		 'keywords_notreserved', 1, undef
+#line 6222 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_329
+		 'keywords_notreserved', 1, undef
+#line 6226 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_330
+		 'keywords_notreserved', 1, undef
+#line 6230 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_331
+		 'keywords_notreserved', 1, undef
+#line 6234 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_332
+		 'keywords_notreserved', 1, undef
+#line 6238 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_reserved_ok_for_functions_or_types_333
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5161 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6242 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_300
+	[#Rule keywords_reserved_ok_for_functions_or_types_334
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5165 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6246 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_301
+	[#Rule keywords_reserved_ok_for_functions_or_types_335
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5169 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6250 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_302
+	[#Rule keywords_reserved_ok_for_functions_or_types_336
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5173 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6254 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_303
+	[#Rule keywords_reserved_ok_for_functions_or_types_337
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5177 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6258 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_304
+	[#Rule keywords_reserved_ok_for_functions_or_types_338
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5181 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6262 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_305
+	[#Rule keywords_reserved_ok_for_functions_or_types_339
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5185 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6266 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_306
+	[#Rule keywords_reserved_ok_for_functions_or_types_340
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5189 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6270 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_307
+	[#Rule keywords_reserved_ok_for_functions_or_types_341
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5193 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6274 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_308
+	[#Rule keywords_reserved_ok_for_functions_or_types_342
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5197 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6278 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_309
+	[#Rule keywords_reserved_ok_for_functions_or_types_343
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5201 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6282 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_310
+	[#Rule keywords_reserved_ok_for_functions_or_types_344
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5205 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6286 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_311
+	[#Rule keywords_reserved_ok_for_functions_or_types_345
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5209 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6290 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_312
+	[#Rule keywords_reserved_ok_for_functions_or_types_346
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5213 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6294 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_313
+	[#Rule keywords_reserved_ok_for_functions_or_types_347
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5217 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6298 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_314
+	[#Rule keywords_reserved_ok_for_functions_or_types_348
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5221 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6302 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_315
+	[#Rule keywords_reserved_ok_for_functions_or_types_349
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5225 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6306 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_316
+	[#Rule keywords_reserved_ok_for_functions_or_types_350
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5229 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6310 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_317
+	[#Rule keywords_reserved_ok_for_functions_or_types_351
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5233 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6314 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_318
+	[#Rule keywords_reserved_ok_for_functions_or_types_352
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5237 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6318 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_319
+	[#Rule keywords_reserved_ok_for_functions_or_types_353
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5241 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6322 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_320
+	[#Rule keywords_reserved_ok_for_functions_or_types_354
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 5245 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_321
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5249 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_322
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5253 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_323
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5257 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_324
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5261 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_325
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5265 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_326
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5269 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_327
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5273 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_328
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5277 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_329
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5281 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_330
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5285 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_331
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5289 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_332
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5293 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_333
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5297 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_334
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5301 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_335
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5305 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_336
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5309 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_337
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5313 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_338
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5317 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_339
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5321 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_340
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5325 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_341
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5329 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_342
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5333 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_343
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5337 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_344
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5341 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_345
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5345 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_346
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5349 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_347
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5353 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_348
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5357 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_349
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5361 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_350
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5365 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_351
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5369 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_352
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5373 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_353
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5377 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_354
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5381 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6326 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_355
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5385 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6330 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_356
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5389 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6334 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_357
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5393 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6338 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_358
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5397 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6342 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_359
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5401 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6346 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_360
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5405 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6350 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_361
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5409 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6354 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_362
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5413 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6358 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_363
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5417 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6362 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_364
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5421 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6366 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_365
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5425 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6370 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_366
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5429 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6374 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_367
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 5433 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6378 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_368
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6382 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_369
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6386 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_370
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6390 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_371
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6394 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_372
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6398 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_373
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6402 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_374
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6406 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_375
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6410 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_376
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6414 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_377
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6418 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_378
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6422 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_379
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6426 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_380
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6430 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_381
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6434 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_382
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6438 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_383
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6442 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_384
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6446 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_385
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6450 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_386
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6454 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_387
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6458 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_388
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6462 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_389
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6466 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_390
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6470 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_391
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6474 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_392
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6478 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_393
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6482 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_394
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6486 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_395
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6490 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_396
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6494 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_397
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6498 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_398
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6502 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_399
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6506 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_400
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6510 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_401
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 6514 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 5436 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6517 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -5475,22 +6556,22 @@ sub {
          'expr_25', 
          'expr_26', 
          'expr_27', 
-         'expr_simple_28', 
+         'expr_28', 
          'expr_simple_29', 
-         'literal_value_30', 
+         'expr_simple_30', 
          'literal_value_31', 
          'literal_value_32', 
          'literal_value_33', 
          'literal_value_34', 
          'literal_value_35', 
          'literal_value_36', 
-         'identifier_37', 
+         'literal_value_37', 
          'identifier_38', 
          'identifier_39', 
          'identifier_40', 
-         'normal_type_41', 
+         'identifier_41', 
          'normal_type_42', 
-         'simple_type_43', 
+         'normal_type_43', 
          'simple_type_44', 
          'simple_type_45', 
          'simple_type_46', 
@@ -5498,40 +6579,40 @@ sub {
          'simple_type_48', 
          'simple_type_49', 
          'simple_type_50', 
-         'keywords_notreserved_51', 
-         'keywords_notreserved_52', 
-         'keywords_notreserved_53', 
-         'keywords_notreserved_54', 
-         'keywords_notreserved_55', 
-         'keywords_notreserved_56', 
-         'keywords_notreserved_57', 
-         'keywords_notreserved_58', 
-         'keywords_notreserved_59', 
-         'keywords_notreserved_60', 
-         'keywords_notreserved_61', 
-         'keywords_notreserved_62', 
-         'keywords_notreserved_63', 
-         'keywords_notreserved_64', 
-         'keywords_notreserved_65', 
-         'keywords_notreserved_66', 
-         'keywords_notreserved_67', 
-         'keywords_notreserved_68', 
-         'keywords_notreserved_69', 
-         'keywords_notreserved_70', 
-         'keywords_notreserved_71', 
-         'keywords_notreserved_72', 
-         'keywords_notreserved_73', 
-         'keywords_notreserved_74', 
-         'keywords_notreserved_75', 
-         'keywords_notreserved_76', 
-         'keywords_notreserved_77', 
-         'keywords_notreserved_78', 
-         'keywords_notreserved_79', 
-         'keywords_notreserved_80', 
-         'keywords_notreserved_81', 
-         'keywords_notreserved_82', 
-         'keywords_notreserved_83', 
-         'keywords_notreserved_84', 
+         'simple_type_51', 
+         'simple_type_52', 
+         'simple_type_53', 
+         'simple_type_54', 
+         'timestamp_type_55', 
+         'timestamp_type_56', 
+         'timestamp_type_57', 
+         'timestamp_type_58', 
+         'timestamp_type_59', 
+         'time_type_60', 
+         'time_type_61', 
+         'time_type_62', 
+         'time_type_63', 
+         'time_type_64', 
+         'interval_type_65', 
+         'interval_type_66', 
+         'interval_type_67', 
+         'interval_type_68', 
+         'interval_type_69', 
+         'interval_type_70', 
+         'interval_type_71', 
+         'interval_type_72', 
+         'interval_type_73', 
+         'interval_type_74', 
+         'interval_type_75', 
+         'interval_type_76', 
+         'interval_type_77', 
+         'interval_type_78', 
+         'interval_type_79', 
+         'interval_type_80', 
+         'interval_type_81', 
+         'interval_type_82', 
+         'base_interval_type_83', 
+         'base_interval_type_84', 
          'keywords_notreserved_85', 
          'keywords_notreserved_86', 
          'keywords_notreserved_87', 
@@ -5746,62 +6827,62 @@ sub {
          'keywords_notreserved_296', 
          'keywords_notreserved_297', 
          'keywords_notreserved_298', 
-         'keywords_reserved_ok_for_functions_or_types_299', 
-         'keywords_reserved_ok_for_functions_or_types_300', 
-         'keywords_reserved_ok_for_functions_or_types_301', 
-         'keywords_reserved_ok_for_functions_or_types_302', 
-         'keywords_reserved_ok_for_functions_or_types_303', 
-         'keywords_reserved_ok_for_functions_or_types_304', 
-         'keywords_reserved_ok_for_functions_or_types_305', 
-         'keywords_reserved_ok_for_functions_or_types_306', 
-         'keywords_reserved_ok_for_functions_or_types_307', 
-         'keywords_reserved_ok_for_functions_or_types_308', 
-         'keywords_reserved_ok_for_functions_or_types_309', 
-         'keywords_reserved_ok_for_functions_or_types_310', 
-         'keywords_reserved_ok_for_functions_or_types_311', 
-         'keywords_reserved_ok_for_functions_or_types_312', 
-         'keywords_reserved_ok_for_functions_or_types_313', 
-         'keywords_reserved_ok_for_functions_or_types_314', 
-         'keywords_reserved_ok_for_functions_or_types_315', 
-         'keywords_reserved_ok_for_functions_or_types_316', 
-         'keywords_reserved_ok_for_functions_or_types_317', 
-         'keywords_reserved_ok_for_functions_or_types_318', 
-         'keywords_reserved_ok_for_functions_or_types_319', 
-         'keywords_reserved_ok_for_functions_or_types_320', 
-         'keywords_notreserved_not_ok_for_functions_or_types_321', 
-         'keywords_notreserved_not_ok_for_functions_or_types_322', 
-         'keywords_notreserved_not_ok_for_functions_or_types_323', 
-         'keywords_notreserved_not_ok_for_functions_or_types_324', 
-         'keywords_notreserved_not_ok_for_functions_or_types_325', 
-         'keywords_notreserved_not_ok_for_functions_or_types_326', 
-         'keywords_notreserved_not_ok_for_functions_or_types_327', 
-         'keywords_notreserved_not_ok_for_functions_or_types_328', 
-         'keywords_notreserved_not_ok_for_functions_or_types_329', 
-         'keywords_notreserved_not_ok_for_functions_or_types_330', 
-         'keywords_notreserved_not_ok_for_functions_or_types_331', 
-         'keywords_notreserved_not_ok_for_functions_or_types_332', 
-         'keywords_notreserved_not_ok_for_functions_or_types_333', 
-         'keywords_notreserved_not_ok_for_functions_or_types_334', 
-         'keywords_notreserved_not_ok_for_functions_or_types_335', 
-         'keywords_notreserved_not_ok_for_functions_or_types_336', 
-         'keywords_notreserved_not_ok_for_functions_or_types_337', 
-         'keywords_notreserved_not_ok_for_functions_or_types_338', 
-         'keywords_notreserved_not_ok_for_functions_or_types_339', 
-         'keywords_notreserved_not_ok_for_functions_or_types_340', 
-         'keywords_notreserved_not_ok_for_functions_or_types_341', 
-         'keywords_notreserved_not_ok_for_functions_or_types_342', 
-         'keywords_notreserved_not_ok_for_functions_or_types_343', 
-         'keywords_notreserved_not_ok_for_functions_or_types_344', 
-         'keywords_notreserved_not_ok_for_functions_or_types_345', 
-         'keywords_notreserved_not_ok_for_functions_or_types_346', 
-         'keywords_notreserved_not_ok_for_functions_or_types_347', 
-         'keywords_notreserved_not_ok_for_functions_or_types_348', 
-         'keywords_notreserved_not_ok_for_functions_or_types_349', 
-         'keywords_notreserved_not_ok_for_functions_or_types_350', 
-         'keywords_notreserved_not_ok_for_functions_or_types_351', 
-         'keywords_notreserved_not_ok_for_functions_or_types_352', 
-         'keywords_notreserved_not_ok_for_functions_or_types_353', 
-         'keywords_notreserved_not_ok_for_functions_or_types_354', 
+         'keywords_notreserved_299', 
+         'keywords_notreserved_300', 
+         'keywords_notreserved_301', 
+         'keywords_notreserved_302', 
+         'keywords_notreserved_303', 
+         'keywords_notreserved_304', 
+         'keywords_notreserved_305', 
+         'keywords_notreserved_306', 
+         'keywords_notreserved_307', 
+         'keywords_notreserved_308', 
+         'keywords_notreserved_309', 
+         'keywords_notreserved_310', 
+         'keywords_notreserved_311', 
+         'keywords_notreserved_312', 
+         'keywords_notreserved_313', 
+         'keywords_notreserved_314', 
+         'keywords_notreserved_315', 
+         'keywords_notreserved_316', 
+         'keywords_notreserved_317', 
+         'keywords_notreserved_318', 
+         'keywords_notreserved_319', 
+         'keywords_notreserved_320', 
+         'keywords_notreserved_321', 
+         'keywords_notreserved_322', 
+         'keywords_notreserved_323', 
+         'keywords_notreserved_324', 
+         'keywords_notreserved_325', 
+         'keywords_notreserved_326', 
+         'keywords_notreserved_327', 
+         'keywords_notreserved_328', 
+         'keywords_notreserved_329', 
+         'keywords_notreserved_330', 
+         'keywords_notreserved_331', 
+         'keywords_notreserved_332', 
+         'keywords_reserved_ok_for_functions_or_types_333', 
+         'keywords_reserved_ok_for_functions_or_types_334', 
+         'keywords_reserved_ok_for_functions_or_types_335', 
+         'keywords_reserved_ok_for_functions_or_types_336', 
+         'keywords_reserved_ok_for_functions_or_types_337', 
+         'keywords_reserved_ok_for_functions_or_types_338', 
+         'keywords_reserved_ok_for_functions_or_types_339', 
+         'keywords_reserved_ok_for_functions_or_types_340', 
+         'keywords_reserved_ok_for_functions_or_types_341', 
+         'keywords_reserved_ok_for_functions_or_types_342', 
+         'keywords_reserved_ok_for_functions_or_types_343', 
+         'keywords_reserved_ok_for_functions_or_types_344', 
+         'keywords_reserved_ok_for_functions_or_types_345', 
+         'keywords_reserved_ok_for_functions_or_types_346', 
+         'keywords_reserved_ok_for_functions_or_types_347', 
+         'keywords_reserved_ok_for_functions_or_types_348', 
+         'keywords_reserved_ok_for_functions_or_types_349', 
+         'keywords_reserved_ok_for_functions_or_types_350', 
+         'keywords_reserved_ok_for_functions_or_types_351', 
+         'keywords_reserved_ok_for_functions_or_types_352', 
+         'keywords_reserved_ok_for_functions_or_types_353', 
+         'keywords_reserved_ok_for_functions_or_types_354', 
          'keywords_notreserved_not_ok_for_functions_or_types_355', 
          'keywords_notreserved_not_ok_for_functions_or_types_356', 
          'keywords_notreserved_not_ok_for_functions_or_types_357', 
@@ -5814,11 +6895,45 @@ sub {
          'keywords_notreserved_not_ok_for_functions_or_types_364', 
          'keywords_notreserved_not_ok_for_functions_or_types_365', 
          'keywords_notreserved_not_ok_for_functions_or_types_366', 
-         'keywords_notreserved_not_ok_for_functions_or_types_367', );
+         'keywords_notreserved_not_ok_for_functions_or_types_367', 
+         'keywords_notreserved_not_ok_for_functions_or_types_368', 
+         'keywords_notreserved_not_ok_for_functions_or_types_369', 
+         'keywords_notreserved_not_ok_for_functions_or_types_370', 
+         'keywords_notreserved_not_ok_for_functions_or_types_371', 
+         'keywords_notreserved_not_ok_for_functions_or_types_372', 
+         'keywords_notreserved_not_ok_for_functions_or_types_373', 
+         'keywords_notreserved_not_ok_for_functions_or_types_374', 
+         'keywords_notreserved_not_ok_for_functions_or_types_375', 
+         'keywords_notreserved_not_ok_for_functions_or_types_376', 
+         'keywords_notreserved_not_ok_for_functions_or_types_377', 
+         'keywords_notreserved_not_ok_for_functions_or_types_378', 
+         'keywords_notreserved_not_ok_for_functions_or_types_379', 
+         'keywords_notreserved_not_ok_for_functions_or_types_380', 
+         'keywords_notreserved_not_ok_for_functions_or_types_381', 
+         'keywords_notreserved_not_ok_for_functions_or_types_382', 
+         'keywords_notreserved_not_ok_for_functions_or_types_383', 
+         'keywords_notreserved_not_ok_for_functions_or_types_384', 
+         'keywords_notreserved_not_ok_for_functions_or_types_385', 
+         'keywords_notreserved_not_ok_for_functions_or_types_386', 
+         'keywords_notreserved_not_ok_for_functions_or_types_387', 
+         'keywords_notreserved_not_ok_for_functions_or_types_388', 
+         'keywords_notreserved_not_ok_for_functions_or_types_389', 
+         'keywords_notreserved_not_ok_for_functions_or_types_390', 
+         'keywords_notreserved_not_ok_for_functions_or_types_391', 
+         'keywords_notreserved_not_ok_for_functions_or_types_392', 
+         'keywords_notreserved_not_ok_for_functions_or_types_393', 
+         'keywords_notreserved_not_ok_for_functions_or_types_394', 
+         'keywords_notreserved_not_ok_for_functions_or_types_395', 
+         'keywords_notreserved_not_ok_for_functions_or_types_396', 
+         'keywords_notreserved_not_ok_for_functions_or_types_397', 
+         'keywords_notreserved_not_ok_for_functions_or_types_398', 
+         'keywords_notreserved_not_ok_for_functions_or_types_399', 
+         'keywords_notreserved_not_ok_for_functions_or_types_400', 
+         'keywords_notreserved_not_ok_for_functions_or_types_401', );
   $self;
 }
 
-#line 427 "SQL.eyp"
+#line 494 "SQL.eyp"
 
 
 # vim: set ft=lex:
@@ -5829,7 +6944,7 @@ sub {
 =cut
 
 
-#line 5832 ../lib/Pg/SQL/Parser/SQL.pm
+#line 6947 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 

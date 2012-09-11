@@ -51,35 +51,17 @@ Sets the name of the type
 
 =cut
 
-sub name {
-    my $self = shift;
-    $self->{ 'name' } = shift;
-    return;
-}
-
 =head2 schema()
 
 Sets the schema of the type. This is optional, and usually not needed.
 
 =cut
 
-sub schema {
-    my $self = shift;
-    $self->{ 'schema' } = shift;
-    return;
-}
-
 =head2 limits()
 
 Sets the limits of the type. This is optional.
 
 =cut
-
-sub limits {
-    my $self = shift;
-    $self->{ 'limits' } = shift;
-    return;
-}
 
 =head1 AUTHOR
 

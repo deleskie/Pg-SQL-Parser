@@ -42,12 +42,6 @@ For example:
 
 =cut
 
-sub value {
-    my $self = shift;
-    $self->{ 'value' } = shift;
-    return;
-}
-
 =head2 type()
 
 Sets the type of stored value.
@@ -89,12 +83,16 @@ All possible types:
 
 sub type {
     my $self = shift;
-    my $type = shift;
-    if ( $type =~ m{ \A (?: (?: U | E | X?BIT )? STRING | NUMERIC | INTEGER ) _CONSTANT \z }x ) {
-        $self->{ 'type' } = $type;
-        return;
+    if ( 0 < scalar @_ ) {
+        my $type = shift;
+        if ( $type =~ m{ \A (?: (?: U | E | X?BIT )? STRING | NUMERIC | INTEGER ) _CONSTANT \z }x ) {
+            $self->{ 'type' } = $type;
+        }
+        else {
+            croak( 'Unknown type for literal value: ' . $type );
+        }
     }
-    croak( 'Unknown type for literal value: ' . $type );
+    return $self->{ 'type' };
 }
 
 =head1 AUTHOR

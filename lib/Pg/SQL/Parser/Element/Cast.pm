@@ -48,12 +48,6 @@ Sets the expression that is subjected to cast.
 
 =cut
 
-sub value {
-    my $self = shift;
-    $self->{ 'value' } = shift;
-    return;
-}
-
 =head2 method()
 
 Which method should be used for this cast.
@@ -73,13 +67,17 @@ Possible ways:
 =cut
 
 sub method {
-    my $self   = shift;
-    my $method = shift;
-    if ( $method =~ m{ \A (?: :: | function | sql ) \z }x ) {
-        $self->{ 'method' } = $method;
-        return;
+    my $self = shift;
+    if ( 0 < scalar @_ ) {
+        my $method = shift;
+        if ( $method =~ m{ \A (?: :: | function | sql ) \z }x ) {
+            $self->{ 'method' } = $method;
+        }
+        else {
+            croak( 'Unknown method for cast ' . $method );
+        }
     }
-    croak( 'Unknown method for cast ' . $method );
+    return $self->{ 'method' };
 }
 
 =head2 final_type()
@@ -87,13 +85,6 @@ sub method {
 Type which given value should be cast to.
 
 =cut
-
-sub final_type {
-    my $self       = shift;
-    my $final_type = shift;
-    $self->{ 'final_type' } = $final_type;
-    return;
-}
 
 =head1 AUTHOR
 

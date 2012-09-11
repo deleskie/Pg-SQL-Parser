@@ -36,12 +36,6 @@ For example:
 
 =cut
 
-sub value {
-    my $self = shift;
-    $self->{ 'value' } = shift;
-    return;
-}
-
 =head2 alias()
 
 Sets the alias of the column, if needed.
@@ -56,12 +50,6 @@ For example:
     $rc->alias( 'x' );
 
 =cut
-
-sub alias {
-    my $self = shift;
-    $self->{ 'alias' } = shift;
-    return;
-}
 
 =head1 AUTHOR
 
