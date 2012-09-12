@@ -1,0 +1,5 @@
+SELECT
+    interval '1 week',
+    integer '123',
+    text 'xxx',
+    timestamptz 'now'

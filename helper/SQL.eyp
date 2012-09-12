@@ -51,23 +51,30 @@ result_column: expr      { [ $_[1], undef ] }
 ;
 
 expr: expr_simple                      { $_[1] }
-    | expr BETWEEN expr AND expr       { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-    | expr OPERATOR_NAME               { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-    | OPERATOR_NAME expr               { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-    | expr '+' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '-' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '*' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '%' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '/' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '<' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '>' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '=' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '^' expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr LIKE expr                   { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr ILIKE expr                  { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr OPERATOR_NAME expr          { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '::' normal_type            { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+    | operator_expression              { $_[1] }
+    | cast_expression                  { $_[1] }
+;
+
+operator_expression: expr BETWEEN expr AND expr  { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
+    | expr OPERATOR_NAME                         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | OPERATOR_NAME expr                         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | expr '+' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '-' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '*' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '%' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '/' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '<' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '>' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '=' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr '^' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr LIKE expr                             { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr ILIKE expr                            { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr OPERATOR_NAME expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+;
+
+cast_expression: expr '::' normal_type { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
     | CAST '(' expr AS normal_type ')' { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
+    | simple_type literal_value        { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
 ;
 
 expr_simple: literal_value         { $_[1] }
@@ -89,13 +96,7 @@ identifier: QUOTED_IDENTIFIER { $_[1] }
     | keywords_notreserved    { $_[1] }
 ;
 
-normal_type: simple_type         { $_[1] }
-    | identifier '.' simple_type { $_[3]->schema( $_[1] ); $_[3] }
-;
-
-simple_type: identifier                                      { $factory->make( 'Type', 'name' => $_[1] ) }
-    | keywords_reserved_ok_for_functions_or_types            { $factory->make( 'Type', 'name' => $_[1] ) }
-    | keywords_notreserved_not_ok_for_functions_or_types     { $factory->make( 'Type', 'name' => $_[1] ) }
+normal_type: simple_type                                     { $_[1] }
     | NUMERIC '(' INTEGER_CONSTANT ')'                       { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
     | NUMERIC '(' INTEGER_CONSTANT ',' INTEGER_CONSTANT ')'  { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
     | DECIMAL '(' INTEGER_CONSTANT ')'                       { $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
@@ -104,6 +105,15 @@ simple_type: identifier                                      { $factory->make( '
     | timestamp_type                                         { $_[1] }
     | time_type                                              { $_[1] }
     | interval_type                                          { $_[1] }
+;
+
+simple_type: base_type                                       { $_[1] }
+    | identifier '.' base_type                               { $_[3]->schema( $_[1] ); $_[3] }
+;
+
+base_type: identifier                                        { $factory->make( 'Type', 'name' => $_[1] ) }
+    | keywords_reserved_ok_for_functions_or_types            { $factory->make( 'Type', 'name' => $_[1] ) }
+    | keywords_notreserved_not_ok_for_functions_or_types     { $factory->make( 'Type', 'name' => $_[1] ) }
 ;
 
 timestamp_type: TIMESTAMP WITH TIME ZONE                                           { $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
