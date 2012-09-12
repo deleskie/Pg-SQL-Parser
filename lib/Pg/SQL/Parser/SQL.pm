@@ -91,399 +91,406 @@ sub new {
   [ 'expr_11' => 'expr', [ 'expr_simple' ], 0 ],
   [ 'expr_12' => 'expr', [ 'operator_expression' ], 0 ],
   [ 'expr_13' => 'expr', [ 'cast_expression' ], 0 ],
-  [ 'operator_expression_14' => 'operator_expression', [ 'expr', 'BETWEEN', 'expr', 'AND', 'expr' ], 0 ],
-  [ 'operator_expression_15' => 'operator_expression', [ 'expr', 'OPERATOR_NAME' ], 0 ],
-  [ 'operator_expression_16' => 'operator_expression', [ 'OPERATOR_NAME', 'expr' ], 0 ],
-  [ 'operator_expression_17' => 'operator_expression', [ 'expr', '+', 'expr' ], 0 ],
-  [ 'operator_expression_18' => 'operator_expression', [ 'expr', '-', 'expr' ], 0 ],
-  [ 'operator_expression_19' => 'operator_expression', [ 'expr', '*', 'expr' ], 0 ],
-  [ 'operator_expression_20' => 'operator_expression', [ 'expr', '%', 'expr' ], 0 ],
-  [ 'operator_expression_21' => 'operator_expression', [ 'expr', '/', 'expr' ], 0 ],
-  [ 'operator_expression_22' => 'operator_expression', [ 'expr', '<', 'expr' ], 0 ],
-  [ 'operator_expression_23' => 'operator_expression', [ 'expr', '>', 'expr' ], 0 ],
-  [ 'operator_expression_24' => 'operator_expression', [ 'expr', '=', 'expr' ], 0 ],
-  [ 'operator_expression_25' => 'operator_expression', [ 'expr', '^', 'expr' ], 0 ],
-  [ 'operator_expression_26' => 'operator_expression', [ 'expr', 'LIKE', 'expr' ], 0 ],
-  [ 'operator_expression_27' => 'operator_expression', [ 'expr', 'ILIKE', 'expr' ], 0 ],
-  [ 'operator_expression_28' => 'operator_expression', [ 'expr', 'OPERATOR_NAME', 'expr' ], 0 ],
-  [ 'cast_expression_29' => 'cast_expression', [ 'expr', '::', 'normal_type' ], 0 ],
-  [ 'cast_expression_30' => 'cast_expression', [ 'CAST', '(', 'expr', 'AS', 'normal_type', ')' ], 0 ],
-  [ 'cast_expression_31' => 'cast_expression', [ 'normal_type', 'literal_value' ], 0 ],
-  [ 'expr_simple_32' => 'expr_simple', [ 'literal_value' ], 0 ],
-  [ 'expr_simple_33' => 'expr_simple', [ '(', 'expr', ')' ], 0 ],
-  [ 'literal_value_34' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
-  [ 'literal_value_35' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_36' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_37' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_38' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
-  [ 'literal_value_39' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
-  [ 'literal_value_40' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
-  [ 'identifier_41' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_42' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
-  [ 'identifier_43' => 'identifier', [ 'IDENTIFIER' ], 0 ],
-  [ 'identifier_44' => 'identifier', [ 'keywords_notreserved' ], 0 ],
-  [ 'normal_type_45' => 'normal_type', [ 'simple_type' ], 0 ],
-  [ 'normal_type_46' => 'normal_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'normal_type_47' => 'normal_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'normal_type_48' => 'normal_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'normal_type_49' => 'normal_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'normal_type_50' => 'normal_type', [ 'VARCHAR', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'normal_type_51' => 'normal_type', [ 'timestamp_type' ], 0 ],
-  [ 'normal_type_52' => 'normal_type', [ 'time_type' ], 0 ],
-  [ 'normal_type_53' => 'normal_type', [ 'interval_type' ], 0 ],
-  [ 'simple_type_54' => 'simple_type', [ 'base_type' ], 0 ],
-  [ 'simple_type_55' => 'simple_type', [ 'identifier', '.', 'base_type' ], 0 ],
-  [ 'base_type_56' => 'base_type', [ 'identifier' ], 0 ],
-  [ 'base_type_57' => 'base_type', [ 'keywords_reserved_ok_for_functions_or_types' ], 0 ],
-  [ 'base_type_58' => 'base_type', [ 'keywords_notreserved_not_ok_for_functions_or_types' ], 0 ],
-  [ 'base_type_59' => 'base_type', [ 'DOUBLE', 'PRECISION' ], 0 ],
-  [ 'timestamp_type_60' => 'timestamp_type', [ 'TIMESTAMP', 'WITH', 'TIME', 'ZONE' ], 0 ],
-  [ 'timestamp_type_61' => 'timestamp_type', [ 'TIMESTAMP', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
-  [ 'timestamp_type_62' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'timestamp_type_63' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
-  [ 'timestamp_type_64' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
-  [ 'time_type_65' => 'time_type', [ 'TIME', 'WITH', 'TIME', 'ZONE' ], 0 ],
-  [ 'time_type_66' => 'time_type', [ 'TIME', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
-  [ 'time_type_67' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'time_type_68' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
-  [ 'time_type_69' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
-  [ 'interval_type_70' => 'interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'interval_type_71' => 'interval_type', [ 'base_interval_type', 'YEAR' ], 0 ],
-  [ 'interval_type_72' => 'interval_type', [ 'base_interval_type', 'MONTH' ], 0 ],
-  [ 'interval_type_73' => 'interval_type', [ 'base_interval_type', 'DAY' ], 0 ],
-  [ 'interval_type_74' => 'interval_type', [ 'base_interval_type', 'HOUR' ], 0 ],
-  [ 'interval_type_75' => 'interval_type', [ 'base_interval_type', 'MINUTE' ], 0 ],
-  [ 'interval_type_76' => 'interval_type', [ 'base_interval_type', 'SECOND' ], 0 ],
-  [ 'interval_type_77' => 'interval_type', [ 'base_interval_type', 'YEAR', 'TO', 'MONTH' ], 0 ],
-  [ 'interval_type_78' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'HOUR' ], 0 ],
-  [ 'interval_type_79' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'MINUTE' ], 0 ],
-  [ 'interval_type_80' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND' ], 0 ],
-  [ 'interval_type_81' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'MINUTE' ], 0 ],
-  [ 'interval_type_82' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND' ], 0 ],
-  [ 'interval_type_83' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND' ], 0 ],
-  [ 'interval_type_84' => 'interval_type', [ 'base_interval_type', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'interval_type_85' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'interval_type_86' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'interval_type_87' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'base_interval_type_88' => 'base_interval_type', [ 'INTERVAL' ], 0 ],
-  [ 'base_interval_type_89' => 'base_interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
-  [ 'keywords_notreserved_90' => 'keywords_notreserved', [ 'ABORT' ], 0 ],
-  [ 'keywords_notreserved_91' => 'keywords_notreserved', [ 'ABSOLUTE' ], 0 ],
-  [ 'keywords_notreserved_92' => 'keywords_notreserved', [ 'ACCESS' ], 0 ],
-  [ 'keywords_notreserved_93' => 'keywords_notreserved', [ 'ACTION' ], 0 ],
-  [ 'keywords_notreserved_94' => 'keywords_notreserved', [ 'ADD' ], 0 ],
-  [ 'keywords_notreserved_95' => 'keywords_notreserved', [ 'ADMIN' ], 0 ],
-  [ 'keywords_notreserved_96' => 'keywords_notreserved', [ 'AFTER' ], 0 ],
-  [ 'keywords_notreserved_97' => 'keywords_notreserved', [ 'AGGREGATE' ], 0 ],
-  [ 'keywords_notreserved_98' => 'keywords_notreserved', [ 'ALSO' ], 0 ],
-  [ 'keywords_notreserved_99' => 'keywords_notreserved', [ 'ALTER' ], 0 ],
-  [ 'keywords_notreserved_100' => 'keywords_notreserved', [ 'ALWAYS' ], 0 ],
-  [ 'keywords_notreserved_101' => 'keywords_notreserved', [ 'ASSERTION' ], 0 ],
-  [ 'keywords_notreserved_102' => 'keywords_notreserved', [ 'ASSIGNMENT' ], 0 ],
-  [ 'keywords_notreserved_103' => 'keywords_notreserved', [ 'AT' ], 0 ],
-  [ 'keywords_notreserved_104' => 'keywords_notreserved', [ 'ATTRIBUTE' ], 0 ],
-  [ 'keywords_notreserved_105' => 'keywords_notreserved', [ 'BACKWARD' ], 0 ],
-  [ 'keywords_notreserved_106' => 'keywords_notreserved', [ 'BEFORE' ], 0 ],
-  [ 'keywords_notreserved_107' => 'keywords_notreserved', [ 'BEGIN' ], 0 ],
-  [ 'keywords_notreserved_108' => 'keywords_notreserved', [ 'BY' ], 0 ],
-  [ 'keywords_notreserved_109' => 'keywords_notreserved', [ 'CACHE' ], 0 ],
-  [ 'keywords_notreserved_110' => 'keywords_notreserved', [ 'CALLED' ], 0 ],
-  [ 'keywords_notreserved_111' => 'keywords_notreserved', [ 'CASCADE' ], 0 ],
-  [ 'keywords_notreserved_112' => 'keywords_notreserved', [ 'CASCADED' ], 0 ],
-  [ 'keywords_notreserved_113' => 'keywords_notreserved', [ 'CATALOG' ], 0 ],
-  [ 'keywords_notreserved_114' => 'keywords_notreserved', [ 'CHAIN' ], 0 ],
-  [ 'keywords_notreserved_115' => 'keywords_notreserved', [ 'CHARACTERISTICS' ], 0 ],
-  [ 'keywords_notreserved_116' => 'keywords_notreserved', [ 'CHECKPOINT' ], 0 ],
-  [ 'keywords_notreserved_117' => 'keywords_notreserved', [ 'CLASS' ], 0 ],
-  [ 'keywords_notreserved_118' => 'keywords_notreserved', [ 'CLOSE' ], 0 ],
-  [ 'keywords_notreserved_119' => 'keywords_notreserved', [ 'CLUSTER' ], 0 ],
-  [ 'keywords_notreserved_120' => 'keywords_notreserved', [ 'COLLATION' ], 0 ],
-  [ 'keywords_notreserved_121' => 'keywords_notreserved', [ 'COMMENT' ], 0 ],
-  [ 'keywords_notreserved_122' => 'keywords_notreserved', [ 'COMMENTS' ], 0 ],
-  [ 'keywords_notreserved_123' => 'keywords_notreserved', [ 'COMMIT' ], 0 ],
-  [ 'keywords_notreserved_124' => 'keywords_notreserved', [ 'COMMITTED' ], 0 ],
-  [ 'keywords_notreserved_125' => 'keywords_notreserved', [ 'CONFIGURATION' ], 0 ],
-  [ 'keywords_notreserved_126' => 'keywords_notreserved', [ 'CONNECTION' ], 0 ],
-  [ 'keywords_notreserved_127' => 'keywords_notreserved', [ 'CONSTRAINTS' ], 0 ],
-  [ 'keywords_notreserved_128' => 'keywords_notreserved', [ 'CONTENT' ], 0 ],
-  [ 'keywords_notreserved_129' => 'keywords_notreserved', [ 'CONTINUE' ], 0 ],
-  [ 'keywords_notreserved_130' => 'keywords_notreserved', [ 'CONVERSION' ], 0 ],
-  [ 'keywords_notreserved_131' => 'keywords_notreserved', [ 'COPY' ], 0 ],
-  [ 'keywords_notreserved_132' => 'keywords_notreserved', [ 'COST' ], 0 ],
-  [ 'keywords_notreserved_133' => 'keywords_notreserved', [ 'CSV' ], 0 ],
-  [ 'keywords_notreserved_134' => 'keywords_notreserved', [ 'CURRENT' ], 0 ],
-  [ 'keywords_notreserved_135' => 'keywords_notreserved', [ 'CURSOR' ], 0 ],
-  [ 'keywords_notreserved_136' => 'keywords_notreserved', [ 'CYCLE' ], 0 ],
-  [ 'keywords_notreserved_137' => 'keywords_notreserved', [ 'DATA' ], 0 ],
-  [ 'keywords_notreserved_138' => 'keywords_notreserved', [ 'DATABASE' ], 0 ],
-  [ 'keywords_notreserved_139' => 'keywords_notreserved', [ 'DAY' ], 0 ],
-  [ 'keywords_notreserved_140' => 'keywords_notreserved', [ 'DEALLOCATE' ], 0 ],
-  [ 'keywords_notreserved_141' => 'keywords_notreserved', [ 'DECLARE' ], 0 ],
-  [ 'keywords_notreserved_142' => 'keywords_notreserved', [ 'DEFAULTS' ], 0 ],
-  [ 'keywords_notreserved_143' => 'keywords_notreserved', [ 'DEFERRED' ], 0 ],
-  [ 'keywords_notreserved_144' => 'keywords_notreserved', [ 'DEFINER' ], 0 ],
-  [ 'keywords_notreserved_145' => 'keywords_notreserved', [ 'DELETE' ], 0 ],
-  [ 'keywords_notreserved_146' => 'keywords_notreserved', [ 'DELIMITER' ], 0 ],
-  [ 'keywords_notreserved_147' => 'keywords_notreserved', [ 'DELIMITERS' ], 0 ],
-  [ 'keywords_notreserved_148' => 'keywords_notreserved', [ 'DICTIONARY' ], 0 ],
-  [ 'keywords_notreserved_149' => 'keywords_notreserved', [ 'DISABLE' ], 0 ],
-  [ 'keywords_notreserved_150' => 'keywords_notreserved', [ 'DISCARD' ], 0 ],
-  [ 'keywords_notreserved_151' => 'keywords_notreserved', [ 'DOCUMENT' ], 0 ],
-  [ 'keywords_notreserved_152' => 'keywords_notreserved', [ 'DOMAIN' ], 0 ],
-  [ 'keywords_notreserved_153' => 'keywords_notreserved', [ 'DOUBLE' ], 0 ],
-  [ 'keywords_notreserved_154' => 'keywords_notreserved', [ 'DROP' ], 0 ],
-  [ 'keywords_notreserved_155' => 'keywords_notreserved', [ 'EACH' ], 0 ],
-  [ 'keywords_notreserved_156' => 'keywords_notreserved', [ 'ENABLE' ], 0 ],
-  [ 'keywords_notreserved_157' => 'keywords_notreserved', [ 'ENCODING' ], 0 ],
-  [ 'keywords_notreserved_158' => 'keywords_notreserved', [ 'ENCRYPTED' ], 0 ],
-  [ 'keywords_notreserved_159' => 'keywords_notreserved', [ 'ENUM' ], 0 ],
-  [ 'keywords_notreserved_160' => 'keywords_notreserved', [ 'ESCAPE' ], 0 ],
-  [ 'keywords_notreserved_161' => 'keywords_notreserved', [ 'EXCLUDE' ], 0 ],
-  [ 'keywords_notreserved_162' => 'keywords_notreserved', [ 'EXCLUDING' ], 0 ],
-  [ 'keywords_notreserved_163' => 'keywords_notreserved', [ 'EXCLUSIVE' ], 0 ],
-  [ 'keywords_notreserved_164' => 'keywords_notreserved', [ 'EXECUTE' ], 0 ],
-  [ 'keywords_notreserved_165' => 'keywords_notreserved', [ 'EXPLAIN' ], 0 ],
-  [ 'keywords_notreserved_166' => 'keywords_notreserved', [ 'EXTENSION' ], 0 ],
-  [ 'keywords_notreserved_167' => 'keywords_notreserved', [ 'EXTERNAL' ], 0 ],
-  [ 'keywords_notreserved_168' => 'keywords_notreserved', [ 'FAMILY' ], 0 ],
-  [ 'keywords_notreserved_169' => 'keywords_notreserved', [ 'FIRST' ], 0 ],
-  [ 'keywords_notreserved_170' => 'keywords_notreserved', [ 'FOLLOWING' ], 0 ],
-  [ 'keywords_notreserved_171' => 'keywords_notreserved', [ 'FORCE' ], 0 ],
-  [ 'keywords_notreserved_172' => 'keywords_notreserved', [ 'FORWARD' ], 0 ],
-  [ 'keywords_notreserved_173' => 'keywords_notreserved', [ 'FUNCTION' ], 0 ],
-  [ 'keywords_notreserved_174' => 'keywords_notreserved', [ 'FUNCTIONS' ], 0 ],
-  [ 'keywords_notreserved_175' => 'keywords_notreserved', [ 'GLOBAL' ], 0 ],
-  [ 'keywords_notreserved_176' => 'keywords_notreserved', [ 'GRANTED' ], 0 ],
-  [ 'keywords_notreserved_177' => 'keywords_notreserved', [ 'HANDLER' ], 0 ],
-  [ 'keywords_notreserved_178' => 'keywords_notreserved', [ 'HEADER' ], 0 ],
-  [ 'keywords_notreserved_179' => 'keywords_notreserved', [ 'HOLD' ], 0 ],
-  [ 'keywords_notreserved_180' => 'keywords_notreserved', [ 'HOUR' ], 0 ],
-  [ 'keywords_notreserved_181' => 'keywords_notreserved', [ 'IDENTITY' ], 0 ],
-  [ 'keywords_notreserved_182' => 'keywords_notreserved', [ 'IF' ], 0 ],
-  [ 'keywords_notreserved_183' => 'keywords_notreserved', [ 'IMMEDIATE' ], 0 ],
-  [ 'keywords_notreserved_184' => 'keywords_notreserved', [ 'IMMUTABLE' ], 0 ],
-  [ 'keywords_notreserved_185' => 'keywords_notreserved', [ 'IMPLICIT' ], 0 ],
-  [ 'keywords_notreserved_186' => 'keywords_notreserved', [ 'INCLUDING' ], 0 ],
-  [ 'keywords_notreserved_187' => 'keywords_notreserved', [ 'INCREMENT' ], 0 ],
-  [ 'keywords_notreserved_188' => 'keywords_notreserved', [ 'INDEX' ], 0 ],
-  [ 'keywords_notreserved_189' => 'keywords_notreserved', [ 'INDEXES' ], 0 ],
-  [ 'keywords_notreserved_190' => 'keywords_notreserved', [ 'INHERIT' ], 0 ],
-  [ 'keywords_notreserved_191' => 'keywords_notreserved', [ 'INHERITS' ], 0 ],
-  [ 'keywords_notreserved_192' => 'keywords_notreserved', [ 'INLINE' ], 0 ],
-  [ 'keywords_notreserved_193' => 'keywords_notreserved', [ 'INPUT' ], 0 ],
-  [ 'keywords_notreserved_194' => 'keywords_notreserved', [ 'INSENSITIVE' ], 0 ],
-  [ 'keywords_notreserved_195' => 'keywords_notreserved', [ 'INSERT' ], 0 ],
-  [ 'keywords_notreserved_196' => 'keywords_notreserved', [ 'INSTEAD' ], 0 ],
-  [ 'keywords_notreserved_197' => 'keywords_notreserved', [ 'INVOKER' ], 0 ],
-  [ 'keywords_notreserved_198' => 'keywords_notreserved', [ 'ISOLATION' ], 0 ],
-  [ 'keywords_notreserved_199' => 'keywords_notreserved', [ 'KEY' ], 0 ],
-  [ 'keywords_notreserved_200' => 'keywords_notreserved', [ 'LABEL' ], 0 ],
-  [ 'keywords_notreserved_201' => 'keywords_notreserved', [ 'LANGUAGE' ], 0 ],
-  [ 'keywords_notreserved_202' => 'keywords_notreserved', [ 'LARGE' ], 0 ],
-  [ 'keywords_notreserved_203' => 'keywords_notreserved', [ 'LAST' ], 0 ],
-  [ 'keywords_notreserved_204' => 'keywords_notreserved', [ 'LC_COLLATE' ], 0 ],
-  [ 'keywords_notreserved_205' => 'keywords_notreserved', [ 'LC_CTYPE' ], 0 ],
-  [ 'keywords_notreserved_206' => 'keywords_notreserved', [ 'LEVEL' ], 0 ],
-  [ 'keywords_notreserved_207' => 'keywords_notreserved', [ 'LISTEN' ], 0 ],
-  [ 'keywords_notreserved_208' => 'keywords_notreserved', [ 'LOAD' ], 0 ],
-  [ 'keywords_notreserved_209' => 'keywords_notreserved', [ 'LOCAL' ], 0 ],
-  [ 'keywords_notreserved_210' => 'keywords_notreserved', [ 'LOCATION' ], 0 ],
-  [ 'keywords_notreserved_211' => 'keywords_notreserved', [ 'LOCK' ], 0 ],
-  [ 'keywords_notreserved_212' => 'keywords_notreserved', [ 'MAPPING' ], 0 ],
-  [ 'keywords_notreserved_213' => 'keywords_notreserved', [ 'MATCH' ], 0 ],
-  [ 'keywords_notreserved_214' => 'keywords_notreserved', [ 'MAXVALUE' ], 0 ],
-  [ 'keywords_notreserved_215' => 'keywords_notreserved', [ 'MINUTE' ], 0 ],
-  [ 'keywords_notreserved_216' => 'keywords_notreserved', [ 'MINVALUE' ], 0 ],
-  [ 'keywords_notreserved_217' => 'keywords_notreserved', [ 'MODE' ], 0 ],
-  [ 'keywords_notreserved_218' => 'keywords_notreserved', [ 'MONTH' ], 0 ],
-  [ 'keywords_notreserved_219' => 'keywords_notreserved', [ 'MOVE' ], 0 ],
-  [ 'keywords_notreserved_220' => 'keywords_notreserved', [ 'NAME' ], 0 ],
-  [ 'keywords_notreserved_221' => 'keywords_notreserved', [ 'NAMES' ], 0 ],
-  [ 'keywords_notreserved_222' => 'keywords_notreserved', [ 'NEXT' ], 0 ],
-  [ 'keywords_notreserved_223' => 'keywords_notreserved', [ 'NO' ], 0 ],
-  [ 'keywords_notreserved_224' => 'keywords_notreserved', [ 'NOTHING' ], 0 ],
-  [ 'keywords_notreserved_225' => 'keywords_notreserved', [ 'NOTIFY' ], 0 ],
-  [ 'keywords_notreserved_226' => 'keywords_notreserved', [ 'NOWAIT' ], 0 ],
-  [ 'keywords_notreserved_227' => 'keywords_notreserved', [ 'NULLS' ], 0 ],
-  [ 'keywords_notreserved_228' => 'keywords_notreserved', [ 'OBJECT' ], 0 ],
-  [ 'keywords_notreserved_229' => 'keywords_notreserved', [ 'OF' ], 0 ],
-  [ 'keywords_notreserved_230' => 'keywords_notreserved', [ 'OFF' ], 0 ],
-  [ 'keywords_notreserved_231' => 'keywords_notreserved', [ 'OIDS' ], 0 ],
-  [ 'keywords_notreserved_232' => 'keywords_notreserved', [ 'OPERATOR' ], 0 ],
-  [ 'keywords_notreserved_233' => 'keywords_notreserved', [ 'OPTION' ], 0 ],
-  [ 'keywords_notreserved_234' => 'keywords_notreserved', [ 'OPTIONS' ], 0 ],
-  [ 'keywords_notreserved_235' => 'keywords_notreserved', [ 'OWNED' ], 0 ],
-  [ 'keywords_notreserved_236' => 'keywords_notreserved', [ 'OWNER' ], 0 ],
-  [ 'keywords_notreserved_237' => 'keywords_notreserved', [ 'PARSER' ], 0 ],
-  [ 'keywords_notreserved_238' => 'keywords_notreserved', [ 'PARTIAL' ], 0 ],
-  [ 'keywords_notreserved_239' => 'keywords_notreserved', [ 'PARTITION' ], 0 ],
-  [ 'keywords_notreserved_240' => 'keywords_notreserved', [ 'PASSING' ], 0 ],
-  [ 'keywords_notreserved_241' => 'keywords_notreserved', [ 'PASSWORD' ], 0 ],
-  [ 'keywords_notreserved_242' => 'keywords_notreserved', [ 'PLANS' ], 0 ],
-  [ 'keywords_notreserved_243' => 'keywords_notreserved', [ 'PRECEDING' ], 0 ],
-  [ 'keywords_notreserved_244' => 'keywords_notreserved', [ 'PREPARE' ], 0 ],
-  [ 'keywords_notreserved_245' => 'keywords_notreserved', [ 'PREPARED' ], 0 ],
-  [ 'keywords_notreserved_246' => 'keywords_notreserved', [ 'PRESERVE' ], 0 ],
-  [ 'keywords_notreserved_247' => 'keywords_notreserved', [ 'PRIOR' ], 0 ],
-  [ 'keywords_notreserved_248' => 'keywords_notreserved', [ 'PRIVILEGES' ], 0 ],
-  [ 'keywords_notreserved_249' => 'keywords_notreserved', [ 'PROCEDURAL' ], 0 ],
-  [ 'keywords_notreserved_250' => 'keywords_notreserved', [ 'PROCEDURE' ], 0 ],
-  [ 'keywords_notreserved_251' => 'keywords_notreserved', [ 'QUOTE' ], 0 ],
-  [ 'keywords_notreserved_252' => 'keywords_notreserved', [ 'RANGE' ], 0 ],
-  [ 'keywords_notreserved_253' => 'keywords_notreserved', [ 'READ' ], 0 ],
-  [ 'keywords_notreserved_254' => 'keywords_notreserved', [ 'REASSIGN' ], 0 ],
-  [ 'keywords_notreserved_255' => 'keywords_notreserved', [ 'RECHECK' ], 0 ],
-  [ 'keywords_notreserved_256' => 'keywords_notreserved', [ 'RECURSIVE' ], 0 ],
-  [ 'keywords_notreserved_257' => 'keywords_notreserved', [ 'REF' ], 0 ],
-  [ 'keywords_notreserved_258' => 'keywords_notreserved', [ 'REINDEX' ], 0 ],
-  [ 'keywords_notreserved_259' => 'keywords_notreserved', [ 'RELATIVE' ], 0 ],
-  [ 'keywords_notreserved_260' => 'keywords_notreserved', [ 'RELEASE' ], 0 ],
-  [ 'keywords_notreserved_261' => 'keywords_notreserved', [ 'RENAME' ], 0 ],
-  [ 'keywords_notreserved_262' => 'keywords_notreserved', [ 'REPEATABLE' ], 0 ],
-  [ 'keywords_notreserved_263' => 'keywords_notreserved', [ 'REPLACE' ], 0 ],
-  [ 'keywords_notreserved_264' => 'keywords_notreserved', [ 'REPLICA' ], 0 ],
-  [ 'keywords_notreserved_265' => 'keywords_notreserved', [ 'RESET' ], 0 ],
-  [ 'keywords_notreserved_266' => 'keywords_notreserved', [ 'RESTART' ], 0 ],
-  [ 'keywords_notreserved_267' => 'keywords_notreserved', [ 'RESTRICT' ], 0 ],
-  [ 'keywords_notreserved_268' => 'keywords_notreserved', [ 'RETURNS' ], 0 ],
-  [ 'keywords_notreserved_269' => 'keywords_notreserved', [ 'REVOKE' ], 0 ],
-  [ 'keywords_notreserved_270' => 'keywords_notreserved', [ 'ROLE' ], 0 ],
-  [ 'keywords_notreserved_271' => 'keywords_notreserved', [ 'ROLLBACK' ], 0 ],
-  [ 'keywords_notreserved_272' => 'keywords_notreserved', [ 'ROWS' ], 0 ],
-  [ 'keywords_notreserved_273' => 'keywords_notreserved', [ 'RULE' ], 0 ],
-  [ 'keywords_notreserved_274' => 'keywords_notreserved', [ 'SAVEPOINT' ], 0 ],
-  [ 'keywords_notreserved_275' => 'keywords_notreserved', [ 'SCHEMA' ], 0 ],
-  [ 'keywords_notreserved_276' => 'keywords_notreserved', [ 'SCROLL' ], 0 ],
-  [ 'keywords_notreserved_277' => 'keywords_notreserved', [ 'SEARCH' ], 0 ],
-  [ 'keywords_notreserved_278' => 'keywords_notreserved', [ 'SECOND' ], 0 ],
-  [ 'keywords_notreserved_279' => 'keywords_notreserved', [ 'SECURITY' ], 0 ],
-  [ 'keywords_notreserved_280' => 'keywords_notreserved', [ 'SEQUENCE' ], 0 ],
-  [ 'keywords_notreserved_281' => 'keywords_notreserved', [ 'SEQUENCES' ], 0 ],
-  [ 'keywords_notreserved_282' => 'keywords_notreserved', [ 'SERIALIZABLE' ], 0 ],
-  [ 'keywords_notreserved_283' => 'keywords_notreserved', [ 'SERVER' ], 0 ],
-  [ 'keywords_notreserved_284' => 'keywords_notreserved', [ 'SESSION' ], 0 ],
-  [ 'keywords_notreserved_285' => 'keywords_notreserved', [ 'SET' ], 0 ],
-  [ 'keywords_notreserved_286' => 'keywords_notreserved', [ 'SHARE' ], 0 ],
-  [ 'keywords_notreserved_287' => 'keywords_notreserved', [ 'SHOW' ], 0 ],
-  [ 'keywords_notreserved_288' => 'keywords_notreserved', [ 'SIMPLE' ], 0 ],
-  [ 'keywords_notreserved_289' => 'keywords_notreserved', [ 'STABLE' ], 0 ],
-  [ 'keywords_notreserved_290' => 'keywords_notreserved', [ 'STANDALONE' ], 0 ],
-  [ 'keywords_notreserved_291' => 'keywords_notreserved', [ 'START' ], 0 ],
-  [ 'keywords_notreserved_292' => 'keywords_notreserved', [ 'STATEMENT' ], 0 ],
-  [ 'keywords_notreserved_293' => 'keywords_notreserved', [ 'STATISTICS' ], 0 ],
-  [ 'keywords_notreserved_294' => 'keywords_notreserved', [ 'STDIN' ], 0 ],
-  [ 'keywords_notreserved_295' => 'keywords_notreserved', [ 'STDOUT' ], 0 ],
-  [ 'keywords_notreserved_296' => 'keywords_notreserved', [ 'STORAGE' ], 0 ],
-  [ 'keywords_notreserved_297' => 'keywords_notreserved', [ 'STRICT' ], 0 ],
-  [ 'keywords_notreserved_298' => 'keywords_notreserved', [ 'STRIP' ], 0 ],
-  [ 'keywords_notreserved_299' => 'keywords_notreserved', [ 'SYSID' ], 0 ],
-  [ 'keywords_notreserved_300' => 'keywords_notreserved', [ 'SYSTEM' ], 0 ],
-  [ 'keywords_notreserved_301' => 'keywords_notreserved', [ 'TABLES' ], 0 ],
-  [ 'keywords_notreserved_302' => 'keywords_notreserved', [ 'TABLESPACE' ], 0 ],
-  [ 'keywords_notreserved_303' => 'keywords_notreserved', [ 'TEMP' ], 0 ],
-  [ 'keywords_notreserved_304' => 'keywords_notreserved', [ 'TEMPLATE' ], 0 ],
-  [ 'keywords_notreserved_305' => 'keywords_notreserved', [ 'TEMPORARY' ], 0 ],
-  [ 'keywords_notreserved_306' => 'keywords_notreserved', [ 'TEXT' ], 0 ],
-  [ 'keywords_notreserved_307' => 'keywords_notreserved', [ 'TRANSACTION' ], 0 ],
-  [ 'keywords_notreserved_308' => 'keywords_notreserved', [ 'TRIGGER' ], 0 ],
-  [ 'keywords_notreserved_309' => 'keywords_notreserved', [ 'TRUNCATE' ], 0 ],
-  [ 'keywords_notreserved_310' => 'keywords_notreserved', [ 'TRUSTED' ], 0 ],
-  [ 'keywords_notreserved_311' => 'keywords_notreserved', [ 'TYPE' ], 0 ],
-  [ 'keywords_notreserved_312' => 'keywords_notreserved', [ 'UNBOUNDED' ], 0 ],
-  [ 'keywords_notreserved_313' => 'keywords_notreserved', [ 'UNCOMMITTED' ], 0 ],
-  [ 'keywords_notreserved_314' => 'keywords_notreserved', [ 'UNENCRYPTED' ], 0 ],
-  [ 'keywords_notreserved_315' => 'keywords_notreserved', [ 'UNKNOWN' ], 0 ],
-  [ 'keywords_notreserved_316' => 'keywords_notreserved', [ 'UNLISTEN' ], 0 ],
-  [ 'keywords_notreserved_317' => 'keywords_notreserved', [ 'UNLOGGED' ], 0 ],
-  [ 'keywords_notreserved_318' => 'keywords_notreserved', [ 'UNTIL' ], 0 ],
-  [ 'keywords_notreserved_319' => 'keywords_notreserved', [ 'UPDATE' ], 0 ],
-  [ 'keywords_notreserved_320' => 'keywords_notreserved', [ 'VACUUM' ], 0 ],
-  [ 'keywords_notreserved_321' => 'keywords_notreserved', [ 'VALID' ], 0 ],
-  [ 'keywords_notreserved_322' => 'keywords_notreserved', [ 'VALIDATE' ], 0 ],
-  [ 'keywords_notreserved_323' => 'keywords_notreserved', [ 'VALIDATOR' ], 0 ],
-  [ 'keywords_notreserved_324' => 'keywords_notreserved', [ 'VALUE' ], 0 ],
-  [ 'keywords_notreserved_325' => 'keywords_notreserved', [ 'VARYING' ], 0 ],
-  [ 'keywords_notreserved_326' => 'keywords_notreserved', [ 'VERSION' ], 0 ],
-  [ 'keywords_notreserved_327' => 'keywords_notreserved', [ 'VIEW' ], 0 ],
-  [ 'keywords_notreserved_328' => 'keywords_notreserved', [ 'VOLATILE' ], 0 ],
-  [ 'keywords_notreserved_329' => 'keywords_notreserved', [ 'WHITESPACE' ], 0 ],
-  [ 'keywords_notreserved_330' => 'keywords_notreserved', [ 'WITHOUT' ], 0 ],
-  [ 'keywords_notreserved_331' => 'keywords_notreserved', [ 'WORK' ], 0 ],
-  [ 'keywords_notreserved_332' => 'keywords_notreserved', [ 'WRAPPER' ], 0 ],
-  [ 'keywords_notreserved_333' => 'keywords_notreserved', [ 'WRITE' ], 0 ],
-  [ 'keywords_notreserved_334' => 'keywords_notreserved', [ 'XML' ], 0 ],
-  [ 'keywords_notreserved_335' => 'keywords_notreserved', [ 'YEAR' ], 0 ],
-  [ 'keywords_notreserved_336' => 'keywords_notreserved', [ 'YES' ], 0 ],
-  [ 'keywords_notreserved_337' => 'keywords_notreserved', [ 'ZONE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_338' => 'keywords_reserved_ok_for_functions_or_types', [ 'AUTHORIZATION' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_339' => 'keywords_reserved_ok_for_functions_or_types', [ 'BINARY' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_340' => 'keywords_reserved_ok_for_functions_or_types', [ 'CONCURRENTLY' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_341' => 'keywords_reserved_ok_for_functions_or_types', [ 'CROSS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_342' => 'keywords_reserved_ok_for_functions_or_types', [ 'CURRENT_SCHEMA' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_343' => 'keywords_reserved_ok_for_functions_or_types', [ 'FREEZE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_344' => 'keywords_reserved_ok_for_functions_or_types', [ 'FULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_345' => 'keywords_reserved_ok_for_functions_or_types', [ 'ILIKE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_346' => 'keywords_reserved_ok_for_functions_or_types', [ 'INNER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_347' => 'keywords_reserved_ok_for_functions_or_types', [ 'IS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_348' => 'keywords_reserved_ok_for_functions_or_types', [ 'ISNULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_349' => 'keywords_reserved_ok_for_functions_or_types', [ 'JOIN' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_350' => 'keywords_reserved_ok_for_functions_or_types', [ 'LEFT' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_351' => 'keywords_reserved_ok_for_functions_or_types', [ 'LIKE' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_352' => 'keywords_reserved_ok_for_functions_or_types', [ 'NATURAL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_353' => 'keywords_reserved_ok_for_functions_or_types', [ 'NOTNULL' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_354' => 'keywords_reserved_ok_for_functions_or_types', [ 'OUTER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_355' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVER' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_356' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVERLAPS' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_357' => 'keywords_reserved_ok_for_functions_or_types', [ 'RIGHT' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_358' => 'keywords_reserved_ok_for_functions_or_types', [ 'SIMILAR' ], 0 ],
-  [ 'keywords_reserved_ok_for_functions_or_types_359' => 'keywords_reserved_ok_for_functions_or_types', [ 'VERBOSE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_360' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BETWEEN' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_361' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIGINT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_362' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_363' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BOOLEAN' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_364' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_365' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHARACTER' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_366' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'COALESCE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_367' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DEC' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_368' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DECIMAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_369' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXISTS' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_370' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXTRACT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_371' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'FLOAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_372' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'GREATEST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_373' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INOUT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_374' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_375' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTEGER' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_376' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTERVAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_377' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'LEAST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_378' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NATIONAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_379' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NCHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_380' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NONE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_381' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NULLIF' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_382' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NUMERIC' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_383' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OUT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_384' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OVERLAY' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_385' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'POSITION' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_386' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'PRECISION' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_387' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'REAL' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_388' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'ROW' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_389' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SETOF' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_390' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SMALLINT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_391' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SUBSTRING' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_392' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIME' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_393' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIMESTAMP' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_394' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TREAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_395' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TRIM' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_396' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VALUES' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_397' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VARCHAR' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_398' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLATTRIBUTES' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_399' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLCONCAT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_400' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLELEMENT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_401' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLEXISTS' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_402' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLFOREST' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_403' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPARSE' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_404' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPI' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_405' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLROOT' ], 0 ],
-  [ 'keywords_notreserved_not_ok_for_functions_or_types_406' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLSERIALIZE' ], 0 ],
+  [ 'expr_14' => 'expr', [ 'function_expression' ], 0 ],
+  [ 'function_expression_15' => 'function_expression', [ 'function_name', '(', 'function_args', ')' ], 0 ],
+  [ 'function_name_16' => 'function_name', [ 'identifier' ], 0 ],
+  [ 'function_name_17' => 'function_name', [ 'identifier', '.', 'identifier' ], 0 ],
+  [ 'function_args_18' => 'function_args', [ 'expr' ], 0 ],
+  [ 'function_args_19' => 'function_args', [ 'function_args', ',', 'expr' ], 0 ],
+  [ 'function_args_20' => 'function_args', [  ], 0 ],
+  [ 'operator_expression_21' => 'operator_expression', [ 'expr', 'BETWEEN', 'expr', 'AND', 'expr' ], 0 ],
+  [ 'operator_expression_22' => 'operator_expression', [ 'expr', 'OPERATOR_NAME' ], 0 ],
+  [ 'operator_expression_23' => 'operator_expression', [ 'OPERATOR_NAME', 'expr' ], 0 ],
+  [ 'operator_expression_24' => 'operator_expression', [ 'expr', '+', 'expr' ], 0 ],
+  [ 'operator_expression_25' => 'operator_expression', [ 'expr', '-', 'expr' ], 0 ],
+  [ 'operator_expression_26' => 'operator_expression', [ 'expr', '*', 'expr' ], 0 ],
+  [ 'operator_expression_27' => 'operator_expression', [ 'expr', '%', 'expr' ], 0 ],
+  [ 'operator_expression_28' => 'operator_expression', [ 'expr', '/', 'expr' ], 0 ],
+  [ 'operator_expression_29' => 'operator_expression', [ 'expr', '<', 'expr' ], 0 ],
+  [ 'operator_expression_30' => 'operator_expression', [ 'expr', '>', 'expr' ], 0 ],
+  [ 'operator_expression_31' => 'operator_expression', [ 'expr', '=', 'expr' ], 0 ],
+  [ 'operator_expression_32' => 'operator_expression', [ 'expr', '^', 'expr' ], 0 ],
+  [ 'operator_expression_33' => 'operator_expression', [ 'expr', 'LIKE', 'expr' ], 0 ],
+  [ 'operator_expression_34' => 'operator_expression', [ 'expr', 'ILIKE', 'expr' ], 0 ],
+  [ 'operator_expression_35' => 'operator_expression', [ 'expr', 'OPERATOR_NAME', 'expr' ], 0 ],
+  [ 'cast_expression_36' => 'cast_expression', [ 'expr', '::', 'normal_type' ], 0 ],
+  [ 'cast_expression_37' => 'cast_expression', [ 'CAST', '(', 'expr', 'AS', 'normal_type', ')' ], 0 ],
+  [ 'cast_expression_38' => 'cast_expression', [ 'normal_type', 'literal_value' ], 0 ],
+  [ 'expr_simple_39' => 'expr_simple', [ 'literal_value' ], 0 ],
+  [ 'expr_simple_40' => 'expr_simple', [ '(', 'expr', ')' ], 0 ],
+  [ 'literal_value_41' => 'literal_value', [ 'STRING_CONSTANT' ], 0 ],
+  [ 'literal_value_42' => 'literal_value', [ 'USTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_43' => 'literal_value', [ 'ESTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_44' => 'literal_value', [ 'BITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_45' => 'literal_value', [ 'XBITSTRING_CONSTANT' ], 0 ],
+  [ 'literal_value_46' => 'literal_value', [ 'NUMERIC_CONSTANT' ], 0 ],
+  [ 'literal_value_47' => 'literal_value', [ 'INTEGER_CONSTANT' ], 0 ],
+  [ 'identifier_48' => 'identifier', [ 'QUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_49' => 'identifier', [ 'UQUOTED_IDENTIFIER' ], 0 ],
+  [ 'identifier_50' => 'identifier', [ 'IDENTIFIER' ], 0 ],
+  [ 'identifier_51' => 'identifier', [ 'keywords_notreserved' ], 0 ],
+  [ 'normal_type_52' => 'normal_type', [ 'simple_type' ], 0 ],
+  [ 'normal_type_53' => 'normal_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'normal_type_54' => 'normal_type', [ 'NUMERIC', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'normal_type_55' => 'normal_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'normal_type_56' => 'normal_type', [ 'DECIMAL', '(', 'INTEGER_CONSTANT', ',', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'normal_type_57' => 'normal_type', [ 'VARCHAR', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'normal_type_58' => 'normal_type', [ 'timestamp_type' ], 0 ],
+  [ 'normal_type_59' => 'normal_type', [ 'time_type' ], 0 ],
+  [ 'normal_type_60' => 'normal_type', [ 'interval_type' ], 0 ],
+  [ 'simple_type_61' => 'simple_type', [ 'base_type' ], 0 ],
+  [ 'simple_type_62' => 'simple_type', [ 'identifier', '.', 'base_type' ], 0 ],
+  [ 'base_type_63' => 'base_type', [ 'identifier' ], 0 ],
+  [ 'base_type_64' => 'base_type', [ 'keywords_reserved_ok_for_functions_or_types' ], 0 ],
+  [ 'base_type_65' => 'base_type', [ 'keywords_notreserved_not_ok_for_functions_or_types' ], 0 ],
+  [ 'base_type_66' => 'base_type', [ 'DOUBLE', 'PRECISION' ], 0 ],
+  [ 'timestamp_type_67' => 'timestamp_type', [ 'TIMESTAMP', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_68' => 'timestamp_type', [ 'TIMESTAMP', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_69' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'timestamp_type_70' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'timestamp_type_71' => 'timestamp_type', [ 'TIMESTAMP', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_72' => 'time_type', [ 'TIME', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_73' => 'time_type', [ 'TIME', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_74' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'time_type_75' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITH', 'TIME', 'ZONE' ], 0 ],
+  [ 'time_type_76' => 'time_type', [ 'TIME', '(', 'INTEGER_CONSTANT', ')', 'WITHOUT', 'TIME', 'ZONE' ], 0 ],
+  [ 'interval_type_77' => 'interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_78' => 'interval_type', [ 'base_interval_type', 'YEAR' ], 0 ],
+  [ 'interval_type_79' => 'interval_type', [ 'base_interval_type', 'MONTH' ], 0 ],
+  [ 'interval_type_80' => 'interval_type', [ 'base_interval_type', 'DAY' ], 0 ],
+  [ 'interval_type_81' => 'interval_type', [ 'base_interval_type', 'HOUR' ], 0 ],
+  [ 'interval_type_82' => 'interval_type', [ 'base_interval_type', 'MINUTE' ], 0 ],
+  [ 'interval_type_83' => 'interval_type', [ 'base_interval_type', 'SECOND' ], 0 ],
+  [ 'interval_type_84' => 'interval_type', [ 'base_interval_type', 'YEAR', 'TO', 'MONTH' ], 0 ],
+  [ 'interval_type_85' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'HOUR' ], 0 ],
+  [ 'interval_type_86' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'MINUTE' ], 0 ],
+  [ 'interval_type_87' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_88' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'MINUTE' ], 0 ],
+  [ 'interval_type_89' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_90' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND' ], 0 ],
+  [ 'interval_type_91' => 'interval_type', [ 'base_interval_type', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_92' => 'interval_type', [ 'base_interval_type', 'DAY', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_93' => 'interval_type', [ 'base_interval_type', 'HOUR', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'interval_type_94' => 'interval_type', [ 'base_interval_type', 'MINUTE', 'TO', 'SECOND', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'base_interval_type_95' => 'base_interval_type', [ 'INTERVAL' ], 0 ],
+  [ 'base_interval_type_96' => 'base_interval_type', [ 'INTERVAL', '(', 'INTEGER_CONSTANT', ')' ], 0 ],
+  [ 'keywords_notreserved_97' => 'keywords_notreserved', [ 'ABORT' ], 0 ],
+  [ 'keywords_notreserved_98' => 'keywords_notreserved', [ 'ABSOLUTE' ], 0 ],
+  [ 'keywords_notreserved_99' => 'keywords_notreserved', [ 'ACCESS' ], 0 ],
+  [ 'keywords_notreserved_100' => 'keywords_notreserved', [ 'ACTION' ], 0 ],
+  [ 'keywords_notreserved_101' => 'keywords_notreserved', [ 'ADD' ], 0 ],
+  [ 'keywords_notreserved_102' => 'keywords_notreserved', [ 'ADMIN' ], 0 ],
+  [ 'keywords_notreserved_103' => 'keywords_notreserved', [ 'AFTER' ], 0 ],
+  [ 'keywords_notreserved_104' => 'keywords_notreserved', [ 'AGGREGATE' ], 0 ],
+  [ 'keywords_notreserved_105' => 'keywords_notreserved', [ 'ALSO' ], 0 ],
+  [ 'keywords_notreserved_106' => 'keywords_notreserved', [ 'ALTER' ], 0 ],
+  [ 'keywords_notreserved_107' => 'keywords_notreserved', [ 'ALWAYS' ], 0 ],
+  [ 'keywords_notreserved_108' => 'keywords_notreserved', [ 'ASSERTION' ], 0 ],
+  [ 'keywords_notreserved_109' => 'keywords_notreserved', [ 'ASSIGNMENT' ], 0 ],
+  [ 'keywords_notreserved_110' => 'keywords_notreserved', [ 'AT' ], 0 ],
+  [ 'keywords_notreserved_111' => 'keywords_notreserved', [ 'ATTRIBUTE' ], 0 ],
+  [ 'keywords_notreserved_112' => 'keywords_notreserved', [ 'BACKWARD' ], 0 ],
+  [ 'keywords_notreserved_113' => 'keywords_notreserved', [ 'BEFORE' ], 0 ],
+  [ 'keywords_notreserved_114' => 'keywords_notreserved', [ 'BEGIN' ], 0 ],
+  [ 'keywords_notreserved_115' => 'keywords_notreserved', [ 'BY' ], 0 ],
+  [ 'keywords_notreserved_116' => 'keywords_notreserved', [ 'CACHE' ], 0 ],
+  [ 'keywords_notreserved_117' => 'keywords_notreserved', [ 'CALLED' ], 0 ],
+  [ 'keywords_notreserved_118' => 'keywords_notreserved', [ 'CASCADE' ], 0 ],
+  [ 'keywords_notreserved_119' => 'keywords_notreserved', [ 'CASCADED' ], 0 ],
+  [ 'keywords_notreserved_120' => 'keywords_notreserved', [ 'CATALOG' ], 0 ],
+  [ 'keywords_notreserved_121' => 'keywords_notreserved', [ 'CHAIN' ], 0 ],
+  [ 'keywords_notreserved_122' => 'keywords_notreserved', [ 'CHARACTERISTICS' ], 0 ],
+  [ 'keywords_notreserved_123' => 'keywords_notreserved', [ 'CHECKPOINT' ], 0 ],
+  [ 'keywords_notreserved_124' => 'keywords_notreserved', [ 'CLASS' ], 0 ],
+  [ 'keywords_notreserved_125' => 'keywords_notreserved', [ 'CLOSE' ], 0 ],
+  [ 'keywords_notreserved_126' => 'keywords_notreserved', [ 'CLUSTER' ], 0 ],
+  [ 'keywords_notreserved_127' => 'keywords_notreserved', [ 'COLLATION' ], 0 ],
+  [ 'keywords_notreserved_128' => 'keywords_notreserved', [ 'COMMENT' ], 0 ],
+  [ 'keywords_notreserved_129' => 'keywords_notreserved', [ 'COMMENTS' ], 0 ],
+  [ 'keywords_notreserved_130' => 'keywords_notreserved', [ 'COMMIT' ], 0 ],
+  [ 'keywords_notreserved_131' => 'keywords_notreserved', [ 'COMMITTED' ], 0 ],
+  [ 'keywords_notreserved_132' => 'keywords_notreserved', [ 'CONFIGURATION' ], 0 ],
+  [ 'keywords_notreserved_133' => 'keywords_notreserved', [ 'CONNECTION' ], 0 ],
+  [ 'keywords_notreserved_134' => 'keywords_notreserved', [ 'CONSTRAINTS' ], 0 ],
+  [ 'keywords_notreserved_135' => 'keywords_notreserved', [ 'CONTENT' ], 0 ],
+  [ 'keywords_notreserved_136' => 'keywords_notreserved', [ 'CONTINUE' ], 0 ],
+  [ 'keywords_notreserved_137' => 'keywords_notreserved', [ 'CONVERSION' ], 0 ],
+  [ 'keywords_notreserved_138' => 'keywords_notreserved', [ 'COPY' ], 0 ],
+  [ 'keywords_notreserved_139' => 'keywords_notreserved', [ 'COST' ], 0 ],
+  [ 'keywords_notreserved_140' => 'keywords_notreserved', [ 'CSV' ], 0 ],
+  [ 'keywords_notreserved_141' => 'keywords_notreserved', [ 'CURRENT' ], 0 ],
+  [ 'keywords_notreserved_142' => 'keywords_notreserved', [ 'CURSOR' ], 0 ],
+  [ 'keywords_notreserved_143' => 'keywords_notreserved', [ 'CYCLE' ], 0 ],
+  [ 'keywords_notreserved_144' => 'keywords_notreserved', [ 'DATA' ], 0 ],
+  [ 'keywords_notreserved_145' => 'keywords_notreserved', [ 'DATABASE' ], 0 ],
+  [ 'keywords_notreserved_146' => 'keywords_notreserved', [ 'DAY' ], 0 ],
+  [ 'keywords_notreserved_147' => 'keywords_notreserved', [ 'DEALLOCATE' ], 0 ],
+  [ 'keywords_notreserved_148' => 'keywords_notreserved', [ 'DECLARE' ], 0 ],
+  [ 'keywords_notreserved_149' => 'keywords_notreserved', [ 'DEFAULTS' ], 0 ],
+  [ 'keywords_notreserved_150' => 'keywords_notreserved', [ 'DEFERRED' ], 0 ],
+  [ 'keywords_notreserved_151' => 'keywords_notreserved', [ 'DEFINER' ], 0 ],
+  [ 'keywords_notreserved_152' => 'keywords_notreserved', [ 'DELETE' ], 0 ],
+  [ 'keywords_notreserved_153' => 'keywords_notreserved', [ 'DELIMITER' ], 0 ],
+  [ 'keywords_notreserved_154' => 'keywords_notreserved', [ 'DELIMITERS' ], 0 ],
+  [ 'keywords_notreserved_155' => 'keywords_notreserved', [ 'DICTIONARY' ], 0 ],
+  [ 'keywords_notreserved_156' => 'keywords_notreserved', [ 'DISABLE' ], 0 ],
+  [ 'keywords_notreserved_157' => 'keywords_notreserved', [ 'DISCARD' ], 0 ],
+  [ 'keywords_notreserved_158' => 'keywords_notreserved', [ 'DOCUMENT' ], 0 ],
+  [ 'keywords_notreserved_159' => 'keywords_notreserved', [ 'DOMAIN' ], 0 ],
+  [ 'keywords_notreserved_160' => 'keywords_notreserved', [ 'DOUBLE' ], 0 ],
+  [ 'keywords_notreserved_161' => 'keywords_notreserved', [ 'DROP' ], 0 ],
+  [ 'keywords_notreserved_162' => 'keywords_notreserved', [ 'EACH' ], 0 ],
+  [ 'keywords_notreserved_163' => 'keywords_notreserved', [ 'ENABLE' ], 0 ],
+  [ 'keywords_notreserved_164' => 'keywords_notreserved', [ 'ENCODING' ], 0 ],
+  [ 'keywords_notreserved_165' => 'keywords_notreserved', [ 'ENCRYPTED' ], 0 ],
+  [ 'keywords_notreserved_166' => 'keywords_notreserved', [ 'ENUM' ], 0 ],
+  [ 'keywords_notreserved_167' => 'keywords_notreserved', [ 'ESCAPE' ], 0 ],
+  [ 'keywords_notreserved_168' => 'keywords_notreserved', [ 'EXCLUDE' ], 0 ],
+  [ 'keywords_notreserved_169' => 'keywords_notreserved', [ 'EXCLUDING' ], 0 ],
+  [ 'keywords_notreserved_170' => 'keywords_notreserved', [ 'EXCLUSIVE' ], 0 ],
+  [ 'keywords_notreserved_171' => 'keywords_notreserved', [ 'EXECUTE' ], 0 ],
+  [ 'keywords_notreserved_172' => 'keywords_notreserved', [ 'EXPLAIN' ], 0 ],
+  [ 'keywords_notreserved_173' => 'keywords_notreserved', [ 'EXTENSION' ], 0 ],
+  [ 'keywords_notreserved_174' => 'keywords_notreserved', [ 'EXTERNAL' ], 0 ],
+  [ 'keywords_notreserved_175' => 'keywords_notreserved', [ 'FAMILY' ], 0 ],
+  [ 'keywords_notreserved_176' => 'keywords_notreserved', [ 'FIRST' ], 0 ],
+  [ 'keywords_notreserved_177' => 'keywords_notreserved', [ 'FOLLOWING' ], 0 ],
+  [ 'keywords_notreserved_178' => 'keywords_notreserved', [ 'FORCE' ], 0 ],
+  [ 'keywords_notreserved_179' => 'keywords_notreserved', [ 'FORWARD' ], 0 ],
+  [ 'keywords_notreserved_180' => 'keywords_notreserved', [ 'FUNCTION' ], 0 ],
+  [ 'keywords_notreserved_181' => 'keywords_notreserved', [ 'FUNCTIONS' ], 0 ],
+  [ 'keywords_notreserved_182' => 'keywords_notreserved', [ 'GLOBAL' ], 0 ],
+  [ 'keywords_notreserved_183' => 'keywords_notreserved', [ 'GRANTED' ], 0 ],
+  [ 'keywords_notreserved_184' => 'keywords_notreserved', [ 'HANDLER' ], 0 ],
+  [ 'keywords_notreserved_185' => 'keywords_notreserved', [ 'HEADER' ], 0 ],
+  [ 'keywords_notreserved_186' => 'keywords_notreserved', [ 'HOLD' ], 0 ],
+  [ 'keywords_notreserved_187' => 'keywords_notreserved', [ 'HOUR' ], 0 ],
+  [ 'keywords_notreserved_188' => 'keywords_notreserved', [ 'IDENTITY' ], 0 ],
+  [ 'keywords_notreserved_189' => 'keywords_notreserved', [ 'IF' ], 0 ],
+  [ 'keywords_notreserved_190' => 'keywords_notreserved', [ 'IMMEDIATE' ], 0 ],
+  [ 'keywords_notreserved_191' => 'keywords_notreserved', [ 'IMMUTABLE' ], 0 ],
+  [ 'keywords_notreserved_192' => 'keywords_notreserved', [ 'IMPLICIT' ], 0 ],
+  [ 'keywords_notreserved_193' => 'keywords_notreserved', [ 'INCLUDING' ], 0 ],
+  [ 'keywords_notreserved_194' => 'keywords_notreserved', [ 'INCREMENT' ], 0 ],
+  [ 'keywords_notreserved_195' => 'keywords_notreserved', [ 'INDEX' ], 0 ],
+  [ 'keywords_notreserved_196' => 'keywords_notreserved', [ 'INDEXES' ], 0 ],
+  [ 'keywords_notreserved_197' => 'keywords_notreserved', [ 'INHERIT' ], 0 ],
+  [ 'keywords_notreserved_198' => 'keywords_notreserved', [ 'INHERITS' ], 0 ],
+  [ 'keywords_notreserved_199' => 'keywords_notreserved', [ 'INLINE' ], 0 ],
+  [ 'keywords_notreserved_200' => 'keywords_notreserved', [ 'INPUT' ], 0 ],
+  [ 'keywords_notreserved_201' => 'keywords_notreserved', [ 'INSENSITIVE' ], 0 ],
+  [ 'keywords_notreserved_202' => 'keywords_notreserved', [ 'INSERT' ], 0 ],
+  [ 'keywords_notreserved_203' => 'keywords_notreserved', [ 'INSTEAD' ], 0 ],
+  [ 'keywords_notreserved_204' => 'keywords_notreserved', [ 'INVOKER' ], 0 ],
+  [ 'keywords_notreserved_205' => 'keywords_notreserved', [ 'ISOLATION' ], 0 ],
+  [ 'keywords_notreserved_206' => 'keywords_notreserved', [ 'KEY' ], 0 ],
+  [ 'keywords_notreserved_207' => 'keywords_notreserved', [ 'LABEL' ], 0 ],
+  [ 'keywords_notreserved_208' => 'keywords_notreserved', [ 'LANGUAGE' ], 0 ],
+  [ 'keywords_notreserved_209' => 'keywords_notreserved', [ 'LARGE' ], 0 ],
+  [ 'keywords_notreserved_210' => 'keywords_notreserved', [ 'LAST' ], 0 ],
+  [ 'keywords_notreserved_211' => 'keywords_notreserved', [ 'LC_COLLATE' ], 0 ],
+  [ 'keywords_notreserved_212' => 'keywords_notreserved', [ 'LC_CTYPE' ], 0 ],
+  [ 'keywords_notreserved_213' => 'keywords_notreserved', [ 'LEVEL' ], 0 ],
+  [ 'keywords_notreserved_214' => 'keywords_notreserved', [ 'LISTEN' ], 0 ],
+  [ 'keywords_notreserved_215' => 'keywords_notreserved', [ 'LOAD' ], 0 ],
+  [ 'keywords_notreserved_216' => 'keywords_notreserved', [ 'LOCAL' ], 0 ],
+  [ 'keywords_notreserved_217' => 'keywords_notreserved', [ 'LOCATION' ], 0 ],
+  [ 'keywords_notreserved_218' => 'keywords_notreserved', [ 'LOCK' ], 0 ],
+  [ 'keywords_notreserved_219' => 'keywords_notreserved', [ 'MAPPING' ], 0 ],
+  [ 'keywords_notreserved_220' => 'keywords_notreserved', [ 'MATCH' ], 0 ],
+  [ 'keywords_notreserved_221' => 'keywords_notreserved', [ 'MAXVALUE' ], 0 ],
+  [ 'keywords_notreserved_222' => 'keywords_notreserved', [ 'MINUTE' ], 0 ],
+  [ 'keywords_notreserved_223' => 'keywords_notreserved', [ 'MINVALUE' ], 0 ],
+  [ 'keywords_notreserved_224' => 'keywords_notreserved', [ 'MODE' ], 0 ],
+  [ 'keywords_notreserved_225' => 'keywords_notreserved', [ 'MONTH' ], 0 ],
+  [ 'keywords_notreserved_226' => 'keywords_notreserved', [ 'MOVE' ], 0 ],
+  [ 'keywords_notreserved_227' => 'keywords_notreserved', [ 'NAME' ], 0 ],
+  [ 'keywords_notreserved_228' => 'keywords_notreserved', [ 'NAMES' ], 0 ],
+  [ 'keywords_notreserved_229' => 'keywords_notreserved', [ 'NEXT' ], 0 ],
+  [ 'keywords_notreserved_230' => 'keywords_notreserved', [ 'NO' ], 0 ],
+  [ 'keywords_notreserved_231' => 'keywords_notreserved', [ 'NOTHING' ], 0 ],
+  [ 'keywords_notreserved_232' => 'keywords_notreserved', [ 'NOTIFY' ], 0 ],
+  [ 'keywords_notreserved_233' => 'keywords_notreserved', [ 'NOWAIT' ], 0 ],
+  [ 'keywords_notreserved_234' => 'keywords_notreserved', [ 'NULLS' ], 0 ],
+  [ 'keywords_notreserved_235' => 'keywords_notreserved', [ 'OBJECT' ], 0 ],
+  [ 'keywords_notreserved_236' => 'keywords_notreserved', [ 'OF' ], 0 ],
+  [ 'keywords_notreserved_237' => 'keywords_notreserved', [ 'OFF' ], 0 ],
+  [ 'keywords_notreserved_238' => 'keywords_notreserved', [ 'OIDS' ], 0 ],
+  [ 'keywords_notreserved_239' => 'keywords_notreserved', [ 'OPERATOR' ], 0 ],
+  [ 'keywords_notreserved_240' => 'keywords_notreserved', [ 'OPTION' ], 0 ],
+  [ 'keywords_notreserved_241' => 'keywords_notreserved', [ 'OPTIONS' ], 0 ],
+  [ 'keywords_notreserved_242' => 'keywords_notreserved', [ 'OWNED' ], 0 ],
+  [ 'keywords_notreserved_243' => 'keywords_notreserved', [ 'OWNER' ], 0 ],
+  [ 'keywords_notreserved_244' => 'keywords_notreserved', [ 'PARSER' ], 0 ],
+  [ 'keywords_notreserved_245' => 'keywords_notreserved', [ 'PARTIAL' ], 0 ],
+  [ 'keywords_notreserved_246' => 'keywords_notreserved', [ 'PARTITION' ], 0 ],
+  [ 'keywords_notreserved_247' => 'keywords_notreserved', [ 'PASSING' ], 0 ],
+  [ 'keywords_notreserved_248' => 'keywords_notreserved', [ 'PASSWORD' ], 0 ],
+  [ 'keywords_notreserved_249' => 'keywords_notreserved', [ 'PLANS' ], 0 ],
+  [ 'keywords_notreserved_250' => 'keywords_notreserved', [ 'PRECEDING' ], 0 ],
+  [ 'keywords_notreserved_251' => 'keywords_notreserved', [ 'PREPARE' ], 0 ],
+  [ 'keywords_notreserved_252' => 'keywords_notreserved', [ 'PREPARED' ], 0 ],
+  [ 'keywords_notreserved_253' => 'keywords_notreserved', [ 'PRESERVE' ], 0 ],
+  [ 'keywords_notreserved_254' => 'keywords_notreserved', [ 'PRIOR' ], 0 ],
+  [ 'keywords_notreserved_255' => 'keywords_notreserved', [ 'PRIVILEGES' ], 0 ],
+  [ 'keywords_notreserved_256' => 'keywords_notreserved', [ 'PROCEDURAL' ], 0 ],
+  [ 'keywords_notreserved_257' => 'keywords_notreserved', [ 'PROCEDURE' ], 0 ],
+  [ 'keywords_notreserved_258' => 'keywords_notreserved', [ 'QUOTE' ], 0 ],
+  [ 'keywords_notreserved_259' => 'keywords_notreserved', [ 'RANGE' ], 0 ],
+  [ 'keywords_notreserved_260' => 'keywords_notreserved', [ 'READ' ], 0 ],
+  [ 'keywords_notreserved_261' => 'keywords_notreserved', [ 'REASSIGN' ], 0 ],
+  [ 'keywords_notreserved_262' => 'keywords_notreserved', [ 'RECHECK' ], 0 ],
+  [ 'keywords_notreserved_263' => 'keywords_notreserved', [ 'RECURSIVE' ], 0 ],
+  [ 'keywords_notreserved_264' => 'keywords_notreserved', [ 'REF' ], 0 ],
+  [ 'keywords_notreserved_265' => 'keywords_notreserved', [ 'REINDEX' ], 0 ],
+  [ 'keywords_notreserved_266' => 'keywords_notreserved', [ 'RELATIVE' ], 0 ],
+  [ 'keywords_notreserved_267' => 'keywords_notreserved', [ 'RELEASE' ], 0 ],
+  [ 'keywords_notreserved_268' => 'keywords_notreserved', [ 'RENAME' ], 0 ],
+  [ 'keywords_notreserved_269' => 'keywords_notreserved', [ 'REPEATABLE' ], 0 ],
+  [ 'keywords_notreserved_270' => 'keywords_notreserved', [ 'REPLACE' ], 0 ],
+  [ 'keywords_notreserved_271' => 'keywords_notreserved', [ 'REPLICA' ], 0 ],
+  [ 'keywords_notreserved_272' => 'keywords_notreserved', [ 'RESET' ], 0 ],
+  [ 'keywords_notreserved_273' => 'keywords_notreserved', [ 'RESTART' ], 0 ],
+  [ 'keywords_notreserved_274' => 'keywords_notreserved', [ 'RESTRICT' ], 0 ],
+  [ 'keywords_notreserved_275' => 'keywords_notreserved', [ 'RETURNS' ], 0 ],
+  [ 'keywords_notreserved_276' => 'keywords_notreserved', [ 'REVOKE' ], 0 ],
+  [ 'keywords_notreserved_277' => 'keywords_notreserved', [ 'ROLE' ], 0 ],
+  [ 'keywords_notreserved_278' => 'keywords_notreserved', [ 'ROLLBACK' ], 0 ],
+  [ 'keywords_notreserved_279' => 'keywords_notreserved', [ 'ROWS' ], 0 ],
+  [ 'keywords_notreserved_280' => 'keywords_notreserved', [ 'RULE' ], 0 ],
+  [ 'keywords_notreserved_281' => 'keywords_notreserved', [ 'SAVEPOINT' ], 0 ],
+  [ 'keywords_notreserved_282' => 'keywords_notreserved', [ 'SCHEMA' ], 0 ],
+  [ 'keywords_notreserved_283' => 'keywords_notreserved', [ 'SCROLL' ], 0 ],
+  [ 'keywords_notreserved_284' => 'keywords_notreserved', [ 'SEARCH' ], 0 ],
+  [ 'keywords_notreserved_285' => 'keywords_notreserved', [ 'SECOND' ], 0 ],
+  [ 'keywords_notreserved_286' => 'keywords_notreserved', [ 'SECURITY' ], 0 ],
+  [ 'keywords_notreserved_287' => 'keywords_notreserved', [ 'SEQUENCE' ], 0 ],
+  [ 'keywords_notreserved_288' => 'keywords_notreserved', [ 'SEQUENCES' ], 0 ],
+  [ 'keywords_notreserved_289' => 'keywords_notreserved', [ 'SERIALIZABLE' ], 0 ],
+  [ 'keywords_notreserved_290' => 'keywords_notreserved', [ 'SERVER' ], 0 ],
+  [ 'keywords_notreserved_291' => 'keywords_notreserved', [ 'SESSION' ], 0 ],
+  [ 'keywords_notreserved_292' => 'keywords_notreserved', [ 'SET' ], 0 ],
+  [ 'keywords_notreserved_293' => 'keywords_notreserved', [ 'SHARE' ], 0 ],
+  [ 'keywords_notreserved_294' => 'keywords_notreserved', [ 'SHOW' ], 0 ],
+  [ 'keywords_notreserved_295' => 'keywords_notreserved', [ 'SIMPLE' ], 0 ],
+  [ 'keywords_notreserved_296' => 'keywords_notreserved', [ 'STABLE' ], 0 ],
+  [ 'keywords_notreserved_297' => 'keywords_notreserved', [ 'STANDALONE' ], 0 ],
+  [ 'keywords_notreserved_298' => 'keywords_notreserved', [ 'START' ], 0 ],
+  [ 'keywords_notreserved_299' => 'keywords_notreserved', [ 'STATEMENT' ], 0 ],
+  [ 'keywords_notreserved_300' => 'keywords_notreserved', [ 'STATISTICS' ], 0 ],
+  [ 'keywords_notreserved_301' => 'keywords_notreserved', [ 'STDIN' ], 0 ],
+  [ 'keywords_notreserved_302' => 'keywords_notreserved', [ 'STDOUT' ], 0 ],
+  [ 'keywords_notreserved_303' => 'keywords_notreserved', [ 'STORAGE' ], 0 ],
+  [ 'keywords_notreserved_304' => 'keywords_notreserved', [ 'STRICT' ], 0 ],
+  [ 'keywords_notreserved_305' => 'keywords_notreserved', [ 'STRIP' ], 0 ],
+  [ 'keywords_notreserved_306' => 'keywords_notreserved', [ 'SYSID' ], 0 ],
+  [ 'keywords_notreserved_307' => 'keywords_notreserved', [ 'SYSTEM' ], 0 ],
+  [ 'keywords_notreserved_308' => 'keywords_notreserved', [ 'TABLES' ], 0 ],
+  [ 'keywords_notreserved_309' => 'keywords_notreserved', [ 'TABLESPACE' ], 0 ],
+  [ 'keywords_notreserved_310' => 'keywords_notreserved', [ 'TEMP' ], 0 ],
+  [ 'keywords_notreserved_311' => 'keywords_notreserved', [ 'TEMPLATE' ], 0 ],
+  [ 'keywords_notreserved_312' => 'keywords_notreserved', [ 'TEMPORARY' ], 0 ],
+  [ 'keywords_notreserved_313' => 'keywords_notreserved', [ 'TEXT' ], 0 ],
+  [ 'keywords_notreserved_314' => 'keywords_notreserved', [ 'TRANSACTION' ], 0 ],
+  [ 'keywords_notreserved_315' => 'keywords_notreserved', [ 'TRIGGER' ], 0 ],
+  [ 'keywords_notreserved_316' => 'keywords_notreserved', [ 'TRUNCATE' ], 0 ],
+  [ 'keywords_notreserved_317' => 'keywords_notreserved', [ 'TRUSTED' ], 0 ],
+  [ 'keywords_notreserved_318' => 'keywords_notreserved', [ 'TYPE' ], 0 ],
+  [ 'keywords_notreserved_319' => 'keywords_notreserved', [ 'UNBOUNDED' ], 0 ],
+  [ 'keywords_notreserved_320' => 'keywords_notreserved', [ 'UNCOMMITTED' ], 0 ],
+  [ 'keywords_notreserved_321' => 'keywords_notreserved', [ 'UNENCRYPTED' ], 0 ],
+  [ 'keywords_notreserved_322' => 'keywords_notreserved', [ 'UNKNOWN' ], 0 ],
+  [ 'keywords_notreserved_323' => 'keywords_notreserved', [ 'UNLISTEN' ], 0 ],
+  [ 'keywords_notreserved_324' => 'keywords_notreserved', [ 'UNLOGGED' ], 0 ],
+  [ 'keywords_notreserved_325' => 'keywords_notreserved', [ 'UNTIL' ], 0 ],
+  [ 'keywords_notreserved_326' => 'keywords_notreserved', [ 'UPDATE' ], 0 ],
+  [ 'keywords_notreserved_327' => 'keywords_notreserved', [ 'VACUUM' ], 0 ],
+  [ 'keywords_notreserved_328' => 'keywords_notreserved', [ 'VALID' ], 0 ],
+  [ 'keywords_notreserved_329' => 'keywords_notreserved', [ 'VALIDATE' ], 0 ],
+  [ 'keywords_notreserved_330' => 'keywords_notreserved', [ 'VALIDATOR' ], 0 ],
+  [ 'keywords_notreserved_331' => 'keywords_notreserved', [ 'VALUE' ], 0 ],
+  [ 'keywords_notreserved_332' => 'keywords_notreserved', [ 'VARYING' ], 0 ],
+  [ 'keywords_notreserved_333' => 'keywords_notreserved', [ 'VERSION' ], 0 ],
+  [ 'keywords_notreserved_334' => 'keywords_notreserved', [ 'VIEW' ], 0 ],
+  [ 'keywords_notreserved_335' => 'keywords_notreserved', [ 'VOLATILE' ], 0 ],
+  [ 'keywords_notreserved_336' => 'keywords_notreserved', [ 'WHITESPACE' ], 0 ],
+  [ 'keywords_notreserved_337' => 'keywords_notreserved', [ 'WITHOUT' ], 0 ],
+  [ 'keywords_notreserved_338' => 'keywords_notreserved', [ 'WORK' ], 0 ],
+  [ 'keywords_notreserved_339' => 'keywords_notreserved', [ 'WRAPPER' ], 0 ],
+  [ 'keywords_notreserved_340' => 'keywords_notreserved', [ 'WRITE' ], 0 ],
+  [ 'keywords_notreserved_341' => 'keywords_notreserved', [ 'XML' ], 0 ],
+  [ 'keywords_notreserved_342' => 'keywords_notreserved', [ 'YEAR' ], 0 ],
+  [ 'keywords_notreserved_343' => 'keywords_notreserved', [ 'YES' ], 0 ],
+  [ 'keywords_notreserved_344' => 'keywords_notreserved', [ 'ZONE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_345' => 'keywords_reserved_ok_for_functions_or_types', [ 'AUTHORIZATION' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_346' => 'keywords_reserved_ok_for_functions_or_types', [ 'BINARY' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_347' => 'keywords_reserved_ok_for_functions_or_types', [ 'CONCURRENTLY' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_348' => 'keywords_reserved_ok_for_functions_or_types', [ 'CROSS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_349' => 'keywords_reserved_ok_for_functions_or_types', [ 'CURRENT_SCHEMA' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_350' => 'keywords_reserved_ok_for_functions_or_types', [ 'FREEZE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_351' => 'keywords_reserved_ok_for_functions_or_types', [ 'FULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_352' => 'keywords_reserved_ok_for_functions_or_types', [ 'ILIKE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_353' => 'keywords_reserved_ok_for_functions_or_types', [ 'INNER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_354' => 'keywords_reserved_ok_for_functions_or_types', [ 'IS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_355' => 'keywords_reserved_ok_for_functions_or_types', [ 'ISNULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_356' => 'keywords_reserved_ok_for_functions_or_types', [ 'JOIN' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_357' => 'keywords_reserved_ok_for_functions_or_types', [ 'LEFT' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_358' => 'keywords_reserved_ok_for_functions_or_types', [ 'LIKE' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_359' => 'keywords_reserved_ok_for_functions_or_types', [ 'NATURAL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_360' => 'keywords_reserved_ok_for_functions_or_types', [ 'NOTNULL' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_361' => 'keywords_reserved_ok_for_functions_or_types', [ 'OUTER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_362' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVER' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_363' => 'keywords_reserved_ok_for_functions_or_types', [ 'OVERLAPS' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_364' => 'keywords_reserved_ok_for_functions_or_types', [ 'RIGHT' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_365' => 'keywords_reserved_ok_for_functions_or_types', [ 'SIMILAR' ], 0 ],
+  [ 'keywords_reserved_ok_for_functions_or_types_366' => 'keywords_reserved_ok_for_functions_or_types', [ 'VERBOSE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_367' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BETWEEN' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_368' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIGINT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_369' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BIT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_370' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'BOOLEAN' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_371' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_372' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'CHARACTER' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_373' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'COALESCE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_374' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DEC' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_375' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'DECIMAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_376' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXISTS' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_377' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'EXTRACT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_378' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'FLOAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_379' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'GREATEST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_380' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INOUT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_381' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_382' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTEGER' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_383' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'INTERVAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_384' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'LEAST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_385' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NATIONAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_386' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NCHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_387' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NONE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_388' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NULLIF' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_389' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'NUMERIC' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_390' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OUT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_391' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'OVERLAY' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_392' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'POSITION' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_393' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'PRECISION' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_394' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'REAL' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_395' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'ROW' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_396' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SETOF' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_397' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SMALLINT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_398' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'SUBSTRING' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_399' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIME' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_400' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TIMESTAMP' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_401' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TREAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_402' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'TRIM' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_403' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VALUES' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_404' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'VARCHAR' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_405' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLATTRIBUTES' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_406' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLCONCAT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_407' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLELEMENT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_408' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLEXISTS' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_409' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLFOREST' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_410' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPARSE' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_411' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLPI' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_412' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLROOT' ], 0 ],
+  [ 'keywords_notreserved_not_ok_for_functions_or_types_413' => 'keywords_notreserved_not_ok_for_functions_or_types', [ 'XMLSERIALIZE' ], 0 ],
 ],
     yyLABELS  =>
 {
@@ -501,13 +508,13 @@ sub new {
   'expr_11' => 11,
   'expr_12' => 12,
   'expr_13' => 13,
-  'operator_expression_14' => 14,
-  'operator_expression_15' => 15,
-  'operator_expression_16' => 16,
-  'operator_expression_17' => 17,
-  'operator_expression_18' => 18,
-  'operator_expression_19' => 19,
-  'operator_expression_20' => 20,
+  'expr_14' => 14,
+  'function_expression_15' => 15,
+  'function_name_16' => 16,
+  'function_name_17' => 17,
+  'function_args_18' => 18,
+  'function_args_19' => 19,
+  'function_args_20' => 20,
   'operator_expression_21' => 21,
   'operator_expression_22' => 22,
   'operator_expression_23' => 23,
@@ -516,54 +523,54 @@ sub new {
   'operator_expression_26' => 26,
   'operator_expression_27' => 27,
   'operator_expression_28' => 28,
-  'cast_expression_29' => 29,
-  'cast_expression_30' => 30,
-  'cast_expression_31' => 31,
-  'expr_simple_32' => 32,
-  'expr_simple_33' => 33,
-  'literal_value_34' => 34,
-  'literal_value_35' => 35,
-  'literal_value_36' => 36,
-  'literal_value_37' => 37,
-  'literal_value_38' => 38,
-  'literal_value_39' => 39,
-  'literal_value_40' => 40,
-  'identifier_41' => 41,
-  'identifier_42' => 42,
-  'identifier_43' => 43,
-  'identifier_44' => 44,
-  'normal_type_45' => 45,
-  'normal_type_46' => 46,
-  'normal_type_47' => 47,
-  'normal_type_48' => 48,
-  'normal_type_49' => 49,
-  'normal_type_50' => 50,
-  'normal_type_51' => 51,
+  'operator_expression_29' => 29,
+  'operator_expression_30' => 30,
+  'operator_expression_31' => 31,
+  'operator_expression_32' => 32,
+  'operator_expression_33' => 33,
+  'operator_expression_34' => 34,
+  'operator_expression_35' => 35,
+  'cast_expression_36' => 36,
+  'cast_expression_37' => 37,
+  'cast_expression_38' => 38,
+  'expr_simple_39' => 39,
+  'expr_simple_40' => 40,
+  'literal_value_41' => 41,
+  'literal_value_42' => 42,
+  'literal_value_43' => 43,
+  'literal_value_44' => 44,
+  'literal_value_45' => 45,
+  'literal_value_46' => 46,
+  'literal_value_47' => 47,
+  'identifier_48' => 48,
+  'identifier_49' => 49,
+  'identifier_50' => 50,
+  'identifier_51' => 51,
   'normal_type_52' => 52,
   'normal_type_53' => 53,
-  'simple_type_54' => 54,
-  'simple_type_55' => 55,
-  'base_type_56' => 56,
-  'base_type_57' => 57,
-  'base_type_58' => 58,
-  'base_type_59' => 59,
-  'timestamp_type_60' => 60,
-  'timestamp_type_61' => 61,
-  'timestamp_type_62' => 62,
-  'timestamp_type_63' => 63,
-  'timestamp_type_64' => 64,
-  'time_type_65' => 65,
-  'time_type_66' => 66,
-  'time_type_67' => 67,
-  'time_type_68' => 68,
-  'time_type_69' => 69,
-  'interval_type_70' => 70,
-  'interval_type_71' => 71,
-  'interval_type_72' => 72,
-  'interval_type_73' => 73,
-  'interval_type_74' => 74,
-  'interval_type_75' => 75,
-  'interval_type_76' => 76,
+  'normal_type_54' => 54,
+  'normal_type_55' => 55,
+  'normal_type_56' => 56,
+  'normal_type_57' => 57,
+  'normal_type_58' => 58,
+  'normal_type_59' => 59,
+  'normal_type_60' => 60,
+  'simple_type_61' => 61,
+  'simple_type_62' => 62,
+  'base_type_63' => 63,
+  'base_type_64' => 64,
+  'base_type_65' => 65,
+  'base_type_66' => 66,
+  'timestamp_type_67' => 67,
+  'timestamp_type_68' => 68,
+  'timestamp_type_69' => 69,
+  'timestamp_type_70' => 70,
+  'timestamp_type_71' => 71,
+  'time_type_72' => 72,
+  'time_type_73' => 73,
+  'time_type_74' => 74,
+  'time_type_75' => 75,
+  'time_type_76' => 76,
   'interval_type_77' => 77,
   'interval_type_78' => 78,
   'interval_type_79' => 79,
@@ -575,15 +582,15 @@ sub new {
   'interval_type_85' => 85,
   'interval_type_86' => 86,
   'interval_type_87' => 87,
-  'base_interval_type_88' => 88,
-  'base_interval_type_89' => 89,
-  'keywords_notreserved_90' => 90,
-  'keywords_notreserved_91' => 91,
-  'keywords_notreserved_92' => 92,
-  'keywords_notreserved_93' => 93,
-  'keywords_notreserved_94' => 94,
-  'keywords_notreserved_95' => 95,
-  'keywords_notreserved_96' => 96,
+  'interval_type_88' => 88,
+  'interval_type_89' => 89,
+  'interval_type_90' => 90,
+  'interval_type_91' => 91,
+  'interval_type_92' => 92,
+  'interval_type_93' => 93,
+  'interval_type_94' => 94,
+  'base_interval_type_95' => 95,
+  'base_interval_type_96' => 96,
   'keywords_notreserved_97' => 97,
   'keywords_notreserved_98' => 98,
   'keywords_notreserved_99' => 99,
@@ -825,13 +832,13 @@ sub new {
   'keywords_notreserved_335' => 335,
   'keywords_notreserved_336' => 336,
   'keywords_notreserved_337' => 337,
-  'keywords_reserved_ok_for_functions_or_types_338' => 338,
-  'keywords_reserved_ok_for_functions_or_types_339' => 339,
-  'keywords_reserved_ok_for_functions_or_types_340' => 340,
-  'keywords_reserved_ok_for_functions_or_types_341' => 341,
-  'keywords_reserved_ok_for_functions_or_types_342' => 342,
-  'keywords_reserved_ok_for_functions_or_types_343' => 343,
-  'keywords_reserved_ok_for_functions_or_types_344' => 344,
+  'keywords_notreserved_338' => 338,
+  'keywords_notreserved_339' => 339,
+  'keywords_notreserved_340' => 340,
+  'keywords_notreserved_341' => 341,
+  'keywords_notreserved_342' => 342,
+  'keywords_notreserved_343' => 343,
+  'keywords_notreserved_344' => 344,
   'keywords_reserved_ok_for_functions_or_types_345' => 345,
   'keywords_reserved_ok_for_functions_or_types_346' => 346,
   'keywords_reserved_ok_for_functions_or_types_347' => 347,
@@ -847,13 +854,13 @@ sub new {
   'keywords_reserved_ok_for_functions_or_types_357' => 357,
   'keywords_reserved_ok_for_functions_or_types_358' => 358,
   'keywords_reserved_ok_for_functions_or_types_359' => 359,
-  'keywords_notreserved_not_ok_for_functions_or_types_360' => 360,
-  'keywords_notreserved_not_ok_for_functions_or_types_361' => 361,
-  'keywords_notreserved_not_ok_for_functions_or_types_362' => 362,
-  'keywords_notreserved_not_ok_for_functions_or_types_363' => 363,
-  'keywords_notreserved_not_ok_for_functions_or_types_364' => 364,
-  'keywords_notreserved_not_ok_for_functions_or_types_365' => 365,
-  'keywords_notreserved_not_ok_for_functions_or_types_366' => 366,
+  'keywords_reserved_ok_for_functions_or_types_360' => 360,
+  'keywords_reserved_ok_for_functions_or_types_361' => 361,
+  'keywords_reserved_ok_for_functions_or_types_362' => 362,
+  'keywords_reserved_ok_for_functions_or_types_363' => 363,
+  'keywords_reserved_ok_for_functions_or_types_364' => 364,
+  'keywords_reserved_ok_for_functions_or_types_365' => 365,
+  'keywords_reserved_ok_for_functions_or_types_366' => 366,
   'keywords_notreserved_not_ok_for_functions_or_types_367' => 367,
   'keywords_notreserved_not_ok_for_functions_or_types_368' => 368,
   'keywords_notreserved_not_ok_for_functions_or_types_369' => 369,
@@ -894,6 +901,13 @@ sub new {
   'keywords_notreserved_not_ok_for_functions_or_types_404' => 404,
   'keywords_notreserved_not_ok_for_functions_or_types_405' => 405,
   'keywords_notreserved_not_ok_for_functions_or_types_406' => 406,
+  'keywords_notreserved_not_ok_for_functions_or_types_407' => 407,
+  'keywords_notreserved_not_ok_for_functions_or_types_408' => 408,
+  'keywords_notreserved_not_ok_for_functions_or_types_409' => 409,
+  'keywords_notreserved_not_ok_for_functions_or_types_410' => 410,
+  'keywords_notreserved_not_ok_for_functions_or_types_411' => 411,
+  'keywords_notreserved_not_ok_for_functions_or_types_412' => 412,
+  'keywords_notreserved_not_ok_for_functions_or_types_413' => 413,
 },
     yyTERMS  =>
 { '' => { ISSEMANTIC => 0 },
@@ -1485,152 +1499,154 @@ sub new {
 			'MOVE' => 219,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'CURSOR' => 222,
-			'INLINE' => 223,
-			'ENCRYPTED' => 224,
-			'EXTENSION' => 225,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'SHOW' => 244,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'STANDALONE' => 262,
-			'TEMP' => 263,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'IDENTITY' => 273,
-			'QUOTE' => 274,
-			'POSITION' => 276,
-			'DOMAIN' => 277,
-			'EXECUTE' => 278,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'NAMES' => 287,
-			'CONFIGURATION' => 286,
-			'RENAME' => 289,
-			'PARSER' => 288,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'PREPARED' => 302,
-			'NEXT' => 301,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'NOTIFY' => 308,
-			'BEGIN' => 307,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'STORAGE' => 315,
-			'ISOLATION' => 314,
-			'FUNCTIONS' => 313,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'SAVEPOINT' => 326,
-			'IF' => 325,
-			'DOCUMENT' => 324,
-			'ROWS' => 327,
-			'MINVALUE' => 329,
-			'LAST' => 328,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'CURSOR' => 223,
+			'INLINE' => 224,
+			'ENCRYPTED' => 225,
+			'EXTENSION' => 226,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'SHOW' => 245,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'STANDALONE' => 264,
+			'TEMP' => 265,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'IDENTITY' => 275,
+			'QUOTE' => 276,
+			'POSITION' => 278,
+			'DOMAIN' => 279,
+			'EXECUTE' => 280,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'NAMES' => 289,
+			'CONFIGURATION' => 288,
+			'RENAME' => 291,
+			'PARSER' => 290,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'PREPARED' => 304,
+			'NEXT' => 303,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'NOTIFY' => 310,
+			'BEGIN' => 309,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'STORAGE' => 317,
+			'ISOLATION' => 316,
+			'FUNCTIONS' => 315,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'SAVEPOINT' => 328,
+			'IF' => 327,
+			'DOCUMENT' => 326,
+			'ROWS' => 329,
+			'MINVALUE' => 331,
+			'LAST' => 330,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
-			'expr_simple' => 280,
+			'expr_simple' => 282,
 			'result_columns' => 36,
 			'identifier' => 67,
 			'expr' => 179,
-			'timestamp_type' => 239,
+			'timestamp_type' => 240,
 			'operator_expression' => 199,
 			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'result_column' => 229,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'result_column' => 230,
 			'cast_expression' => 107,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 6
@@ -1640,71 +1656,71 @@ sub new {
 		DEFAULT => -4,
 		GOTOS => {
 			'select_stmt' => 1,
-			'statement' => 356
+			'statement' => 358
 		}
 	},
 	{#State 7
 		DEFAULT => 0
 	},
 	{#State 8
-		DEFAULT => -349
+		DEFAULT => -356
 	},
 	{#State 9
-		DEFAULT => -299
+		DEFAULT => -306
 	},
 	{#State 10
-		DEFAULT => -193
+		DEFAULT => -200
 	},
 	{#State 11
-		DEFAULT => -282
+		DEFAULT => -289
 	},
 	{#State 12
-		DEFAULT => -263
+		DEFAULT => -270
 	},
 	{#State 13
-		DEFAULT => -194
+		DEFAULT => -201
 	},
 	{#State 14
-		DEFAULT => -103
+		DEFAULT => -110
 	},
 	{#State 15
-		DEFAULT => -268
+		DEFAULT => -275
 	},
 	{#State 16
-		DEFAULT => -379
+		DEFAULT => -386
 	},
 	{#State 17
-		DEFAULT => -34
+		DEFAULT => -41
 	},
 	{#State 18
-		DEFAULT => -197
+		DEFAULT => -204
 	},
 	{#State 19
-		DEFAULT => -331
+		DEFAULT => -338
 	},
 	{#State 20
-		DEFAULT => -240
+		DEFAULT => -247
 	},
 	{#State 21
-		DEFAULT => -217
+		DEFAULT => -224
 	},
 	{#State 22
-		DEFAULT => -375
+		DEFAULT => -382
 	},
 	{#State 23
-		DEFAULT => -191
+		DEFAULT => -198
 	},
 	{#State 24
-		DEFAULT => -324
+		DEFAULT => -331
 	},
 	{#State 25
-		DEFAULT => -160
+		DEFAULT => -167
 	},
 	{#State 26
-		DEFAULT => -154
+		DEFAULT => -161
 	},
 	{#State 27
-		DEFAULT => -218
+		DEFAULT => -225
 	},
 	{#State 28
 		ACTIONS => {
@@ -1717,167 +1733,168 @@ sub new {
 			'INTEGER_CONSTANT' => 138
 		},
 		GOTOS => {
-			'literal_value' => 357
+			'literal_value' => 359
 		}
 	},
 	{#State 29
-		DEFAULT => -157
+		DEFAULT => -164
 	},
 	{#State 30
-		DEFAULT => -304
+		DEFAULT => -311
 	},
 	{#State 31
-		DEFAULT => -148
+		DEFAULT => -155
 	},
 	{#State 32
-		DEFAULT => -277
+		DEFAULT => -284
 	},
 	{#State 33
-		DEFAULT => -244
+		DEFAULT => -251
 	},
 	{#State 34
-		DEFAULT => -211
+		DEFAULT => -218
 	},
 	{#State 35
-		DEFAULT => -142
+		DEFAULT => -149
 	},
 	{#State 36
 		ACTIONS => {
-			"," => 358
+			"," => 360
 		},
 		DEFAULT => -6
 	},
 	{#State 37
-		DEFAULT => -344
+		DEFAULT => -351
 	},
 	{#State 38
-		DEFAULT => -394
+		DEFAULT => -401
 	},
 	{#State 39
-		DEFAULT => -108
+		DEFAULT => -115
 	},
 	{#State 40
-		DEFAULT => -223
+		DEFAULT => -230
 	},
 	{#State 41
-		DEFAULT => -215
+		DEFAULT => -222
 	},
 	{#State 42
-		DEFAULT => -252
+		DEFAULT => -259
 	},
 	{#State 43
-		DEFAULT => -239
+		DEFAULT => -246
 	},
 	{#State 44
-		DEFAULT => -139
+		DEFAULT => -146
 	},
 	{#State 45
-		DEFAULT => -137
+		DEFAULT => -144
 	},
 	{#State 46
-		DEFAULT => -387
+		DEFAULT => -394
 	},
 	{#State 47
-		DEFAULT => -286
-	},
-	{#State 48
-		DEFAULT => -257
-	},
-	{#State 49
-		DEFAULT => -355
-	},
-	{#State 50
-		DEFAULT => -342
-	},
-	{#State 51
-		DEFAULT => -202
-	},
-	{#State 52
-		DEFAULT => -145
-	},
-	{#State 53
-		DEFAULT => -381
-	},
-	{#State 54
-		DEFAULT => -126
-	},
-	{#State 55
-		DEFAULT => -118
-	},
-	{#State 56
-		DEFAULT => -105
-	},
-	{#State 57
-		DEFAULT => -132
-	},
-	{#State 58
-		DEFAULT => -264
-	},
-	{#State 59
-		DEFAULT => -248
-	},
-	{#State 60
-		DEFAULT => -337
-	},
-	{#State 61
-		DEFAULT => -377
-	},
-	{#State 62
 		DEFAULT => -293
 	},
+	{#State 48
+		DEFAULT => -264
+	},
+	{#State 49
+		DEFAULT => -362
+	},
+	{#State 50
+		DEFAULT => -349
+	},
+	{#State 51
+		DEFAULT => -209
+	},
+	{#State 52
+		DEFAULT => -152
+	},
+	{#State 53
+		DEFAULT => -388
+	},
+	{#State 54
+		DEFAULT => -133
+	},
+	{#State 55
+		DEFAULT => -125
+	},
+	{#State 56
+		DEFAULT => -112
+	},
+	{#State 57
+		DEFAULT => -139
+	},
+	{#State 58
+		DEFAULT => -271
+	},
+	{#State 59
+		DEFAULT => -255
+	},
+	{#State 60
+		DEFAULT => -344
+	},
+	{#State 61
+		DEFAULT => -384
+	},
+	{#State 62
+		DEFAULT => -300
+	},
 	{#State 63
-		DEFAULT => -348
+		DEFAULT => -355
 	},
 	{#State 64
-		DEFAULT => -110
+		DEFAULT => -117
 	},
 	{#State 65
-		DEFAULT => -35
+		DEFAULT => -42
 	},
 	{#State 66
-		DEFAULT => -279
+		DEFAULT => -286
 	},
 	{#State 67
 		ACTIONS => {
-			"." => 359
+			"(" => -16,
+			"." => 361
 		},
-		DEFAULT => -56
+		DEFAULT => -63
 	},
 	{#State 68
-		DEFAULT => -187
+		DEFAULT => -194
 	},
 	{#State 69
-		DEFAULT => -339
+		DEFAULT => -346
 	},
 	{#State 70
-		DEFAULT => -206
+		DEFAULT => -213
 	},
 	{#State 71
-		DEFAULT => -171
+		DEFAULT => -178
 	},
 	{#State 72
-		DEFAULT => -340
+		DEFAULT => -347
 	},
 	{#State 73
-		DEFAULT => -38
+		DEFAULT => -45
 	},
 	{#State 74
-		DEFAULT => -57
+		DEFAULT => -64
 	},
 	{#State 75
-		DEFAULT => -319
+		DEFAULT => -326
 	},
 	{#State 76
-		DEFAULT => -246
+		DEFAULT => -253
 	},
 	{#State 77
-		DEFAULT => -404
+		DEFAULT => -411
 	},
 	{#State 78
-		DEFAULT => -115
+		DEFAULT => -122
 	},
 	{#State 79
-		DEFAULT => -322
+		DEFAULT => -329
 	},
 	{#State 80
 		ACTIONS => {
@@ -2085,195 +2102,197 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 362,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 360,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 81
-		DEFAULT => -297
+		DEFAULT => -304
 	},
 	{#State 82
-		DEFAULT => -36
+		DEFAULT => -43
 	},
 	{#State 83
-		DEFAULT => -325
+		DEFAULT => -332
 	},
 	{#State 84
-		DEFAULT => -338
+		DEFAULT => -345
 	},
 	{#State 85
-		DEFAULT => -254
+		DEFAULT => -261
 	},
 	{#State 86
-		DEFAULT => -271
+		DEFAULT => -278
 	},
 	{#State 87
-		DEFAULT => -200
+		DEFAULT => -207
 	},
 	{#State 88
-		DEFAULT => -228
+		DEFAULT => -235
 	},
 	{#State 89
-		DEFAULT => -250
+		DEFAULT => -257
 	},
 	{#State 90
-		DEFAULT => -147
+		DEFAULT => -154
 	},
 	{#State 91
 		ACTIONS => {
-			'WITHOUT' => 363,
-			'WITH' => 362,
-			"(" => 361
+			'WITHOUT' => 365,
+			'WITH' => 364,
+			"(" => 363
 		},
-		DEFAULT => -393
+		DEFAULT => -400
 	},
 	{#State 92
-		DEFAULT => -273
+		DEFAULT => -280
 	},
 	{#State 93
-		DEFAULT => -39
+		DEFAULT => -46
 	},
 	{#State 94
 		ACTIONS => {
@@ -2481,994 +2500,1004 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 366,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 364,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 95
-		DEFAULT => -195
+		DEFAULT => -202
 	},
 	{#State 96
-		DEFAULT => -177
-	},
-	{#State 97
-		DEFAULT => -369
-	},
-	{#State 98
-		DEFAULT => -210
-	},
-	{#State 99
 		DEFAULT => -184
 	},
+	{#State 97
+		DEFAULT => -376
+	},
+	{#State 98
+		DEFAULT => -217
+	},
+	{#State 99
+		DEFAULT => -191
+	},
 	{#State 100
-		DEFAULT => -363
+		DEFAULT => -370
 	},
 	{#State 101
-		DEFAULT => -260
+		DEFAULT => -267
 	},
 	{#State 102
-		DEFAULT => -227
+		DEFAULT => -234
 	},
 	{#State 103
-		DEFAULT => -311
+		DEFAULT => -318
 	},
 	{#State 104
-		DEFAULT => -265
+		DEFAULT => -272
 	},
 	{#State 105
-		DEFAULT => -226
+		DEFAULT => -233
 	},
 	{#State 106
-		DEFAULT => -247
+		DEFAULT => -254
 	},
 	{#State 107
 		DEFAULT => -13
 	},
 	{#State 108
-		DEFAULT => -406
+		DEFAULT => -413
 	},
 	{#State 109
-		DEFAULT => -361
+		DEFAULT => -368
 	},
 	{#State 110
-		DEFAULT => -230
+		DEFAULT => -237
 	},
 	{#State 111
-		DEFAULT => -359
+		DEFAULT => -366
 	},
 	{#State 112
-		DEFAULT => -285
+		DEFAULT => -292
 	},
 	{#State 113
-		DEFAULT => -183
+		DEFAULT => -190
 	},
 	{#State 114
-		DEFAULT => -121
+		DEFAULT => -128
 	},
 	{#State 115
-		DEFAULT => -146
+		DEFAULT => -153
 	},
 	{#State 116
-		DEFAULT => -389
+		DEFAULT => -396
 	},
 	{#State 117
-		DEFAULT => -346
+		DEFAULT => -353
 	},
 	{#State 118
-		DEFAULT => -370
+		DEFAULT => -377
 	},
 	{#State 119
-		DEFAULT => -258
+		DEFAULT => -265
 	},
 	{#State 120
-		DEFAULT => -386
+		DEFAULT => -393
 	},
 	{#State 121
-		DEFAULT => -92
+		DEFAULT => -99
 	},
 	{#State 122
-		DEFAULT => -233
+		DEFAULT => -240
 	},
 	{#State 123
-		DEFAULT => -122
-	},
-	{#State 124
-		DEFAULT => -373
-	},
-	{#State 125
-		DEFAULT => -140
-	},
-	{#State 126
-		DEFAULT => -113
-	},
-	{#State 127
-		DEFAULT => -383
-	},
-	{#State 128
-		DEFAULT => -266
-	},
-	{#State 129
-		DEFAULT => -212
-	},
-	{#State 130
-		DEFAULT => -229
-	},
-	{#State 131
-		DEFAULT => -317
-	},
-	{#State 132
 		DEFAULT => -129
 	},
+	{#State 124
+		DEFAULT => -380
+	},
+	{#State 125
+		DEFAULT => -147
+	},
+	{#State 126
+		DEFAULT => -120
+	},
+	{#State 127
+		DEFAULT => -390
+	},
+	{#State 128
+		DEFAULT => -273
+	},
+	{#State 129
+		DEFAULT => -219
+	},
+	{#State 130
+		DEFAULT => -236
+	},
+	{#State 131
+		DEFAULT => -324
+	},
+	{#State 132
+		DEFAULT => -136
+	},
 	{#State 133
-		DEFAULT => -401
+		DEFAULT => -408
 	},
 	{#State 134
-		DEFAULT => -312
+		DEFAULT => -319
 	},
 	{#State 135
-		DEFAULT => -253
+		DEFAULT => -260
 	},
 	{#State 136
-		DEFAULT => -350
+		DEFAULT => -357
 	},
 	{#State 137
-		DEFAULT => -243
+		DEFAULT => -250
 	},
 	{#State 138
-		DEFAULT => -40
+		DEFAULT => -47
 	},
 	{#State 139
-		DEFAULT => -289
+		DEFAULT => -296
 	},
 	{#State 140
-		DEFAULT => -367
+		DEFAULT => -374
 	},
 	{#State 141
-		DEFAULT => -400
+		DEFAULT => -407
 	},
 	{#State 142
-		DEFAULT => -334
+		DEFAULT => -341
 	},
 	{#State 143
-		DEFAULT => -276
+		DEFAULT => -283
 	},
 	{#State 144
-		DEFAULT => -306
+		DEFAULT => -313
 	},
 	{#State 145
-		DEFAULT => -98
+		DEFAULT => -105
 	},
 	{#State 146
-		DEFAULT => -173
+		DEFAULT => -180
 	},
 	{#State 147
-		DEFAULT => -300
+		DEFAULT => -307
 	},
 	{#State 148
-		DEFAULT => -97
-	},
-	{#State 149
-		DEFAULT => -371
-	},
-	{#State 150
 		DEFAULT => -104
 	},
+	{#State 149
+		DEFAULT => -378
+	},
+	{#State 150
+		DEFAULT => -111
+	},
 	{#State 151
-		DEFAULT => -52
+		DEFAULT => -59
 	},
 	{#State 152
-		DEFAULT => -94
+		DEFAULT => -101
 	},
 	{#State 153
-		DEFAULT => -298
+		DEFAULT => -305
 	},
 	{#State 154
-		DEFAULT => -302
+		DEFAULT => -309
 	},
 	{#State 155
-		DEFAULT => -356
+		DEFAULT => -363
 	},
 	{#State 156
-		DEFAULT => -327
+		DEFAULT => -334
 	},
 	{#State 157
-		DEFAULT => -143
+		DEFAULT => -150
 	},
 	{#State 158
-		DEFAULT => -262
+		DEFAULT => -269
 	},
 	{#State 159
-		DEFAULT => -100
+		DEFAULT => -107
 	},
 	{#State 160
-		DEFAULT => -127
+		DEFAULT => -134
 	},
 	{#State 161
-		DEFAULT => -172
+		DEFAULT => -179
 	},
 	{#State 162
-		DEFAULT => -224
+		DEFAULT => -231
 	},
 	{#State 163
-		DEFAULT => -162
+		DEFAULT => -169
 	},
 	{#State 164
 		ACTIONS => {
-			"(" => 365
+			"(" => 367
 		},
-		DEFAULT => -368
+		DEFAULT => -375
 	},
 	{#State 165
-		DEFAULT => -189
+		DEFAULT => -196
 	},
 	{#State 166
-		DEFAULT => -116
-	},
-	{#State 167
-		DEFAULT => -109
-	},
-	{#State 168
 		DEFAULT => -123
 	},
+	{#State 167
+		DEFAULT => -116
+	},
+	{#State 168
+		DEFAULT => -130
+	},
 	{#State 169
-		DEFAULT => -141
+		DEFAULT => -148
 	},
 	{#State 170
-		DEFAULT => -316
+		DEFAULT => -323
 	},
 	{#State 171
-		DEFAULT => -208
+		DEFAULT => -215
 	},
 	{#State 172
-		DEFAULT => -168
-	},
-	{#State 173
-		DEFAULT => -390
-	},
-	{#State 174
-		DEFAULT => -101
-	},
-	{#State 175
-		DEFAULT => -345
-	},
-	{#State 176
 		DEFAULT => -175
 	},
+	{#State 173
+		DEFAULT => -397
+	},
+	{#State 174
+		DEFAULT => -108
+	},
+	{#State 175
+		DEFAULT => -352
+	},
+	{#State 176
+		DEFAULT => -182
+	},
 	{#State 177
-		DEFAULT => -167
+		DEFAULT => -174
 	},
 	{#State 178
-		DEFAULT => -358
+		DEFAULT => -365
 	},
 	{#State 179
 		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'AS' => 372,
-			'LIKE' => 376,
-			"/" => 370,
-			"=" => 377,
-			">" => 380
+			"-" => 375,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'AS' => 374,
+			'LIKE' => 378,
+			"/" => 372,
+			"=" => 379,
+			">" => 382
 		},
 		DEFAULT => -9
 	},
 	{#State 180
-		DEFAULT => -295
+		DEFAULT => -302
 	},
 	{#State 181
-		DEFAULT => -269
+		DEFAULT => -276
 	},
 	{#State 182
-		DEFAULT => -37
+		DEFAULT => -44
 	},
 	{#State 183
-		DEFAULT => -190
+		DEFAULT => -197
 	},
 	{#State 184
-		DEFAULT => -354
+		DEFAULT => -361
 	},
 	{#State 185
-		DEFAULT => -165
+		DEFAULT => -172
 	},
 	{#State 186
-		DEFAULT => -231
+		DEFAULT => -238
 	},
 	{#State 187
 		ACTIONS => {
-			"(" => 381
+			"(" => 383
 		},
-		DEFAULT => -397
+		DEFAULT => -404
 	},
 	{#State 188
-		DEFAULT => -96
+		DEFAULT => -103
 	},
 	{#State 189
-		DEFAULT => -133
+		DEFAULT => -140
 	},
 	{#State 190
-		DEFAULT => -149
+		DEFAULT => -156
 	},
 	{#State 191
-		DEFAULT => -320
+		DEFAULT => -327
 	},
 	{#State 192
-		DEFAULT => -275
+		DEFAULT => -282
 	},
 	{#State 193
-		DEFAULT => -388
+		DEFAULT => -395
 	},
 	{#State 194
-		DEFAULT => -204
+		DEFAULT => -211
 	},
 	{#State 195
-		DEFAULT => -343
+		DEFAULT => -350
 	},
 	{#State 196
-		DEFAULT => -188
+		DEFAULT => -195
 	},
 	{#State 197
-		DEFAULT => -144
+		DEFAULT => -151
 	},
 	{#State 198
-		DEFAULT => -403
+		DEFAULT => -410
 	},
 	{#State 199
 		DEFAULT => -12
 	},
 	{#State 200
-		DEFAULT => -95
-	},
-	{#State 201
-		DEFAULT => -186
-	},
-	{#State 202
-		DEFAULT => -235
-	},
-	{#State 203
-		DEFAULT => -341
-	},
-	{#State 204
-		DEFAULT => -196
-	},
-	{#State 205
-		DEFAULT => -378
-	},
-	{#State 206
-		DEFAULT => -155
-	},
-	{#State 207
-		DEFAULT => -310
-	},
-	{#State 208
-		DEFAULT => -163
-	},
-	{#State 209
-		DEFAULT => -236
-	},
-	{#State 210
-		DEFAULT => -365
-	},
-	{#State 211
-		DEFAULT => -111
-	},
-	{#State 212
-		DEFAULT => -292
-	},
-	{#State 213
-		DEFAULT => -45
-	},
-	{#State 214
 		DEFAULT => -102
 	},
+	{#State 201
+		DEFAULT => -193
+	},
+	{#State 202
+		DEFAULT => -242
+	},
+	{#State 203
+		DEFAULT => -348
+	},
+	{#State 204
+		DEFAULT => -203
+	},
+	{#State 205
+		DEFAULT => -385
+	},
+	{#State 206
+		DEFAULT => -162
+	},
+	{#State 207
+		DEFAULT => -317
+	},
+	{#State 208
+		DEFAULT => -170
+	},
+	{#State 209
+		DEFAULT => -243
+	},
+	{#State 210
+		DEFAULT => -372
+	},
+	{#State 211
+		DEFAULT => -118
+	},
+	{#State 212
+		DEFAULT => -299
+	},
+	{#State 213
+		DEFAULT => -52
+	},
+	{#State 214
+		DEFAULT => -109
+	},
 	{#State 215
-		DEFAULT => -213
+		DEFAULT => -220
 	},
 	{#State 216
-		DEFAULT => -54
+		DEFAULT => -61
 	},
 	{#State 217
 		ACTIONS => {
-			'PRECISION' => 382
+			'PRECISION' => 384
 		},
-		DEFAULT => -153
+		DEFAULT => -160
 	},
 	{#State 218
-		DEFAULT => -117
+		DEFAULT => -124
 	},
 	{#State 219
-		DEFAULT => -219
+		DEFAULT => -226
 	},
 	{#State 220
 		ACTIONS => {
-			'WITHOUT' => 385,
-			'WITH' => 384,
-			"(" => 383
+			'WITHOUT' => 387,
+			'WITH' => 386,
+			"(" => 385
 		},
-		DEFAULT => -392
+		DEFAULT => -399
 	},
 	{#State 221
 		ACTIONS => {
-			"(" => 386
+			"(" => 388
 		},
-		DEFAULT => -382
+		DEFAULT => -389
 	},
 	{#State 222
-		DEFAULT => -135
+		DEFAULT => -14
 	},
 	{#State 223
-		DEFAULT => -192
+		DEFAULT => -142
 	},
 	{#State 224
-		DEFAULT => -158
+		DEFAULT => -199
 	},
 	{#State 225
-		DEFAULT => -166
+		DEFAULT => -165
 	},
 	{#State 226
-		DEFAULT => -114
+		DEFAULT => -173
 	},
 	{#State 227
-		DEFAULT => -256
+		DEFAULT => -121
 	},
 	{#State 228
-		DEFAULT => -323
+		DEFAULT => -263
 	},
 	{#State 229
-		DEFAULT => -7
+		DEFAULT => -330
 	},
 	{#State 230
-		DEFAULT => -405
+		DEFAULT => -7
 	},
 	{#State 231
-		DEFAULT => -42
+		DEFAULT => -412
 	},
 	{#State 232
-		DEFAULT => -391
+		DEFAULT => -49
 	},
 	{#State 233
-		DEFAULT => -112
-	},
-	{#State 234
-		DEFAULT => -150
-	},
-	{#State 235
-		DEFAULT => -360
-	},
-	{#State 236
-		DEFAULT => -90
-	},
-	{#State 237
 		DEFAULT => -398
 	},
+	{#State 234
+		DEFAULT => -119
+	},
+	{#State 235
+		DEFAULT => -157
+	},
+	{#State 236
+		DEFAULT => -367
+	},
+	{#State 237
+		DEFAULT => -97
+	},
 	{#State 238
-		DEFAULT => -396
+		DEFAULT => -405
 	},
 	{#State 239
-		DEFAULT => -51
+		DEFAULT => -403
 	},
 	{#State 240
-		DEFAULT => -309
-	},
-	{#State 241
-		DEFAULT => -106
-	},
-	{#State 242
-		DEFAULT => -91
-	},
-	{#State 243
-		DEFAULT => -43
-	},
-	{#State 244
-		DEFAULT => -287
-	},
-	{#State 245
-		DEFAULT => -372
-	},
-	{#State 246
-		DEFAULT => -242
-	},
-	{#State 247
-		DEFAULT => -238
-	},
-	{#State 248
-		DEFAULT => -281
-	},
-	{#State 249
-		DEFAULT => -161
-	},
-	{#State 250
-		DEFAULT => -329
-	},
-	{#State 251
 		DEFAULT => -58
 	},
+	{#State 241
+		DEFAULT => -316
+	},
+	{#State 242
+		DEFAULT => -113
+	},
+	{#State 243
+		DEFAULT => -98
+	},
+	{#State 244
+		DEFAULT => -50
+	},
+	{#State 245
+		DEFAULT => -294
+	},
+	{#State 246
+		DEFAULT => -379
+	},
+	{#State 247
+		DEFAULT => -249
+	},
+	{#State 248
+		DEFAULT => -245
+	},
+	{#State 249
+		DEFAULT => -288
+	},
+	{#State 250
+		DEFAULT => -168
+	},
+	{#State 251
+		DEFAULT => -336
+	},
 	{#State 252
-		DEFAULT => -278
+		DEFAULT => -65
 	},
 	{#State 253
-		DEFAULT => -180
+		DEFAULT => -285
 	},
 	{#State 254
-		DEFAULT => -402
+		ACTIONS => {
+			"(" => 389
+		}
 	},
 	{#State 255
-		DEFAULT => -44
+		DEFAULT => -187
 	},
 	{#State 256
-		DEFAULT => -170
+		DEFAULT => -409
 	},
 	{#State 257
-		DEFAULT => -332
+		DEFAULT => -51
 	},
 	{#State 258
-		DEFAULT => -207
+		DEFAULT => -177
 	},
 	{#State 259
-		DEFAULT => -328
+		DEFAULT => -339
 	},
 	{#State 260
-		DEFAULT => -201
+		DEFAULT => -214
 	},
 	{#State 261
 		DEFAULT => -335
 	},
 	{#State 262
-		DEFAULT => -290
+		DEFAULT => -208
 	},
 	{#State 263
-		DEFAULT => -303
+		DEFAULT => -342
 	},
 	{#State 264
-		DEFAULT => -131
+		DEFAULT => -297
 	},
 	{#State 265
-		DEFAULT => -330
+		DEFAULT => -310
 	},
 	{#State 266
-		DEFAULT => -234
-	},
-	{#State 267
-		ACTIONS => {
-			"(" => 387
-		}
-	},
-	{#State 268
-		DEFAULT => -336
-	},
-	{#State 269
-		DEFAULT => -249
-	},
-	{#State 270
-		DEFAULT => -280
-	},
-	{#State 271
-		DEFAULT => -351
-	},
-	{#State 272
-		DEFAULT => -288
-	},
-	{#State 273
-		DEFAULT => -181
-	},
-	{#State 274
-		DEFAULT => -251
-	},
-	{#State 275
-		DEFAULT => -32
-	},
-	{#State 276
-		DEFAULT => -385
-	},
-	{#State 277
-		DEFAULT => -152
-	},
-	{#State 278
-		DEFAULT => -164
-	},
-	{#State 279
-		DEFAULT => -315
-	},
-	{#State 280
-		DEFAULT => -11
-	},
-	{#State 281
-		DEFAULT => -128
-	},
-	{#State 282
-		DEFAULT => -41
-	},
-	{#State 283
-		DEFAULT => -283
-	},
-	{#State 284
-		DEFAULT => -259
-	},
-	{#State 285
-		DEFAULT => -307
-	},
-	{#State 286
-		DEFAULT => -125
-	},
-	{#State 287
-		DEFAULT => -221
-	},
-	{#State 288
-		DEFAULT => -237
-	},
-	{#State 289
-		DEFAULT => -261
-	},
-	{#State 290
-		DEFAULT => -357
-	},
-	{#State 291
-		DEFAULT => -134
-	},
-	{#State 292
-		DEFAULT => -99
-	},
-	{#State 293
-		DEFAULT => -53
-	},
-	{#State 294
-		DEFAULT => -185
-	},
-	{#State 295
-		DEFAULT => -119
-	},
-	{#State 296
-		DEFAULT => -352
-	},
-	{#State 297
-		DEFAULT => -399
-	},
-	{#State 298
-		DEFAULT => -241
-	},
-	{#State 299
-		DEFAULT => -364
-	},
-	{#State 300
-		DEFAULT => -255
-	},
-	{#State 301
-		DEFAULT => -222
-	},
-	{#State 302
-		DEFAULT => -245
-	},
-	{#State 303
-		DEFAULT => -305
-	},
-	{#State 304
-		DEFAULT => -124
-	},
-	{#State 305
-		DEFAULT => -362
-	},
-	{#State 306
-		DEFAULT => -176
-	},
-	{#State 307
-		DEFAULT => -107
-	},
-	{#State 308
-		DEFAULT => -225
-	},
-	{#State 309
-		DEFAULT => -178
-	},
-	{#State 310
-		ACTIONS => {
-			'MONTH' => -88,
-			'SECOND' => -88,
-			"(" => 388,
-			'HOUR' => -88,
-			'YEAR' => -88,
-			'MINUTE' => -88,
-			'DAY' => -88
-		},
-		DEFAULT => -376
-	},
-	{#State 311
-		DEFAULT => -205
-	},
-	{#State 312
-		DEFAULT => -220
-	},
-	{#State 313
-		DEFAULT => -174
-	},
-	{#State 314
-		DEFAULT => -198
-	},
-	{#State 315
-		DEFAULT => -296
-	},
-	{#State 316
-		DEFAULT => -294
-	},
-	{#State 317
-		DEFAULT => -267
-	},
-	{#State 318
-		DEFAULT => -395
-	},
-	{#State 319
-		DEFAULT => -347
-	},
-	{#State 320
-		DEFAULT => -313
-	},
-	{#State 321
-		DEFAULT => -136
-	},
-	{#State 322
-		DEFAULT => -214
-	},
-	{#State 323
-		DEFAULT => -291
-	},
-	{#State 324
-		DEFAULT => -151
-	},
-	{#State 325
-		DEFAULT => -182
-	},
-	{#State 326
-		DEFAULT => -274
-	},
-	{#State 327
-		DEFAULT => -272
-	},
-	{#State 328
-		DEFAULT => -203
-	},
-	{#State 329
-		DEFAULT => -216
-	},
-	{#State 330
-		DEFAULT => -199
-	},
-	{#State 331
-		DEFAULT => -318
-	},
-	{#State 332
-		DEFAULT => -232
-	},
-	{#State 333
-		DEFAULT => -179
-	},
-	{#State 334
-		DEFAULT => -93
-	},
-	{#State 335
-		DEFAULT => -333
-	},
-	{#State 336
-		DEFAULT => -270
-	},
-	{#State 337
-		DEFAULT => -353
-	},
-	{#State 338
-		DEFAULT => -284
-	},
-	{#State 339
-		DEFAULT => -130
-	},
-	{#State 340
-		DEFAULT => -159
-	},
-	{#State 341
 		DEFAULT => -138
 	},
-	{#State 342
-		DEFAULT => -156
+	{#State 267
+		DEFAULT => -337
 	},
-	{#State 343
-		DEFAULT => -209
+	{#State 268
+		DEFAULT => -241
 	},
-	{#State 344
-		DEFAULT => -380
+	{#State 269
+		ACTIONS => {
+			"(" => 390
+		}
 	},
-	{#State 345
-		DEFAULT => -374
+	{#State 270
+		DEFAULT => -343
 	},
-	{#State 346
-		DEFAULT => -321
+	{#State 271
+		DEFAULT => -256
 	},
-	{#State 347
+	{#State 272
+		DEFAULT => -287
+	},
+	{#State 273
+		DEFAULT => -358
+	},
+	{#State 274
+		DEFAULT => -295
+	},
+	{#State 275
+		DEFAULT => -188
+	},
+	{#State 276
+		DEFAULT => -258
+	},
+	{#State 277
+		DEFAULT => -39
+	},
+	{#State 278
+		DEFAULT => -392
+	},
+	{#State 279
+		DEFAULT => -159
+	},
+	{#State 280
+		DEFAULT => -171
+	},
+	{#State 281
+		DEFAULT => -322
+	},
+	{#State 282
+		DEFAULT => -11
+	},
+	{#State 283
+		DEFAULT => -135
+	},
+	{#State 284
+		DEFAULT => -48
+	},
+	{#State 285
+		DEFAULT => -290
+	},
+	{#State 286
+		DEFAULT => -266
+	},
+	{#State 287
+		DEFAULT => -314
+	},
+	{#State 288
+		DEFAULT => -132
+	},
+	{#State 289
+		DEFAULT => -228
+	},
+	{#State 290
+		DEFAULT => -244
+	},
+	{#State 291
+		DEFAULT => -268
+	},
+	{#State 292
+		DEFAULT => -364
+	},
+	{#State 293
+		DEFAULT => -141
+	},
+	{#State 294
+		DEFAULT => -106
+	},
+	{#State 295
+		DEFAULT => -60
+	},
+	{#State 296
+		DEFAULT => -192
+	},
+	{#State 297
+		DEFAULT => -126
+	},
+	{#State 298
+		DEFAULT => -359
+	},
+	{#State 299
+		DEFAULT => -406
+	},
+	{#State 300
+		DEFAULT => -248
+	},
+	{#State 301
+		DEFAULT => -371
+	},
+	{#State 302
+		DEFAULT => -262
+	},
+	{#State 303
+		DEFAULT => -229
+	},
+	{#State 304
+		DEFAULT => -252
+	},
+	{#State 305
+		DEFAULT => -312
+	},
+	{#State 306
+		DEFAULT => -131
+	},
+	{#State 307
+		DEFAULT => -369
+	},
+	{#State 308
+		DEFAULT => -183
+	},
+	{#State 309
+		DEFAULT => -114
+	},
+	{#State 310
+		DEFAULT => -232
+	},
+	{#State 311
+		DEFAULT => -185
+	},
+	{#State 312
+		ACTIONS => {
+			'MONTH' => -95,
+			'SECOND' => -95,
+			"(" => 391,
+			'HOUR' => -95,
+			'YEAR' => -95,
+			'MINUTE' => -95,
+			'DAY' => -95
+		},
+		DEFAULT => -383
+	},
+	{#State 313
+		DEFAULT => -212
+	},
+	{#State 314
+		DEFAULT => -227
+	},
+	{#State 315
+		DEFAULT => -181
+	},
+	{#State 316
+		DEFAULT => -205
+	},
+	{#State 317
+		DEFAULT => -303
+	},
+	{#State 318
 		DEFAULT => -301
 	},
+	{#State 319
+		DEFAULT => -274
+	},
+	{#State 320
+		DEFAULT => -402
+	},
+	{#State 321
+		DEFAULT => -354
+	},
+	{#State 322
+		DEFAULT => -320
+	},
+	{#State 323
+		DEFAULT => -143
+	},
+	{#State 324
+		DEFAULT => -221
+	},
+	{#State 325
+		DEFAULT => -298
+	},
+	{#State 326
+		DEFAULT => -158
+	},
+	{#State 327
+		DEFAULT => -189
+	},
+	{#State 328
+		DEFAULT => -281
+	},
+	{#State 329
+		DEFAULT => -279
+	},
+	{#State 330
+		DEFAULT => -210
+	},
+	{#State 331
+		DEFAULT => -223
+	},
+	{#State 332
+		DEFAULT => -206
+	},
+	{#State 333
+		DEFAULT => -325
+	},
+	{#State 334
+		DEFAULT => -239
+	},
+	{#State 335
+		DEFAULT => -186
+	},
+	{#State 336
+		DEFAULT => -100
+	},
+	{#State 337
+		DEFAULT => -340
+	},
+	{#State 338
+		DEFAULT => -277
+	},
+	{#State 339
+		DEFAULT => -360
+	},
+	{#State 340
+		DEFAULT => -291
+	},
+	{#State 341
+		DEFAULT => -137
+	},
+	{#State 342
+		DEFAULT => -166
+	},
+	{#State 343
+		DEFAULT => -145
+	},
+	{#State 344
+		DEFAULT => -163
+	},
+	{#State 345
+		DEFAULT => -216
+	},
+	{#State 346
+		DEFAULT => -387
+	},
+	{#State 347
+		DEFAULT => -381
+	},
 	{#State 348
-		ACTIONS => {
-			'YEAR' => 394,
-			'MINUTE' => 390,
-			'HOUR' => 393,
-			'MONTH' => 389,
-			'DAY' => 391,
-			'SECOND' => 392
-		}
+		DEFAULT => -328
 	},
 	{#State 349
 		DEFAULT => -308
 	},
 	{#State 350
-		DEFAULT => -120
+		DEFAULT => -315
 	},
 	{#State 351
-		DEFAULT => -314
+		ACTIONS => {
+			'YEAR' => 397,
+			'MINUTE' => 393,
+			'HOUR' => 396,
+			'MONTH' => 392,
+			'DAY' => 394,
+			'SECOND' => 395
+		}
 	},
 	{#State 352
-		DEFAULT => -384
+		DEFAULT => -127
 	},
 	{#State 353
-		DEFAULT => -366
+		DEFAULT => -321
 	},
 	{#State 354
-		DEFAULT => -169
+		DEFAULT => -391
 	},
 	{#State 355
-		DEFAULT => -326
+		DEFAULT => -373
 	},
 	{#State 356
-		DEFAULT => -3
+		DEFAULT => -176
 	},
 	{#State 357
-		DEFAULT => -31
+		DEFAULT => -333
 	},
 	{#State 358
+		DEFAULT => -3
+	},
+	{#State 359
+		DEFAULT => -38
+	},
+	{#State 360
 		ACTIONS => {
 			'INPUT' => 10,
 			'SYSID' => 9,
@@ -3674,1222 +3703,535 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
-			'expr_simple' => 280,
+			'expr_simple' => 282,
 			'identifier' => 67,
 			'expr' => 179,
-			'timestamp_type' => 239,
+			'timestamp_type' => 240,
 			'operator_expression' => 199,
 			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'literal_value' => 275,
-			'interval_type' => 293,
-			'result_column' => 395,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'result_column' => 398,
 			'cast_expression' => 107,
-			'keywords_notreserved' => 255
-		}
-	},
-	{#State 359
-		ACTIONS => {
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'JOIN' => 8,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'NCHAR' => 16,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'PASSING' => 20,
-			'MODE' => 21,
-			'INTEGER' => 22,
-			'INHERITS' => 23,
-			'ESCAPE' => 25,
-			'VALUE' => 24,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'ENCODING' => 29,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'FULL' => 37,
-			'TREAT' => 38,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'DATA' => 45,
-			'DAY' => 44,
-			'PARTITION' => 43,
-			'RANGE' => 42,
-			'REF' => 48,
-			'SHARE' => 47,
-			'REAL' => 46,
-			'OVER' => 49,
-			'LARGE' => 51,
-			'CURRENT_SCHEMA' => 50,
-			'DELETE' => 52,
-			'NULLIF' => 53,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'REPLICA' => 58,
-			'PRIVILEGES' => 59,
-			'ZONE' => 60,
-			'LEAST' => 61,
-			'STATISTICS' => 62,
-			'ISNULL' => 63,
-			'CALLED' => 64,
-			'SECURITY' => 66,
-			'INCREMENT' => 68,
-			'BINARY' => 69,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'CONCURRENTLY' => 72,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'XMLPI' => 77,
-			'CHARACTERISTICS' => 78,
-			'VALIDATE' => 79,
-			'STRICT' => 81,
-			'VARYING' => 83,
-			'AUTHORIZATION' => 84,
-			'REASSIGN' => 85,
-			'LABEL' => 87,
-			'ROLLBACK' => 86,
-			'OBJECT' => 88,
-			'DELIMITERS' => 90,
-			'PROCEDURE' => 89,
-			'TIMESTAMP' => 397,
-			'RULE' => 92,
-			'INSERT' => 95,
-			'HANDLER' => 96,
-			'LOCATION' => 98,
-			'EXISTS' => 97,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'BOOLEAN' => 100,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'PRIOR' => 106,
-			'OFF' => 110,
-			'BIGINT' => 109,
-			'XMLSERIALIZE' => 108,
-			'VERBOSE' => 111,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'SETOF' => 116,
-			'INNER' => 117,
-			'EXTRACT' => 118,
-			'REINDEX' => 119,
-			'PRECISION' => 120,
-			'ACCESS' => 121,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'INOUT' => 124,
-			'DEALLOCATE' => 125,
-			'CATALOG' => 126,
-			'OUT' => 127,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'XMLEXISTS' => 133,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'LEFT' => 136,
-			'PRECEDING' => 137,
-			'STABLE' => 139,
-			'DEC' => 140,
-			'XMLELEMENT' => 141,
-			'XML' => 142,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'FUNCTION' => 146,
-			'ALSO' => 145,
-			'SYSTEM' => 147,
-			'AGGREGATE' => 148,
-			'FLOAT' => 149,
-			'ATTRIBUTE' => 150,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'OVERLAPS' => 155,
-			'DEFERRED' => 157,
-			'VIEW' => 156,
-			'REPEATABLE' => 158,
-			'ALWAYS' => 159,
-			'CONSTRAINTS' => 160,
-			'FORWARD' => 161,
-			'NOTHING' => 162,
-			'EXCLUDING' => 163,
-			'DECIMAL' => 398,
-			'CHECKPOINT' => 166,
-			'INDEXES' => 165,
-			'CACHE' => 167,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'UNLISTEN' => 170,
-			'LOAD' => 171,
-			'FAMILY' => 172,
-			'SMALLINT' => 173,
-			'ASSERTION' => 174,
-			'ILIKE' => 175,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'SIMILAR' => 178,
-			'STDOUT' => 180,
-			'REVOKE' => 181,
-			'INHERIT' => 183,
-			'OUTER' => 184,
-			'EXPLAIN' => 185,
-			'OIDS' => 186,
-			'VARCHAR' => 399,
-			'AFTER' => 188,
-			'CSV' => 189,
-			'DISABLE' => 190,
-			'VACUUM' => 191,
-			'SCHEMA' => 192,
-			'ROW' => 193,
-			'LC_COLLATE' => 194,
-			'FREEZE' => 195,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'XMLPARSE' => 198,
-			'OWNED' => 202,
-			'INCLUDING' => 201,
-			'ADMIN' => 200,
-			'CROSS' => 203,
-			'INSTEAD' => 204,
-			'NATIONAL' => 205,
-			'EACH' => 206,
-			'TRUSTED' => 207,
-			'OWNER' => 209,
-			'EXCLUSIVE' => 208,
-			'CHARACTER' => 210,
-			'STATEMENT' => 212,
-			'CASCADE' => 211,
-			'ASSIGNMENT' => 214,
-			'MATCH' => 215,
-			'MOVE' => 219,
-			'CLASS' => 218,
-			'DOUBLE' => 217,
-			'TIME' => 401,
-			'NUMERIC' => 402,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'NAMES' => 287,
-			'CONFIGURATION' => 286,
-			'RENAME' => 289,
-			'PARSER' => 288,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 403,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
-		},
-		GOTOS => {
-			'base_type' => 400,
-			'identifier' => 396,
-			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'keywords_notreserved' => 255,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251
-		}
-	},
-	{#State 360
-		ACTIONS => {
-			"-" => 373,
-			'LIKE' => 376,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			"/" => 370,
-			"=" => 377,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			")" => 404,
-			">" => 380
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 361
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 405
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'XMLPI' => 77,
+			'CHARACTERISTICS' => 78,
+			'VALIDATE' => 79,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'TIMESTAMP' => 400,
+			'RULE' => 92,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XMLELEMENT' => 141,
+			'XML' => 142,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'FUNCTION' => 146,
+			'ALSO' => 145,
+			'SYSTEM' => 147,
+			'AGGREGATE' => 148,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 401,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'OIDS' => 186,
+			'VARCHAR' => 402,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 404,
+			'NUMERIC' => 405,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'NAMES' => 289,
+			'CONFIGURATION' => 288,
+			'RENAME' => 291,
+			'PARSER' => 290,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 406,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'base_type' => 403,
+			'identifier' => 399,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'keywords_notreserved' => 257,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252
 		}
 	},
 	{#State 362
 		ACTIONS => {
-			'TIME' => 406
+			"-" => 375,
+			'LIKE' => 378,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			"/" => 372,
+			"=" => 379,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			")" => 407,
+			">" => 382
 		}
 	},
 	{#State 363
 		ACTIONS => {
-			'TIME' => 407
+			'INTEGER_CONSTANT' => 408
 		}
 	},
 	{#State 364
 		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			"%" => 378,
-			"^" => 368,
-			"*" => 379,
-			"/" => 370
-		},
-		DEFAULT => -16
+			'TIME' => 409
+		}
 	},
 	{#State 365
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 408
+			'TIME' => 410
 		}
 	},
 	{#State 366
 		ACTIONS => {
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'JOIN' => 8,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'NCHAR' => 16,
-			'STRING_CONSTANT' => 17,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'PASSING' => 20,
-			'MODE' => 21,
-			'INTEGER' => 22,
-			'INHERITS' => 23,
-			'ESCAPE' => 25,
-			'VALUE' => 24,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'ENCODING' => 29,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'FULL' => 37,
-			'TREAT' => 38,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'DATA' => 45,
-			'DAY' => 44,
-			'PARTITION' => 43,
-			'RANGE' => 42,
-			'REF' => 48,
-			'SHARE' => 47,
-			'REAL' => 46,
-			'OVER' => 49,
-			'LARGE' => 51,
-			'CURRENT_SCHEMA' => 50,
-			'DELETE' => 52,
-			'NULLIF' => 53,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'REPLICA' => 58,
-			'PRIVILEGES' => 59,
-			'ZONE' => 60,
-			'LEAST' => 61,
-			'STATISTICS' => 62,
-			'ISNULL' => 63,
-			'CALLED' => 64,
-			'USTRING_CONSTANT' => 65,
-			'SECURITY' => 66,
-			'INCREMENT' => 68,
-			'BINARY' => 69,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'CONCURRENTLY' => 72,
-			'XBITSTRING_CONSTANT' => 73,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'CHARACTERISTICS' => 78,
-			'XMLPI' => 77,
-			'VALIDATE' => 79,
-			"(" => 80,
-			'ESTRING_CONSTANT' => 82,
-			'STRICT' => 81,
-			'VARYING' => 83,
-			'AUTHORIZATION' => 84,
-			'REASSIGN' => 85,
-			'LABEL' => 87,
-			'ROLLBACK' => 86,
-			'OBJECT' => 88,
-			'TIMESTAMP' => 91,
-			'DELIMITERS' => 90,
-			'PROCEDURE' => 89,
-			'RULE' => 92,
-			'OPERATOR_NAME' => 94,
-			'NUMERIC_CONSTANT' => 93,
-			'INSERT' => 95,
-			'HANDLER' => 96,
-			'LOCATION' => 98,
-			'EXISTS' => 97,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'BOOLEAN' => 100,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'PRIOR' => 106,
-			'OFF' => 110,
-			'BIGINT' => 109,
-			'XMLSERIALIZE' => 108,
-			'VERBOSE' => 111,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'SETOF' => 116,
-			'INNER' => 117,
-			'EXTRACT' => 118,
-			'REINDEX' => 119,
-			'PRECISION' => 120,
-			'ACCESS' => 121,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'INOUT' => 124,
-			'DEALLOCATE' => 125,
-			'CATALOG' => 126,
-			'OUT' => 127,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'XMLEXISTS' => 133,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'LEFT' => 136,
-			'PRECEDING' => 137,
-			'INTEGER_CONSTANT' => 138,
-			'STABLE' => 139,
-			'DEC' => 140,
-			'XML' => 142,
-			'XMLELEMENT' => 141,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'ALSO' => 145,
-			'FUNCTION' => 146,
-			'AGGREGATE' => 148,
-			'SYSTEM' => 147,
-			'FLOAT' => 149,
-			'ATTRIBUTE' => 150,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'OVERLAPS' => 155,
-			'DEFERRED' => 157,
-			'VIEW' => 156,
-			'REPEATABLE' => 158,
-			'ALWAYS' => 159,
-			'CONSTRAINTS' => 160,
-			'FORWARD' => 161,
-			'NOTHING' => 162,
-			'EXCLUDING' => 163,
-			'DECIMAL' => 164,
-			'CHECKPOINT' => 166,
-			'INDEXES' => 165,
-			'CACHE' => 167,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'UNLISTEN' => 170,
-			'LOAD' => 171,
-			'FAMILY' => 172,
-			'SMALLINT' => 173,
-			'ASSERTION' => 174,
-			'ILIKE' => 175,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'SIMILAR' => 178,
-			'STDOUT' => 180,
-			'BITSTRING_CONSTANT' => 182,
-			'REVOKE' => 181,
-			'INHERIT' => 183,
-			'OUTER' => 184,
-			'EXPLAIN' => 185,
-			'VARCHAR' => 187,
-			'OIDS' => 186,
-			'AFTER' => 188,
-			'CSV' => 189,
-			'DISABLE' => 190,
-			'VACUUM' => 191,
-			'SCHEMA' => 192,
-			'ROW' => 193,
-			'LC_COLLATE' => 194,
-			'FREEZE' => 195,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'XMLPARSE' => 198,
-			'OWNED' => 202,
-			'INCLUDING' => 201,
-			'ADMIN' => 200,
-			'CROSS' => 203,
-			'INSTEAD' => 204,
-			'NATIONAL' => 205,
-			'EACH' => 206,
-			'TRUSTED' => 207,
-			'OWNER' => 209,
-			'EXCLUSIVE' => 208,
-			'CHARACTER' => 210,
-			'STATEMENT' => 212,
-			'CASCADE' => 211,
-			'ASSIGNMENT' => 214,
-			'MATCH' => 215,
-			'MOVE' => 219,
-			'CLASS' => 218,
-			'DOUBLE' => 217,
-			'TIME' => 220,
-			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			"%" => 380,
+			"^" => 370,
+			"*" => 381,
+			"/" => 372
 		},
-		GOTOS => {
-			'base_type' => 216,
-			'time_type' => 151,
-			'expr_simple' => 280,
-			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 409,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
-			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
-		}
+		DEFAULT => -23
 	},
 	{#State 367
 		ACTIONS => {
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'JOIN' => 8,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'NCHAR' => 16,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'PASSING' => 20,
-			'MODE' => 21,
-			'INTEGER' => 22,
-			'INHERITS' => 23,
-			'ESCAPE' => 25,
-			'VALUE' => 24,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'ENCODING' => 29,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'FULL' => 37,
-			'TREAT' => 38,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'DATA' => 45,
-			'DAY' => 44,
-			'PARTITION' => 43,
-			'RANGE' => 42,
-			'REF' => 48,
-			'SHARE' => 47,
-			'REAL' => 46,
-			'OVER' => 49,
-			'LARGE' => 51,
-			'CURRENT_SCHEMA' => 50,
-			'DELETE' => 52,
-			'NULLIF' => 53,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'REPLICA' => 58,
-			'PRIVILEGES' => 59,
-			'ZONE' => 60,
-			'LEAST' => 61,
-			'STATISTICS' => 62,
-			'ISNULL' => 63,
-			'CALLED' => 64,
-			'SECURITY' => 66,
-			'INCREMENT' => 68,
-			'BINARY' => 69,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'CONCURRENTLY' => 72,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'XMLPI' => 77,
-			'CHARACTERISTICS' => 78,
-			'VALIDATE' => 79,
-			'STRICT' => 81,
-			'VARYING' => 83,
-			'AUTHORIZATION' => 84,
-			'REASSIGN' => 85,
-			'LABEL' => 87,
-			'ROLLBACK' => 86,
-			'OBJECT' => 88,
-			'TIMESTAMP' => 91,
-			'DELIMITERS' => 90,
-			'PROCEDURE' => 89,
-			'RULE' => 92,
-			'INSERT' => 95,
-			'HANDLER' => 96,
-			'LOCATION' => 98,
-			'EXISTS' => 97,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'BOOLEAN' => 100,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'PRIOR' => 106,
-			'OFF' => 110,
-			'BIGINT' => 109,
-			'XMLSERIALIZE' => 108,
-			'VERBOSE' => 111,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'SETOF' => 116,
-			'INNER' => 117,
-			'EXTRACT' => 118,
-			'REINDEX' => 119,
-			'PRECISION' => 120,
-			'ACCESS' => 121,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'INOUT' => 124,
-			'DEALLOCATE' => 125,
-			'CATALOG' => 126,
-			'OUT' => 127,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'XMLEXISTS' => 133,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'LEFT' => 136,
-			'PRECEDING' => 137,
-			'STABLE' => 139,
-			'DEC' => 140,
-			'XMLELEMENT' => 141,
-			'XML' => 142,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'FUNCTION' => 146,
-			'ALSO' => 145,
-			'SYSTEM' => 147,
-			'AGGREGATE' => 148,
-			'FLOAT' => 149,
-			'ATTRIBUTE' => 150,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'OVERLAPS' => 155,
-			'DEFERRED' => 157,
-			'VIEW' => 156,
-			'REPEATABLE' => 158,
-			'ALWAYS' => 159,
-			'CONSTRAINTS' => 160,
-			'FORWARD' => 161,
-			'NOTHING' => 162,
-			'EXCLUDING' => 163,
-			'DECIMAL' => 164,
-			'CHECKPOINT' => 166,
-			'INDEXES' => 165,
-			'CACHE' => 167,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'UNLISTEN' => 170,
-			'LOAD' => 171,
-			'FAMILY' => 172,
-			'SMALLINT' => 173,
-			'ASSERTION' => 174,
-			'ILIKE' => 175,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'SIMILAR' => 178,
-			'STDOUT' => 180,
-			'REVOKE' => 181,
-			'INHERIT' => 183,
-			'OUTER' => 184,
-			'EXPLAIN' => 185,
-			'VARCHAR' => 187,
-			'OIDS' => 186,
-			'AFTER' => 188,
-			'CSV' => 189,
-			'DISABLE' => 190,
-			'VACUUM' => 191,
-			'SCHEMA' => 192,
-			'ROW' => 193,
-			'LC_COLLATE' => 194,
-			'FREEZE' => 195,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'XMLPARSE' => 198,
-			'OWNED' => 202,
-			'INCLUDING' => 201,
-			'ADMIN' => 200,
-			'CROSS' => 203,
-			'INSTEAD' => 204,
-			'NATIONAL' => 205,
-			'EACH' => 206,
-			'TRUSTED' => 207,
-			'OWNER' => 209,
-			'EXCLUSIVE' => 208,
-			'CHARACTER' => 210,
-			'STATEMENT' => 212,
-			'CASCADE' => 211,
-			'ASSIGNMENT' => 214,
-			'MATCH' => 215,
-			'MOVE' => 219,
-			'CLASS' => 218,
-			'DOUBLE' => 217,
-			'TIME' => 220,
-			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'NAMES' => 287,
-			'CONFIGURATION' => 286,
-			'RENAME' => 289,
-			'PARSER' => 288,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
-		},
-		GOTOS => {
-			'base_type' => 216,
-			'time_type' => 151,
-			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 410,
-			'interval_type' => 293,
-			'identifier' => 67,
-			'timestamp_type' => 239,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'INTEGER_CONSTANT' => 411
 		}
 	},
 	{#State 368
@@ -5098,150 +4440,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 412,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 411,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 369
@@ -5254,14 +4598,13 @@ sub new {
 			'AT' => 14,
 			'INSENSITIVE' => 13,
 			'RETURNS' => 15,
-			'STRING_CONSTANT' => 17,
 			'NCHAR' => 16,
 			'INVOKER' => 18,
 			'WORK' => 19,
 			'PASSING' => 20,
 			'MODE' => 21,
-			'INHERITS' => 23,
 			'INTEGER' => 22,
+			'INHERITS' => 23,
 			'ESCAPE' => 25,
 			'VALUE' => 24,
 			'DROP' => 26,
@@ -5301,21 +4644,17 @@ sub new {
 			'STATISTICS' => 62,
 			'ISNULL' => 63,
 			'CALLED' => 64,
-			'USTRING_CONSTANT' => 65,
 			'SECURITY' => 66,
 			'INCREMENT' => 68,
 			'BINARY' => 69,
 			'LEVEL' => 70,
 			'FORCE' => 71,
 			'CONCURRENTLY' => 72,
-			'XBITSTRING_CONSTANT' => 73,
-			'PRESERVE' => 76,
 			'UPDATE' => 75,
-			'CHARACTERISTICS' => 78,
+			'PRESERVE' => 76,
 			'XMLPI' => 77,
+			'CHARACTERISTICS' => 78,
 			'VALIDATE' => 79,
-			"(" => 80,
-			'ESTRING_CONSTANT' => 82,
 			'STRICT' => 81,
 			'VARYING' => 83,
 			'AUTHORIZATION' => 84,
@@ -5327,7 +4666,6 @@ sub new {
 			'DELIMITERS' => 90,
 			'PROCEDURE' => 89,
 			'RULE' => 92,
-			'NUMERIC_CONSTANT' => 93,
 			'INSERT' => 95,
 			'HANDLER' => 96,
 			'LOCATION' => 98,
@@ -5370,17 +4708,16 @@ sub new {
 			'READ' => 135,
 			'LEFT' => 136,
 			'PRECEDING' => 137,
-			'INTEGER_CONSTANT' => 138,
 			'STABLE' => 139,
 			'DEC' => 140,
-			'XML' => 142,
 			'XMLELEMENT' => 141,
+			'XML' => 142,
 			'SCROLL' => 143,
 			'TEXT' => 144,
-			'ALSO' => 145,
 			'FUNCTION' => 146,
-			'AGGREGATE' => 148,
+			'ALSO' => 145,
 			'SYSTEM' => 147,
+			'AGGREGATE' => 148,
 			'FLOAT' => 149,
 			'ATTRIBUTE' => 150,
 			'ADD' => 152,
@@ -5406,11 +4743,11 @@ sub new {
 			'FAMILY' => 172,
 			'SMALLINT' => 173,
 			'ASSERTION' => 174,
+			'ILIKE' => 175,
 			'GLOBAL' => 176,
 			'EXTERNAL' => 177,
 			'SIMILAR' => 178,
 			'STDOUT' => 180,
-			'BITSTRING_CONSTANT' => 182,
 			'REVOKE' => 181,
 			'INHERIT' => 183,
 			'OUTER' => 184,
@@ -5448,149 +4785,144 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'DOMAIN' => 277,
-			'EXECUTE' => 278,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'NAMES' => 289,
+			'CONFIGURATION' => 288,
+			'RENAME' => 291,
+			'PARSER' => 290,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
-		DEFAULT => -15,
 		GOTOS => {
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 412,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
-			'cast_expression' => 107,
+			'base_interval_type' => 351,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'normal_type' => 413,
+			'interval_type' => 295,
+			'identifier' => 414,
+			'timestamp_type' => 240,
 			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 370
@@ -5799,153 +5131,506 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 415,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 413,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 371
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'STRING_CONSTANT' => 17,
+			'NCHAR' => 16,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INHERITS' => 23,
+			'INTEGER' => 22,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'PRESERVE' => 76,
+			'UPDATE' => 75,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'DOMAIN' => 279,
+			'EXECUTE' => 280,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		DEFAULT => -22,
+		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 416,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
+		}
+	},
+	{#State 372
 		ACTIONS => {
 			'INPUT' => 10,
 			'SYSID' => 9,
@@ -6151,409 +5836,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 417,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 414,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
-		}
-	},
-	{#State 372
-		ACTIONS => {
-			'VACUUM' => 191,
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'SCHEMA' => 192,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'LC_COLLATE' => 194,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'ADMIN' => 200,
-			'INCLUDING' => 201,
-			'OWNED' => 202,
-			'PASSING' => 20,
-			'INSTEAD' => 204,
-			'MODE' => 21,
-			'INHERITS' => 23,
-			'VALUE' => 24,
-			'ESCAPE' => 25,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'EACH' => 206,
-			'ENCODING' => 29,
-			'TRUSTED' => 207,
-			'EXCLUSIVE' => 208,
-			'OWNER' => 209,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'CASCADE' => 211,
-			'STATEMENT' => 212,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'ASSIGNMENT' => 214,
-			'RANGE' => 42,
-			'PARTITION' => 43,
-			'DAY' => 44,
-			'DATA' => 45,
-			'SHARE' => 47,
-			'REF' => 48,
-			'MATCH' => 215,
-			'CLASS' => 218,
-			'DOUBLE' => 416,
-			'MOVE' => 219,
-			'LARGE' => 51,
-			'DELETE' => 52,
-			'CURSOR' => 222,
-			'INLINE' => 223,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'ENCRYPTED' => 224,
-			'EXTENSION' => 225,
-			'REPLICA' => 58,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'PRIVILEGES' => 59,
-			'VALIDATOR' => 228,
-			'UQUOTED_IDENTIFIER' => 231,
-			'ZONE' => 60,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'STATISTICS' => 62,
-			'CALLED' => 64,
-			'SECURITY' => 66,
-			'ABORT' => 236,
-			'INCREMENT' => 68,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'BEFORE' => 241,
-			'TRUNCATE' => 240,
-			'IDENTIFIER' => 243,
-			'ABSOLUTE' => 242,
-			'SHOW' => 244,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'SECOND' => 252,
-			'WHITESPACE' => 250,
-			'CHARACTERISTICS' => 78,
-			'VALIDATE' => 79,
-			'STRICT' => 81,
-			'HOUR' => 253,
-			'VARYING' => 83,
-			'FOLLOWING' => 256,
-			'LISTEN' => 258,
-			'WRAPPER' => 257,
-			'REASSIGN' => 85,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'STANDALONE' => 262,
-			'TEMP' => 263,
-			'YEAR' => 261,
-			'ROLLBACK' => 86,
-			'LABEL' => 87,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OBJECT' => 88,
-			'PROCEDURE' => 89,
-			'DELIMITERS' => 90,
-			'RULE' => 92,
-			'OPTIONS' => 266,
-			'INSERT' => 95,
-			'PROCEDURAL' => 269,
-			'YES' => 268,
-			'HANDLER' => 96,
-			'SEQUENCE' => 270,
-			'SIMPLE' => 272,
-			'LOCATION' => 98,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'IDENTITY' => 273,
-			'QUOTE' => 274,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'DOMAIN' => 277,
-			'EXECUTE' => 278,
-			'PRIOR' => 106,
-			'UNKNOWN' => 279,
-			'OFF' => 110,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'REINDEX' => 119,
-			'SERVER' => 283,
-			'ACCESS' => 121,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'DEALLOCATE' => 125,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'CATALOG' => 126,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'IMPLICIT' => 294,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'CLUSTER' => 295,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'PRECEDING' => 137,
-			'STABLE' => 139,
-			'PASSWORD' => 298,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'XML' => 142,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'GRANTED' => 306,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'FUNCTION' => 146,
-			'ALSO' => 145,
-			'HEADER' => 309,
-			'SYSTEM' => 147,
-			'AGGREGATE' => 148,
-			'ATTRIBUTE' => 150,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'VIEW' => 156,
-			'DEFERRED' => 157,
-			'REPEATABLE' => 158,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'ALWAYS' => 159,
-			'MAXVALUE' => 322,
-			'FORWARD' => 161,
-			'CONSTRAINTS' => 160,
-			'START' => 323,
-			'NOTHING' => 162,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'EXCLUDING' => 163,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'INDEXES' => 165,
-			'CHECKPOINT' => 166,
-			'KEY' => 330,
-			'CACHE' => 167,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'ACTION' => 334,
-			'UNLISTEN' => 170,
-			'WRITE' => 335,
-			'LOAD' => 171,
-			'ROLE' => 336,
-			'SESSION' => 338,
-			'FAMILY' => 172,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ASSERTION' => 174,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'STDOUT' => 180,
-			'REVOKE' => 181,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INHERIT' => 183,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'EXPLAIN' => 185,
-			'UNENCRYPTED' => 351,
-			'OIDS' => 186,
-			'FIRST' => 354,
-			'AFTER' => 188,
-			'DISABLE' => 190,
-			'CSV' => 189,
-			'VERSION' => 355
-		},
-		GOTOS => {
-			'identifier' => 415,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 373
@@ -6762,502 +6190,411 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 418,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 417,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 374
 		ACTIONS => {
+			'VACUUM' => 191,
 			'INPUT' => 10,
 			'SYSID' => 9,
-			'JOIN' => 8,
 			'REPLACE' => 12,
 			'SERIALIZABLE' => 11,
+			'SCHEMA' => 192,
 			'AT' => 14,
 			'INSENSITIVE' => 13,
 			'RETURNS' => 15,
-			'NCHAR' => 16,
-			'STRING_CONSTANT' => 17,
+			'LC_COLLATE' => 194,
+			'INDEX' => 196,
+			'DEFINER' => 197,
 			'INVOKER' => 18,
 			'WORK' => 19,
+			'ADMIN' => 200,
+			'INCLUDING' => 201,
+			'OWNED' => 202,
 			'PASSING' => 20,
+			'INSTEAD' => 204,
 			'MODE' => 21,
-			'INTEGER' => 22,
 			'INHERITS' => 23,
-			'ESCAPE' => 25,
 			'VALUE' => 24,
+			'ESCAPE' => 25,
 			'DROP' => 26,
 			'MONTH' => 27,
+			'EACH' => 206,
 			'ENCODING' => 29,
+			'TRUSTED' => 207,
+			'EXCLUSIVE' => 208,
+			'OWNER' => 209,
 			'TEMPLATE' => 30,
 			'DICTIONARY' => 31,
 			'SEARCH' => 32,
 			'PREPARE' => 33,
 			'LOCK' => 34,
 			'DEFAULTS' => 35,
-			'FULL' => 37,
-			'TREAT' => 38,
+			'CASCADE' => 211,
+			'STATEMENT' => 212,
 			'BY' => 39,
 			'NO' => 40,
 			'MINUTE' => 41,
-			'DATA' => 45,
-			'DAY' => 44,
-			'PARTITION' => 43,
+			'ASSIGNMENT' => 214,
 			'RANGE' => 42,
-			'REF' => 48,
+			'PARTITION' => 43,
+			'DAY' => 44,
+			'DATA' => 45,
 			'SHARE' => 47,
-			'REAL' => 46,
-			'OVER' => 49,
+			'REF' => 48,
+			'MATCH' => 215,
+			'CLASS' => 218,
+			'DOUBLE' => 420,
+			'MOVE' => 219,
 			'LARGE' => 51,
-			'CURRENT_SCHEMA' => 50,
 			'DELETE' => 52,
-			'NULLIF' => 53,
+			'CURSOR' => 223,
+			'INLINE' => 224,
 			'CONNECTION' => 54,
 			'BACKWARD' => 56,
 			'CLOSE' => 55,
 			'COST' => 57,
+			'ENCRYPTED' => 225,
+			'EXTENSION' => 226,
 			'REPLICA' => 58,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
 			'PRIVILEGES' => 59,
+			'VALIDATOR' => 229,
+			'UQUOTED_IDENTIFIER' => 232,
 			'ZONE' => 60,
-			'LEAST' => 61,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
 			'STATISTICS' => 62,
-			'ISNULL' => 63,
 			'CALLED' => 64,
-			'USTRING_CONSTANT' => 65,
 			'SECURITY' => 66,
+			'ABORT' => 237,
 			'INCREMENT' => 68,
-			'BINARY' => 69,
 			'LEVEL' => 70,
 			'FORCE' => 71,
-			'CONCURRENTLY' => 72,
-			'XBITSTRING_CONSTANT' => 73,
+			'BEFORE' => 242,
+			'TRUNCATE' => 241,
+			'IDENTIFIER' => 244,
+			'ABSOLUTE' => 243,
+			'SHOW' => 245,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
 			'UPDATE' => 75,
 			'PRESERVE' => 76,
+			'SECOND' => 253,
+			'WHITESPACE' => 251,
 			'CHARACTERISTICS' => 78,
-			'XMLPI' => 77,
 			'VALIDATE' => 79,
-			"(" => 80,
-			'ESTRING_CONSTANT' => 82,
 			'STRICT' => 81,
+			'HOUR' => 255,
 			'VARYING' => 83,
-			'AUTHORIZATION' => 84,
+			'FOLLOWING' => 258,
+			'LISTEN' => 260,
+			'WRAPPER' => 259,
 			'REASSIGN' => 85,
-			'LABEL' => 87,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'STANDALONE' => 264,
+			'TEMP' => 265,
+			'YEAR' => 263,
 			'ROLLBACK' => 86,
+			'LABEL' => 87,
+			'COPY' => 266,
+			'WITHOUT' => 267,
 			'OBJECT' => 88,
-			'TIMESTAMP' => 91,
-			'DELIMITERS' => 90,
 			'PROCEDURE' => 89,
+			'DELIMITERS' => 90,
 			'RULE' => 92,
-			'OPERATOR_NAME' => 94,
-			'NUMERIC_CONSTANT' => 93,
+			'OPTIONS' => 268,
 			'INSERT' => 95,
+			'PROCEDURAL' => 271,
+			'YES' => 270,
 			'HANDLER' => 96,
+			'SEQUENCE' => 272,
+			'SIMPLE' => 274,
 			'LOCATION' => 98,
-			'EXISTS' => 97,
 			'IMMUTABLE' => 99,
 			'RELEASE' => 101,
-			'BOOLEAN' => 100,
 			'NULLS' => 102,
 			'TYPE' => 103,
+			'IDENTITY' => 275,
+			'QUOTE' => 276,
 			'RESET' => 104,
 			'NOWAIT' => 105,
+			'DOMAIN' => 279,
+			'EXECUTE' => 280,
 			'PRIOR' => 106,
+			'UNKNOWN' => 281,
 			'OFF' => 110,
-			'BIGINT' => 109,
-			'XMLSERIALIZE' => 108,
-			'VERBOSE' => 111,
 			'SET' => 112,
 			'IMMEDIATE' => 113,
 			'COMMENT' => 114,
 			'DELIMITER' => 115,
-			'SETOF' => 116,
-			'INNER' => 117,
-			'EXTRACT' => 118,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
 			'REINDEX' => 119,
-			'PRECISION' => 120,
+			'SERVER' => 285,
 			'ACCESS' => 121,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
 			'OPTION' => 122,
 			'COMMENTS' => 123,
-			'INOUT' => 124,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
 			'DEALLOCATE' => 125,
+			'PARSER' => 290,
+			'RENAME' => 291,
 			'CATALOG' => 126,
-			'OUT' => 127,
+			'ALTER' => 294,
+			'CURRENT' => 293,
 			'RESTART' => 128,
 			'MAPPING' => 129,
 			'OF' => 130,
+			'IMPLICIT' => 296,
 			'UNLOGGED' => 131,
 			'CONTINUE' => 132,
-			'XMLEXISTS' => 133,
+			'CLUSTER' => 297,
 			'UNBOUNDED' => 134,
 			'READ' => 135,
-			'LEFT' => 136,
 			'PRECEDING' => 137,
-			'INTEGER_CONSTANT' => 138,
 			'STABLE' => 139,
-			'DEC' => 140,
+			'PASSWORD' => 300,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
 			'XML' => 142,
-			'XMLELEMENT' => 141,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
 			'SCROLL' => 143,
 			'TEXT' => 144,
-			'ALSO' => 145,
+			'GRANTED' => 308,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
 			'FUNCTION' => 146,
-			'AGGREGATE' => 148,
+			'ALSO' => 145,
+			'HEADER' => 311,
 			'SYSTEM' => 147,
-			'FLOAT' => 149,
+			'AGGREGATE' => 148,
 			'ATTRIBUTE' => 150,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
 			'ADD' => 152,
 			'STRIP' => 153,
 			'TABLESPACE' => 154,
-			'OVERLAPS' => 155,
-			'DEFERRED' => 157,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
 			'VIEW' => 156,
+			'DEFERRED' => 157,
 			'REPEATABLE' => 158,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
 			'ALWAYS' => 159,
-			'CONSTRAINTS' => 160,
+			'MAXVALUE' => 324,
 			'FORWARD' => 161,
+			'CONSTRAINTS' => 160,
+			'START' => 325,
 			'NOTHING' => 162,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
 			'EXCLUDING' => 163,
-			'DECIMAL' => 164,
-			'CHECKPOINT' => 166,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
 			'INDEXES' => 165,
+			'CHECKPOINT' => 166,
+			'KEY' => 332,
 			'CACHE' => 167,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
 			'COMMIT' => 168,
 			'DECLARE' => 169,
+			'ACTION' => 336,
 			'UNLISTEN' => 170,
+			'WRITE' => 337,
 			'LOAD' => 171,
+			'ROLE' => 338,
+			'SESSION' => 340,
 			'FAMILY' => 172,
-			'SMALLINT' => 173,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
 			'ASSERTION' => 174,
-			'ILIKE' => 175,
 			'GLOBAL' => 176,
 			'EXTERNAL' => 177,
-			'SIMILAR' => 178,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
 			'STDOUT' => 180,
-			'BITSTRING_CONSTANT' => 182,
 			'REVOKE' => 181,
+			'TABLES' => 349,
+			'VALID' => 348,
 			'INHERIT' => 183,
-			'OUTER' => 184,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
 			'EXPLAIN' => 185,
-			'VARCHAR' => 187,
+			'UNENCRYPTED' => 353,
 			'OIDS' => 186,
+			'FIRST' => 356,
 			'AFTER' => 188,
-			'CSV' => 189,
 			'DISABLE' => 190,
-			'VACUUM' => 191,
-			'SCHEMA' => 192,
-			'ROW' => 193,
-			'LC_COLLATE' => 194,
-			'FREEZE' => 195,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'XMLPARSE' => 198,
-			'OWNED' => 202,
-			'INCLUDING' => 201,
-			'ADMIN' => 200,
-			'CROSS' => 203,
-			'INSTEAD' => 204,
-			'NATIONAL' => 205,
-			'EACH' => 206,
-			'TRUSTED' => 207,
-			'OWNER' => 209,
-			'EXCLUSIVE' => 208,
-			'CHARACTER' => 210,
-			'STATEMENT' => 212,
-			'CASCADE' => 211,
-			'ASSIGNMENT' => 214,
-			'MATCH' => 215,
-			'MOVE' => 219,
-			'CLASS' => 218,
-			'DOUBLE' => 217,
-			'TIME' => 220,
-			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'CSV' => 189,
+			'VERSION' => 357
 		},
 		GOTOS => {
-			'base_type' => 216,
-			'time_type' => 151,
-			'expr_simple' => 280,
-			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 418,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
-			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'identifier' => 419,
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 375
@@ -7466,150 +6803,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 421,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 419,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 376
@@ -7818,150 +7157,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 422,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 420,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 377
@@ -8170,150 +7511,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 423,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 421,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 378
@@ -8522,150 +7865,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 424,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 422,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 379
@@ -8874,150 +8219,152 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 425,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 423,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 380
@@ -9226,887 +8573,1247 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 426,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 424,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 381
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 425
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
+			'STRING_CONSTANT' => 17,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'OPERATOR_NAME' => 94,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 427,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
 		}
 	},
 	{#State 382
-		DEFAULT => -59
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
+			'STRING_CONSTANT' => 17,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'OPERATOR_NAME' => 94,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 428,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
+		}
 	},
 	{#State 383
-		ACTIONS => {
-			'INTEGER_CONSTANT' => 426
-		}
-	},
-	{#State 384
-		ACTIONS => {
-			'TIME' => 427
-		}
-	},
-	{#State 385
-		ACTIONS => {
-			'TIME' => 428
-		}
-	},
-	{#State 386
 		ACTIONS => {
 			'INTEGER_CONSTANT' => 429
 		}
 	},
+	{#State 384
+		DEFAULT => -66
+	},
+	{#State 385
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 430
+		}
+	},
+	{#State 386
+		ACTIONS => {
+			'TIME' => 431
+		}
+	},
 	{#State 387
 		ACTIONS => {
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'JOIN' => 8,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'NCHAR' => 16,
-			'STRING_CONSTANT' => 17,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'PASSING' => 20,
-			'MODE' => 21,
-			'INTEGER' => 22,
-			'INHERITS' => 23,
-			'ESCAPE' => 25,
-			'VALUE' => 24,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'ENCODING' => 29,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'FULL' => 37,
-			'TREAT' => 38,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'DATA' => 45,
-			'DAY' => 44,
-			'PARTITION' => 43,
-			'RANGE' => 42,
-			'REF' => 48,
-			'SHARE' => 47,
-			'REAL' => 46,
-			'OVER' => 49,
-			'LARGE' => 51,
-			'CURRENT_SCHEMA' => 50,
-			'DELETE' => 52,
-			'NULLIF' => 53,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'REPLICA' => 58,
-			'PRIVILEGES' => 59,
-			'ZONE' => 60,
-			'LEAST' => 61,
-			'STATISTICS' => 62,
-			'ISNULL' => 63,
-			'CALLED' => 64,
-			'USTRING_CONSTANT' => 65,
-			'SECURITY' => 66,
-			'INCREMENT' => 68,
-			'BINARY' => 69,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'CONCURRENTLY' => 72,
-			'XBITSTRING_CONSTANT' => 73,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'CHARACTERISTICS' => 78,
-			'XMLPI' => 77,
-			'VALIDATE' => 79,
-			"(" => 80,
-			'ESTRING_CONSTANT' => 82,
-			'STRICT' => 81,
-			'VARYING' => 83,
-			'AUTHORIZATION' => 84,
-			'REASSIGN' => 85,
-			'LABEL' => 87,
-			'ROLLBACK' => 86,
-			'OBJECT' => 88,
-			'TIMESTAMP' => 91,
-			'DELIMITERS' => 90,
-			'PROCEDURE' => 89,
-			'RULE' => 92,
-			'OPERATOR_NAME' => 94,
-			'NUMERIC_CONSTANT' => 93,
-			'INSERT' => 95,
-			'HANDLER' => 96,
-			'LOCATION' => 98,
-			'EXISTS' => 97,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'BOOLEAN' => 100,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'PRIOR' => 106,
-			'OFF' => 110,
-			'BIGINT' => 109,
-			'XMLSERIALIZE' => 108,
-			'VERBOSE' => 111,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'SETOF' => 116,
-			'INNER' => 117,
-			'EXTRACT' => 118,
-			'REINDEX' => 119,
-			'PRECISION' => 120,
-			'ACCESS' => 121,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'INOUT' => 124,
-			'DEALLOCATE' => 125,
-			'CATALOG' => 126,
-			'OUT' => 127,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'XMLEXISTS' => 133,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'LEFT' => 136,
-			'PRECEDING' => 137,
-			'INTEGER_CONSTANT' => 138,
-			'STABLE' => 139,
-			'DEC' => 140,
-			'XML' => 142,
-			'XMLELEMENT' => 141,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'ALSO' => 145,
-			'FUNCTION' => 146,
-			'AGGREGATE' => 148,
-			'SYSTEM' => 147,
-			'FLOAT' => 149,
-			'ATTRIBUTE' => 150,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'OVERLAPS' => 155,
-			'DEFERRED' => 157,
-			'VIEW' => 156,
-			'REPEATABLE' => 158,
-			'ALWAYS' => 159,
-			'CONSTRAINTS' => 160,
-			'FORWARD' => 161,
-			'NOTHING' => 162,
-			'EXCLUDING' => 163,
-			'DECIMAL' => 164,
-			'CHECKPOINT' => 166,
-			'INDEXES' => 165,
-			'CACHE' => 167,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'UNLISTEN' => 170,
-			'LOAD' => 171,
-			'FAMILY' => 172,
-			'SMALLINT' => 173,
-			'ASSERTION' => 174,
-			'ILIKE' => 175,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'SIMILAR' => 178,
-			'STDOUT' => 180,
-			'BITSTRING_CONSTANT' => 182,
-			'REVOKE' => 181,
-			'INHERIT' => 183,
-			'OUTER' => 184,
-			'EXPLAIN' => 185,
-			'VARCHAR' => 187,
-			'OIDS' => 186,
-			'AFTER' => 188,
-			'CSV' => 189,
-			'DISABLE' => 190,
-			'VACUUM' => 191,
-			'SCHEMA' => 192,
-			'ROW' => 193,
-			'LC_COLLATE' => 194,
-			'FREEZE' => 195,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'XMLPARSE' => 198,
-			'OWNED' => 202,
-			'INCLUDING' => 201,
-			'ADMIN' => 200,
-			'CROSS' => 203,
-			'INSTEAD' => 204,
-			'NATIONAL' => 205,
-			'EACH' => 206,
-			'TRUSTED' => 207,
-			'OWNER' => 209,
-			'EXCLUSIVE' => 208,
-			'CHARACTER' => 210,
-			'STATEMENT' => 212,
-			'CASCADE' => 211,
-			'ASSIGNMENT' => 214,
-			'MATCH' => 215,
-			'MOVE' => 219,
-			'CLASS' => 218,
-			'DOUBLE' => 217,
-			'TIME' => 220,
-			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
-		},
-		GOTOS => {
-			'base_type' => 216,
-			'time_type' => 151,
-			'expr_simple' => 280,
-			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 430,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
-			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'TIME' => 432
 		}
 	},
 	{#State 388
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 431
+			'INTEGER_CONSTANT' => 433
 		}
 	},
 	{#State 389
-		DEFAULT => -72
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'STRING_CONSTANT' => 17,
+			'NCHAR' => 16,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INHERITS' => 23,
+			'INTEGER' => 22,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'PRESERVE' => 76,
+			'UPDATE' => 75,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'OPERATOR_NAME' => 94,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'DOMAIN' => 279,
+			'EXECUTE' => 280,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		DEFAULT => -20,
+		GOTOS => {
+			'expr_simple' => 282,
+			'function_args' => 435,
+			'identifier' => 67,
+			'expr' => 434,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
+		}
 	},
 	{#State 390
-		ACTIONS => {
-			'TO' => 432
-		},
-		DEFAULT => -75
-	},
-	{#State 391
-		ACTIONS => {
-			'TO' => 433
-		},
-		DEFAULT => -73
-	},
-	{#State 392
-		ACTIONS => {
-			"(" => 434
-		},
-		DEFAULT => -76
-	},
-	{#State 393
-		ACTIONS => {
-			'TO' => 435
-		},
-		DEFAULT => -74
-	},
-	{#State 394
-		ACTIONS => {
-			'TO' => 436
-		},
-		DEFAULT => -71
-	},
-	{#State 395
-		DEFAULT => -8
-	},
-	{#State 396
-		DEFAULT => -56
-	},
-	{#State 397
-		DEFAULT => -393
-	},
-	{#State 398
-		DEFAULT => -368
-	},
-	{#State 399
-		DEFAULT => -397
-	},
-	{#State 400
-		DEFAULT => -55
-	},
-	{#State 401
-		DEFAULT => -392
-	},
-	{#State 402
-		DEFAULT => -382
-	},
-	{#State 403
-		DEFAULT => -376
-	},
-	{#State 404
-		DEFAULT => -33
-	},
-	{#State 405
-		ACTIONS => {
-			")" => 437
-		}
-	},
-	{#State 406
-		ACTIONS => {
-			'ZONE' => 438
-		}
-	},
-	{#State 407
-		ACTIONS => {
-			'ZONE' => 439
-		}
-	},
-	{#State 408
-		ACTIONS => {
-			"," => 440,
-			")" => 441
-		}
-	},
-	{#State 409
-		ACTIONS => {
-			"::" => 367,
-			"%" => 378,
-			"^" => 368,
-			"*" => 379,
-			"/" => 370
-		},
-		DEFAULT => -17
-	},
-	{#State 410
-		DEFAULT => -29
-	},
-	{#State 411
-		ACTIONS => {
-			"::" => 367
-		},
-		DEFAULT => -25
-	},
-	{#State 412
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			"%" => 378,
-			"^" => 368,
-			"*" => 379,
-			"/" => 370
-		},
-		DEFAULT => -28
-	},
-	{#State 413
-		ACTIONS => {
-			"::" => 367,
-			"^" => 368
-		},
-		DEFAULT => -21
-	},
-	{#State 414
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			"/" => 370
-		},
-		DEFAULT => -27
-	},
-	{#State 415
-		DEFAULT => -10
-	},
-	{#State 416
-		DEFAULT => -153
-	},
-	{#State 417
-		ACTIONS => {
-			"::" => 367,
-			"%" => 378,
-			"^" => 368,
-			"*" => 379,
-			"/" => 370
-		},
-		DEFAULT => -18
-	},
-	{#State 418
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'LIKE' => 376,
-			"/" => 370
-		},
-		DEFAULT => -22
-	},
-	{#State 419
-		ACTIONS => {
-			"-" => 373,
-			'LIKE' => 376,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			"/" => 370,
-			"=" => 377,
-			'AND' => 442,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			">" => 380
-		}
-	},
-	{#State 420
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			"/" => 370
-		},
-		DEFAULT => -26
-	},
-	{#State 421
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'LIKE' => 376,
-			"/" => 370,
-			"=" => 377,
-			">" => 380
-		},
-		DEFAULT => -24
-	},
-	{#State 422
-		ACTIONS => {
-			"::" => 367,
-			"^" => 368
-		},
-		DEFAULT => -20
-	},
-	{#State 423
-		ACTIONS => {
-			"::" => 367,
-			"^" => 368
-		},
-		DEFAULT => -19
-	},
-	{#State 424
-		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'LIKE' => 376,
-			"/" => 370
-		},
-		DEFAULT => -23
-	},
-	{#State 425
-		ACTIONS => {
-			")" => 443
-		}
-	},
-	{#State 426
-		ACTIONS => {
-			")" => 444
-		}
-	},
-	{#State 427
-		ACTIONS => {
-			'ZONE' => 445
-		}
-	},
-	{#State 428
-		ACTIONS => {
-			'ZONE' => 446
-		}
-	},
-	{#State 429
-		ACTIONS => {
-			"," => 447,
-			")" => 448
-		}
-	},
-	{#State 430
-		ACTIONS => {
-			"-" => 373,
-			'LIKE' => 376,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			"/" => 370,
-			"=" => 377,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'AS' => 449,
-			">" => 380
-		}
-	},
-	{#State 431
-		ACTIONS => {
-			")" => 450
-		}
-	},
-	{#State 432
-		ACTIONS => {
-			'SECOND' => 451
-		}
-	},
-	{#State 433
-		ACTIONS => {
-			'MINUTE' => 452,
-			'HOUR' => 454,
-			'SECOND' => 453
-		}
-	},
-	{#State 434
-		ACTIONS => {
-			'INTEGER_CONSTANT' => 455
-		}
-	},
-	{#State 435
-		ACTIONS => {
-			'MINUTE' => 456,
-			'SECOND' => 457
-		}
-	},
-	{#State 436
-		ACTIONS => {
-			'MONTH' => 458
-		}
-	},
-	{#State 437
-		ACTIONS => {
-			'WITHOUT' => 460,
-			'WITH' => 459
-		},
-		DEFAULT => -62
-	},
-	{#State 438
-		DEFAULT => -60
-	},
-	{#State 439
-		DEFAULT => -61
-	},
-	{#State 440
-		ACTIONS => {
-			'INTEGER_CONSTANT' => 461
-		}
-	},
-	{#State 441
-		DEFAULT => -48
-	},
-	{#State 442
 		ACTIONS => {
 			'INPUT' => 10,
 			'SYSID' => 9,
@@ -10312,175 +10019,872 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'CAST' => 267,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'CONFIGURATION' => 286,
-			'NAMES' => 287,
-			'PARSER' => 288,
-			'RENAME' => 289,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 436,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
 			'base_type' => 216,
 			'time_type' => 151,
-			'expr_simple' => 280,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
 			'normal_type' => 28,
-			'interval_type' => 293,
-			'literal_value' => 275,
-			'identifier' => 67,
-			'expr' => 462,
-			'timestamp_type' => 239,
-			'operator_expression' => 199,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
 			'cast_expression' => 107,
-			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
+		}
+	},
+	{#State 391
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 437
+		}
+	},
+	{#State 392
+		DEFAULT => -79
+	},
+	{#State 393
+		ACTIONS => {
+			'TO' => 438
+		},
+		DEFAULT => -82
+	},
+	{#State 394
+		ACTIONS => {
+			'TO' => 439
+		},
+		DEFAULT => -80
+	},
+	{#State 395
+		ACTIONS => {
+			"(" => 440
+		},
+		DEFAULT => -83
+	},
+	{#State 396
+		ACTIONS => {
+			'TO' => 441
+		},
+		DEFAULT => -81
+	},
+	{#State 397
+		ACTIONS => {
+			'TO' => 442
+		},
+		DEFAULT => -78
+	},
+	{#State 398
+		DEFAULT => -8
+	},
+	{#State 399
+		ACTIONS => {
+			"(" => -17
+		},
+		DEFAULT => -63
+	},
+	{#State 400
+		DEFAULT => -400
+	},
+	{#State 401
+		DEFAULT => -375
+	},
+	{#State 402
+		DEFAULT => -404
+	},
+	{#State 403
+		DEFAULT => -62
+	},
+	{#State 404
+		DEFAULT => -399
+	},
+	{#State 405
+		DEFAULT => -389
+	},
+	{#State 406
+		DEFAULT => -383
+	},
+	{#State 407
+		DEFAULT => -40
+	},
+	{#State 408
+		ACTIONS => {
+			")" => 443
+		}
+	},
+	{#State 409
+		ACTIONS => {
+			'ZONE' => 444
+		}
+	},
+	{#State 410
+		ACTIONS => {
+			'ZONE' => 445
+		}
+	},
+	{#State 411
+		ACTIONS => {
+			"," => 446,
+			")" => 447
+		}
+	},
+	{#State 412
+		ACTIONS => {
+			"::" => 369,
+			"%" => 380,
+			"^" => 370,
+			"*" => 381,
+			"/" => 372
+		},
+		DEFAULT => -24
+	},
+	{#State 413
+		DEFAULT => -36
+	},
+	{#State 414
+		ACTIONS => {
+			"." => 448
+		},
+		DEFAULT => -63
+	},
+	{#State 415
+		ACTIONS => {
+			"::" => 369
+		},
+		DEFAULT => -32
+	},
+	{#State 416
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			"%" => 380,
+			"^" => 370,
+			"*" => 381,
+			"/" => 372
+		},
+		DEFAULT => -35
+	},
+	{#State 417
+		ACTIONS => {
+			"::" => 369,
+			"^" => 370
+		},
+		DEFAULT => -28
+	},
+	{#State 418
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			"/" => 372
+		},
+		DEFAULT => -34
+	},
+	{#State 419
+		DEFAULT => -10
+	},
+	{#State 420
+		DEFAULT => -160
+	},
+	{#State 421
+		ACTIONS => {
+			"::" => 369,
+			"%" => 380,
+			"^" => 370,
+			"*" => 381,
+			"/" => 372
+		},
+		DEFAULT => -25
+	},
+	{#State 422
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372
+		},
+		DEFAULT => -29
+	},
+	{#State 423
+		ACTIONS => {
+			"-" => 375,
+			'LIKE' => 378,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			"/" => 372,
+			"=" => 379,
+			'AND' => 449,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			">" => 382
+		}
+	},
+	{#State 424
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			"/" => 372
+		},
+		DEFAULT => -33
+	},
+	{#State 425
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372,
+			"=" => 379,
+			">" => 382
+		},
+		DEFAULT => -31
+	},
+	{#State 426
+		ACTIONS => {
+			"::" => 369,
+			"^" => 370
+		},
+		DEFAULT => -27
+	},
+	{#State 427
+		ACTIONS => {
+			"::" => 369,
+			"^" => 370
+		},
+		DEFAULT => -26
+	},
+	{#State 428
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372
+		},
+		DEFAULT => -30
+	},
+	{#State 429
+		ACTIONS => {
+			")" => 450
+		}
+	},
+	{#State 430
+		ACTIONS => {
+			")" => 451
+		}
+	},
+	{#State 431
+		ACTIONS => {
+			'ZONE' => 452
+		}
+	},
+	{#State 432
+		ACTIONS => {
+			'ZONE' => 453
+		}
+	},
+	{#State 433
+		ACTIONS => {
+			"," => 454,
+			")" => 455
+		}
+	},
+	{#State 434
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372,
+			"=" => 379,
+			">" => 382
+		},
+		DEFAULT => -18
+	},
+	{#State 435
+		ACTIONS => {
+			"," => 456,
+			")" => 457
+		}
+	},
+	{#State 436
+		ACTIONS => {
+			"-" => 375,
+			'LIKE' => 378,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			"/" => 372,
+			"=" => 379,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'AS' => 458,
+			">" => 382
+		}
+	},
+	{#State 437
+		ACTIONS => {
+			")" => 459
+		}
+	},
+	{#State 438
+		ACTIONS => {
+			'SECOND' => 460
+		}
+	},
+	{#State 439
+		ACTIONS => {
+			'MINUTE' => 461,
+			'HOUR' => 463,
+			'SECOND' => 462
+		}
+	},
+	{#State 440
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 464
+		}
+	},
+	{#State 441
+		ACTIONS => {
+			'MINUTE' => 465,
+			'SECOND' => 466
+		}
+	},
+	{#State 442
+		ACTIONS => {
+			'MONTH' => 467
 		}
 	},
 	{#State 443
-		DEFAULT => -50
+		ACTIONS => {
+			'WITHOUT' => 469,
+			'WITH' => 468
+		},
+		DEFAULT => -69
 	},
 	{#State 444
-		ACTIONS => {
-			'WITHOUT' => 464,
-			'WITH' => 463
-		},
 		DEFAULT => -67
 	},
 	{#State 445
-		DEFAULT => -65
+		DEFAULT => -68
 	},
 	{#State 446
-		DEFAULT => -66
-	},
-	{#State 447
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 465
+			'INTEGER_CONSTANT' => 470
 		}
 	},
+	{#State 447
+		DEFAULT => -55
+	},
 	{#State 448
-		DEFAULT => -46
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'XMLPI' => 77,
+			'CHARACTERISTICS' => 78,
+			'VALIDATE' => 79,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'TIMESTAMP' => 400,
+			'RULE' => 92,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XMLELEMENT' => 141,
+			'XML' => 142,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'FUNCTION' => 146,
+			'ALSO' => 145,
+			'SYSTEM' => 147,
+			'AGGREGATE' => 148,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 401,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'OIDS' => 186,
+			'VARCHAR' => 402,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 404,
+			'NUMERIC' => 405,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'NAMES' => 289,
+			'CONFIGURATION' => 288,
+			'RENAME' => 291,
+			'PARSER' => 290,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 406,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'base_type' => 403,
+			'identifier' => 471,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'keywords_notreserved' => 257,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252
+		}
 	},
 	{#State 449
 		ACTIONS => {
@@ -10493,6 +10897,741 @@ sub new {
 			'INSENSITIVE' => 13,
 			'RETURNS' => 15,
 			'NCHAR' => 16,
+			'STRING_CONSTANT' => 17,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'OPERATOR_NAME' => 94,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 472,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
+		}
+	},
+	{#State 450
+		DEFAULT => -57
+	},
+	{#State 451
+		ACTIONS => {
+			'WITHOUT' => 474,
+			'WITH' => 473
+		},
+		DEFAULT => -74
+	},
+	{#State 452
+		DEFAULT => -72
+	},
+	{#State 453
+		DEFAULT => -73
+	},
+	{#State 454
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 475
+		}
+	},
+	{#State 455
+		DEFAULT => -53
+	},
+	{#State 456
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
+			'STRING_CONSTANT' => 17,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'PASSING' => 20,
+			'MODE' => 21,
+			'INTEGER' => 22,
+			'INHERITS' => 23,
+			'ESCAPE' => 25,
+			'VALUE' => 24,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'ENCODING' => 29,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'FULL' => 37,
+			'TREAT' => 38,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'DATA' => 45,
+			'DAY' => 44,
+			'PARTITION' => 43,
+			'RANGE' => 42,
+			'REF' => 48,
+			'SHARE' => 47,
+			'REAL' => 46,
+			'OVER' => 49,
+			'LARGE' => 51,
+			'CURRENT_SCHEMA' => 50,
+			'DELETE' => 52,
+			'NULLIF' => 53,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'REPLICA' => 58,
+			'PRIVILEGES' => 59,
+			'ZONE' => 60,
+			'LEAST' => 61,
+			'STATISTICS' => 62,
+			'ISNULL' => 63,
+			'CALLED' => 64,
+			'USTRING_CONSTANT' => 65,
+			'SECURITY' => 66,
+			'INCREMENT' => 68,
+			'BINARY' => 69,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'CONCURRENTLY' => 72,
+			'XBITSTRING_CONSTANT' => 73,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'CHARACTERISTICS' => 78,
+			'XMLPI' => 77,
+			'VALIDATE' => 79,
+			"(" => 80,
+			'ESTRING_CONSTANT' => 82,
+			'STRICT' => 81,
+			'VARYING' => 83,
+			'AUTHORIZATION' => 84,
+			'REASSIGN' => 85,
+			'LABEL' => 87,
+			'ROLLBACK' => 86,
+			'OBJECT' => 88,
+			'TIMESTAMP' => 91,
+			'DELIMITERS' => 90,
+			'PROCEDURE' => 89,
+			'RULE' => 92,
+			'OPERATOR_NAME' => 94,
+			'NUMERIC_CONSTANT' => 93,
+			'INSERT' => 95,
+			'HANDLER' => 96,
+			'LOCATION' => 98,
+			'EXISTS' => 97,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'BOOLEAN' => 100,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'PRIOR' => 106,
+			'OFF' => 110,
+			'BIGINT' => 109,
+			'XMLSERIALIZE' => 108,
+			'VERBOSE' => 111,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'SETOF' => 116,
+			'INNER' => 117,
+			'EXTRACT' => 118,
+			'REINDEX' => 119,
+			'PRECISION' => 120,
+			'ACCESS' => 121,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'INOUT' => 124,
+			'DEALLOCATE' => 125,
+			'CATALOG' => 126,
+			'OUT' => 127,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'XMLEXISTS' => 133,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'LEFT' => 136,
+			'PRECEDING' => 137,
+			'INTEGER_CONSTANT' => 138,
+			'STABLE' => 139,
+			'DEC' => 140,
+			'XML' => 142,
+			'XMLELEMENT' => 141,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'ALSO' => 145,
+			'FUNCTION' => 146,
+			'AGGREGATE' => 148,
+			'SYSTEM' => 147,
+			'FLOAT' => 149,
+			'ATTRIBUTE' => 150,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'OVERLAPS' => 155,
+			'DEFERRED' => 157,
+			'VIEW' => 156,
+			'REPEATABLE' => 158,
+			'ALWAYS' => 159,
+			'CONSTRAINTS' => 160,
+			'FORWARD' => 161,
+			'NOTHING' => 162,
+			'EXCLUDING' => 163,
+			'DECIMAL' => 164,
+			'CHECKPOINT' => 166,
+			'INDEXES' => 165,
+			'CACHE' => 167,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'UNLISTEN' => 170,
+			'LOAD' => 171,
+			'FAMILY' => 172,
+			'SMALLINT' => 173,
+			'ASSERTION' => 174,
+			'ILIKE' => 175,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'SIMILAR' => 178,
+			'STDOUT' => 180,
+			'BITSTRING_CONSTANT' => 182,
+			'REVOKE' => 181,
+			'INHERIT' => 183,
+			'OUTER' => 184,
+			'EXPLAIN' => 185,
+			'VARCHAR' => 187,
+			'OIDS' => 186,
+			'AFTER' => 188,
+			'CSV' => 189,
+			'DISABLE' => 190,
+			'VACUUM' => 191,
+			'SCHEMA' => 192,
+			'ROW' => 193,
+			'LC_COLLATE' => 194,
+			'FREEZE' => 195,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'XMLPARSE' => 198,
+			'OWNED' => 202,
+			'INCLUDING' => 201,
+			'ADMIN' => 200,
+			'CROSS' => 203,
+			'INSTEAD' => 204,
+			'NATIONAL' => 205,
+			'EACH' => 206,
+			'TRUSTED' => 207,
+			'OWNER' => 209,
+			'EXCLUSIVE' => 208,
+			'CHARACTER' => 210,
+			'STATEMENT' => 212,
+			'CASCADE' => 211,
+			'ASSIGNMENT' => 214,
+			'MATCH' => 215,
+			'MOVE' => 219,
+			'CLASS' => 218,
+			'DOUBLE' => 217,
+			'TIME' => 220,
+			'NUMERIC' => 221,
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'CAST' => 269,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'CONFIGURATION' => 288,
+			'NAMES' => 289,
+			'PARSER' => 290,
+			'RENAME' => 291,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
+		},
+		GOTOS => {
+			'expr_simple' => 282,
+			'identifier' => 67,
+			'expr' => 476,
+			'timestamp_type' => 240,
+			'operator_expression' => 199,
+			'simple_type' => 213,
+			'base_type' => 216,
+			'time_type' => 151,
+			'keywords_reserved_ok_for_functions_or_types' => 74,
+			'function_expression' => 222,
+			'base_interval_type' => 351,
+			'normal_type' => 28,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'interval_type' => 295,
+			'literal_value' => 277,
+			'function_name' => 254,
+			'cast_expression' => 107,
+			'keywords_notreserved' => 257
+		}
+	},
+	{#State 457
+		DEFAULT => -15
+	},
+	{#State 458
+		ACTIONS => {
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'JOIN' => 8,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'NCHAR' => 16,
 			'INVOKER' => 18,
 			'WORK' => 19,
 			'PASSING' => 20,
@@ -10679,370 +11818,392 @@ sub new {
 			'DOUBLE' => 217,
 			'TIME' => 220,
 			'NUMERIC' => 221,
-			'INLINE' => 223,
-			'CURSOR' => 222,
-			'EXTENSION' => 225,
-			'ENCRYPTED' => 224,
-			'CHAIN' => 226,
-			'RECURSIVE' => 227,
-			'VALIDATOR' => 228,
-			'XMLROOT' => 230,
-			'UQUOTED_IDENTIFIER' => 231,
-			'SUBSTRING' => 232,
-			'CASCADED' => 233,
-			'DISCARD' => 234,
-			'BETWEEN' => 235,
-			'ABORT' => 236,
-			'XMLATTRIBUTES' => 237,
-			'VALUES' => 238,
-			'TRUNCATE' => 240,
-			'BEFORE' => 241,
-			'SHOW' => 244,
-			'ABSOLUTE' => 242,
-			'IDENTIFIER' => 243,
-			'GREATEST' => 245,
-			'PLANS' => 246,
-			'PARTIAL' => 247,
-			'SEQUENCES' => 248,
-			'EXCLUDE' => 249,
-			'WHITESPACE' => 250,
-			'SECOND' => 252,
-			'HOUR' => 253,
-			'XMLFOREST' => 254,
-			'FOLLOWING' => 256,
-			'WRAPPER' => 257,
-			'LISTEN' => 258,
-			'VOLATILE' => 259,
-			'LANGUAGE' => 260,
-			'YEAR' => 261,
-			'TEMP' => 263,
-			'STANDALONE' => 262,
-			'COPY' => 264,
-			'WITHOUT' => 265,
-			'OPTIONS' => 266,
-			'YES' => 268,
-			'PROCEDURAL' => 269,
-			'SEQUENCE' => 270,
-			'LIKE' => 271,
-			'SIMPLE' => 272,
-			'QUOTE' => 274,
-			'IDENTITY' => 273,
-			'POSITION' => 276,
-			'EXECUTE' => 278,
-			'DOMAIN' => 277,
-			'UNKNOWN' => 279,
-			'CONTENT' => 281,
-			'QUOTED_IDENTIFIER' => 282,
-			'SERVER' => 283,
-			'RELATIVE' => 284,
-			'TRANSACTION' => 285,
-			'NAMES' => 287,
-			'CONFIGURATION' => 286,
-			'RENAME' => 289,
-			'PARSER' => 288,
-			'ALTER' => 292,
-			'CURRENT' => 291,
-			'RIGHT' => 290,
-			'IMPLICIT' => 294,
-			'CLUSTER' => 295,
-			'NATURAL' => 296,
-			'XMLCONCAT' => 297,
-			'PASSWORD' => 298,
-			'CHAR' => 299,
-			'RECHECK' => 300,
-			'NEXT' => 301,
-			'PREPARED' => 302,
-			'TEMPORARY' => 303,
-			'COMMITTED' => 304,
-			'GRANTED' => 306,
-			'BIT' => 305,
-			'BEGIN' => 307,
-			'NOTIFY' => 308,
-			'HEADER' => 309,
-			'INTERVAL' => 310,
-			'LC_CTYPE' => 311,
-			'NAME' => 312,
-			'FUNCTIONS' => 313,
-			'ISOLATION' => 314,
-			'STORAGE' => 315,
-			'STDIN' => 316,
-			'RESTRICT' => 317,
-			'CYCLE' => 321,
-			'UNCOMMITTED' => 320,
-			'IS' => 319,
-			'TRIM' => 318,
-			'MAXVALUE' => 322,
-			'START' => 323,
-			'DOCUMENT' => 324,
-			'IF' => 325,
-			'SAVEPOINT' => 326,
-			'ROWS' => 327,
-			'LAST' => 328,
-			'MINVALUE' => 329,
-			'KEY' => 330,
-			'OPERATOR' => 332,
-			'UNTIL' => 331,
-			'HOLD' => 333,
-			'ACTION' => 334,
-			'WRITE' => 335,
-			'ROLE' => 336,
-			'NOTNULL' => 337,
-			'SESSION' => 338,
-			'CONVERSION' => 339,
-			'DATABASE' => 341,
-			'ENUM' => 340,
-			'ENABLE' => 342,
-			'LOCAL' => 343,
-			'NONE' => 344,
-			'TABLES' => 347,
-			'VALID' => 346,
-			'INT' => 345,
-			'TRIGGER' => 349,
-			'COLLATION' => 350,
-			'UNENCRYPTED' => 351,
-			'OVERLAY' => 352,
-			'FIRST' => 354,
-			'COALESCE' => 353,
-			'VERSION' => 355
+			'INLINE' => 224,
+			'CURSOR' => 223,
+			'EXTENSION' => 226,
+			'ENCRYPTED' => 225,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'VALIDATOR' => 229,
+			'XMLROOT' => 231,
+			'UQUOTED_IDENTIFIER' => 232,
+			'SUBSTRING' => 233,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'BETWEEN' => 236,
+			'ABORT' => 237,
+			'XMLATTRIBUTES' => 238,
+			'VALUES' => 239,
+			'TRUNCATE' => 241,
+			'BEFORE' => 242,
+			'SHOW' => 245,
+			'ABSOLUTE' => 243,
+			'IDENTIFIER' => 244,
+			'GREATEST' => 246,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'WHITESPACE' => 251,
+			'SECOND' => 253,
+			'HOUR' => 255,
+			'XMLFOREST' => 256,
+			'FOLLOWING' => 258,
+			'WRAPPER' => 259,
+			'LISTEN' => 260,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'YEAR' => 263,
+			'TEMP' => 265,
+			'STANDALONE' => 264,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OPTIONS' => 268,
+			'YES' => 270,
+			'PROCEDURAL' => 271,
+			'SEQUENCE' => 272,
+			'LIKE' => 273,
+			'SIMPLE' => 274,
+			'QUOTE' => 276,
+			'IDENTITY' => 275,
+			'POSITION' => 278,
+			'EXECUTE' => 280,
+			'DOMAIN' => 279,
+			'UNKNOWN' => 281,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'SERVER' => 285,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 287,
+			'NAMES' => 289,
+			'CONFIGURATION' => 288,
+			'RENAME' => 291,
+			'PARSER' => 290,
+			'ALTER' => 294,
+			'CURRENT' => 293,
+			'RIGHT' => 292,
+			'IMPLICIT' => 296,
+			'CLUSTER' => 297,
+			'NATURAL' => 298,
+			'XMLCONCAT' => 299,
+			'PASSWORD' => 300,
+			'CHAR' => 301,
+			'RECHECK' => 302,
+			'NEXT' => 303,
+			'PREPARED' => 304,
+			'TEMPORARY' => 305,
+			'COMMITTED' => 306,
+			'GRANTED' => 308,
+			'BIT' => 307,
+			'BEGIN' => 309,
+			'NOTIFY' => 310,
+			'HEADER' => 311,
+			'INTERVAL' => 312,
+			'LC_CTYPE' => 313,
+			'NAME' => 314,
+			'FUNCTIONS' => 315,
+			'ISOLATION' => 316,
+			'STORAGE' => 317,
+			'STDIN' => 318,
+			'RESTRICT' => 319,
+			'CYCLE' => 323,
+			'UNCOMMITTED' => 322,
+			'IS' => 321,
+			'TRIM' => 320,
+			'MAXVALUE' => 324,
+			'START' => 325,
+			'DOCUMENT' => 326,
+			'IF' => 327,
+			'SAVEPOINT' => 328,
+			'ROWS' => 329,
+			'LAST' => 330,
+			'MINVALUE' => 331,
+			'KEY' => 332,
+			'OPERATOR' => 334,
+			'UNTIL' => 333,
+			'HOLD' => 335,
+			'ACTION' => 336,
+			'WRITE' => 337,
+			'ROLE' => 338,
+			'NOTNULL' => 339,
+			'SESSION' => 340,
+			'CONVERSION' => 341,
+			'DATABASE' => 343,
+			'ENUM' => 342,
+			'ENABLE' => 344,
+			'LOCAL' => 345,
+			'NONE' => 346,
+			'TABLES' => 349,
+			'VALID' => 348,
+			'INT' => 347,
+			'TRIGGER' => 350,
+			'COLLATION' => 352,
+			'UNENCRYPTED' => 353,
+			'OVERLAY' => 354,
+			'FIRST' => 356,
+			'COALESCE' => 355,
+			'VERSION' => 357
 		},
 		GOTOS => {
 			'base_type' => 216,
 			'time_type' => 151,
 			'keywords_reserved_ok_for_functions_or_types' => 74,
-			'base_interval_type' => 348,
-			'keywords_notreserved_not_ok_for_functions_or_types' => 251,
-			'normal_type' => 466,
-			'interval_type' => 293,
-			'identifier' => 67,
-			'timestamp_type' => 239,
+			'base_interval_type' => 351,
+			'keywords_notreserved_not_ok_for_functions_or_types' => 252,
+			'normal_type' => 477,
+			'interval_type' => 295,
+			'identifier' => 414,
+			'timestamp_type' => 240,
 			'simple_type' => 213,
-			'keywords_notreserved' => 255
+			'keywords_notreserved' => 257
 		}
-	},
-	{#State 450
-		ACTIONS => {
-			'MONTH' => -89,
-			'SECOND' => -89,
-			'HOUR' => -89,
-			'YEAR' => -89,
-			'MINUTE' => -89,
-			'DAY' => -89
-		},
-		DEFAULT => -70
-	},
-	{#State 451
-		ACTIONS => {
-			"(" => 467
-		},
-		DEFAULT => -83
-	},
-	{#State 452
-		DEFAULT => -79
-	},
-	{#State 453
-		ACTIONS => {
-			"(" => 468
-		},
-		DEFAULT => -80
-	},
-	{#State 454
-		DEFAULT => -78
-	},
-	{#State 455
-		ACTIONS => {
-			")" => 469
-		}
-	},
-	{#State 456
-		DEFAULT => -81
-	},
-	{#State 457
-		ACTIONS => {
-			"(" => 470
-		},
-		DEFAULT => -82
-	},
-	{#State 458
-		DEFAULT => -77
 	},
 	{#State 459
 		ACTIONS => {
-			'TIME' => 471
-		}
+			'MONTH' => -96,
+			'SECOND' => -96,
+			'HOUR' => -96,
+			'YEAR' => -96,
+			'MINUTE' => -96,
+			'DAY' => -96
+		},
+		DEFAULT => -77
 	},
 	{#State 460
 		ACTIONS => {
-			'TIME' => 472
-		}
+			"(" => 478
+		},
+		DEFAULT => -90
 	},
 	{#State 461
-		ACTIONS => {
-			")" => 473
-		}
+		DEFAULT => -86
 	},
 	{#State 462
 		ACTIONS => {
-			"-" => 373,
-			"::" => 367,
-			"<" => 374,
-			"+" => 366,
-			'ILIKE' => 371,
-			"%" => 378,
-			'BETWEEN' => 375,
-			"^" => 368,
-			"*" => 379,
-			'OPERATOR_NAME' => 369,
-			'LIKE' => 376,
-			"/" => 370,
-			"=" => 377,
-			">" => 380
+			"(" => 479
 		},
-		DEFAULT => -14
+		DEFAULT => -87
 	},
 	{#State 463
-		ACTIONS => {
-			'TIME' => 474
-		}
+		DEFAULT => -85
 	},
 	{#State 464
 		ACTIONS => {
-			'TIME' => 475
+			")" => 480
 		}
 	},
 	{#State 465
-		ACTIONS => {
-			")" => 476
-		}
+		DEFAULT => -88
 	},
 	{#State 466
 		ACTIONS => {
-			")" => 477
-		}
+			"(" => 481
+		},
+		DEFAULT => -89
 	},
 	{#State 467
-		ACTIONS => {
-			'INTEGER_CONSTANT' => 478
-		}
+		DEFAULT => -84
 	},
 	{#State 468
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 479
+			'TIME' => 482
 		}
 	},
 	{#State 469
-		DEFAULT => -84
+		ACTIONS => {
+			'TIME' => 483
+		}
 	},
 	{#State 470
 		ACTIONS => {
-			'INTEGER_CONSTANT' => 480
+			")" => 484
 		}
 	},
 	{#State 471
-		ACTIONS => {
-			'ZONE' => 481
-		}
+		DEFAULT => -63
 	},
 	{#State 472
 		ACTIONS => {
-			'ZONE' => 482
-		}
+			"-" => 375,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372,
+			"=" => 379,
+			">" => 382
+		},
+		DEFAULT => -21
 	},
 	{#State 473
-		DEFAULT => -49
+		ACTIONS => {
+			'TIME' => 485
+		}
 	},
 	{#State 474
 		ACTIONS => {
-			'ZONE' => 483
+			'TIME' => 486
 		}
 	},
 	{#State 475
 		ACTIONS => {
-			'ZONE' => 484
+			")" => 487
 		}
 	},
 	{#State 476
-		DEFAULT => -47
+		ACTIONS => {
+			"-" => 375,
+			"::" => 369,
+			"<" => 376,
+			"+" => 368,
+			'ILIKE' => 373,
+			"%" => 380,
+			'BETWEEN' => 377,
+			"^" => 370,
+			"*" => 381,
+			'OPERATOR_NAME' => 371,
+			'LIKE' => 378,
+			"/" => 372,
+			"=" => 379,
+			">" => 382
+		},
+		DEFAULT => -19
 	},
 	{#State 477
-		DEFAULT => -30
+		ACTIONS => {
+			")" => 488
+		}
 	},
 	{#State 478
 		ACTIONS => {
-			")" => 485
+			'INTEGER_CONSTANT' => 489
 		}
 	},
 	{#State 479
 		ACTIONS => {
-			")" => 486
+			'INTEGER_CONSTANT' => 490
 		}
 	},
 	{#State 480
-		ACTIONS => {
-			")" => 487
-		}
+		DEFAULT => -91
 	},
 	{#State 481
-		DEFAULT => -63
+		ACTIONS => {
+			'INTEGER_CONSTANT' => 491
+		}
 	},
 	{#State 482
-		DEFAULT => -64
+		ACTIONS => {
+			'ZONE' => 492
+		}
 	},
 	{#State 483
-		DEFAULT => -68
+		ACTIONS => {
+			'ZONE' => 493
+		}
 	},
 	{#State 484
-		DEFAULT => -69
+		DEFAULT => -56
 	},
 	{#State 485
-		DEFAULT => -87
+		ACTIONS => {
+			'ZONE' => 494
+		}
 	},
 	{#State 486
-		DEFAULT => -85
+		ACTIONS => {
+			'ZONE' => 495
+		}
 	},
 	{#State 487
-		DEFAULT => -86
+		DEFAULT => -54
+	},
+	{#State 488
+		DEFAULT => -37
+	},
+	{#State 489
+		ACTIONS => {
+			")" => 496
+		}
+	},
+	{#State 490
+		ACTIONS => {
+			")" => 497
+		}
+	},
+	{#State 491
+		ACTIONS => {
+			")" => 498
+		}
+	},
+	{#State 492
+		DEFAULT => -70
+	},
+	{#State 493
+		DEFAULT => -71
+	},
+	{#State 494
+		DEFAULT => -75
+	},
+	{#State 495
+		DEFAULT => -76
+	},
+	{#State 496
+		DEFAULT => -94
+	},
+	{#State 497
+		DEFAULT => -92
+	},
+	{#State 498
+		DEFAULT => -93
 	}
 ],
     yyrules  =>
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 11010 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12171 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
 #line 22 "SQL.eyp"
  $_[1] }
-#line 11017 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12178 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
 #line 25 "SQL.eyp"
  [ $_[1] ] }
-#line 11024 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12185 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
 #line 26 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 11031 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12192 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
 #line 27 "SQL.eyp"
  $_[1] }
-#line 11038 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12199 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
 #line 30 "SQL.eyp"
  $_[1] }
-#line 11045 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12206 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
@@ -11058,551 +12219,600 @@ sub {
                                         }
                                         $select
                                     }
-#line 11061 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12222 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_7
 		 'result_columns', 1,
 sub {
 #line 45 "SQL.eyp"
  [ $_[1] ] }
-#line 11068 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12229 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_8
 		 'result_columns', 3,
 sub {
 #line 46 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 11075 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12236 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_9
 		 'result_column', 1,
 sub {
 #line 49 "SQL.eyp"
  [ $_[1], undef ] }
-#line 11082 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12243 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_10
 		 'result_column', 3,
 sub {
 #line 50 "SQL.eyp"
  [ $_[1], $_[3] ] }
-#line 11089 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12250 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_11
 		 'expr', 1,
 sub {
 #line 53 "SQL.eyp"
  $_[1] }
-#line 11096 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12257 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_12
 		 'expr', 1,
 sub {
 #line 54 "SQL.eyp"
  $_[1] }
-#line 11103 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12264 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_13
 		 'expr', 1,
 sub {
 #line 55 "SQL.eyp"
  $_[1] }
-#line 11110 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12271 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_14
-		 'operator_expression', 5,
+	[#Rule expr_14
+		 'expr', 1,
 sub {
-#line 58 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-#line 11117 ../lib/Pg/SQL/Parser/SQL.pm
+#line 56 "SQL.eyp"
+ $_[1] }
+#line 12278 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_15
-		 'operator_expression', 2,
+	[#Rule function_expression_15
+		 'function_expression', 4,
 sub {
 #line 59 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-#line 11124 ../lib/Pg/SQL/Parser/SQL.pm
+ $_[1]->arguments( $_[3] ); $_[1] }
+#line 12285 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_16
-		 'operator_expression', 2,
-sub {
-#line 60 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-#line 11131 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule operator_expression_17
-		 'operator_expression', 3,
-sub {
-#line 61 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11138 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule operator_expression_18
-		 'operator_expression', 3,
+	[#Rule function_name_16
+		 'function_name', 1,
 sub {
 #line 62 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11145 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Function', 'name' => $_[1] ) }
+#line 12292 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_19
-		 'operator_expression', 3,
+	[#Rule function_name_17
+		 'function_name', 3,
 sub {
 #line 63 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11152 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Function', 'name' => $_[3], 'schema' => $_[1] ) }
+#line 12299 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_20
-		 'operator_expression', 3,
-sub {
-#line 64 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11159 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule operator_expression_21
-		 'operator_expression', 3,
-sub {
-#line 65 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11166 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule operator_expression_22
-		 'operator_expression', 3,
+	[#Rule function_args_18
+		 'function_args', 1,
 sub {
 #line 66 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11173 ../lib/Pg/SQL/Parser/SQL.pm
+ [ $_[1] ] }
+#line 12306 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule operator_expression_23
-		 'operator_expression', 3,
+	[#Rule function_args_19
+		 'function_args', 3,
 sub {
 #line 67 "SQL.eyp"
- $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11180 ../lib/Pg/SQL/Parser/SQL.pm
+ push @{ $_[1] }, $_[3]; $_[1] }
+#line 12313 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule function_args_20
+		 'function_args', 0,
+sub {
+#line 68 "SQL.eyp"
+ [] }
+#line 12320 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule operator_expression_21
+		 'operator_expression', 5,
+sub {
+#line 71 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
+#line 12327 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule operator_expression_22
+		 'operator_expression', 2,
+sub {
+#line 72 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+#line 12334 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule operator_expression_23
+		 'operator_expression', 2,
+sub {
+#line 73 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+#line 12341 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_24
 		 'operator_expression', 3,
 sub {
-#line 68 "SQL.eyp"
+#line 74 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11187 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12348 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_25
 		 'operator_expression', 3,
 sub {
-#line 69 "SQL.eyp"
+#line 75 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11194 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12355 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_26
 		 'operator_expression', 3,
 sub {
-#line 70 "SQL.eyp"
+#line 76 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11201 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12362 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_27
 		 'operator_expression', 3,
 sub {
-#line 71 "SQL.eyp"
+#line 77 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11208 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12369 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_28
 		 'operator_expression', 3,
 sub {
-#line 72 "SQL.eyp"
+#line 78 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 11215 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12376 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule cast_expression_29
-		 'cast_expression', 3,
+	[#Rule operator_expression_29
+		 'operator_expression', 3,
 sub {
-#line 75 "SQL.eyp"
- $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
-#line 11222 ../lib/Pg/SQL/Parser/SQL.pm
+#line 79 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12383 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule cast_expression_30
-		 'cast_expression', 6,
-sub {
-#line 76 "SQL.eyp"
- $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
-#line 11229 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule cast_expression_31
-		 'cast_expression', 2,
-sub {
-#line 77 "SQL.eyp"
- $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
-#line 11236 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule expr_simple_32
-		 'expr_simple', 1,
+	[#Rule operator_expression_30
+		 'operator_expression', 3,
 sub {
 #line 80 "SQL.eyp"
- $_[1] }
-#line 11243 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12390 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule expr_simple_33
-		 'expr_simple', 3,
+	[#Rule operator_expression_31
+		 'operator_expression', 3,
 sub {
 #line 81 "SQL.eyp"
- $_[2] }
-#line 11250 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12397 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_34
-		 'literal_value', 1,
+	[#Rule operator_expression_32
+		 'operator_expression', 3,
+sub {
+#line 82 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12404 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule operator_expression_33
+		 'operator_expression', 3,
+sub {
+#line 83 "SQL.eyp"
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12411 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule operator_expression_34
+		 'operator_expression', 3,
 sub {
 #line 84 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
-#line 11257 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12418 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_35
-		 'literal_value', 1,
+	[#Rule operator_expression_35
+		 'operator_expression', 3,
 sub {
 #line 85 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
-#line 11264 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+#line 12425 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_36
-		 'literal_value', 1,
-sub {
-#line 86 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
-#line 11271 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule literal_value_37
-		 'literal_value', 1,
-sub {
-#line 87 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
-#line 11278 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule literal_value_38
-		 'literal_value', 1,
+	[#Rule cast_expression_36
+		 'cast_expression', 3,
 sub {
 #line 88 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
-#line 11285 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+#line 12432 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_39
-		 'literal_value', 1,
+	[#Rule cast_expression_37
+		 'cast_expression', 6,
 sub {
 #line 89 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
-#line 11292 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
+#line 12439 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule literal_value_40
-		 'literal_value', 1,
+	[#Rule cast_expression_38
+		 'cast_expression', 2,
 sub {
 #line 90 "SQL.eyp"
- $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
-#line 11299 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
+#line 12446 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_41
-		 'identifier', 1,
+	[#Rule expr_simple_39
+		 'expr_simple', 1,
 sub {
 #line 93 "SQL.eyp"
  $_[1] }
-#line 11306 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12453 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_42
-		 'identifier', 1,
+	[#Rule expr_simple_40
+		 'expr_simple', 3,
 sub {
 #line 94 "SQL.eyp"
- $_[1] }
-#line 11313 ../lib/Pg/SQL/Parser/SQL.pm
+ $_[2] }
+#line 12460 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_43
-		 'identifier', 1,
+	[#Rule literal_value_41
+		 'literal_value', 1,
 sub {
-#line 95 "SQL.eyp"
- $_[1] }
-#line 11320 ../lib/Pg/SQL/Parser/SQL.pm
+#line 97 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
+#line 12467 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule identifier_44
-		 'identifier', 1,
+	[#Rule literal_value_42
+		 'literal_value', 1,
 sub {
-#line 96 "SQL.eyp"
- $_[1] }
-#line 11327 ../lib/Pg/SQL/Parser/SQL.pm
+#line 98 "SQL.eyp"
+ $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
+#line 12474 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_45
-		 'normal_type', 1,
+	[#Rule literal_value_43
+		 'literal_value', 1,
 sub {
 #line 99 "SQL.eyp"
- $_[1] }
-#line 11334 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
+#line 12481 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_46
-		 'normal_type', 4,
+	[#Rule literal_value_44
+		 'literal_value', 1,
 sub {
 #line 100 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 11341 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
+#line 12488 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_47
-		 'normal_type', 6,
+	[#Rule literal_value_45
+		 'literal_value', 1,
 sub {
 #line 101 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 11348 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
+#line 12495 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_48
-		 'normal_type', 4,
+	[#Rule literal_value_46
+		 'literal_value', 1,
 sub {
 #line 102 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 11355 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
+#line 12502 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_49
-		 'normal_type', 6,
+	[#Rule literal_value_47
+		 'literal_value', 1,
 sub {
 #line 103 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 11362 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
+#line 12509 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule normal_type_50
-		 'normal_type', 4,
+	[#Rule identifier_48
+		 'identifier', 1,
 sub {
-#line 104 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 11369 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule normal_type_51
-		 'normal_type', 1,
-sub {
-#line 105 "SQL.eyp"
+#line 106 "SQL.eyp"
  $_[1] }
-#line 11376 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12516 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule identifier_49
+		 'identifier', 1,
+sub {
+#line 107 "SQL.eyp"
+ $_[1] }
+#line 12523 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule identifier_50
+		 'identifier', 1,
+sub {
+#line 108 "SQL.eyp"
+ $_[1] }
+#line 12530 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule identifier_51
+		 'identifier', 1,
+sub {
+#line 109 "SQL.eyp"
+ $_[1] }
+#line 12537 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_52
 		 'normal_type', 1,
 sub {
-#line 106 "SQL.eyp"
+#line 112 "SQL.eyp"
  $_[1] }
-#line 11383 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12544 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_53
-		 'normal_type', 1,
+		 'normal_type', 4,
 sub {
-#line 107 "SQL.eyp"
- $_[1] }
-#line 11390 ../lib/Pg/SQL/Parser/SQL.pm
+#line 113 "SQL.eyp"
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
+#line 12551 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule simple_type_54
-		 'simple_type', 1,
-sub {
-#line 110 "SQL.eyp"
- $_[1] }
-#line 11397 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule simple_type_55
-		 'simple_type', 3,
-sub {
-#line 111 "SQL.eyp"
- $_[3]->schema( $_[1] ); $_[3] }
-#line 11404 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule base_type_56
-		 'base_type', 1,
+	[#Rule normal_type_54
+		 'normal_type', 6,
 sub {
 #line 114 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1] ) }
-#line 11411 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
+#line 12558 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule base_type_57
-		 'base_type', 1,
+	[#Rule normal_type_55
+		 'normal_type', 4,
 sub {
 #line 115 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1] ) }
-#line 11418 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
+#line 12565 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule base_type_58
-		 'base_type', 1,
+	[#Rule normal_type_56
+		 'normal_type', 6,
 sub {
 #line 116 "SQL.eyp"
- $factory->make( 'Type', 'name' => $_[1] ) }
-#line 11425 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
+#line 12572 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule base_type_59
-		 'base_type', 2,
+	[#Rule normal_type_57
+		 'normal_type', 4,
 sub {
 #line 117 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'double precision' ) }
-#line 11432 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
+#line 12579 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule timestamp_type_60
-		 'timestamp_type', 4,
+	[#Rule normal_type_58
+		 'normal_type', 1,
+sub {
+#line 118 "SQL.eyp"
+ $_[1] }
+#line 12586 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule normal_type_59
+		 'normal_type', 1,
+sub {
+#line 119 "SQL.eyp"
+ $_[1] }
+#line 12593 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule normal_type_60
+		 'normal_type', 1,
 sub {
 #line 120 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
-#line 11439 ../lib/Pg/SQL/Parser/SQL.pm
+ $_[1] }
+#line 12600 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule timestamp_type_61
-		 'timestamp_type', 4,
-sub {
-#line 121 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'timestamp without time zone' ) }
-#line 11446 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule timestamp_type_62
-		 'timestamp_type', 4,
-sub {
-#line 122 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp' ) }
-#line 11453 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule timestamp_type_63
-		 'timestamp_type', 7,
+	[#Rule simple_type_61
+		 'simple_type', 1,
 sub {
 #line 123 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp with time zone' ) }
-#line 11460 ../lib/Pg/SQL/Parser/SQL.pm
+ $_[1] }
+#line 12607 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule timestamp_type_64
-		 'timestamp_type', 7,
+	[#Rule simple_type_62
+		 'simple_type', 3,
 sub {
 #line 124 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp without time zone' ) }
-#line 11467 ../lib/Pg/SQL/Parser/SQL.pm
+ $_[3]->schema( $_[1] ); $_[3] }
+#line 12614 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule time_type_65
-		 'time_type', 4,
+	[#Rule base_type_63
+		 'base_type', 1,
 sub {
 #line 127 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'time with time zone' ) }
-#line 11474 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1] ) }
+#line 12621 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule time_type_66
-		 'time_type', 4,
+	[#Rule base_type_64
+		 'base_type', 1,
 sub {
 #line 128 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'time without time zone' ) }
-#line 11481 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1] ) }
+#line 12628 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule time_type_67
-		 'time_type', 4,
+	[#Rule base_type_65
+		 'base_type', 1,
 sub {
 #line 129 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time' ) }
-#line 11488 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => $_[1] ) }
+#line 12635 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule time_type_68
-		 'time_type', 7,
+	[#Rule base_type_66
+		 'base_type', 2,
 sub {
 #line 130 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time with time zone' ) }
-#line 11495 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => 'double precision' ) }
+#line 12642 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule time_type_69
-		 'time_type', 7,
+	[#Rule timestamp_type_67
+		 'timestamp_type', 4,
 sub {
-#line 131 "SQL.eyp"
- $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time without time zone' ) }
-#line 11502 ../lib/Pg/SQL/Parser/SQL.pm
+#line 133 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
+#line 12649 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_70
-		 'interval_type', 4,
+	[#Rule timestamp_type_68
+		 'timestamp_type', 4,
 sub {
 #line 134 "SQL.eyp"
- $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
-#line 11509 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => 'timestamp without time zone' ) }
+#line 12656 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_71
-		 'interval_type', 2,
+	[#Rule timestamp_type_69
+		 'timestamp_type', 4,
 sub {
 #line 135 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' year' ); $_[1] }
-#line 11516 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp' ) }
+#line 12663 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_72
-		 'interval_type', 2,
+	[#Rule timestamp_type_70
+		 'timestamp_type', 7,
 sub {
 #line 136 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' month' ); $_[1] }
-#line 11523 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp with time zone' ) }
+#line 12670 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_73
-		 'interval_type', 2,
+	[#Rule timestamp_type_71
+		 'timestamp_type', 7,
 sub {
 #line 137 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' day' ); $_[1] }
-#line 11530 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp without time zone' ) }
+#line 12677 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_74
-		 'interval_type', 2,
-sub {
-#line 138 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' hour' ); $_[1] }
-#line 11537 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_75
-		 'interval_type', 2,
-sub {
-#line 139 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' minute' ); $_[1] }
-#line 11544 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_76
-		 'interval_type', 2,
+	[#Rule time_type_72
+		 'time_type', 4,
 sub {
 #line 140 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' second' ); $_[1] }
-#line 11551 ../lib/Pg/SQL/Parser/SQL.pm
+ $factory->make( 'Type', 'name' => 'time with time zone' ) }
+#line 12684 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule time_type_73
+		 'time_type', 4,
+sub {
+#line 141 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'time without time zone' ) }
+#line 12691 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule time_type_74
+		 'time_type', 4,
+sub {
+#line 142 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time' ) }
+#line 12698 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule time_type_75
+		 'time_type', 7,
+sub {
+#line 143 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time with time zone' ) }
+#line 12705 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule time_type_76
+		 'time_type', 7,
+sub {
+#line 144 "SQL.eyp"
+ $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time without time zone' ) }
+#line 12712 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_77
 		 'interval_type', 4,
 sub {
-#line 141 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' year to month' ); $_[1] }
-#line 11558 ../lib/Pg/SQL/Parser/SQL.pm
+#line 147 "SQL.eyp"
+ $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
+#line 12719 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_78
-		 'interval_type', 4,
-sub {
-#line 142 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' day to hour' ); $_[1] }
-#line 11565 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_79
-		 'interval_type', 4,
-sub {
-#line 143 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' day to minute' ); $_[1] }
-#line 11572 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_80
-		 'interval_type', 4,
-sub {
-#line 144 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' day to second' ); $_[1] }
-#line 11579 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_81
-		 'interval_type', 4,
-sub {
-#line 145 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' hour to minute' ); $_[1] }
-#line 11586 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_82
-		 'interval_type', 4,
-sub {
-#line 146 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' hour to second' ); $_[1] }
-#line 11593 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_83
-		 'interval_type', 4,
-sub {
-#line 147 "SQL.eyp"
- $_[1]->name( $_[1]->name() . ' minute to second' ); $_[1] }
-#line 11600 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule interval_type_84
-		 'interval_type', 5,
+		 'interval_type', 2,
 sub {
 #line 148 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' year' ); $_[1] }
+#line 12726 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_79
+		 'interval_type', 2,
+sub {
+#line 149 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' month' ); $_[1] }
+#line 12733 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_80
+		 'interval_type', 2,
+sub {
+#line 150 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day' ); $_[1] }
+#line 12740 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_81
+		 'interval_type', 2,
+sub {
+#line 151 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour' ); $_[1] }
+#line 12747 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_82
+		 'interval_type', 2,
+sub {
+#line 152 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' minute' ); $_[1] }
+#line 12754 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_83
+		 'interval_type', 2,
+sub {
+#line 153 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' second' ); $_[1] }
+#line 12761 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_84
+		 'interval_type', 4,
+sub {
+#line 154 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' year to month' ); $_[1] }
+#line 12768 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_85
+		 'interval_type', 4,
+sub {
+#line 155 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to hour' ); $_[1] }
+#line 12775 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_86
+		 'interval_type', 4,
+sub {
+#line 156 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to minute' ); $_[1] }
+#line 12782 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_87
+		 'interval_type', 4,
+sub {
+#line 157 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' day to second' ); $_[1] }
+#line 12789 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_88
+		 'interval_type', 4,
+sub {
+#line 158 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour to minute' ); $_[1] }
+#line 12796 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_89
+		 'interval_type', 4,
+sub {
+#line 159 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' hour to second' ); $_[1] }
+#line 12803 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_90
+		 'interval_type', 4,
+sub {
+#line 160 "SQL.eyp"
+ $_[1]->name( $_[1]->name() . ' minute to second' ); $_[1] }
+#line 12810 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule interval_type_91
+		 'interval_type', 5,
+sub {
+#line 161 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[4];
@@ -11610,12 +12820,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' second' );
                                                                         $_[1]
                                                                     }
-#line 11613 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12823 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_85
+	[#Rule interval_type_92
 		 'interval_type', 7,
 sub {
-#line 155 "SQL.eyp"
+#line 168 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -11623,12 +12833,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' day to second' );
                                                                         $_[1]
                                                                     }
-#line 11626 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12836 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_86
+	[#Rule interval_type_93
 		 'interval_type', 7,
 sub {
-#line 162 "SQL.eyp"
+#line 175 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -11636,12 +12846,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' hour to second' );
                                                                         $_[1]
                                                                     }
-#line 11639 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12849 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule interval_type_87
+	[#Rule interval_type_94
 		 'interval_type', 7,
 sub {
-#line 169 "SQL.eyp"
+#line 182 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -11649,1292 +12859,1292 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' minute to second' );
                                                                         $_[1]
                                                                     }
-#line 11652 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12862 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule base_interval_type_88
+	[#Rule base_interval_type_95
 		 'base_interval_type', 1,
 sub {
-#line 178 "SQL.eyp"
+#line 191 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'interval' ) }
-#line 11659 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12869 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule base_interval_type_89
+	[#Rule base_interval_type_96
 		 'base_interval_type', 4,
 sub {
-#line 179 "SQL.eyp"
+#line 192 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
-#line 11666 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_90
-		 'keywords_notreserved', 1, undef
-#line 11670 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_91
-		 'keywords_notreserved', 1, undef
-#line 11674 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_92
-		 'keywords_notreserved', 1, undef
-#line 11678 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_93
-		 'keywords_notreserved', 1, undef
-#line 11682 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_94
-		 'keywords_notreserved', 1, undef
-#line 11686 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_95
-		 'keywords_notreserved', 1, undef
-#line 11690 ../lib/Pg/SQL/Parser/SQL.pm
-	],
-	[#Rule keywords_notreserved_96
-		 'keywords_notreserved', 1, undef
-#line 11694 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12876 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_97
 		 'keywords_notreserved', 1, undef
-#line 11698 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12880 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_98
 		 'keywords_notreserved', 1, undef
-#line 11702 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12884 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_99
 		 'keywords_notreserved', 1, undef
-#line 11706 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12888 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_100
 		 'keywords_notreserved', 1, undef
-#line 11710 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12892 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_101
 		 'keywords_notreserved', 1, undef
-#line 11714 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12896 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_102
 		 'keywords_notreserved', 1, undef
-#line 11718 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12900 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_103
 		 'keywords_notreserved', 1, undef
-#line 11722 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12904 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_104
 		 'keywords_notreserved', 1, undef
-#line 11726 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12908 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_105
 		 'keywords_notreserved', 1, undef
-#line 11730 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12912 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_106
 		 'keywords_notreserved', 1, undef
-#line 11734 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12916 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_107
 		 'keywords_notreserved', 1, undef
-#line 11738 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12920 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_108
 		 'keywords_notreserved', 1, undef
-#line 11742 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12924 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_109
 		 'keywords_notreserved', 1, undef
-#line 11746 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12928 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_110
 		 'keywords_notreserved', 1, undef
-#line 11750 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12932 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_111
 		 'keywords_notreserved', 1, undef
-#line 11754 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12936 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_112
 		 'keywords_notreserved', 1, undef
-#line 11758 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12940 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_113
 		 'keywords_notreserved', 1, undef
-#line 11762 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12944 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_114
 		 'keywords_notreserved', 1, undef
-#line 11766 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12948 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_115
 		 'keywords_notreserved', 1, undef
-#line 11770 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12952 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_116
 		 'keywords_notreserved', 1, undef
-#line 11774 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12956 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_117
 		 'keywords_notreserved', 1, undef
-#line 11778 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12960 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_118
 		 'keywords_notreserved', 1, undef
-#line 11782 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12964 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_119
 		 'keywords_notreserved', 1, undef
-#line 11786 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12968 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_120
 		 'keywords_notreserved', 1, undef
-#line 11790 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12972 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_121
 		 'keywords_notreserved', 1, undef
-#line 11794 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12976 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_122
 		 'keywords_notreserved', 1, undef
-#line 11798 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12980 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_123
 		 'keywords_notreserved', 1, undef
-#line 11802 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12984 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_124
 		 'keywords_notreserved', 1, undef
-#line 11806 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12988 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_125
 		 'keywords_notreserved', 1, undef
-#line 11810 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12992 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_126
 		 'keywords_notreserved', 1, undef
-#line 11814 ../lib/Pg/SQL/Parser/SQL.pm
+#line 12996 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_127
 		 'keywords_notreserved', 1, undef
-#line 11818 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13000 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_128
 		 'keywords_notreserved', 1, undef
-#line 11822 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13004 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_129
 		 'keywords_notreserved', 1, undef
-#line 11826 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13008 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_130
 		 'keywords_notreserved', 1, undef
-#line 11830 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13012 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_131
 		 'keywords_notreserved', 1, undef
-#line 11834 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13016 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_132
 		 'keywords_notreserved', 1, undef
-#line 11838 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13020 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_133
 		 'keywords_notreserved', 1, undef
-#line 11842 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13024 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_134
 		 'keywords_notreserved', 1, undef
-#line 11846 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13028 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_135
 		 'keywords_notreserved', 1, undef
-#line 11850 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13032 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_136
 		 'keywords_notreserved', 1, undef
-#line 11854 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13036 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_137
 		 'keywords_notreserved', 1, undef
-#line 11858 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13040 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_138
 		 'keywords_notreserved', 1, undef
-#line 11862 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13044 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_139
 		 'keywords_notreserved', 1, undef
-#line 11866 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13048 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_140
 		 'keywords_notreserved', 1, undef
-#line 11870 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13052 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_141
 		 'keywords_notreserved', 1, undef
-#line 11874 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13056 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_142
 		 'keywords_notreserved', 1, undef
-#line 11878 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13060 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_143
 		 'keywords_notreserved', 1, undef
-#line 11882 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13064 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_144
 		 'keywords_notreserved', 1, undef
-#line 11886 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13068 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_145
 		 'keywords_notreserved', 1, undef
-#line 11890 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13072 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_146
 		 'keywords_notreserved', 1, undef
-#line 11894 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13076 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_147
 		 'keywords_notreserved', 1, undef
-#line 11898 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13080 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_148
 		 'keywords_notreserved', 1, undef
-#line 11902 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13084 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_149
 		 'keywords_notreserved', 1, undef
-#line 11906 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13088 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_150
 		 'keywords_notreserved', 1, undef
-#line 11910 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13092 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_151
 		 'keywords_notreserved', 1, undef
-#line 11914 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13096 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_152
 		 'keywords_notreserved', 1, undef
-#line 11918 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13100 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_153
 		 'keywords_notreserved', 1, undef
-#line 11922 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13104 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_154
 		 'keywords_notreserved', 1, undef
-#line 11926 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13108 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_155
 		 'keywords_notreserved', 1, undef
-#line 11930 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13112 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_156
 		 'keywords_notreserved', 1, undef
-#line 11934 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13116 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_157
 		 'keywords_notreserved', 1, undef
-#line 11938 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13120 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_158
 		 'keywords_notreserved', 1, undef
-#line 11942 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13124 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_159
 		 'keywords_notreserved', 1, undef
-#line 11946 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13128 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_160
 		 'keywords_notreserved', 1, undef
-#line 11950 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13132 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_161
 		 'keywords_notreserved', 1, undef
-#line 11954 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13136 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_162
 		 'keywords_notreserved', 1, undef
-#line 11958 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13140 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_163
 		 'keywords_notreserved', 1, undef
-#line 11962 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13144 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_164
 		 'keywords_notreserved', 1, undef
-#line 11966 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13148 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_165
 		 'keywords_notreserved', 1, undef
-#line 11970 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13152 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_166
 		 'keywords_notreserved', 1, undef
-#line 11974 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13156 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_167
 		 'keywords_notreserved', 1, undef
-#line 11978 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13160 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_168
 		 'keywords_notreserved', 1, undef
-#line 11982 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13164 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_169
 		 'keywords_notreserved', 1, undef
-#line 11986 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13168 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_170
 		 'keywords_notreserved', 1, undef
-#line 11990 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13172 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_171
 		 'keywords_notreserved', 1, undef
-#line 11994 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13176 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_172
 		 'keywords_notreserved', 1, undef
-#line 11998 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13180 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_173
 		 'keywords_notreserved', 1, undef
-#line 12002 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13184 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_174
 		 'keywords_notreserved', 1, undef
-#line 12006 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13188 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_175
 		 'keywords_notreserved', 1, undef
-#line 12010 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13192 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_176
 		 'keywords_notreserved', 1, undef
-#line 12014 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13196 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_177
 		 'keywords_notreserved', 1, undef
-#line 12018 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13200 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_178
 		 'keywords_notreserved', 1, undef
-#line 12022 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13204 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_179
 		 'keywords_notreserved', 1, undef
-#line 12026 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13208 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_180
 		 'keywords_notreserved', 1, undef
-#line 12030 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13212 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_181
 		 'keywords_notreserved', 1, undef
-#line 12034 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13216 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_182
 		 'keywords_notreserved', 1, undef
-#line 12038 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13220 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_183
 		 'keywords_notreserved', 1, undef
-#line 12042 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13224 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_184
 		 'keywords_notreserved', 1, undef
-#line 12046 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13228 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_185
 		 'keywords_notreserved', 1, undef
-#line 12050 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13232 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_186
 		 'keywords_notreserved', 1, undef
-#line 12054 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13236 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_187
 		 'keywords_notreserved', 1, undef
-#line 12058 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13240 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_188
 		 'keywords_notreserved', 1, undef
-#line 12062 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13244 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_189
 		 'keywords_notreserved', 1, undef
-#line 12066 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13248 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_190
 		 'keywords_notreserved', 1, undef
-#line 12070 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13252 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_191
 		 'keywords_notreserved', 1, undef
-#line 12074 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13256 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_192
 		 'keywords_notreserved', 1, undef
-#line 12078 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13260 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_193
 		 'keywords_notreserved', 1, undef
-#line 12082 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13264 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_194
 		 'keywords_notreserved', 1, undef
-#line 12086 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13268 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_195
 		 'keywords_notreserved', 1, undef
-#line 12090 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13272 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_196
 		 'keywords_notreserved', 1, undef
-#line 12094 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13276 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_197
 		 'keywords_notreserved', 1, undef
-#line 12098 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13280 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_198
 		 'keywords_notreserved', 1, undef
-#line 12102 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13284 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_199
 		 'keywords_notreserved', 1, undef
-#line 12106 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13288 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_200
 		 'keywords_notreserved', 1, undef
-#line 12110 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13292 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_201
 		 'keywords_notreserved', 1, undef
-#line 12114 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13296 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_202
 		 'keywords_notreserved', 1, undef
-#line 12118 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13300 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_203
 		 'keywords_notreserved', 1, undef
-#line 12122 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13304 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_204
 		 'keywords_notreserved', 1, undef
-#line 12126 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13308 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_205
 		 'keywords_notreserved', 1, undef
-#line 12130 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13312 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_206
 		 'keywords_notreserved', 1, undef
-#line 12134 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13316 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_207
 		 'keywords_notreserved', 1, undef
-#line 12138 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13320 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_208
 		 'keywords_notreserved', 1, undef
-#line 12142 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13324 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_209
 		 'keywords_notreserved', 1, undef
-#line 12146 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13328 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_210
 		 'keywords_notreserved', 1, undef
-#line 12150 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13332 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_211
 		 'keywords_notreserved', 1, undef
-#line 12154 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13336 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_212
 		 'keywords_notreserved', 1, undef
-#line 12158 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13340 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_213
 		 'keywords_notreserved', 1, undef
-#line 12162 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13344 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_214
 		 'keywords_notreserved', 1, undef
-#line 12166 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13348 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_215
 		 'keywords_notreserved', 1, undef
-#line 12170 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13352 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_216
 		 'keywords_notreserved', 1, undef
-#line 12174 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13356 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_217
 		 'keywords_notreserved', 1, undef
-#line 12178 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13360 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_218
 		 'keywords_notreserved', 1, undef
-#line 12182 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13364 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_219
 		 'keywords_notreserved', 1, undef
-#line 12186 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13368 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_220
 		 'keywords_notreserved', 1, undef
-#line 12190 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13372 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_221
 		 'keywords_notreserved', 1, undef
-#line 12194 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13376 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_222
 		 'keywords_notreserved', 1, undef
-#line 12198 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13380 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_223
 		 'keywords_notreserved', 1, undef
-#line 12202 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13384 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_224
 		 'keywords_notreserved', 1, undef
-#line 12206 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13388 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_225
 		 'keywords_notreserved', 1, undef
-#line 12210 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13392 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_226
 		 'keywords_notreserved', 1, undef
-#line 12214 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13396 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_227
 		 'keywords_notreserved', 1, undef
-#line 12218 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13400 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_228
 		 'keywords_notreserved', 1, undef
-#line 12222 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13404 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_229
 		 'keywords_notreserved', 1, undef
-#line 12226 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13408 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_230
 		 'keywords_notreserved', 1, undef
-#line 12230 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13412 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_231
 		 'keywords_notreserved', 1, undef
-#line 12234 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13416 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_232
 		 'keywords_notreserved', 1, undef
-#line 12238 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13420 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_233
 		 'keywords_notreserved', 1, undef
-#line 12242 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13424 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_234
 		 'keywords_notreserved', 1, undef
-#line 12246 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13428 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_235
 		 'keywords_notreserved', 1, undef
-#line 12250 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13432 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_236
 		 'keywords_notreserved', 1, undef
-#line 12254 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13436 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_237
 		 'keywords_notreserved', 1, undef
-#line 12258 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13440 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_238
 		 'keywords_notreserved', 1, undef
-#line 12262 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13444 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_239
 		 'keywords_notreserved', 1, undef
-#line 12266 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13448 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_240
 		 'keywords_notreserved', 1, undef
-#line 12270 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13452 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_241
 		 'keywords_notreserved', 1, undef
-#line 12274 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13456 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_242
 		 'keywords_notreserved', 1, undef
-#line 12278 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13460 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_243
 		 'keywords_notreserved', 1, undef
-#line 12282 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13464 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_244
 		 'keywords_notreserved', 1, undef
-#line 12286 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13468 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_245
 		 'keywords_notreserved', 1, undef
-#line 12290 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13472 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_246
 		 'keywords_notreserved', 1, undef
-#line 12294 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13476 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_247
 		 'keywords_notreserved', 1, undef
-#line 12298 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13480 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_248
 		 'keywords_notreserved', 1, undef
-#line 12302 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13484 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_249
 		 'keywords_notreserved', 1, undef
-#line 12306 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13488 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_250
 		 'keywords_notreserved', 1, undef
-#line 12310 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13492 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_251
 		 'keywords_notreserved', 1, undef
-#line 12314 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13496 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_252
 		 'keywords_notreserved', 1, undef
-#line 12318 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13500 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_253
 		 'keywords_notreserved', 1, undef
-#line 12322 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13504 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_254
 		 'keywords_notreserved', 1, undef
-#line 12326 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13508 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_255
 		 'keywords_notreserved', 1, undef
-#line 12330 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13512 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_256
 		 'keywords_notreserved', 1, undef
-#line 12334 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13516 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_257
 		 'keywords_notreserved', 1, undef
-#line 12338 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13520 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_258
 		 'keywords_notreserved', 1, undef
-#line 12342 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13524 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_259
 		 'keywords_notreserved', 1, undef
-#line 12346 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13528 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_260
 		 'keywords_notreserved', 1, undef
-#line 12350 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13532 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_261
 		 'keywords_notreserved', 1, undef
-#line 12354 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13536 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_262
 		 'keywords_notreserved', 1, undef
-#line 12358 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13540 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_263
 		 'keywords_notreserved', 1, undef
-#line 12362 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13544 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_264
 		 'keywords_notreserved', 1, undef
-#line 12366 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13548 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_265
 		 'keywords_notreserved', 1, undef
-#line 12370 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13552 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_266
 		 'keywords_notreserved', 1, undef
-#line 12374 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13556 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_267
 		 'keywords_notreserved', 1, undef
-#line 12378 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13560 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_268
 		 'keywords_notreserved', 1, undef
-#line 12382 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13564 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_269
 		 'keywords_notreserved', 1, undef
-#line 12386 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13568 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_270
 		 'keywords_notreserved', 1, undef
-#line 12390 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13572 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_271
 		 'keywords_notreserved', 1, undef
-#line 12394 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13576 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_272
 		 'keywords_notreserved', 1, undef
-#line 12398 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13580 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_273
 		 'keywords_notreserved', 1, undef
-#line 12402 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13584 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_274
 		 'keywords_notreserved', 1, undef
-#line 12406 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13588 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_275
 		 'keywords_notreserved', 1, undef
-#line 12410 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13592 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_276
 		 'keywords_notreserved', 1, undef
-#line 12414 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13596 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_277
 		 'keywords_notreserved', 1, undef
-#line 12418 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13600 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_278
 		 'keywords_notreserved', 1, undef
-#line 12422 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13604 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_279
 		 'keywords_notreserved', 1, undef
-#line 12426 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13608 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_280
 		 'keywords_notreserved', 1, undef
-#line 12430 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13612 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_281
 		 'keywords_notreserved', 1, undef
-#line 12434 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13616 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_282
 		 'keywords_notreserved', 1, undef
-#line 12438 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13620 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_283
 		 'keywords_notreserved', 1, undef
-#line 12442 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13624 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_284
 		 'keywords_notreserved', 1, undef
-#line 12446 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13628 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_285
 		 'keywords_notreserved', 1, undef
-#line 12450 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13632 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_286
 		 'keywords_notreserved', 1, undef
-#line 12454 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13636 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_287
 		 'keywords_notreserved', 1, undef
-#line 12458 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13640 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_288
 		 'keywords_notreserved', 1, undef
-#line 12462 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13644 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_289
 		 'keywords_notreserved', 1, undef
-#line 12466 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13648 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_290
 		 'keywords_notreserved', 1, undef
-#line 12470 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13652 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_291
 		 'keywords_notreserved', 1, undef
-#line 12474 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13656 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_292
 		 'keywords_notreserved', 1, undef
-#line 12478 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13660 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_293
 		 'keywords_notreserved', 1, undef
-#line 12482 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13664 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_294
 		 'keywords_notreserved', 1, undef
-#line 12486 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13668 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_295
 		 'keywords_notreserved', 1, undef
-#line 12490 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13672 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_296
 		 'keywords_notreserved', 1, undef
-#line 12494 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13676 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_297
 		 'keywords_notreserved', 1, undef
-#line 12498 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13680 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_298
 		 'keywords_notreserved', 1, undef
-#line 12502 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13684 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_299
 		 'keywords_notreserved', 1, undef
-#line 12506 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13688 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_300
 		 'keywords_notreserved', 1, undef
-#line 12510 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13692 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_301
 		 'keywords_notreserved', 1, undef
-#line 12514 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13696 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_302
 		 'keywords_notreserved', 1, undef
-#line 12518 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13700 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_303
 		 'keywords_notreserved', 1, undef
-#line 12522 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13704 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_304
 		 'keywords_notreserved', 1, undef
-#line 12526 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13708 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_305
 		 'keywords_notreserved', 1, undef
-#line 12530 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13712 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_306
 		 'keywords_notreserved', 1, undef
-#line 12534 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13716 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_307
 		 'keywords_notreserved', 1, undef
-#line 12538 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13720 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_308
 		 'keywords_notreserved', 1, undef
-#line 12542 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13724 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_309
 		 'keywords_notreserved', 1, undef
-#line 12546 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13728 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_310
 		 'keywords_notreserved', 1, undef
-#line 12550 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13732 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_311
 		 'keywords_notreserved', 1, undef
-#line 12554 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13736 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_312
 		 'keywords_notreserved', 1, undef
-#line 12558 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13740 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_313
 		 'keywords_notreserved', 1, undef
-#line 12562 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13744 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_314
 		 'keywords_notreserved', 1, undef
-#line 12566 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13748 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_315
 		 'keywords_notreserved', 1, undef
-#line 12570 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13752 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_316
 		 'keywords_notreserved', 1, undef
-#line 12574 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13756 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_317
 		 'keywords_notreserved', 1, undef
-#line 12578 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13760 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_318
 		 'keywords_notreserved', 1, undef
-#line 12582 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13764 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_319
 		 'keywords_notreserved', 1, undef
-#line 12586 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13768 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_320
 		 'keywords_notreserved', 1, undef
-#line 12590 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13772 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_321
 		 'keywords_notreserved', 1, undef
-#line 12594 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13776 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_322
 		 'keywords_notreserved', 1, undef
-#line 12598 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13780 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_323
 		 'keywords_notreserved', 1, undef
-#line 12602 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13784 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_324
 		 'keywords_notreserved', 1, undef
-#line 12606 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13788 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_325
 		 'keywords_notreserved', 1, undef
-#line 12610 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13792 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_326
 		 'keywords_notreserved', 1, undef
-#line 12614 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13796 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_327
 		 'keywords_notreserved', 1, undef
-#line 12618 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13800 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_328
 		 'keywords_notreserved', 1, undef
-#line 12622 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13804 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_329
 		 'keywords_notreserved', 1, undef
-#line 12626 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13808 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_330
 		 'keywords_notreserved', 1, undef
-#line 12630 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13812 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_331
 		 'keywords_notreserved', 1, undef
-#line 12634 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13816 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_332
 		 'keywords_notreserved', 1, undef
-#line 12638 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13820 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_333
 		 'keywords_notreserved', 1, undef
-#line 12642 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13824 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_334
 		 'keywords_notreserved', 1, undef
-#line 12646 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13828 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_335
 		 'keywords_notreserved', 1, undef
-#line 12650 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13832 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_336
 		 'keywords_notreserved', 1, undef
-#line 12654 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13836 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_337
 		 'keywords_notreserved', 1, undef
-#line 12658 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13840 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_338
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12662 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_338
+		 'keywords_notreserved', 1, undef
+#line 13844 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_339
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12666 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_339
+		 'keywords_notreserved', 1, undef
+#line 13848 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_340
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12670 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_340
+		 'keywords_notreserved', 1, undef
+#line 13852 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_341
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12674 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_341
+		 'keywords_notreserved', 1, undef
+#line 13856 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_342
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12678 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_342
+		 'keywords_notreserved', 1, undef
+#line 13860 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_343
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12682 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_343
+		 'keywords_notreserved', 1, undef
+#line 13864 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_reserved_ok_for_functions_or_types_344
-		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12686 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_notreserved_344
+		 'keywords_notreserved', 1, undef
+#line 13868 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_345
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12690 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13872 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_346
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12694 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13876 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_347
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12698 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13880 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_348
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12702 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13884 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_349
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12706 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13888 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_350
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12710 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13892 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_351
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12714 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13896 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_352
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12718 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13900 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_353
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12722 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13904 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_354
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12726 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13908 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_355
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12730 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13912 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_356
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12734 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13916 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_357
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12738 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13920 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_358
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12742 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13924 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_359
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 12746 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13928 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_360
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12750 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_360
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13932 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_361
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12754 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_361
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13936 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_362
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12758 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_362
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13940 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_363
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12762 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_363
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13944 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_364
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12766 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_364
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13948 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_365
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12770 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_365
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13952 ../lib/Pg/SQL/Parser/SQL.pm
 	],
-	[#Rule keywords_notreserved_not_ok_for_functions_or_types_366
-		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12774 ../lib/Pg/SQL/Parser/SQL.pm
+	[#Rule keywords_reserved_ok_for_functions_or_types_366
+		 'keywords_reserved_ok_for_functions_or_types', 1, undef
+#line 13956 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_367
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12778 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13960 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_368
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12782 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13964 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_369
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12786 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13968 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_370
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12790 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13972 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_371
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12794 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13976 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_372
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12798 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13980 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_373
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12802 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13984 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_374
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12806 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13988 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_375
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12810 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13992 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_376
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12814 ../lib/Pg/SQL/Parser/SQL.pm
+#line 13996 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_377
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12818 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14000 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_378
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12822 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14004 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_379
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12826 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14008 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_380
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12830 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14012 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_381
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12834 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14016 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_382
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12838 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14020 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_383
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12842 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14024 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_384
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12846 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14028 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_385
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12850 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14032 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_386
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12854 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14036 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_387
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12858 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14040 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_388
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12862 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14044 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_389
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12866 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14048 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_390
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12870 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14052 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_391
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12874 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14056 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_392
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12878 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14060 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_393
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12882 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14064 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_394
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12886 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14068 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_395
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12890 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14072 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_396
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12894 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14076 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_397
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12898 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14080 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_398
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12902 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14084 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_399
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12906 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14088 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_400
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12910 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14092 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_401
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12914 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14096 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_402
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12918 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14100 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_403
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12922 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14104 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_404
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12926 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14108 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_405
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12930 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14112 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_406
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 12934 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14116 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_407
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14120 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_408
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14124 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_409
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14128 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_410
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14132 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_411
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14136 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_412
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14140 ../lib/Pg/SQL/Parser/SQL.pm
+	],
+	[#Rule keywords_notreserved_not_ok_for_functions_or_types_413
+		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
+#line 14144 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 12937 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14147 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -12962,13 +14172,13 @@ sub {
          'expr_11', 
          'expr_12', 
          'expr_13', 
-         'operator_expression_14', 
-         'operator_expression_15', 
-         'operator_expression_16', 
-         'operator_expression_17', 
-         'operator_expression_18', 
-         'operator_expression_19', 
-         'operator_expression_20', 
+         'expr_14', 
+         'function_expression_15', 
+         'function_name_16', 
+         'function_name_17', 
+         'function_args_18', 
+         'function_args_19', 
+         'function_args_20', 
          'operator_expression_21', 
          'operator_expression_22', 
          'operator_expression_23', 
@@ -12977,54 +14187,54 @@ sub {
          'operator_expression_26', 
          'operator_expression_27', 
          'operator_expression_28', 
-         'cast_expression_29', 
-         'cast_expression_30', 
-         'cast_expression_31', 
-         'expr_simple_32', 
-         'expr_simple_33', 
-         'literal_value_34', 
-         'literal_value_35', 
-         'literal_value_36', 
-         'literal_value_37', 
-         'literal_value_38', 
-         'literal_value_39', 
-         'literal_value_40', 
-         'identifier_41', 
-         'identifier_42', 
-         'identifier_43', 
-         'identifier_44', 
-         'normal_type_45', 
-         'normal_type_46', 
-         'normal_type_47', 
-         'normal_type_48', 
-         'normal_type_49', 
-         'normal_type_50', 
-         'normal_type_51', 
+         'operator_expression_29', 
+         'operator_expression_30', 
+         'operator_expression_31', 
+         'operator_expression_32', 
+         'operator_expression_33', 
+         'operator_expression_34', 
+         'operator_expression_35', 
+         'cast_expression_36', 
+         'cast_expression_37', 
+         'cast_expression_38', 
+         'expr_simple_39', 
+         'expr_simple_40', 
+         'literal_value_41', 
+         'literal_value_42', 
+         'literal_value_43', 
+         'literal_value_44', 
+         'literal_value_45', 
+         'literal_value_46', 
+         'literal_value_47', 
+         'identifier_48', 
+         'identifier_49', 
+         'identifier_50', 
+         'identifier_51', 
          'normal_type_52', 
          'normal_type_53', 
-         'simple_type_54', 
-         'simple_type_55', 
-         'base_type_56', 
-         'base_type_57', 
-         'base_type_58', 
-         'base_type_59', 
-         'timestamp_type_60', 
-         'timestamp_type_61', 
-         'timestamp_type_62', 
-         'timestamp_type_63', 
-         'timestamp_type_64', 
-         'time_type_65', 
-         'time_type_66', 
-         'time_type_67', 
-         'time_type_68', 
-         'time_type_69', 
-         'interval_type_70', 
-         'interval_type_71', 
-         'interval_type_72', 
-         'interval_type_73', 
-         'interval_type_74', 
-         'interval_type_75', 
-         'interval_type_76', 
+         'normal_type_54', 
+         'normal_type_55', 
+         'normal_type_56', 
+         'normal_type_57', 
+         'normal_type_58', 
+         'normal_type_59', 
+         'normal_type_60', 
+         'simple_type_61', 
+         'simple_type_62', 
+         'base_type_63', 
+         'base_type_64', 
+         'base_type_65', 
+         'base_type_66', 
+         'timestamp_type_67', 
+         'timestamp_type_68', 
+         'timestamp_type_69', 
+         'timestamp_type_70', 
+         'timestamp_type_71', 
+         'time_type_72', 
+         'time_type_73', 
+         'time_type_74', 
+         'time_type_75', 
+         'time_type_76', 
          'interval_type_77', 
          'interval_type_78', 
          'interval_type_79', 
@@ -13036,15 +14246,15 @@ sub {
          'interval_type_85', 
          'interval_type_86', 
          'interval_type_87', 
-         'base_interval_type_88', 
-         'base_interval_type_89', 
-         'keywords_notreserved_90', 
-         'keywords_notreserved_91', 
-         'keywords_notreserved_92', 
-         'keywords_notreserved_93', 
-         'keywords_notreserved_94', 
-         'keywords_notreserved_95', 
-         'keywords_notreserved_96', 
+         'interval_type_88', 
+         'interval_type_89', 
+         'interval_type_90', 
+         'interval_type_91', 
+         'interval_type_92', 
+         'interval_type_93', 
+         'interval_type_94', 
+         'base_interval_type_95', 
+         'base_interval_type_96', 
          'keywords_notreserved_97', 
          'keywords_notreserved_98', 
          'keywords_notreserved_99', 
@@ -13286,13 +14496,13 @@ sub {
          'keywords_notreserved_335', 
          'keywords_notreserved_336', 
          'keywords_notreserved_337', 
-         'keywords_reserved_ok_for_functions_or_types_338', 
-         'keywords_reserved_ok_for_functions_or_types_339', 
-         'keywords_reserved_ok_for_functions_or_types_340', 
-         'keywords_reserved_ok_for_functions_or_types_341', 
-         'keywords_reserved_ok_for_functions_or_types_342', 
-         'keywords_reserved_ok_for_functions_or_types_343', 
-         'keywords_reserved_ok_for_functions_or_types_344', 
+         'keywords_notreserved_338', 
+         'keywords_notreserved_339', 
+         'keywords_notreserved_340', 
+         'keywords_notreserved_341', 
+         'keywords_notreserved_342', 
+         'keywords_notreserved_343', 
+         'keywords_notreserved_344', 
          'keywords_reserved_ok_for_functions_or_types_345', 
          'keywords_reserved_ok_for_functions_or_types_346', 
          'keywords_reserved_ok_for_functions_or_types_347', 
@@ -13308,13 +14518,13 @@ sub {
          'keywords_reserved_ok_for_functions_or_types_357', 
          'keywords_reserved_ok_for_functions_or_types_358', 
          'keywords_reserved_ok_for_functions_or_types_359', 
-         'keywords_notreserved_not_ok_for_functions_or_types_360', 
-         'keywords_notreserved_not_ok_for_functions_or_types_361', 
-         'keywords_notreserved_not_ok_for_functions_or_types_362', 
-         'keywords_notreserved_not_ok_for_functions_or_types_363', 
-         'keywords_notreserved_not_ok_for_functions_or_types_364', 
-         'keywords_notreserved_not_ok_for_functions_or_types_365', 
-         'keywords_notreserved_not_ok_for_functions_or_types_366', 
+         'keywords_reserved_ok_for_functions_or_types_360', 
+         'keywords_reserved_ok_for_functions_or_types_361', 
+         'keywords_reserved_ok_for_functions_or_types_362', 
+         'keywords_reserved_ok_for_functions_or_types_363', 
+         'keywords_reserved_ok_for_functions_or_types_364', 
+         'keywords_reserved_ok_for_functions_or_types_365', 
+         'keywords_reserved_ok_for_functions_or_types_366', 
          'keywords_notreserved_not_ok_for_functions_or_types_367', 
          'keywords_notreserved_not_ok_for_functions_or_types_368', 
          'keywords_notreserved_not_ok_for_functions_or_types_369', 
@@ -13354,11 +14564,18 @@ sub {
          'keywords_notreserved_not_ok_for_functions_or_types_403', 
          'keywords_notreserved_not_ok_for_functions_or_types_404', 
          'keywords_notreserved_not_ok_for_functions_or_types_405', 
-         'keywords_notreserved_not_ok_for_functions_or_types_406', );
+         'keywords_notreserved_not_ok_for_functions_or_types_406', 
+         'keywords_notreserved_not_ok_for_functions_or_types_407', 
+         'keywords_notreserved_not_ok_for_functions_or_types_408', 
+         'keywords_notreserved_not_ok_for_functions_or_types_409', 
+         'keywords_notreserved_not_ok_for_functions_or_types_410', 
+         'keywords_notreserved_not_ok_for_functions_or_types_411', 
+         'keywords_notreserved_not_ok_for_functions_or_types_412', 
+         'keywords_notreserved_not_ok_for_functions_or_types_413', );
   $self;
 }
 
-#line 505 "SQL.eyp"
+#line 518 "SQL.eyp"
 
 
 # vim: set ft=lex:
@@ -13369,7 +14586,7 @@ sub {
 =cut
 
 
-#line 13372 ../lib/Pg/SQL/Parser/SQL.pm
+#line 14589 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 

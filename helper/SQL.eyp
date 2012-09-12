@@ -53,6 +53,20 @@ result_column: expr      { [ $_[1], undef ] }
 expr: expr_simple                      { $_[1] }
     | operator_expression              { $_[1] }
     | cast_expression                  { $_[1] }
+    | function_expression              { $_[1] }
+;
+
+function_expression: function_name '(' function_args ')' { $_[1]->arguments( $_[3] ); $_[1] }
+    | 
+;
+
+function_name: identifier           { $factory->make( 'Function', 'name' => $_[1] ) }
+    | identifier '.' identifier     { $factory->make( 'Function', 'name' => $_[3], 'schema' => $_[1] ) }
+;
+
+function_args: expr                 { [ $_[1] ] }
+    | function_args ',' expr        { push @{ $_[1] }, $_[3]; $_[1] }
+    | /* EMPTY */                   { [] }
 ;
 
 operator_expression: expr BETWEEN expr AND expr  { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
