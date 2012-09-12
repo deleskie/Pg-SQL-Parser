@@ -65,6 +65,39 @@
                     }
                 },
                 ':type' => 'Result_Column'
+            },
+            {
+                'value' => {
+                    'value' => {
+                        'value' => '\'1.0\'',
+                        ':type' => 'Literal_Value',
+                        'type' => 'STRING_CONSTANT'
+                    },
+                    ':type' => 'Cast',
+                    'method' => 'function',
+                    'final_type' => {
+                        'name' => 'double precision',
+                        ':type' => 'Type'
+                    }
+                },
+                ':type' => 'Result_Column'
+            },
+            {
+                'value' => {
+                    'value' => {
+                        'value' => '\'now\'',
+                        ':type' => 'Literal_Value',
+                        'type' => 'STRING_CONSTANT'
+                    },
+                    ':type' => 'Cast',
+                    'method' => 'function',
+                    'final_type' => {
+                        'name' => 'timestamp with time zone',
+                        'limits' => [ 0 ],
+                        ':type' => 'Type'
+                    }
+                },
+                ':type' => 'Result_Column'
             }
         ]
     }

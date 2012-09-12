@@ -74,7 +74,7 @@ operator_expression: expr BETWEEN expr AND expr  { $factory->make( 'Operation', 
 
 cast_expression: expr '::' normal_type { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
     | CAST '(' expr AS normal_type ')' { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
-    | simple_type literal_value        { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
+    | normal_type literal_value        { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
 ;
 
 expr_simple: literal_value         { $_[1] }
@@ -114,6 +114,7 @@ simple_type: base_type                                       { $_[1] }
 base_type: identifier                                        { $factory->make( 'Type', 'name' => $_[1] ) }
     | keywords_reserved_ok_for_functions_or_types            { $factory->make( 'Type', 'name' => $_[1] ) }
     | keywords_notreserved_not_ok_for_functions_or_types     { $factory->make( 'Type', 'name' => $_[1] ) }
+    | DOUBLE PRECISION                                       { $factory->make( 'Type', 'name' => 'double precision' ) }
 ;
 
 timestamp_type: TIMESTAMP WITH TIME ZONE                                           { $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
