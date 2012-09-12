@@ -97,8 +97,15 @@ L<http://search.cpan.org/dist/Pg-SQL-Parser/>
 =back
 
 
-=head1 ACKNOWLEDGEMENTS
+=head1 Said about Pg::SQL::Parser
 
+=over
+
+=item * 2012-09-12, irc, #postgresql
+
+    * andres thinks developing a correct parser is pretty crazy
+
+=back
 
 =head1 LICENSE AND COPYRIGHT
 
