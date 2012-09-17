@@ -54,10 +54,15 @@ expr: expr_simple                      { $_[1] }
     | operator_expression              { $_[1] }
     | cast_expression                  { $_[1] }
     | function_expression              { $_[1] }
+    | column_expression                { $_[1] }
+;
+
+column_expression: identifier                   { $factory->make( 'Column', 'name' => $_[1] ) }
+    | identifier '.' identifier                 { $factory->make( 'Column', 'name' => $_[3], 'source' => [ $_[1] ] ) }
+    | identifier '.' identifier '.' identifier  { $factory->make( 'Column', 'name' => $_[5], 'source' => [ $_[1], $_[3] ] ) }
 ;
 
 function_expression: function_name '(' function_args ')' { $_[1]->arguments( $_[3] ); $_[1] }
-    | 
 ;
 
 function_name: identifier           { $factory->make( 'Function', 'name' => $_[1] ) }
