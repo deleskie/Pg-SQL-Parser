@@ -1,4 +1,4 @@
-package Pg::SQL::Parser::Element::Select;
+package Pg::SQL::Parser::Element::Table;
 use v5.12;
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use base qw( Pg::SQL::Parser::Element );
 
 =head1 NAME
 
-Pg::SQL::Parser::Element::Select - Class representing single SELECT query
+Pg::SQL::Parser::Element::Table - Class representing table in query
 
 =head1 VERSION
 
@@ -21,38 +21,34 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+=head1 EXAMPLE
+
+    my $function = Pg::SQL::Parser::Element::Table->new();
+
+    # a.b as c
+    $type->schema( 'a' );
+    $type->name( 'b' );
+    $type->alias( 'c' );
+
 =head1 METHODS
 
-=head2 add_result()
+=head2 schema()
 
-Adds new result to given SELECT query.
-
-    my $query = Pg::SQL::Parser::Element::Select->new();
-    $query->add_result( $result_column_object );
+Optional, usually not used, name of schema the table is in.
 
 =cut
 
-sub add_result {
-    my $self   = shift;
-    my $result = shift;
-    push @{ $self->{ 'results' } }, $result;
-    return;
-}
+=head2 name()
 
-=head2 add_source()
-
-Adds new source of data, which can be either table, or join or subselect.
-
-Source should be of Pg::SQL::Parser::Element::Source class.
+Table name getter/setter.
 
 =cut
 
-sub add_source {
-    my $self   = shift;
-    my $source = shift;
-    push @{ $self->{ 'sources' } }, $source;
-    return;
-}
+=head2 alias()
+
+Table alias getter/setter. Optional.
+
+=cut
 
 =head1 AUTHOR
 
@@ -69,6 +65,7 @@ automatically be notified of progress on your bug as I make changes.
 You can find documentation for this module with the perldoc command.
 
     perldoc Pg::SQL::Parser
+
 
 You can also look for information at:
 

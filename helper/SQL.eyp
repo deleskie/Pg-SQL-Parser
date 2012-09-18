@@ -30,7 +30,20 @@ statements: statement          { [ $_[1] ] }
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT result_columns { $factory->make( 'Select', results => $_[2] ) }
+select_stmt: SELECT result_columns             { $factory->make( 'Select', 'results' => $_[2] ) }
+    | SELECT result_columns FROM query_sources { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
+;
+
+query_sources: query_source          { [ $_[1] ] }
+    | query_sources ',' query_source { push @{ $_[1] }, $_[3]; $_[1] }
+;
+
+query_source: identifier                         { $factory->make( 'Table', 'name' => $_[1] ) }
+    | identifier identifier                      { $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[2] ) }
+    | identifier '.' identifier                  { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[2] ) }
+    | identifier '.' identifier identifier       { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[4] ) }
+    | identifier AS identifier                   { $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[3] ) }
+    | identifier '.' identifier AS identifier    { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[5] ) }
 ;
 
 result_columns: result_column          { [ $_[1] ] }
