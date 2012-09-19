@@ -38,7 +38,34 @@ query_sources: query_source          { [ $_[1] ] }
     | query_sources ',' query_source { push @{ $_[1] }, $_[3]; $_[1] }
 ;
 
-query_source: identifier                         { $factory->make( 'Table', 'name' => $_[1] ) }
+query_source: table_source                       { $_[1] }
+    | join_source                                { $_[1] }
+;
+
+join_source: table_source normal_join_operator table_source join_condition { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => $_[2], 'condition_type' => $_[4]->[0], 'condition' => $_[4]->[1] ) }
+    | table_source NATURAL normal_join_operator table_source               { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[4], 'type' => 'natural ' . $_[3] ) }
+    | table_source CROSS JOIN table_source                                 { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => 'cross join' ) }
+;
+
+normal_join_operator: JOIN      { "join" }
+    | INNER JOIN                { "inner join" }
+    | LEFT JOIN                 { "left join" }
+    | LEFT OUTER JOIN           { "left outer join" }
+    | RIGHT JOIN                { "right join" }
+    | RIGHT OUTER JOIN          { "right outer join" }
+    | FULL OUTER JOIN           { "full outer join" }
+    | FULL JOIN                 { "full join" }
+;
+
+join_condition: ON expr                    { [ 'on', $_[2] ] }
+    | USING '(' join_using_column_list ')' { [ 'using', $_[3] ] }
+;
+
+join_using_column_list: identifier          { [ $factory->make( 'Column', 'name' => $_[1] ) ] }
+    | join_using_column_list ',' identifier { push @{ $_[1] }, $factory->make( 'Column', 'name' => $_[3] ); $_[1] }
+;
+
+table_source: identifier                         { $factory->make( 'Table', 'name' => $_[1] ) }
     | identifier identifier                      { $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[2] ) }
     | identifier '.' identifier                  { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[2] ) }
     | identifier '.' identifier identifier       { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[4] ) }
