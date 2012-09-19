@@ -89,9 +89,9 @@ sub new {
   [ 'query_sources_9' => 'query_sources', [ 'query_sources', ',', 'query_source' ], 0 ],
   [ 'query_source_10' => 'query_source', [ 'table_source' ], 0 ],
   [ 'query_source_11' => 'query_source', [ 'join_source' ], 0 ],
-  [ 'join_source_12' => 'join_source', [ 'table_source', 'normal_join_operator', 'table_source', 'join_condition' ], 0 ],
-  [ 'join_source_13' => 'join_source', [ 'table_source', 'NATURAL', 'normal_join_operator', 'table_source' ], 0 ],
-  [ 'join_source_14' => 'join_source', [ 'table_source', 'CROSS', 'JOIN', 'table_source' ], 0 ],
+  [ 'join_source_12' => 'join_source', [ 'query_source', 'normal_join_operator', 'query_source', 'join_condition' ], 0 ],
+  [ 'join_source_13' => 'join_source', [ 'query_source', 'NATURAL', 'normal_join_operator', 'query_source' ], 0 ],
+  [ 'join_source_14' => 'join_source', [ 'query_source', 'CROSS', 'JOIN', 'query_source' ], 0 ],
   [ 'normal_join_operator_15' => 'normal_join_operator', [ 'JOIN' ], 0 ],
   [ 'normal_join_operator_16' => 'normal_join_operator', [ 'INNER', 'JOIN' ], 0 ],
   [ 'normal_join_operator_17' => 'normal_join_operator', [ 'LEFT', 'JOIN' ], 0 ],
@@ -1922,13 +1922,13 @@ sub new {
 		ACTIONS => {
 			'USTRING_CONSTANT' => -93,
 			'STRING_CONSTANT' => -93,
-			'NUMERIC_CONSTANT' => -93,
-			'BITSTRING_CONSTANT' => -93,
 			'XBITSTRING_CONSTANT' => -93,
 			"(" => -46,
 			'ESTRING_CONSTANT' => -93,
 			'INTEGER_CONSTANT' => -93,
-			"." => 363
+			"." => 363,
+			'NUMERIC_CONSTANT' => -93,
+			'BITSTRING_CONSTANT' => -93
 		},
 		DEFAULT => -42
 	},
@@ -2355,9 +2355,9 @@ sub new {
 	},
 	{#State 91
 		ACTIONS => {
+			"(" => 365,
 			'WITHOUT' => 367,
-			'WITH' => 366,
-			"(" => 365
+			'WITH' => 366
 		},
 		DEFAULT => -430
 	},
@@ -3125,9 +3125,9 @@ sub new {
 	},
 	{#State 220
 		ACTIONS => {
+			"(" => 387,
 			'WITHOUT' => 389,
-			'WITH' => 388,
-			"(" => 387
+			'WITH' => 388
 		},
 		DEFAULT => -429
 	},
@@ -10824,19 +10824,7 @@ sub new {
 		}
 	},
 	{#State 401
-		ACTIONS => {
-			'JOIN' => 453,
-			'RIGHT' => 459,
-			'FULL' => 454,
-			'INNER' => 455,
-			'LEFT' => 456,
-			'NATURAL' => 460,
-			'CROSS' => 458
-		},
-		DEFAULT => -10,
-		GOTOS => {
-			'normal_join_operator' => 457
-		}
+		DEFAULT => -10
 	},
 	{#State 402
 		DEFAULT => -190
@@ -10846,12 +10834,24 @@ sub new {
 	},
 	{#State 404
 		ACTIONS => {
-			"," => 461
+			"," => 453
 		},
 		DEFAULT => -7
 	},
 	{#State 405
-		DEFAULT => -8
+		ACTIONS => {
+			'JOIN' => 454,
+			'RIGHT' => 460,
+			'FULL' => 455,
+			'INNER' => 456,
+			'LEFT' => 457,
+			'NATURAL' => 461,
+			'CROSS' => 459
+		},
+		DEFAULT => -8,
+		GOTOS => {
+			'normal_join_operator' => 458
+		}
 	},
 	{#State 406
 		DEFAULT => -34
@@ -10860,13 +10860,13 @@ sub new {
 		ACTIONS => {
 			'USTRING_CONSTANT' => -93,
 			'STRING_CONSTANT' => -93,
-			'NUMERIC_CONSTANT' => -93,
-			'BITSTRING_CONSTANT' => -93,
 			'XBITSTRING_CONSTANT' => -93,
 			"(" => -47,
 			'ESTRING_CONSTANT' => -93,
 			'INTEGER_CONSTANT' => -93,
-			"." => 462
+			"." => 462,
+			'NUMERIC_CONSTANT' => -93,
+			'BITSTRING_CONSTANT' => -93
 		},
 		DEFAULT => -43
 	},
@@ -11709,26 +11709,6 @@ sub new {
 		}
 	},
 	{#State 453
-		DEFAULT => -15
-	},
-	{#State 454
-		ACTIONS => {
-			'JOIN' => 490,
-			'OUTER' => 491
-		}
-	},
-	{#State 455
-		ACTIONS => {
-			'JOIN' => 492
-		}
-	},
-	{#State 456
-		ACTIONS => {
-			'JOIN' => 493,
-			'OUTER' => 494
-		}
-	},
-	{#State 457
 		ACTIONS => {
 			'VACUUM' => 191,
 			'INPUT' => 10,
@@ -11983,294 +11963,316 @@ sub new {
 			'VERSION' => 358
 		},
 		GOTOS => {
-			'identifier' => 400,
-			'table_source' => 495,
-			'keywords_notreserved' => 257
-		}
-	},
-	{#State 458
-		ACTIONS => {
-			'JOIN' => 496
-		}
-	},
-	{#State 459
-		ACTIONS => {
-			'JOIN' => 497,
-			'OUTER' => 498
-		}
-	},
-	{#State 460
-		ACTIONS => {
-			'INNER' => 455,
-			'JOIN' => 453,
-			'LEFT' => 456,
-			'RIGHT' => 459,
-			'FULL' => 454
-		},
-		GOTOS => {
-			'normal_join_operator' => 499
-		}
-	},
-	{#State 461
-		ACTIONS => {
-			'VACUUM' => 191,
-			'INPUT' => 10,
-			'SYSID' => 9,
-			'REPLACE' => 12,
-			'SERIALIZABLE' => 11,
-			'SCHEMA' => 192,
-			'AT' => 14,
-			'INSENSITIVE' => 13,
-			'RETURNS' => 15,
-			'LC_COLLATE' => 194,
-			'INDEX' => 196,
-			'DEFINER' => 197,
-			'INVOKER' => 18,
-			'WORK' => 19,
-			'ADMIN' => 200,
-			'INCLUDING' => 201,
-			'OWNED' => 202,
-			'PASSING' => 20,
-			'INSTEAD' => 204,
-			'MODE' => 21,
-			'INHERITS' => 23,
-			'VALUE' => 24,
-			'ESCAPE' => 25,
-			'DROP' => 26,
-			'MONTH' => 27,
-			'EACH' => 206,
-			'ENCODING' => 29,
-			'TRUSTED' => 207,
-			'EXCLUSIVE' => 208,
-			'OWNER' => 209,
-			'TEMPLATE' => 30,
-			'DICTIONARY' => 31,
-			'SEARCH' => 32,
-			'PREPARE' => 33,
-			'LOCK' => 34,
-			'DEFAULTS' => 35,
-			'CASCADE' => 211,
-			'STATEMENT' => 212,
-			'BY' => 39,
-			'NO' => 40,
-			'MINUTE' => 41,
-			'ASSIGNMENT' => 214,
-			'RANGE' => 42,
-			'PARTITION' => 43,
-			'DAY' => 44,
-			'DATA' => 45,
-			'SHARE' => 47,
-			'REF' => 48,
-			'MATCH' => 215,
-			'CLASS' => 218,
-			'DOUBLE' => 402,
-			'MOVE' => 219,
-			'LARGE' => 51,
-			'DELETE' => 52,
-			'CURSOR' => 223,
-			'INLINE' => 224,
-			'CONNECTION' => 54,
-			'BACKWARD' => 56,
-			'CLOSE' => 55,
-			'COST' => 57,
-			'ENCRYPTED' => 225,
-			'EXTENSION' => 226,
-			'REPLICA' => 58,
-			'CHAIN' => 227,
-			'RECURSIVE' => 228,
-			'PRIVILEGES' => 59,
-			'VALIDATOR' => 229,
-			'UQUOTED_IDENTIFIER' => 232,
-			'ZONE' => 60,
-			'CASCADED' => 234,
-			'DISCARD' => 235,
-			'STATISTICS' => 62,
-			'CALLED' => 64,
-			'SECURITY' => 66,
-			'ABORT' => 237,
-			'INCREMENT' => 68,
-			'LEVEL' => 70,
-			'FORCE' => 71,
-			'BEFORE' => 242,
-			'TRUNCATE' => 241,
-			'IDENTIFIER' => 244,
-			'ABSOLUTE' => 243,
-			'SHOW' => 245,
-			'PLANS' => 247,
-			'PARTIAL' => 248,
-			'SEQUENCES' => 249,
-			'EXCLUDE' => 250,
-			'UPDATE' => 75,
-			'PRESERVE' => 76,
-			'SECOND' => 253,
-			'WHITESPACE' => 251,
-			'CHARACTERISTICS' => 78,
-			'VALIDATE' => 79,
-			'STRICT' => 81,
-			'HOUR' => 255,
-			'VARYING' => 83,
-			'FOLLOWING' => 258,
-			'LISTEN' => 260,
-			'WRAPPER' => 259,
-			'REASSIGN' => 85,
-			'VOLATILE' => 261,
-			'LANGUAGE' => 262,
-			'STANDALONE' => 264,
-			'TEMP' => 265,
-			'YEAR' => 263,
-			'ROLLBACK' => 86,
-			'LABEL' => 87,
-			'COPY' => 266,
-			'WITHOUT' => 267,
-			'OBJECT' => 88,
-			'PROCEDURE' => 89,
-			'DELIMITERS' => 90,
-			'RULE' => 92,
-			'OPTIONS' => 268,
-			'INSERT' => 95,
-			'PROCEDURAL' => 271,
-			'YES' => 270,
-			'HANDLER' => 96,
-			'SEQUENCE' => 272,
-			'SIMPLE' => 274,
-			'LOCATION' => 98,
-			'IMMUTABLE' => 99,
-			'RELEASE' => 101,
-			'NULLS' => 102,
-			'TYPE' => 103,
-			'IDENTITY' => 275,
-			'QUOTE' => 276,
-			'RESET' => 104,
-			'NOWAIT' => 105,
-			'DOMAIN' => 279,
-			'EXECUTE' => 280,
-			'PRIOR' => 106,
-			'UNKNOWN' => 281,
-			'OFF' => 110,
-			'SET' => 112,
-			'IMMEDIATE' => 113,
-			'COMMENT' => 114,
-			'DELIMITER' => 115,
-			'CONTENT' => 283,
-			'QUOTED_IDENTIFIER' => 284,
-			'REINDEX' => 119,
-			'SERVER' => 285,
-			'ACCESS' => 121,
-			'RELATIVE' => 286,
-			'TRANSACTION' => 288,
-			'OPTION' => 122,
-			'COMMENTS' => 123,
-			'CONFIGURATION' => 289,
-			'NAMES' => 290,
-			'DEALLOCATE' => 125,
-			'PARSER' => 291,
-			'RENAME' => 292,
-			'CATALOG' => 126,
-			'ALTER' => 295,
-			'CURRENT' => 294,
-			'RESTART' => 128,
-			'MAPPING' => 129,
-			'OF' => 130,
-			'IMPLICIT' => 297,
-			'UNLOGGED' => 131,
-			'CONTINUE' => 132,
-			'CLUSTER' => 298,
-			'UNBOUNDED' => 134,
-			'READ' => 135,
-			'PRECEDING' => 137,
-			'STABLE' => 139,
-			'PASSWORD' => 301,
-			'RECHECK' => 303,
-			'NEXT' => 304,
-			'PREPARED' => 305,
-			'XML' => 142,
-			'TEMPORARY' => 306,
-			'COMMITTED' => 307,
-			'SCROLL' => 143,
-			'TEXT' => 144,
-			'GRANTED' => 309,
-			'BEGIN' => 310,
-			'NOTIFY' => 311,
-			'FUNCTION' => 146,
-			'ALSO' => 145,
-			'HEADER' => 312,
-			'SYSTEM' => 147,
-			'AGGREGATE' => 148,
-			'ATTRIBUTE' => 150,
-			'LC_CTYPE' => 314,
-			'NAME' => 315,
-			'ADD' => 152,
-			'STRIP' => 153,
-			'TABLESPACE' => 154,
-			'FUNCTIONS' => 316,
-			'ISOLATION' => 317,
-			'STORAGE' => 318,
-			'STDIN' => 319,
-			'VIEW' => 156,
-			'DEFERRED' => 157,
-			'REPEATABLE' => 158,
-			'RESTRICT' => 320,
-			'CYCLE' => 324,
-			'UNCOMMITTED' => 323,
-			'ALWAYS' => 159,
-			'MAXVALUE' => 325,
-			'FORWARD' => 161,
-			'CONSTRAINTS' => 160,
-			'START' => 326,
-			'NOTHING' => 162,
-			'DOCUMENT' => 327,
-			'IF' => 328,
-			'SAVEPOINT' => 329,
-			'EXCLUDING' => 163,
-			'ROWS' => 330,
-			'LAST' => 331,
-			'MINVALUE' => 332,
-			'INDEXES' => 165,
-			'CHECKPOINT' => 166,
-			'KEY' => 333,
-			'CACHE' => 167,
-			'OPERATOR' => 335,
-			'UNTIL' => 334,
-			'HOLD' => 336,
-			'COMMIT' => 168,
-			'DECLARE' => 169,
-			'ACTION' => 337,
-			'UNLISTEN' => 170,
-			'WRITE' => 338,
-			'LOAD' => 171,
-			'ROLE' => 339,
-			'SESSION' => 341,
-			'FAMILY' => 172,
-			'CONVERSION' => 342,
-			'DATABASE' => 344,
-			'ENUM' => 343,
-			'ASSERTION' => 174,
-			'GLOBAL' => 176,
-			'EXTERNAL' => 177,
-			'ENABLE' => 345,
-			'LOCAL' => 346,
-			'STDOUT' => 180,
-			'REVOKE' => 181,
-			'TABLES' => 350,
-			'VALID' => 349,
-			'INHERIT' => 183,
-			'TRIGGER' => 351,
-			'COLLATION' => 353,
-			'EXPLAIN' => 185,
-			'UNENCRYPTED' => 354,
-			'OIDS' => 186,
-			'FIRST' => 357,
-			'AFTER' => 188,
-			'DISABLE' => 190,
-			'CSV' => 189,
-			'VERSION' => 358
-		},
-		GOTOS => {
-			'query_source' => 500,
+			'query_source' => 490,
 			'identifier' => 400,
 			'table_source' => 401,
 			'keywords_notreserved' => 257,
 			'join_source' => 403
+		}
+	},
+	{#State 454
+		DEFAULT => -15
+	},
+	{#State 455
+		ACTIONS => {
+			'JOIN' => 491,
+			'OUTER' => 492
+		}
+	},
+	{#State 456
+		ACTIONS => {
+			'JOIN' => 493
+		}
+	},
+	{#State 457
+		ACTIONS => {
+			'JOIN' => 494,
+			'OUTER' => 495
+		}
+	},
+	{#State 458
+		ACTIONS => {
+			'VACUUM' => 191,
+			'INPUT' => 10,
+			'SYSID' => 9,
+			'REPLACE' => 12,
+			'SERIALIZABLE' => 11,
+			'SCHEMA' => 192,
+			'AT' => 14,
+			'INSENSITIVE' => 13,
+			'RETURNS' => 15,
+			'LC_COLLATE' => 194,
+			'INDEX' => 196,
+			'DEFINER' => 197,
+			'INVOKER' => 18,
+			'WORK' => 19,
+			'ADMIN' => 200,
+			'INCLUDING' => 201,
+			'OWNED' => 202,
+			'PASSING' => 20,
+			'INSTEAD' => 204,
+			'MODE' => 21,
+			'INHERITS' => 23,
+			'VALUE' => 24,
+			'ESCAPE' => 25,
+			'DROP' => 26,
+			'MONTH' => 27,
+			'EACH' => 206,
+			'ENCODING' => 29,
+			'TRUSTED' => 207,
+			'EXCLUSIVE' => 208,
+			'OWNER' => 209,
+			'TEMPLATE' => 30,
+			'DICTIONARY' => 31,
+			'SEARCH' => 32,
+			'PREPARE' => 33,
+			'LOCK' => 34,
+			'DEFAULTS' => 35,
+			'CASCADE' => 211,
+			'STATEMENT' => 212,
+			'BY' => 39,
+			'NO' => 40,
+			'MINUTE' => 41,
+			'ASSIGNMENT' => 214,
+			'RANGE' => 42,
+			'PARTITION' => 43,
+			'DAY' => 44,
+			'DATA' => 45,
+			'SHARE' => 47,
+			'REF' => 48,
+			'MATCH' => 215,
+			'CLASS' => 218,
+			'DOUBLE' => 402,
+			'MOVE' => 219,
+			'LARGE' => 51,
+			'DELETE' => 52,
+			'CURSOR' => 223,
+			'INLINE' => 224,
+			'CONNECTION' => 54,
+			'BACKWARD' => 56,
+			'CLOSE' => 55,
+			'COST' => 57,
+			'ENCRYPTED' => 225,
+			'EXTENSION' => 226,
+			'REPLICA' => 58,
+			'CHAIN' => 227,
+			'RECURSIVE' => 228,
+			'PRIVILEGES' => 59,
+			'VALIDATOR' => 229,
+			'UQUOTED_IDENTIFIER' => 232,
+			'ZONE' => 60,
+			'CASCADED' => 234,
+			'DISCARD' => 235,
+			'STATISTICS' => 62,
+			'CALLED' => 64,
+			'SECURITY' => 66,
+			'ABORT' => 237,
+			'INCREMENT' => 68,
+			'LEVEL' => 70,
+			'FORCE' => 71,
+			'BEFORE' => 242,
+			'TRUNCATE' => 241,
+			'IDENTIFIER' => 244,
+			'ABSOLUTE' => 243,
+			'SHOW' => 245,
+			'PLANS' => 247,
+			'PARTIAL' => 248,
+			'SEQUENCES' => 249,
+			'EXCLUDE' => 250,
+			'UPDATE' => 75,
+			'PRESERVE' => 76,
+			'SECOND' => 253,
+			'WHITESPACE' => 251,
+			'CHARACTERISTICS' => 78,
+			'VALIDATE' => 79,
+			'STRICT' => 81,
+			'HOUR' => 255,
+			'VARYING' => 83,
+			'FOLLOWING' => 258,
+			'LISTEN' => 260,
+			'WRAPPER' => 259,
+			'REASSIGN' => 85,
+			'VOLATILE' => 261,
+			'LANGUAGE' => 262,
+			'STANDALONE' => 264,
+			'TEMP' => 265,
+			'YEAR' => 263,
+			'ROLLBACK' => 86,
+			'LABEL' => 87,
+			'COPY' => 266,
+			'WITHOUT' => 267,
+			'OBJECT' => 88,
+			'PROCEDURE' => 89,
+			'DELIMITERS' => 90,
+			'RULE' => 92,
+			'OPTIONS' => 268,
+			'INSERT' => 95,
+			'PROCEDURAL' => 271,
+			'YES' => 270,
+			'HANDLER' => 96,
+			'SEQUENCE' => 272,
+			'SIMPLE' => 274,
+			'LOCATION' => 98,
+			'IMMUTABLE' => 99,
+			'RELEASE' => 101,
+			'NULLS' => 102,
+			'TYPE' => 103,
+			'IDENTITY' => 275,
+			'QUOTE' => 276,
+			'RESET' => 104,
+			'NOWAIT' => 105,
+			'DOMAIN' => 279,
+			'EXECUTE' => 280,
+			'PRIOR' => 106,
+			'UNKNOWN' => 281,
+			'OFF' => 110,
+			'SET' => 112,
+			'IMMEDIATE' => 113,
+			'COMMENT' => 114,
+			'DELIMITER' => 115,
+			'CONTENT' => 283,
+			'QUOTED_IDENTIFIER' => 284,
+			'REINDEX' => 119,
+			'SERVER' => 285,
+			'ACCESS' => 121,
+			'RELATIVE' => 286,
+			'TRANSACTION' => 288,
+			'OPTION' => 122,
+			'COMMENTS' => 123,
+			'CONFIGURATION' => 289,
+			'NAMES' => 290,
+			'DEALLOCATE' => 125,
+			'PARSER' => 291,
+			'RENAME' => 292,
+			'CATALOG' => 126,
+			'ALTER' => 295,
+			'CURRENT' => 294,
+			'RESTART' => 128,
+			'MAPPING' => 129,
+			'OF' => 130,
+			'IMPLICIT' => 297,
+			'UNLOGGED' => 131,
+			'CONTINUE' => 132,
+			'CLUSTER' => 298,
+			'UNBOUNDED' => 134,
+			'READ' => 135,
+			'PRECEDING' => 137,
+			'STABLE' => 139,
+			'PASSWORD' => 301,
+			'RECHECK' => 303,
+			'NEXT' => 304,
+			'PREPARED' => 305,
+			'XML' => 142,
+			'TEMPORARY' => 306,
+			'COMMITTED' => 307,
+			'SCROLL' => 143,
+			'TEXT' => 144,
+			'GRANTED' => 309,
+			'BEGIN' => 310,
+			'NOTIFY' => 311,
+			'FUNCTION' => 146,
+			'ALSO' => 145,
+			'HEADER' => 312,
+			'SYSTEM' => 147,
+			'AGGREGATE' => 148,
+			'ATTRIBUTE' => 150,
+			'LC_CTYPE' => 314,
+			'NAME' => 315,
+			'ADD' => 152,
+			'STRIP' => 153,
+			'TABLESPACE' => 154,
+			'FUNCTIONS' => 316,
+			'ISOLATION' => 317,
+			'STORAGE' => 318,
+			'STDIN' => 319,
+			'VIEW' => 156,
+			'DEFERRED' => 157,
+			'REPEATABLE' => 158,
+			'RESTRICT' => 320,
+			'CYCLE' => 324,
+			'UNCOMMITTED' => 323,
+			'ALWAYS' => 159,
+			'MAXVALUE' => 325,
+			'FORWARD' => 161,
+			'CONSTRAINTS' => 160,
+			'START' => 326,
+			'NOTHING' => 162,
+			'DOCUMENT' => 327,
+			'IF' => 328,
+			'SAVEPOINT' => 329,
+			'EXCLUDING' => 163,
+			'ROWS' => 330,
+			'LAST' => 331,
+			'MINVALUE' => 332,
+			'INDEXES' => 165,
+			'CHECKPOINT' => 166,
+			'KEY' => 333,
+			'CACHE' => 167,
+			'OPERATOR' => 335,
+			'UNTIL' => 334,
+			'HOLD' => 336,
+			'COMMIT' => 168,
+			'DECLARE' => 169,
+			'ACTION' => 337,
+			'UNLISTEN' => 170,
+			'WRITE' => 338,
+			'LOAD' => 171,
+			'ROLE' => 339,
+			'SESSION' => 341,
+			'FAMILY' => 172,
+			'CONVERSION' => 342,
+			'DATABASE' => 344,
+			'ENUM' => 343,
+			'ASSERTION' => 174,
+			'GLOBAL' => 176,
+			'EXTERNAL' => 177,
+			'ENABLE' => 345,
+			'LOCAL' => 346,
+			'STDOUT' => 180,
+			'REVOKE' => 181,
+			'TABLES' => 350,
+			'VALID' => 349,
+			'INHERIT' => 183,
+			'TRIGGER' => 351,
+			'COLLATION' => 353,
+			'EXPLAIN' => 185,
+			'UNENCRYPTED' => 354,
+			'OIDS' => 186,
+			'FIRST' => 357,
+			'AFTER' => 188,
+			'DISABLE' => 190,
+			'CSV' => 189,
+			'VERSION' => 358
+		},
+		GOTOS => {
+			'query_source' => 496,
+			'identifier' => 400,
+			'table_source' => 401,
+			'keywords_notreserved' => 257,
+			'join_source' => 403
+		}
+	},
+	{#State 459
+		ACTIONS => {
+			'JOIN' => 497
+		}
+	},
+	{#State 460
+		ACTIONS => {
+			'JOIN' => 498,
+			'OUTER' => 499
+		}
+	},
+	{#State 461
+		ACTIONS => {
+			'INNER' => 456,
+			'JOIN' => 454,
+			'LEFT' => 457,
+			'RIGHT' => 460,
+			'FULL' => 455
+		},
+		GOTOS => {
+			'normal_join_operator' => 500
 		}
 	},
 	{#State 462
@@ -14269,34 +14271,57 @@ sub new {
 		}
 	},
 	{#State 490
-		DEFAULT => -22
+		ACTIONS => {
+			'JOIN' => 454,
+			'RIGHT' => 460,
+			'FULL' => 455,
+			'INNER' => 456,
+			'LEFT' => 457,
+			'NATURAL' => 461,
+			'CROSS' => 459
+		},
+		DEFAULT => -9,
+		GOTOS => {
+			'normal_join_operator' => 458
+		}
 	},
 	{#State 491
+		DEFAULT => -22
+	},
+	{#State 492
 		ACTIONS => {
 			'JOIN' => 518
 		}
 	},
-	{#State 492
+	{#State 493
 		DEFAULT => -16
 	},
-	{#State 493
+	{#State 494
 		DEFAULT => -17
 	},
-	{#State 494
+	{#State 495
 		ACTIONS => {
 			'JOIN' => 519
 		}
 	},
-	{#State 495
+	{#State 496
 		ACTIONS => {
+			'JOIN' => 454,
 			'USING' => 521,
-			'ON' => 520
+			'ON' => 520,
+			'RIGHT' => 460,
+			'FULL' => 455,
+			'INNER' => 456,
+			'NATURAL' => 461,
+			'LEFT' => 457,
+			'CROSS' => 459
 		},
 		GOTOS => {
-			'join_condition' => 522
+			'join_condition' => 522,
+			'normal_join_operator' => 458
 		}
 	},
-	{#State 496
+	{#State 497
 		ACTIONS => {
 			'VACUUM' => 191,
 			'INPUT' => 10,
@@ -14551,20 +14576,22 @@ sub new {
 			'VERSION' => 358
 		},
 		GOTOS => {
+			'query_source' => 523,
 			'identifier' => 400,
-			'table_source' => 523,
-			'keywords_notreserved' => 257
+			'table_source' => 401,
+			'keywords_notreserved' => 257,
+			'join_source' => 403
 		}
 	},
-	{#State 497
+	{#State 498
 		DEFAULT => -19
 	},
-	{#State 498
+	{#State 499
 		ACTIONS => {
 			'JOIN' => 524
 		}
 	},
-	{#State 499
+	{#State 500
 		ACTIONS => {
 			'VACUUM' => 191,
 			'INPUT' => 10,
@@ -14819,13 +14846,12 @@ sub new {
 			'VERSION' => 358
 		},
 		GOTOS => {
+			'query_source' => 525,
 			'identifier' => 400,
-			'table_source' => 525,
-			'keywords_notreserved' => 257
+			'table_source' => 401,
+			'keywords_notreserved' => 257,
+			'join_source' => 403
 		}
-	},
-	{#State 500
-		DEFAULT => -9
 	},
 	{#State 501
 		DEFAULT => -44
@@ -15556,13 +15582,19 @@ sub new {
 		DEFAULT => -12
 	},
 	{#State 523
-		DEFAULT => -14
+		DEFAULT => -14,
+		GOTOS => {
+			'normal_join_operator' => 458
+		}
 	},
 	{#State 524
 		DEFAULT => -20
 	},
 	{#State 525
-		DEFAULT => -13
+		DEFAULT => -13,
+		GOTOS => {
+			'normal_join_operator' => 458
+		}
 	},
 	{#State 526
 		ACTIONS => {
@@ -16190,852 +16222,852 @@ sub new {
 [
 	[#Rule _SUPERSTART
 		 '$start', 2, undef
-#line 16193 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16225 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule top_1
 		 'top', 1,
 sub {
-#line 22 "SQL.eyp"
+#line 24 "SQL.eyp"
  $_[1] }
-#line 16200 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16232 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_2
 		 'statements', 1,
 sub {
-#line 25 "SQL.eyp"
+#line 27 "SQL.eyp"
  [ $_[1] ] }
-#line 16207 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16239 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_3
 		 'statements', 3,
 sub {
-#line 26 "SQL.eyp"
+#line 28 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 16214 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16246 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statements_4
 		 'statements', 2,
 sub {
-#line 27 "SQL.eyp"
+#line 29 "SQL.eyp"
  $_[1] }
-#line 16221 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16253 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule statement_5
 		 'statement', 1,
 sub {
-#line 30 "SQL.eyp"
+#line 32 "SQL.eyp"
  $_[1] }
-#line 16228 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16260 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_6
 		 'select_stmt', 2,
 sub {
-#line 33 "SQL.eyp"
+#line 35 "SQL.eyp"
  $factory->make( 'Select', 'results' => $_[2] ) }
-#line 16235 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16267 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule select_stmt_7
 		 'select_stmt', 4,
 sub {
-#line 34 "SQL.eyp"
+#line 36 "SQL.eyp"
  $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
-#line 16242 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16274 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule query_sources_8
 		 'query_sources', 1,
 sub {
-#line 37 "SQL.eyp"
+#line 39 "SQL.eyp"
  [ $_[1] ] }
-#line 16249 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16281 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule query_sources_9
 		 'query_sources', 3,
 sub {
-#line 38 "SQL.eyp"
+#line 40 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 16256 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16288 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule query_source_10
 		 'query_source', 1,
 sub {
-#line 41 "SQL.eyp"
+#line 43 "SQL.eyp"
  $_[1] }
-#line 16263 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16295 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule query_source_11
 		 'query_source', 1,
 sub {
-#line 42 "SQL.eyp"
+#line 44 "SQL.eyp"
  $_[1] }
-#line 16270 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16302 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_source_12
 		 'join_source', 4,
 sub {
-#line 45 "SQL.eyp"
+#line 47 "SQL.eyp"
  $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => $_[2], 'condition_type' => $_[4]->[0], 'condition' => $_[4]->[1] ) }
-#line 16277 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16309 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_source_13
 		 'join_source', 4,
 sub {
-#line 46 "SQL.eyp"
+#line 48 "SQL.eyp"
  $factory->make( 'Join', 'left' => $_[1], 'right' => $_[4], 'type' => 'natural ' . $_[3] ) }
-#line 16284 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16316 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_source_14
 		 'join_source', 4,
 sub {
-#line 47 "SQL.eyp"
+#line 49 "SQL.eyp"
  $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => 'cross join' ) }
-#line 16291 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16323 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_15
 		 'normal_join_operator', 1,
 sub {
-#line 50 "SQL.eyp"
+#line 52 "SQL.eyp"
  "join" }
-#line 16298 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16330 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_16
 		 'normal_join_operator', 2,
 sub {
-#line 51 "SQL.eyp"
+#line 53 "SQL.eyp"
  "inner join" }
-#line 16305 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16337 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_17
 		 'normal_join_operator', 2,
 sub {
-#line 52 "SQL.eyp"
+#line 54 "SQL.eyp"
  "left join" }
-#line 16312 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16344 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_18
 		 'normal_join_operator', 3,
 sub {
-#line 53 "SQL.eyp"
+#line 55 "SQL.eyp"
  "left outer join" }
-#line 16319 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16351 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_19
 		 'normal_join_operator', 2,
 sub {
-#line 54 "SQL.eyp"
+#line 56 "SQL.eyp"
  "right join" }
-#line 16326 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16358 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_20
 		 'normal_join_operator', 3,
 sub {
-#line 55 "SQL.eyp"
+#line 57 "SQL.eyp"
  "right outer join" }
-#line 16333 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16365 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_21
 		 'normal_join_operator', 3,
 sub {
-#line 56 "SQL.eyp"
+#line 58 "SQL.eyp"
  "full outer join" }
-#line 16340 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16372 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_join_operator_22
 		 'normal_join_operator', 2,
 sub {
-#line 57 "SQL.eyp"
+#line 59 "SQL.eyp"
  "full join" }
-#line 16347 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16379 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_condition_23
 		 'join_condition', 2,
 sub {
-#line 60 "SQL.eyp"
+#line 62 "SQL.eyp"
  [ 'on', $_[2] ] }
-#line 16354 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16386 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_condition_24
 		 'join_condition', 4,
 sub {
-#line 61 "SQL.eyp"
+#line 63 "SQL.eyp"
  [ 'using', $_[3] ] }
-#line 16361 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16393 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_using_column_list_25
 		 'join_using_column_list', 1,
 sub {
-#line 64 "SQL.eyp"
+#line 66 "SQL.eyp"
  [ $factory->make( 'Column', 'name' => $_[1] ) ] }
-#line 16368 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16400 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule join_using_column_list_26
 		 'join_using_column_list', 3,
 sub {
-#line 65 "SQL.eyp"
+#line 67 "SQL.eyp"
  push @{ $_[1] }, $factory->make( 'Column', 'name' => $_[3] ); $_[1] }
-#line 16375 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16407 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_27
 		 'table_source', 1,
 sub {
-#line 68 "SQL.eyp"
+#line 70 "SQL.eyp"
  $factory->make( 'Table', 'name' => $_[1] ) }
-#line 16382 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16414 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_28
 		 'table_source', 2,
 sub {
-#line 69 "SQL.eyp"
+#line 71 "SQL.eyp"
  $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[2] ) }
-#line 16389 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16421 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_29
 		 'table_source', 3,
 sub {
-#line 70 "SQL.eyp"
+#line 72 "SQL.eyp"
  $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[2] ) }
-#line 16396 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16428 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_30
 		 'table_source', 4,
 sub {
-#line 71 "SQL.eyp"
+#line 73 "SQL.eyp"
  $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[4] ) }
-#line 16403 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16435 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_31
 		 'table_source', 3,
 sub {
-#line 72 "SQL.eyp"
+#line 74 "SQL.eyp"
  $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[3] ) }
-#line 16410 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16442 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule table_source_32
 		 'table_source', 5,
 sub {
-#line 73 "SQL.eyp"
+#line 75 "SQL.eyp"
  $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[5] ) }
-#line 16417 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16449 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_33
 		 'result_columns', 1,
 sub {
-#line 76 "SQL.eyp"
+#line 78 "SQL.eyp"
  [ $_[1] ] }
-#line 16424 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16456 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_columns_34
 		 'result_columns', 3,
 sub {
-#line 77 "SQL.eyp"
+#line 79 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 16431 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16463 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_35
 		 'result_column', 1,
 sub {
-#line 80 "SQL.eyp"
+#line 82 "SQL.eyp"
  $factory->make( 'Result_Column', 'value' => $_[1] ) }
-#line 16438 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16470 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule result_column_36
 		 'result_column', 3,
 sub {
-#line 81 "SQL.eyp"
+#line 83 "SQL.eyp"
  $factory->make( 'Result_Column', 'value' => $_[1], 'alias' => $_[3] ) }
-#line 16445 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16477 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_37
 		 'expr', 1,
 sub {
-#line 84 "SQL.eyp"
+#line 86 "SQL.eyp"
  $_[1] }
-#line 16452 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16484 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_38
 		 'expr', 1,
 sub {
-#line 85 "SQL.eyp"
+#line 87 "SQL.eyp"
  $_[1] }
-#line 16459 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16491 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_39
 		 'expr', 1,
 sub {
-#line 86 "SQL.eyp"
+#line 88 "SQL.eyp"
  $_[1] }
-#line 16466 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16498 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_40
 		 'expr', 1,
 sub {
-#line 87 "SQL.eyp"
+#line 89 "SQL.eyp"
  $_[1] }
-#line 16473 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16505 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_41
 		 'expr', 1,
 sub {
-#line 88 "SQL.eyp"
+#line 90 "SQL.eyp"
  $_[1] }
-#line 16480 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16512 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule column_expression_42
 		 'column_expression', 1,
 sub {
-#line 91 "SQL.eyp"
+#line 93 "SQL.eyp"
  $factory->make( 'Column', 'name' => $_[1] ) }
-#line 16487 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16519 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule column_expression_43
 		 'column_expression', 3,
 sub {
-#line 92 "SQL.eyp"
+#line 94 "SQL.eyp"
  $factory->make( 'Column', 'name' => $_[3], 'source' => [ $_[1] ] ) }
-#line 16494 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16526 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule column_expression_44
 		 'column_expression', 5,
 sub {
-#line 93 "SQL.eyp"
+#line 95 "SQL.eyp"
  $factory->make( 'Column', 'name' => $_[5], 'source' => [ $_[1], $_[3] ] ) }
-#line 16501 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16533 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_expression_45
 		 'function_expression', 4,
 sub {
-#line 96 "SQL.eyp"
+#line 98 "SQL.eyp"
  $_[1]->arguments( $_[3] ); $_[1] }
-#line 16508 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16540 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_name_46
 		 'function_name', 1,
 sub {
-#line 99 "SQL.eyp"
+#line 101 "SQL.eyp"
  $factory->make( 'Function', 'name' => $_[1] ) }
-#line 16515 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16547 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_name_47
 		 'function_name', 3,
 sub {
-#line 100 "SQL.eyp"
+#line 102 "SQL.eyp"
  $factory->make( 'Function', 'name' => $_[3], 'schema' => $_[1] ) }
-#line 16522 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16554 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_args_48
 		 'function_args', 1,
 sub {
-#line 103 "SQL.eyp"
+#line 105 "SQL.eyp"
  [ $_[1] ] }
-#line 16529 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16561 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_args_49
 		 'function_args', 3,
 sub {
-#line 104 "SQL.eyp"
+#line 106 "SQL.eyp"
  push @{ $_[1] }, $_[3]; $_[1] }
-#line 16536 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16568 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule function_args_50
 		 'function_args', 0,
 sub {
-#line 105 "SQL.eyp"
+#line 107 "SQL.eyp"
  [] }
-#line 16543 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16575 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_51
 		 'operator_expression', 5,
 sub {
-#line 108 "SQL.eyp"
+#line 110 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-#line 16550 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16582 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_52
 		 'operator_expression', 2,
 sub {
-#line 109 "SQL.eyp"
+#line 111 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-#line 16557 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16589 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_53
 		 'operator_expression', 2,
 sub {
-#line 110 "SQL.eyp"
+#line 112 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-#line 16564 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16596 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_54
 		 'operator_expression', 3,
 sub {
-#line 111 "SQL.eyp"
+#line 113 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16571 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16603 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_55
 		 'operator_expression', 3,
 sub {
-#line 112 "SQL.eyp"
+#line 114 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16578 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16610 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_56
 		 'operator_expression', 3,
 sub {
-#line 113 "SQL.eyp"
+#line 115 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16585 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16617 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_57
 		 'operator_expression', 3,
 sub {
-#line 114 "SQL.eyp"
+#line 116 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16592 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16624 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_58
 		 'operator_expression', 3,
 sub {
-#line 115 "SQL.eyp"
+#line 117 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16599 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16631 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_59
 		 'operator_expression', 3,
 sub {
-#line 116 "SQL.eyp"
+#line 118 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16606 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16638 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_60
 		 'operator_expression', 3,
 sub {
-#line 117 "SQL.eyp"
+#line 119 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16613 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16645 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_61
 		 'operator_expression', 3,
 sub {
-#line 118 "SQL.eyp"
+#line 120 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16620 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16652 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_62
 		 'operator_expression', 3,
 sub {
-#line 119 "SQL.eyp"
+#line 121 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16627 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16659 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_63
 		 'operator_expression', 3,
 sub {
-#line 120 "SQL.eyp"
+#line 122 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16634 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16666 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_64
 		 'operator_expression', 3,
 sub {
-#line 121 "SQL.eyp"
+#line 123 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16641 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16673 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule operator_expression_65
 		 'operator_expression', 3,
 sub {
-#line 122 "SQL.eyp"
+#line 124 "SQL.eyp"
  $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-#line 16648 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16680 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule cast_expression_66
 		 'cast_expression', 3,
 sub {
-#line 125 "SQL.eyp"
+#line 127 "SQL.eyp"
  $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
-#line 16655 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16687 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule cast_expression_67
 		 'cast_expression', 6,
 sub {
-#line 126 "SQL.eyp"
+#line 128 "SQL.eyp"
  $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
-#line 16662 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16694 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule cast_expression_68
 		 'cast_expression', 2,
 sub {
-#line 127 "SQL.eyp"
+#line 129 "SQL.eyp"
  $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
-#line 16669 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16701 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_69
 		 'expr_simple', 1,
 sub {
-#line 130 "SQL.eyp"
+#line 132 "SQL.eyp"
  $_[1] }
-#line 16676 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16708 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule expr_simple_70
 		 'expr_simple', 3,
 sub {
-#line 131 "SQL.eyp"
+#line 133 "SQL.eyp"
  $_[2] }
-#line 16683 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16715 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_71
 		 'literal_value', 1,
 sub {
-#line 134 "SQL.eyp"
+#line 136 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }
-#line 16690 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16722 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_72
 		 'literal_value', 1,
 sub {
-#line 135 "SQL.eyp"
+#line 137 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'USTRING_CONSTANT',    'value' => $_[1] ) }
-#line 16697 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16729 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_73
 		 'literal_value', 1,
 sub {
-#line 136 "SQL.eyp"
+#line 138 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'ESTRING_CONSTANT',    'value' => $_[1] ) }
-#line 16704 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16736 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_74
 		 'literal_value', 1,
 sub {
-#line 137 "SQL.eyp"
+#line 139 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'BITSTRING_CONSTANT',  'value' => $_[1] ) }
-#line 16711 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16743 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_75
 		 'literal_value', 1,
 sub {
-#line 138 "SQL.eyp"
+#line 140 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'XBITSTRING_CONSTANT', 'value' => $_[1] ) }
-#line 16718 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16750 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_76
 		 'literal_value', 1,
 sub {
-#line 139 "SQL.eyp"
+#line 141 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'NUMERIC_CONSTANT',    'value' => $_[1] ) }
-#line 16725 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16757 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule literal_value_77
 		 'literal_value', 1,
 sub {
-#line 140 "SQL.eyp"
+#line 142 "SQL.eyp"
  $factory->make( 'Literal_Value', 'type', => 'INTEGER_CONSTANT',    'value' => $_[1] ) }
-#line 16732 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16764 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_78
 		 'identifier', 1,
 sub {
-#line 143 "SQL.eyp"
+#line 145 "SQL.eyp"
  $_[1] }
-#line 16739 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16771 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_79
 		 'identifier', 1,
 sub {
-#line 144 "SQL.eyp"
+#line 146 "SQL.eyp"
  $_[1] }
-#line 16746 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16778 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_80
 		 'identifier', 1,
 sub {
-#line 145 "SQL.eyp"
+#line 147 "SQL.eyp"
  $_[1] }
-#line 16753 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16785 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule identifier_81
 		 'identifier', 1,
 sub {
-#line 146 "SQL.eyp"
+#line 148 "SQL.eyp"
  $_[1] }
-#line 16760 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16792 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_82
 		 'normal_type', 1,
 sub {
-#line 149 "SQL.eyp"
+#line 151 "SQL.eyp"
  $_[1] }
-#line 16767 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16799 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_83
 		 'normal_type', 4,
 sub {
-#line 150 "SQL.eyp"
+#line 152 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 16774 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16806 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_84
 		 'normal_type', 6,
 sub {
-#line 151 "SQL.eyp"
+#line 153 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 16781 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16813 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_85
 		 'normal_type', 4,
 sub {
-#line 152 "SQL.eyp"
+#line 154 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 16788 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16820 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_86
 		 'normal_type', 6,
 sub {
-#line 153 "SQL.eyp"
+#line 155 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3], $_[5] ] ) }
-#line 16795 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16827 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_87
 		 'normal_type', 4,
 sub {
-#line 154 "SQL.eyp"
+#line 156 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1], 'limits' => [ $_[3] ] ) }
-#line 16802 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16834 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_88
 		 'normal_type', 1,
 sub {
-#line 155 "SQL.eyp"
+#line 157 "SQL.eyp"
  $_[1] }
-#line 16809 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16841 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_89
 		 'normal_type', 1,
 sub {
-#line 156 "SQL.eyp"
+#line 158 "SQL.eyp"
  $_[1] }
-#line 16816 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16848 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule normal_type_90
 		 'normal_type', 1,
 sub {
-#line 157 "SQL.eyp"
+#line 159 "SQL.eyp"
  $_[1] }
-#line 16823 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16855 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_91
 		 'simple_type', 1,
 sub {
-#line 160 "SQL.eyp"
+#line 162 "SQL.eyp"
  $_[1] }
-#line 16830 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16862 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule simple_type_92
 		 'simple_type', 3,
 sub {
-#line 161 "SQL.eyp"
+#line 163 "SQL.eyp"
  $_[3]->schema( $_[1] ); $_[3] }
-#line 16837 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16869 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_type_93
 		 'base_type', 1,
 sub {
-#line 164 "SQL.eyp"
+#line 166 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 16844 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16876 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_type_94
 		 'base_type', 1,
 sub {
-#line 165 "SQL.eyp"
+#line 167 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 16851 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16883 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_type_95
 		 'base_type', 1,
 sub {
-#line 166 "SQL.eyp"
+#line 168 "SQL.eyp"
  $factory->make( 'Type', 'name' => $_[1] ) }
-#line 16858 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16890 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_type_96
 		 'base_type', 2,
 sub {
-#line 167 "SQL.eyp"
+#line 169 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'double precision' ) }
-#line 16865 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16897 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule timestamp_type_97
 		 'timestamp_type', 4,
 sub {
-#line 170 "SQL.eyp"
+#line 172 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'timestamp with time zone' ) }
-#line 16872 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16904 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule timestamp_type_98
 		 'timestamp_type', 4,
 sub {
-#line 171 "SQL.eyp"
+#line 173 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'timestamp without time zone' ) }
-#line 16879 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16911 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule timestamp_type_99
 		 'timestamp_type', 4,
 sub {
-#line 172 "SQL.eyp"
+#line 174 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp' ) }
-#line 16886 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16918 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule timestamp_type_100
 		 'timestamp_type', 7,
 sub {
-#line 173 "SQL.eyp"
+#line 175 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp with time zone' ) }
-#line 16893 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16925 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule timestamp_type_101
 		 'timestamp_type', 7,
 sub {
-#line 174 "SQL.eyp"
+#line 176 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'timestamp without time zone' ) }
-#line 16900 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16932 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule time_type_102
 		 'time_type', 4,
 sub {
-#line 177 "SQL.eyp"
+#line 179 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'time with time zone' ) }
-#line 16907 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16939 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule time_type_103
 		 'time_type', 4,
 sub {
-#line 178 "SQL.eyp"
+#line 180 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'time without time zone' ) }
-#line 16914 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16946 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule time_type_104
 		 'time_type', 4,
 sub {
-#line 179 "SQL.eyp"
+#line 181 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time' ) }
-#line 16921 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16953 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule time_type_105
 		 'time_type', 7,
 sub {
-#line 180 "SQL.eyp"
+#line 182 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time with time zone' ) }
-#line 16928 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16960 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule time_type_106
 		 'time_type', 7,
 sub {
-#line 181 "SQL.eyp"
+#line 183 "SQL.eyp"
  $factory->make( 'Type', 'limits' => [ $_[3] ], 'name' => 'time without time zone' ) }
-#line 16935 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16967 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_107
 		 'interval_type', 4,
 sub {
-#line 184 "SQL.eyp"
+#line 186 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
-#line 16942 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16974 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_108
 		 'interval_type', 2,
 sub {
-#line 185 "SQL.eyp"
+#line 187 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' year' ); $_[1] }
-#line 16949 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16981 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_109
 		 'interval_type', 2,
 sub {
-#line 186 "SQL.eyp"
+#line 188 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' month' ); $_[1] }
-#line 16956 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16988 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_110
 		 'interval_type', 2,
 sub {
-#line 187 "SQL.eyp"
+#line 189 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' day' ); $_[1] }
-#line 16963 ../lib/Pg/SQL/Parser/SQL.pm
+#line 16995 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_111
 		 'interval_type', 2,
 sub {
-#line 188 "SQL.eyp"
+#line 190 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' hour' ); $_[1] }
-#line 16970 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17002 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_112
 		 'interval_type', 2,
 sub {
-#line 189 "SQL.eyp"
+#line 191 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' minute' ); $_[1] }
-#line 16977 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17009 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_113
 		 'interval_type', 2,
 sub {
-#line 190 "SQL.eyp"
+#line 192 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' second' ); $_[1] }
-#line 16984 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17016 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_114
 		 'interval_type', 4,
 sub {
-#line 191 "SQL.eyp"
+#line 193 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' year to month' ); $_[1] }
-#line 16991 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17023 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_115
 		 'interval_type', 4,
 sub {
-#line 192 "SQL.eyp"
+#line 194 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' day to hour' ); $_[1] }
-#line 16998 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17030 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_116
 		 'interval_type', 4,
 sub {
-#line 193 "SQL.eyp"
+#line 195 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' day to minute' ); $_[1] }
-#line 17005 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17037 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_117
 		 'interval_type', 4,
 sub {
-#line 194 "SQL.eyp"
+#line 196 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' day to second' ); $_[1] }
-#line 17012 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17044 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_118
 		 'interval_type', 4,
 sub {
-#line 195 "SQL.eyp"
+#line 197 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' hour to minute' ); $_[1] }
-#line 17019 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17051 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_119
 		 'interval_type', 4,
 sub {
-#line 196 "SQL.eyp"
+#line 198 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' hour to second' ); $_[1] }
-#line 17026 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17058 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_120
 		 'interval_type', 4,
 sub {
-#line 197 "SQL.eyp"
+#line 199 "SQL.eyp"
  $_[1]->name( $_[1]->name() . ' minute to second' ); $_[1] }
-#line 17033 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17065 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_121
 		 'interval_type', 5,
 sub {
-#line 198 "SQL.eyp"
+#line 200 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[4];
@@ -17043,12 +17075,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' second' );
                                                                         $_[1]
                                                                     }
-#line 17046 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17078 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_122
 		 'interval_type', 7,
 sub {
-#line 205 "SQL.eyp"
+#line 207 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -17056,12 +17088,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' day to second' );
                                                                         $_[1]
                                                                     }
-#line 17059 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17091 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_123
 		 'interval_type', 7,
 sub {
-#line 212 "SQL.eyp"
+#line 214 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -17069,12 +17101,12 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' hour to second' );
                                                                         $_[1]
                                                                     }
-#line 17072 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17104 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule interval_type_124
 		 'interval_type', 7,
 sub {
-#line 219 "SQL.eyp"
+#line 221 "SQL.eyp"
 
                                                                         my $l = $_[1]->limits() // [];
                                                                         $l->[1] = $_[6];
@@ -17082,1292 +17114,1292 @@ sub {
                                                                         $_[1]->name( $_[1]->name() . ' minute to second' );
                                                                         $_[1]
                                                                     }
-#line 17085 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17117 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_interval_type_125
 		 'base_interval_type', 1,
 sub {
-#line 228 "SQL.eyp"
+#line 230 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'interval' ) }
-#line 17092 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17124 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule base_interval_type_126
 		 'base_interval_type', 4,
 sub {
-#line 229 "SQL.eyp"
+#line 231 "SQL.eyp"
  $factory->make( 'Type', 'name' => 'interval', 'limits' => [ $_[3] ] ) }
-#line 17099 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17131 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_127
 		 'keywords_notreserved', 1, undef
-#line 17103 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17135 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_128
 		 'keywords_notreserved', 1, undef
-#line 17107 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17139 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_129
 		 'keywords_notreserved', 1, undef
-#line 17111 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17143 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_130
 		 'keywords_notreserved', 1, undef
-#line 17115 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17147 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_131
 		 'keywords_notreserved', 1, undef
-#line 17119 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17151 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_132
 		 'keywords_notreserved', 1, undef
-#line 17123 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17155 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_133
 		 'keywords_notreserved', 1, undef
-#line 17127 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17159 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_134
 		 'keywords_notreserved', 1, undef
-#line 17131 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17163 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_135
 		 'keywords_notreserved', 1, undef
-#line 17135 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17167 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_136
 		 'keywords_notreserved', 1, undef
-#line 17139 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17171 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_137
 		 'keywords_notreserved', 1, undef
-#line 17143 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17175 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_138
 		 'keywords_notreserved', 1, undef
-#line 17147 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17179 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_139
 		 'keywords_notreserved', 1, undef
-#line 17151 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17183 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_140
 		 'keywords_notreserved', 1, undef
-#line 17155 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17187 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_141
 		 'keywords_notreserved', 1, undef
-#line 17159 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17191 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_142
 		 'keywords_notreserved', 1, undef
-#line 17163 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17195 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_143
 		 'keywords_notreserved', 1, undef
-#line 17167 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17199 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_144
 		 'keywords_notreserved', 1, undef
-#line 17171 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17203 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_145
 		 'keywords_notreserved', 1, undef
-#line 17175 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17207 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_146
 		 'keywords_notreserved', 1, undef
-#line 17179 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17211 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_147
 		 'keywords_notreserved', 1, undef
-#line 17183 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17215 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_148
 		 'keywords_notreserved', 1, undef
-#line 17187 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17219 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_149
 		 'keywords_notreserved', 1, undef
-#line 17191 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17223 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_150
 		 'keywords_notreserved', 1, undef
-#line 17195 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17227 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_151
 		 'keywords_notreserved', 1, undef
-#line 17199 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17231 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_152
 		 'keywords_notreserved', 1, undef
-#line 17203 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17235 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_153
 		 'keywords_notreserved', 1, undef
-#line 17207 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17239 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_154
 		 'keywords_notreserved', 1, undef
-#line 17211 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17243 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_155
 		 'keywords_notreserved', 1, undef
-#line 17215 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17247 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_156
 		 'keywords_notreserved', 1, undef
-#line 17219 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17251 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_157
 		 'keywords_notreserved', 1, undef
-#line 17223 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17255 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_158
 		 'keywords_notreserved', 1, undef
-#line 17227 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17259 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_159
 		 'keywords_notreserved', 1, undef
-#line 17231 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17263 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_160
 		 'keywords_notreserved', 1, undef
-#line 17235 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17267 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_161
 		 'keywords_notreserved', 1, undef
-#line 17239 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17271 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_162
 		 'keywords_notreserved', 1, undef
-#line 17243 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17275 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_163
 		 'keywords_notreserved', 1, undef
-#line 17247 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17279 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_164
 		 'keywords_notreserved', 1, undef
-#line 17251 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17283 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_165
 		 'keywords_notreserved', 1, undef
-#line 17255 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17287 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_166
 		 'keywords_notreserved', 1, undef
-#line 17259 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17291 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_167
 		 'keywords_notreserved', 1, undef
-#line 17263 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17295 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_168
 		 'keywords_notreserved', 1, undef
-#line 17267 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17299 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_169
 		 'keywords_notreserved', 1, undef
-#line 17271 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17303 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_170
 		 'keywords_notreserved', 1, undef
-#line 17275 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17307 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_171
 		 'keywords_notreserved', 1, undef
-#line 17279 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17311 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_172
 		 'keywords_notreserved', 1, undef
-#line 17283 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17315 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_173
 		 'keywords_notreserved', 1, undef
-#line 17287 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17319 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_174
 		 'keywords_notreserved', 1, undef
-#line 17291 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17323 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_175
 		 'keywords_notreserved', 1, undef
-#line 17295 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17327 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_176
 		 'keywords_notreserved', 1, undef
-#line 17299 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17331 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_177
 		 'keywords_notreserved', 1, undef
-#line 17303 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17335 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_178
 		 'keywords_notreserved', 1, undef
-#line 17307 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17339 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_179
 		 'keywords_notreserved', 1, undef
-#line 17311 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17343 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_180
 		 'keywords_notreserved', 1, undef
-#line 17315 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17347 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_181
 		 'keywords_notreserved', 1, undef
-#line 17319 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17351 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_182
 		 'keywords_notreserved', 1, undef
-#line 17323 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17355 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_183
 		 'keywords_notreserved', 1, undef
-#line 17327 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17359 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_184
 		 'keywords_notreserved', 1, undef
-#line 17331 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17363 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_185
 		 'keywords_notreserved', 1, undef
-#line 17335 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17367 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_186
 		 'keywords_notreserved', 1, undef
-#line 17339 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17371 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_187
 		 'keywords_notreserved', 1, undef
-#line 17343 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17375 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_188
 		 'keywords_notreserved', 1, undef
-#line 17347 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17379 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_189
 		 'keywords_notreserved', 1, undef
-#line 17351 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17383 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_190
 		 'keywords_notreserved', 1, undef
-#line 17355 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17387 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_191
 		 'keywords_notreserved', 1, undef
-#line 17359 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17391 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_192
 		 'keywords_notreserved', 1, undef
-#line 17363 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17395 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_193
 		 'keywords_notreserved', 1, undef
-#line 17367 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17399 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_194
 		 'keywords_notreserved', 1, undef
-#line 17371 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17403 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_195
 		 'keywords_notreserved', 1, undef
-#line 17375 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17407 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_196
 		 'keywords_notreserved', 1, undef
-#line 17379 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17411 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_197
 		 'keywords_notreserved', 1, undef
-#line 17383 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17415 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_198
 		 'keywords_notreserved', 1, undef
-#line 17387 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17419 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_199
 		 'keywords_notreserved', 1, undef
-#line 17391 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17423 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_200
 		 'keywords_notreserved', 1, undef
-#line 17395 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17427 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_201
 		 'keywords_notreserved', 1, undef
-#line 17399 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17431 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_202
 		 'keywords_notreserved', 1, undef
-#line 17403 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17435 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_203
 		 'keywords_notreserved', 1, undef
-#line 17407 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17439 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_204
 		 'keywords_notreserved', 1, undef
-#line 17411 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17443 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_205
 		 'keywords_notreserved', 1, undef
-#line 17415 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17447 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_206
 		 'keywords_notreserved', 1, undef
-#line 17419 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17451 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_207
 		 'keywords_notreserved', 1, undef
-#line 17423 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17455 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_208
 		 'keywords_notreserved', 1, undef
-#line 17427 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17459 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_209
 		 'keywords_notreserved', 1, undef
-#line 17431 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17463 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_210
 		 'keywords_notreserved', 1, undef
-#line 17435 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17467 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_211
 		 'keywords_notreserved', 1, undef
-#line 17439 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17471 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_212
 		 'keywords_notreserved', 1, undef
-#line 17443 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17475 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_213
 		 'keywords_notreserved', 1, undef
-#line 17447 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17479 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_214
 		 'keywords_notreserved', 1, undef
-#line 17451 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17483 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_215
 		 'keywords_notreserved', 1, undef
-#line 17455 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17487 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_216
 		 'keywords_notreserved', 1, undef
-#line 17459 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17491 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_217
 		 'keywords_notreserved', 1, undef
-#line 17463 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17495 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_218
 		 'keywords_notreserved', 1, undef
-#line 17467 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17499 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_219
 		 'keywords_notreserved', 1, undef
-#line 17471 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17503 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_220
 		 'keywords_notreserved', 1, undef
-#line 17475 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17507 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_221
 		 'keywords_notreserved', 1, undef
-#line 17479 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17511 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_222
 		 'keywords_notreserved', 1, undef
-#line 17483 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17515 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_223
 		 'keywords_notreserved', 1, undef
-#line 17487 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17519 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_224
 		 'keywords_notreserved', 1, undef
-#line 17491 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17523 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_225
 		 'keywords_notreserved', 1, undef
-#line 17495 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17527 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_226
 		 'keywords_notreserved', 1, undef
-#line 17499 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17531 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_227
 		 'keywords_notreserved', 1, undef
-#line 17503 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17535 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_228
 		 'keywords_notreserved', 1, undef
-#line 17507 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17539 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_229
 		 'keywords_notreserved', 1, undef
-#line 17511 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17543 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_230
 		 'keywords_notreserved', 1, undef
-#line 17515 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17547 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_231
 		 'keywords_notreserved', 1, undef
-#line 17519 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17551 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_232
 		 'keywords_notreserved', 1, undef
-#line 17523 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17555 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_233
 		 'keywords_notreserved', 1, undef
-#line 17527 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17559 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_234
 		 'keywords_notreserved', 1, undef
-#line 17531 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17563 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_235
 		 'keywords_notreserved', 1, undef
-#line 17535 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17567 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_236
 		 'keywords_notreserved', 1, undef
-#line 17539 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17571 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_237
 		 'keywords_notreserved', 1, undef
-#line 17543 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17575 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_238
 		 'keywords_notreserved', 1, undef
-#line 17547 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17579 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_239
 		 'keywords_notreserved', 1, undef
-#line 17551 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17583 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_240
 		 'keywords_notreserved', 1, undef
-#line 17555 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17587 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_241
 		 'keywords_notreserved', 1, undef
-#line 17559 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17591 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_242
 		 'keywords_notreserved', 1, undef
-#line 17563 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17595 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_243
 		 'keywords_notreserved', 1, undef
-#line 17567 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17599 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_244
 		 'keywords_notreserved', 1, undef
-#line 17571 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17603 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_245
 		 'keywords_notreserved', 1, undef
-#line 17575 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17607 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_246
 		 'keywords_notreserved', 1, undef
-#line 17579 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17611 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_247
 		 'keywords_notreserved', 1, undef
-#line 17583 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17615 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_248
 		 'keywords_notreserved', 1, undef
-#line 17587 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17619 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_249
 		 'keywords_notreserved', 1, undef
-#line 17591 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17623 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_250
 		 'keywords_notreserved', 1, undef
-#line 17595 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17627 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_251
 		 'keywords_notreserved', 1, undef
-#line 17599 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17631 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_252
 		 'keywords_notreserved', 1, undef
-#line 17603 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17635 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_253
 		 'keywords_notreserved', 1, undef
-#line 17607 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17639 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_254
 		 'keywords_notreserved', 1, undef
-#line 17611 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17643 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_255
 		 'keywords_notreserved', 1, undef
-#line 17615 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17647 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_256
 		 'keywords_notreserved', 1, undef
-#line 17619 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17651 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_257
 		 'keywords_notreserved', 1, undef
-#line 17623 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17655 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_258
 		 'keywords_notreserved', 1, undef
-#line 17627 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17659 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_259
 		 'keywords_notreserved', 1, undef
-#line 17631 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17663 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_260
 		 'keywords_notreserved', 1, undef
-#line 17635 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17667 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_261
 		 'keywords_notreserved', 1, undef
-#line 17639 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17671 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_262
 		 'keywords_notreserved', 1, undef
-#line 17643 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17675 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_263
 		 'keywords_notreserved', 1, undef
-#line 17647 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17679 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_264
 		 'keywords_notreserved', 1, undef
-#line 17651 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17683 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_265
 		 'keywords_notreserved', 1, undef
-#line 17655 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17687 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_266
 		 'keywords_notreserved', 1, undef
-#line 17659 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17691 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_267
 		 'keywords_notreserved', 1, undef
-#line 17663 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17695 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_268
 		 'keywords_notreserved', 1, undef
-#line 17667 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17699 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_269
 		 'keywords_notreserved', 1, undef
-#line 17671 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17703 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_270
 		 'keywords_notreserved', 1, undef
-#line 17675 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17707 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_271
 		 'keywords_notreserved', 1, undef
-#line 17679 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17711 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_272
 		 'keywords_notreserved', 1, undef
-#line 17683 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17715 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_273
 		 'keywords_notreserved', 1, undef
-#line 17687 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17719 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_274
 		 'keywords_notreserved', 1, undef
-#line 17691 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17723 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_275
 		 'keywords_notreserved', 1, undef
-#line 17695 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17727 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_276
 		 'keywords_notreserved', 1, undef
-#line 17699 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17731 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_277
 		 'keywords_notreserved', 1, undef
-#line 17703 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17735 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_278
 		 'keywords_notreserved', 1, undef
-#line 17707 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17739 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_279
 		 'keywords_notreserved', 1, undef
-#line 17711 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17743 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_280
 		 'keywords_notreserved', 1, undef
-#line 17715 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17747 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_281
 		 'keywords_notreserved', 1, undef
-#line 17719 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17751 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_282
 		 'keywords_notreserved', 1, undef
-#line 17723 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17755 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_283
 		 'keywords_notreserved', 1, undef
-#line 17727 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17759 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_284
 		 'keywords_notreserved', 1, undef
-#line 17731 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17763 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_285
 		 'keywords_notreserved', 1, undef
-#line 17735 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17767 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_286
 		 'keywords_notreserved', 1, undef
-#line 17739 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17771 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_287
 		 'keywords_notreserved', 1, undef
-#line 17743 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17775 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_288
 		 'keywords_notreserved', 1, undef
-#line 17747 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17779 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_289
 		 'keywords_notreserved', 1, undef
-#line 17751 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17783 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_290
 		 'keywords_notreserved', 1, undef
-#line 17755 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17787 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_291
 		 'keywords_notreserved', 1, undef
-#line 17759 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17791 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_292
 		 'keywords_notreserved', 1, undef
-#line 17763 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17795 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_293
 		 'keywords_notreserved', 1, undef
-#line 17767 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17799 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_294
 		 'keywords_notreserved', 1, undef
-#line 17771 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17803 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_295
 		 'keywords_notreserved', 1, undef
-#line 17775 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17807 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_296
 		 'keywords_notreserved', 1, undef
-#line 17779 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17811 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_297
 		 'keywords_notreserved', 1, undef
-#line 17783 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17815 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_298
 		 'keywords_notreserved', 1, undef
-#line 17787 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17819 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_299
 		 'keywords_notreserved', 1, undef
-#line 17791 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17823 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_300
 		 'keywords_notreserved', 1, undef
-#line 17795 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17827 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_301
 		 'keywords_notreserved', 1, undef
-#line 17799 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17831 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_302
 		 'keywords_notreserved', 1, undef
-#line 17803 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17835 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_303
 		 'keywords_notreserved', 1, undef
-#line 17807 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17839 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_304
 		 'keywords_notreserved', 1, undef
-#line 17811 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17843 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_305
 		 'keywords_notreserved', 1, undef
-#line 17815 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17847 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_306
 		 'keywords_notreserved', 1, undef
-#line 17819 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17851 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_307
 		 'keywords_notreserved', 1, undef
-#line 17823 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17855 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_308
 		 'keywords_notreserved', 1, undef
-#line 17827 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17859 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_309
 		 'keywords_notreserved', 1, undef
-#line 17831 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17863 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_310
 		 'keywords_notreserved', 1, undef
-#line 17835 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17867 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_311
 		 'keywords_notreserved', 1, undef
-#line 17839 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17871 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_312
 		 'keywords_notreserved', 1, undef
-#line 17843 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17875 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_313
 		 'keywords_notreserved', 1, undef
-#line 17847 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17879 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_314
 		 'keywords_notreserved', 1, undef
-#line 17851 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17883 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_315
 		 'keywords_notreserved', 1, undef
-#line 17855 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17887 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_316
 		 'keywords_notreserved', 1, undef
-#line 17859 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17891 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_317
 		 'keywords_notreserved', 1, undef
-#line 17863 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17895 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_318
 		 'keywords_notreserved', 1, undef
-#line 17867 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17899 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_319
 		 'keywords_notreserved', 1, undef
-#line 17871 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17903 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_320
 		 'keywords_notreserved', 1, undef
-#line 17875 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17907 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_321
 		 'keywords_notreserved', 1, undef
-#line 17879 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17911 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_322
 		 'keywords_notreserved', 1, undef
-#line 17883 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17915 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_323
 		 'keywords_notreserved', 1, undef
-#line 17887 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17919 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_324
 		 'keywords_notreserved', 1, undef
-#line 17891 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17923 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_325
 		 'keywords_notreserved', 1, undef
-#line 17895 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17927 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_326
 		 'keywords_notreserved', 1, undef
-#line 17899 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17931 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_327
 		 'keywords_notreserved', 1, undef
-#line 17903 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17935 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_328
 		 'keywords_notreserved', 1, undef
-#line 17907 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17939 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_329
 		 'keywords_notreserved', 1, undef
-#line 17911 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17943 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_330
 		 'keywords_notreserved', 1, undef
-#line 17915 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17947 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_331
 		 'keywords_notreserved', 1, undef
-#line 17919 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17951 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_332
 		 'keywords_notreserved', 1, undef
-#line 17923 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17955 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_333
 		 'keywords_notreserved', 1, undef
-#line 17927 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17959 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_334
 		 'keywords_notreserved', 1, undef
-#line 17931 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17963 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_335
 		 'keywords_notreserved', 1, undef
-#line 17935 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17967 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_336
 		 'keywords_notreserved', 1, undef
-#line 17939 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17971 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_337
 		 'keywords_notreserved', 1, undef
-#line 17943 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17975 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_338
 		 'keywords_notreserved', 1, undef
-#line 17947 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17979 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_339
 		 'keywords_notreserved', 1, undef
-#line 17951 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17983 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_340
 		 'keywords_notreserved', 1, undef
-#line 17955 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17987 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_341
 		 'keywords_notreserved', 1, undef
-#line 17959 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17991 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_342
 		 'keywords_notreserved', 1, undef
-#line 17963 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17995 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_343
 		 'keywords_notreserved', 1, undef
-#line 17967 ../lib/Pg/SQL/Parser/SQL.pm
+#line 17999 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_344
 		 'keywords_notreserved', 1, undef
-#line 17971 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18003 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_345
 		 'keywords_notreserved', 1, undef
-#line 17975 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18007 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_346
 		 'keywords_notreserved', 1, undef
-#line 17979 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18011 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_347
 		 'keywords_notreserved', 1, undef
-#line 17983 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18015 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_348
 		 'keywords_notreserved', 1, undef
-#line 17987 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18019 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_349
 		 'keywords_notreserved', 1, undef
-#line 17991 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18023 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_350
 		 'keywords_notreserved', 1, undef
-#line 17995 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18027 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_351
 		 'keywords_notreserved', 1, undef
-#line 17999 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18031 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_352
 		 'keywords_notreserved', 1, undef
-#line 18003 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18035 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_353
 		 'keywords_notreserved', 1, undef
-#line 18007 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18039 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_354
 		 'keywords_notreserved', 1, undef
-#line 18011 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18043 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_355
 		 'keywords_notreserved', 1, undef
-#line 18015 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18047 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_356
 		 'keywords_notreserved', 1, undef
-#line 18019 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18051 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_357
 		 'keywords_notreserved', 1, undef
-#line 18023 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18055 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_358
 		 'keywords_notreserved', 1, undef
-#line 18027 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18059 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_359
 		 'keywords_notreserved', 1, undef
-#line 18031 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18063 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_360
 		 'keywords_notreserved', 1, undef
-#line 18035 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18067 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_361
 		 'keywords_notreserved', 1, undef
-#line 18039 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18071 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_362
 		 'keywords_notreserved', 1, undef
-#line 18043 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18075 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_363
 		 'keywords_notreserved', 1, undef
-#line 18047 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18079 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_364
 		 'keywords_notreserved', 1, undef
-#line 18051 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18083 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_365
 		 'keywords_notreserved', 1, undef
-#line 18055 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18087 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_366
 		 'keywords_notreserved', 1, undef
-#line 18059 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18091 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_367
 		 'keywords_notreserved', 1, undef
-#line 18063 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18095 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_368
 		 'keywords_notreserved', 1, undef
-#line 18067 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18099 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_369
 		 'keywords_notreserved', 1, undef
-#line 18071 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18103 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_370
 		 'keywords_notreserved', 1, undef
-#line 18075 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18107 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_371
 		 'keywords_notreserved', 1, undef
-#line 18079 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18111 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_372
 		 'keywords_notreserved', 1, undef
-#line 18083 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18115 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_373
 		 'keywords_notreserved', 1, undef
-#line 18087 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18119 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_374
 		 'keywords_notreserved', 1, undef
-#line 18091 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18123 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_375
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18095 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18127 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_376
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18099 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18131 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_377
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18103 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18135 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_378
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18107 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18139 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_379
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18111 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18143 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_380
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18115 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18147 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_381
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18119 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18151 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_382
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18123 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18155 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_383
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18127 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18159 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_384
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18131 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18163 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_385
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18135 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18167 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_386
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18139 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18171 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_387
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18143 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18175 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_388
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18147 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18179 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_389
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18151 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18183 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_390
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18155 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18187 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_391
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18159 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18191 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_392
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18163 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18195 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_393
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18167 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18199 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_394
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18171 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18203 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_395
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18175 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18207 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_reserved_ok_for_functions_or_types_396
 		 'keywords_reserved_ok_for_functions_or_types', 1, undef
-#line 18179 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18211 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_397
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18183 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18215 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_398
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18187 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18219 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_399
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18191 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18223 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_400
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18195 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18227 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_401
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18199 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18231 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_402
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18203 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18235 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_403
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18207 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18239 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_404
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18211 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18243 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_405
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18215 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18247 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_406
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18219 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18251 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_407
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18223 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18255 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_408
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18227 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18259 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_409
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18231 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18263 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_410
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18235 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18267 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_411
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18239 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18271 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_412
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18243 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18275 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_413
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18247 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18279 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_414
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18251 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18283 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_415
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18255 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18287 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_416
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18259 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18291 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_417
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18263 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18295 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_418
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18267 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18299 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_419
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18271 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18303 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_420
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18275 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18307 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_421
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18279 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18311 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_422
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18283 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18315 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_423
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18287 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18319 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_424
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18291 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18323 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_425
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18295 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18327 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_426
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18299 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18331 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_427
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18303 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18335 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_428
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18307 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18339 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_429
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18311 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18343 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_430
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18315 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18347 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_431
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18319 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18351 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_432
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18323 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18355 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_433
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18327 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18359 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_434
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18331 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18363 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_435
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18335 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18367 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_436
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18339 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18371 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_437
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18343 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18375 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_438
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18347 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18379 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_439
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18351 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18383 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_440
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18355 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18387 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_441
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18359 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18391 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_442
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18363 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18395 ../lib/Pg/SQL/Parser/SQL.pm
 	],
 	[#Rule keywords_notreserved_not_ok_for_functions_or_types_443
 		 'keywords_notreserved_not_ok_for_functions_or_types', 1, undef
-#line 18367 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18399 ../lib/Pg/SQL/Parser/SQL.pm
 	]
 ],
-#line 18370 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18402 ../lib/Pg/SQL/Parser/SQL.pm
     yybypass       => 0,
     yybuildingtree => 0,
     yyprefix       => '',
@@ -18828,7 +18860,7 @@ sub {
   $self;
 }
 
-#line 555 "SQL.eyp"
+#line 557 "SQL.eyp"
 
 
 # vim: set ft=lex:
@@ -18839,7 +18871,7 @@ sub {
 =cut
 
 
-#line 18842 ../lib/Pg/SQL/Parser/SQL.pm
+#line 18874 ../lib/Pg/SQL/Parser/SQL.pm
 
 
 

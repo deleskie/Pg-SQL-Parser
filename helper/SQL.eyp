@@ -16,6 +16,8 @@
 %left '^'
 %left '(' ')'
 %left '::'
+%left JOIN CROSS LEFT FULL RIGHT INNER NATURAL
+
 
 %%
 
@@ -42,9 +44,9 @@ query_source: table_source                       { $_[1] }
     | join_source                                { $_[1] }
 ;
 
-join_source: table_source normal_join_operator table_source join_condition { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => $_[2], 'condition_type' => $_[4]->[0], 'condition' => $_[4]->[1] ) }
-    | table_source NATURAL normal_join_operator table_source               { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[4], 'type' => 'natural ' . $_[3] ) }
-    | table_source CROSS JOIN table_source                                 { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => 'cross join' ) }
+join_source: query_source normal_join_operator query_source join_condition { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => $_[2], 'condition_type' => $_[4]->[0], 'condition' => $_[4]->[1] ) }
+    | query_source NATURAL normal_join_operator query_source               { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[4], 'type' => 'natural ' . $_[3] ) }
+    | query_source CROSS JOIN query_source                                 { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => 'cross join' ) }
 ;
 
 normal_join_operator: JOIN      { "join" }
