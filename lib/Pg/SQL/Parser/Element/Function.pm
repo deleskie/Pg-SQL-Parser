@@ -23,12 +23,12 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLE
 
-    my $function = Pg::SQL::Parser::Element::Type->new();
+    my $function = Pg::SQL::Parser::Element::Function->new();
 
     # ltree.subpath( 'a.b.c', 1 )
-    $type->name( 'subpath' );
-    $type->schema( 'ltree' );
-    $type->arguments(
+    $function->name( 'subpath' );
+    $function->schema( 'ltree' );
+    $function->arguments(
         [
             $object_for_value_abc,
             $object_for_value_1

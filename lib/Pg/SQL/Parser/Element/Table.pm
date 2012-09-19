@@ -23,12 +23,12 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLE
 
-    my $function = Pg::SQL::Parser::Element::Table->new();
+    my $table = Pg::SQL::Parser::Element::Table->new();
 
     # a.b as c
-    $type->schema( 'a' );
-    $type->name( 'b' );
-    $type->alias( 'c' );
+    $table->schema( 'a' );
+    $table->name( 'b' );
+    $table->alias( 'c' );
 
 =head1 METHODS
 
