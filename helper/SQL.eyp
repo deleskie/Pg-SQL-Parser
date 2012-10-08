@@ -3,13 +3,13 @@
     my $factory = Pg::SQL::Parser::Element->new();
 %}
 
-/* %left OR */
+%left OR
 %left AND
-/* %left NOT */
+/* %right NOT */
 %right '='
 %left '<' '>'
 %left LIKE ILIKE
-%left BETWEEN
+%nonassoc BETWEEN
 %left OPERATOR_NAME
 %left '+' '-'
 %left '*' '/' '%'
@@ -32,8 +32,9 @@ statements: statement          { [ $_[1] ] }
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT result_columns             { $factory->make( 'Select', 'results' => $_[2] ) }
-    | SELECT result_columns FROM query_sources { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
+select_stmt: SELECT result_columns                        { $factory->make( 'Select', 'results' => $_[2] ) }
+    | SELECT result_columns FROM query_sources            { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
+    | SELECT result_columns FROM query_sources WHERE expr { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4], 'where' => $_[6] ) }
 ;
 
 query_sources: query_source          { [ $_[1] ] }
@@ -120,7 +121,10 @@ operator_expression: expr BETWEEN expr AND expr  { $factory->make( 'Operation', 
     | expr '=' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr '^' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr LIKE expr                             { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr AND expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr OR expr                               { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
     | expr ILIKE expr                            { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | expr IS NULL                               { $factory->make( 'Operation', 'operator' => 'isnull', 'left' => $_[1], ) }
     | expr OPERATOR_NAME expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
 ;
 

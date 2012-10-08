@@ -21,38 +21,27 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+=head1 EXAMPLES
+
+    # SELECT a FROM b where c = 1
+    my $select = Pg::SQL::Parser::Element::Select->new();
+    $select->results( [ $object_for_column_a ] );
+    $select->sources( [ $object_for_table_b ] );
+    $select->where( $object_for_expression_c_equals_1 );
+
 =head1 METHODS
 
-=head2 add_result()
+=head2 results()
 
-Adds new result to given SELECT query.
+Gets/sets arrayref of results of a query.
 
-    my $query = Pg::SQL::Parser::Element::Select->new();
-    $query->add_result( $result_column_object );
+=head2 sources()
 
-=cut
+Gets/sets arrayref of sources of data in a query (FROM ...)
 
-sub add_result {
-    my $self   = shift;
-    my $result = shift;
-    push @{ $self->{ 'results' } }, $result;
-    return;
-}
+=head2 where()
 
-=head2 add_source()
-
-Adds new source of data, which can be either table, or join or subselect.
-
-Source should be of Pg::SQL::Parser::Element::Source class.
-
-=cut
-
-sub add_source {
-    my $self   = shift;
-    my $source = shift;
-    push @{ $self->{ 'sources' } }, $source;
-    return;
-}
+Gets/sets where condition of a query. Most likely some kind of Operation object.
 
 =head1 AUTHOR
 
