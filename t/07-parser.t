@@ -43,6 +43,7 @@ for my $test ( @tests ) {
         if ( $ENV{ 'DEBUG_TESTS' } ) {
             print STDERR "\n" . 'In test ' . $test . ' got: ' . Dumper( $got );
         }
+        exit;
     }
 }
 

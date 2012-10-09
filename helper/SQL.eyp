@@ -3,21 +3,28 @@
     my $factory = Pg::SQL::Parser::Element->new();
 %}
 
-%left OR
-%left AND
-/* %right NOT */
-%right '='
-%left '<' '>'
-%left LIKE ILIKE
-%nonassoc BETWEEN
-%left OPERATOR_NAME
-%left '+' '-'
-%left '*' '/' '%'
-%left '^'
-%left '(' ')'
-%left '::'
-%left JOIN CROSS LEFT FULL RIGHT INNER NATURAL
-
+%left       OR
+%left       AND
+%right      NOT
+%right      '='
+%nonassoc   '<' '>'
+%nonassoc   LIKE ILIKE SIMILAR
+%nonassoc   ESCAPE
+%nonassoc   BETWEEN
+%left       POSTFIXOP
+%nonassoc   NULL
+%left       OPERATOR_NAME
+%nonassoc   NOTNULL
+%nonassoc   ISNULL
+%nonassoc   IS
+%left       '+' '-'
+%left       '*' '/' '%'
+%left       '^'
+%right      UMINUS
+%left       '(' ')'
+%left       '::'
+%left       '.'
+%left       JOIN CROSS LEFT FULL RIGHT INNER NATURAL
 
 %%
 
@@ -32,9 +39,9 @@ statements: statement          { [ $_[1] ] }
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT result_columns                        { $factory->make( 'Select', 'results' => $_[2] ) }
-    | SELECT result_columns FROM query_sources            { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
-    | SELECT result_columns FROM query_sources WHERE expr { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4], 'where' => $_[6] ) }
+select_stmt: SELECT result_columns                          { $factory->make( 'Select', 'results' => $_[2] ) }
+    | SELECT result_columns FROM query_sources              { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4] ) }
+    | SELECT result_columns FROM query_sources WHERE a_expr { $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4], 'where' => $_[6] ) }
 ;
 
 query_sources: query_source          { [ $_[1] ] }
@@ -60,7 +67,7 @@ normal_join_operator: JOIN      { "join" }
     | FULL JOIN                 { "full join" }
 ;
 
-join_condition: ON expr                    { [ 'on', $_[2] ] }
+join_condition: ON a_expr                  { [ 'on', $_[2] ] }
     | USING '(' join_using_column_list ')' { [ 'using', $_[3] ] }
 ;
 
@@ -80,15 +87,83 @@ result_columns: result_column          { [ $_[1] ] }
     | result_columns ',' result_column { push @{ $_[1] }, $_[3]; $_[1] }
 ;
 
-result_column: expr      { $factory->make( 'Result_Column', 'value' => $_[1] ) }
-    | expr AS identifier { $factory->make( 'Result_Column', 'value' => $_[1], 'alias' => $_[3] ) }
+result_column: a_expr      { $factory->make( 'Result_Column', 'value' => $_[1] ) }
+    | a_expr AS identifier { $factory->make( 'Result_Column', 'value' => $_[1], 'alias' => $_[3] ) }
 ;
 
-expr: expr_simple                      { $_[1] }
-    | operator_expression              { $_[1] }
-    | cast_expression                  { $_[1] }
-    | function_expression              { $_[1] }
-    | column_expression                { $_[1] }
+a_expr:  c_expr                                            { $_[1] }
+    | a_expr '::' normal_type                              { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+    | '+' a_expr                        %prec UMINUS       { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | '-' a_expr                        %prec UMINUS       { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | a_expr '+' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '-' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '*' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '/' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '%' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '^' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '<' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '>' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr '=' a_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr OPERATOR_NAME a_expr                          { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | OPERATOR_NAME a_expr                                 { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | a_expr OPERATOR_NAME        %prec POSTFIXOP          { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | a_expr AND a_expr                                    { $factory->make( 'Operation', 'operator' => 'and', 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr OR a_expr                                     { $factory->make( 'Operation', 'operator' => 'or', 'left' => $_[1], 'right' => $_[3] ) }
+    | NOT a_expr                                           { $factory->make( 'Operation', 'operator' => 'not', 'right' => $_[2] ) }
+    | a_expr LIKE a_expr                                   { $factory->make( 'Operation', 'operator' => 'like', 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr LIKE a_expr ESCAPE a_expr                     { $factory->make( 'Operation', 'operator' => 'like', 'left' => $_[1], 'right' => $_[3], 'modifiers' => { 'escape' => $_[5] } ) }
+    | a_expr NOT LIKE a_expr                               { $factory->make( 'Operation', 'operator' => 'not like', 'left' => $_[1], 'right' => $_[4] ) }
+    | a_expr NOT LIKE a_expr ESCAPE a_expr                 { $factory->make( 'Operation', 'operator' => 'not like', 'left' => $_[1], 'right' => $_[4], 'modifiers' => { 'escape' => $_[7] } ) }
+    | a_expr ILIKE a_expr                                  { $factory->make( 'Operation', 'operator' => 'ilike', 'left' => $_[1], 'right' => $_[3] ) }
+    | a_expr ILIKE a_expr ESCAPE a_expr                    { $factory->make( 'Operation', 'operator' => 'ilike', 'left' => $_[1], 'right' => $_[3], 'modifiers' => { 'escape' => $_[5] } ) }
+    | a_expr NOT ILIKE a_expr                              { $factory->make( 'Operation', 'operator' => 'not ilike', 'left' => $_[1], 'right' => $_[4] ) }
+    | a_expr NOT ILIKE a_expr ESCAPE a_expr                { $factory->make( 'Operation', 'operator' => 'not ilike', 'left' => $_[1], 'right' => $_[4], 'modifiers' => { 'escape' => $_[6] } ) }
+    | a_expr SIMILAR TO a_expr                    %prec SIMILAR         { $factory->make( 'Operation', 'operator' => 'similar to', 'left' => $_[1], 'right' => $_[4] ) }
+    | a_expr SIMILAR TO a_expr ESCAPE a_expr      %prec SIMILAR         { $factory->make( 'Operation', 'operator' => 'similar to', 'left' => $_[1], 'right' => $_[4], 'modifiers' => { 'escape' => $_[6] } ) }
+    | a_expr NOT SIMILAR TO a_expr                %prec SIMILAR         { $factory->make( 'Operation', 'operator' => 'not similar to', 'left' => $_[1], 'right' => $_[5] ) }
+    | a_expr NOT SIMILAR TO a_expr ESCAPE a_expr  %prec SIMILAR         { $factory->make( 'Operation', 'operator' => 'not similar to', 'left' => $_[1], 'right' => $_[5], 'modifiers' => { 'escape' => $_[7] } ) }
+    | a_expr IS NULL                                       { $factory->make( 'Operation', 'operator' => 'is null', 'left' => $_[1], ) }
+    | a_expr ISNULL                                        { $factory->make( 'Operation', 'operator' => 'is null', 'left' => $_[1], ) }
+    | a_expr IS NOT NULL                                   { $factory->make( 'Operation', 'operator' => 'is not null', 'left' => $_[1], ) }
+    | a_expr NOTNULL                                       { $factory->make( 'Operation', 'operator' => 'is not null', 'left' => $_[1], ) }
+    | a_expr IS TRUE                                       { $factory->make( 'Operation', 'operator' => 'is true', 'left' => $_[1], ) }
+    | a_expr IS NOT TRUE                                   { $factory->make( 'Operation', 'operator' => 'is not true', 'left' => $_[1], ) }
+    | a_expr IS FALSE                                      { $factory->make( 'Operation', 'operator' => 'is false', 'left' => $_[1], ) }
+    | a_expr IS NOT FALSE                                  { $factory->make( 'Operation', 'operator' => 'is not false', 'left' => $_[1], ) }
+    | a_expr IS DISTINCT FROM a_expr                 %prec IS      { $factory->make( 'Operation', 'operator' => 'is distinct from', 'left' => $_[1], 'right' => $_[5], ) }
+    | a_expr IS NOT DISTINCT FROM a_expr             %prec IS      { $factory->make( 'Operation', 'operator' => 'is not distinct from', 'left' => $_[1], 'right' => $_[6]) }
+    | a_expr BETWEEN b_expr AND b_expr                     { $factory->make( 'Operation', 'operator' => 'between', 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
+    | a_expr NOT BETWEEN b_expr AND b_expr                 { $factory->make( 'Operation', 'operator' => 'not between', 'left' => $_[1], 'right' => [ $_[4], $_[6] ] ) }
+    | a_expr BETWEEN SYMMETRIC b_expr AND b_expr           { $factory->make( 'Operation', 'operator' => 'between symmetric', 'left' => $_[1], 'right' => [ $_[4], $_[6] ] ) }
+    | a_expr NOT BETWEEN SYMMETRIC b_expr AND b_expr       { $factory->make( 'Operation', 'operator' => 'not between symmetric', 'left' => $_[1], 'right' => [ $_[5], $_[7] ] ) }
+    | a_expr BETWEEN ASYMMETRIC b_expr AND b_expr          { $factory->make( 'Operation', 'operator' => 'between asymmetric', 'left' => $_[1], 'right' => [ $_[4], $_[6] ] ) }
+    | a_expr NOT BETWEEN ASYMMETRIC b_expr AND b_expr      { $factory->make( 'Operation', 'operator' => 'not between asymmetric', 'left' => $_[1], 'right' => [ $_[5], $_[7] ] ) }
+;
+
+b_expr:  c_expr                                            { $_[1] }
+    | b_expr '::' normal_type                              { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
+    | '+' b_expr                        %prec UMINUS       { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | '-' b_expr                        %prec UMINUS       { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | b_expr '+' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '-' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '*' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '/' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '%' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '^' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '<' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '>' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr '=' b_expr                                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | b_expr OPERATOR_NAME b_expr                          { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
+    | OPERATOR_NAME b_expr                                 { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
+    | b_expr OPERATOR_NAME                                 { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
+    | b_expr IS DISTINCT FROM b_expr           %prec IS            { $factory->make( 'Operation', 'operator' => 'is distinct from', 'left' => $_[1], 'right' => $_[5], ) }
+    | b_expr IS NOT DISTINCT FROM b_expr       %prec IS            { $factory->make( 'Operation', 'operator' => 'is not distinct from', 'left' => $_[1], 'right' => $_[6]) }
+;
+
+c_expr:  column_expression { $_[1] }
+    | literal_value        { $_[1] }
+    | function_expression  { $_[1] }
+    | '(' a_expr ')'       { $_[2] }
 ;
 
 column_expression: identifier                   { $factory->make( 'Column', 'name' => $_[1] ) }
@@ -97,44 +172,17 @@ column_expression: identifier                   { $factory->make( 'Column', 'nam
 ;
 
 function_expression: function_name '(' function_args ')' { $_[1]->arguments( $_[3] ); $_[1] }
+    | normal_type literal_value        { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
+    | CAST '(' a_expr AS normal_type ')' { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
 ;
 
 function_name: identifier           { $factory->make( 'Function', 'name' => $_[1] ) }
     | identifier '.' identifier     { $factory->make( 'Function', 'name' => $_[3], 'schema' => $_[1] ) }
 ;
 
-function_args: expr                 { [ $_[1] ] }
-    | function_args ',' expr        { push @{ $_[1] }, $_[3]; $_[1] }
-    | /* EMPTY */                   { [] }
-;
-
-operator_expression: expr BETWEEN expr AND expr  { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => [ $_[3], $_[5] ] ) }
-    | expr OPERATOR_NAME                         { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1] ) }
-    | OPERATOR_NAME expr                         { $factory->make( 'Operation', 'operator' => $_[1], 'right' => $_[2] ) }
-    | expr '+' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '-' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '*' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '%' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '/' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '<' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '>' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '=' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr '^' expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr LIKE expr                             { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr AND expr                              { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr OR expr                               { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr ILIKE expr                            { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-    | expr IS NULL                               { $factory->make( 'Operation', 'operator' => 'isnull', 'left' => $_[1], ) }
-    | expr OPERATOR_NAME expr                    { $factory->make( 'Operation', 'operator' => $_[2], 'left' => $_[1], 'right' => $_[3] ) }
-;
-
-cast_expression: expr '::' normal_type { $factory->make( 'Cast', 'method' => '::', 'value' => $_[1], 'final_type' => $_[3] ) }
-    | CAST '(' expr AS normal_type ')' { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
-    | normal_type literal_value        { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
-;
-
-expr_simple: literal_value         { $_[1] }
-    | '(' expr ')'                 { $_[2] }
+function_args: a_expr                    { [ $_[1] ] }
+    | function_args ',' a_expr           { push @{ $_[1] }, $_[3]; $_[1] }
+    | /* EMPTY */                        { [] }
 ;
 
 literal_value: STRING_CONSTANT  { $factory->make( 'Literal_Value', 'type', => 'STRING_CONSTANT',     'value' => $_[1] ) }

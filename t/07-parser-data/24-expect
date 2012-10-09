@@ -49,7 +49,7 @@
                 'right'    => {
                     ':type'    => 'Operation',
                     'left'     => { 'name' => 'valid_till', ':type' => 'Column', },
-                    'operator' => 'isnull',
+                    'operator' => 'is null',
                 },
             },
         },

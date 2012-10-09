@@ -66,6 +66,24 @@ Of course above example is simplification, because it should be an object (Pg::S
 
 =cut
 
+=head2 modifiers()
+
+Sets operation modifiers
+
+For example:
+
+    my $value = Pg::SQL::Parser::Element::Operation->new();
+
+    # a like 'c' escape 'x'
+    $value->operator( 'like' );
+    $value->right ( $object_for_column_a );
+    $value->left ( $object_for_literal_c );
+    $value->modifiers ( { 'escape' => $object_for_literal_x } );
+
+Of course above example is simplification, because it should be an object (Pg::SQL::Parser::Element::Literal_Value in this case).
+
+=cut
+
 =head1 AUTHOR
 
 Hubert depesz Lubaczewski, C<< <depesz at depesz.com> >>
