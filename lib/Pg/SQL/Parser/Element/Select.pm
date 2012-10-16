@@ -23,12 +23,14 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLES
 
-    # SELECT a FROM b where c = 1 group by a
+    # SELECT a FROM b where c = 1 group by a order by a having min(x) < 10
     my $select = Pg::SQL::Parser::Element::Select->new();
     $select->results( [ $object_for_column_a ] );
     $select->sources( [ $object_for_table_b ] );
     $select->where( $object_for_expression_c_equals_1 );
     $select->groups( [ $object_for_column_a ] );
+    $select->sorts( [ [ $object_for_column_a ] ] );
+    $select->having( $object_for_expression_min_x_less_than_10 );
 
 =head1 METHODS
 
@@ -47,6 +49,27 @@ Gets/sets where condition of a query. Most likely some kind of Operation object.
 =head2 groups()
 
 Gets/sets arrayref which contains grouping information (basically array of expressions)
+
+=head2 sorts()
+
+Gets/sets arrayref which contains ordering information (basically array of expressions).
+
+Each element of arrayref is also arrayref, which contains one or two values.
+First value is always the expression that the order by has to use to sort,
+the 2nd are optional modifiers (ASC, DESC).
+
+For example:
+
+    # order by a, b asc, 1 desc
+    ->sorts( [
+    [ $object_for_column_a ],
+    [ $object_for_function_b, 'ASC' ],
+    [ $object_for_literal_1, 'DESC' ]
+    ] );
+
+=head2 having()
+
+Gets/sets having condition of a query. Most likely some kind of Operation object.
 
 =head1 AUTHOR
 

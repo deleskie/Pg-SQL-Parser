@@ -1,0 +1,19 @@
+[
+    {
+        ':type'   => 'Select',
+        'results' => [
+            {
+                'value' => { 'name' => 'a', ':type' => 'Column', },
+                ':type' => 'Result_Column',
+            },
+        ],
+        'sources' => [
+            { ':type' => 'Table', 'name' => 'b', },
+        ],
+        'sorts' => [
+            [ { 'name' => 'c', ':type' => 'Column', }, ],
+            [ { 'name' => 'd', ':type' => 'Column', }, 'DESC', ],
+            [ { 'name' => 'e', ':type' => 'Column', }, 'ASC', ],
+        ],
+    },
+]
