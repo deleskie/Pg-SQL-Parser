@@ -23,11 +23,12 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLES
 
-    # SELECT a FROM b where c = 1
+    # SELECT a FROM b where c = 1 group by a
     my $select = Pg::SQL::Parser::Element::Select->new();
     $select->results( [ $object_for_column_a ] );
     $select->sources( [ $object_for_table_b ] );
     $select->where( $object_for_expression_c_equals_1 );
+    $select->groups( [ $object_for_column_a ] );
 
 =head1 METHODS
 
@@ -42,6 +43,10 @@ Gets/sets arrayref of sources of data in a query (FROM ...)
 =head2 where()
 
 Gets/sets where condition of a query. Most likely some kind of Operation object.
+
+=head2 groups()
+
+Gets/sets arrayref which contains grouping information (basically array of expressions)
 
 =head1 AUTHOR
 
