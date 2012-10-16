@@ -14,3 +14,4 @@ MYMETA.*
 *.backup
 *.clog
 helper/SQL.output
+lib/Pg/SQL/Parser/SQL.pm
