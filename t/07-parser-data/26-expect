@@ -11,9 +11,9 @@
             { ':type' => 'Table', 'name' => 'b', },
         ],
         'sorts' => [
-            [ { 'name' => 'c', ':type' => 'Column', }, ],
-            [ { 'name' => 'd', ':type' => 'Column', }, 'DESC', ],
-            [ { 'name' => 'e', ':type' => 'Column', }, 'ASC', ],
+            { ':type' => 'Ordering', 'value' => { 'name' => 'c', ':type' => 'Column', } },
+            { ':type' => 'Ordering', 'value' => { 'name' => 'd', ':type' => 'Column', }, 'direction' => 'DESC', },
+            { ':type' => 'Ordering', 'value' => { 'name' => 'e', ':type' => 'Column', }, 'direction' => 'ASC', },
         ],
     },
 ]

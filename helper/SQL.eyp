@@ -66,9 +66,22 @@ ordering_list: ordering_item          { [ $_[1] ] }
     | ordering_list ',' ordering_item { push @{ $_[1] }, $_[3]; $_[1] }
 ;
 
-ordering_item: a_expr          { [ $_[1] ] }
-    | a_expr DESC              { [ $_[1], 'DESC' ] }
-    | a_expr ASC              { [ $_[1], 'ASC' ] }
+ordering_item: a_expr optional_direction optional_nulls_placement   {
+                                                                        my $o = $factory->make( 'Ordering', 'value' => $_[1] );
+                                                                        $o->direction( $_[2] ) if defined $_[2];
+                                                                        $o->nulls( $_[3] ) if defined $_[3];
+                                                                        $o;
+                                                                    }
+;
+
+optional_direction: ASC { 'ASC' }
+    | DESC              { 'DESC' }
+    | /* EMPTY */       { undef }
+;
+
+optional_nulls_placement: S_NULLS_FIRST { 'FIRST' }
+    | S_NULLS_LAST                      { 'LAST' }
+    | /* EMPTY */                       { undef }
 ;
 
 optional_having: HAVING a_expr { $_[2] }

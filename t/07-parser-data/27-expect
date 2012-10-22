@@ -28,7 +28,7 @@
             ':type' => 'Operation',
         },
         'sorts' => [
-            [ { 'name' => 'count', ':type' => 'Column', }, 'DESC', ],
+            { ':type' => 'Ordering', 'value' => { 'name' => 'count', ':type' => 'Column', }, 'direction' => 'DESC', },
         ],
     },
 ]

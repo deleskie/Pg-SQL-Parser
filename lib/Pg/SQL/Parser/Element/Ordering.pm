@@ -1,4 +1,4 @@
-package Pg::SQL::Parser::Element::Select;
+package Pg::SQL::Parser::Element::Ordering;
 use v5.12;
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use base qw( Pg::SQL::Parser::Element );
 
 =head1 NAME
 
-Pg::SQL::Parser::Element::Select - Class representing single SELECT query
+Pg::SQL::Parser::Element::Select::Ordering - Class representing single ordering element in "SELECT ORDER BY ..."
 
 =head1 VERSION
 
@@ -21,44 +21,36 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-=head1 EXAMPLES
+=head1 EXAMPLE
 
-    # SELECT a FROM b where c = 1 group by a order by a having min(x) < 10
-    my $select = Pg::SQL::Parser::Element::Select->new();
-    $select->results( [ $object_for_column_a ] );
-    $select->sources( [ $object_for_table_b ] );
-    $select->where( $object_for_expression_c_equals_1 );
-    $select->groups( [ $object_for_column_a ] );
-    $select->sorts( [ $object_for_ordering_by_column_a ] );
-    $select->having( $object_for_expression_min_x_less_than_10 );
+For query like:
+
+    SELECT a from B order by c asc nulls last
+
+we'd get:
+
+    $ordering = Pg::SQL::Parser::Element::Ordering->new();
+    $ordering->value( $object_for_column c );
+    $ordering->direction( 'ASC' );
+    $ordering->nulls( 'LAST' );
 
 =head1 METHODS
 
-=head2 results()
+=head2 value()
 
-Gets/sets arrayref of results of a query.
+Sets/gets value that will be used to sort.
 
-=head2 sources()
+=cut
 
-Gets/sets arrayref of sources of data in a query (FROM ...)
+=head2 direction()
 
-=head2 where()
+Sets/gets sorting direction. Possible values are ASC or DESC, or no value in case of default direction
 
-Gets/sets where condition of a query. Most likely some kind of Operation object.
+=head2 nulls()
 
-=head2 groups()
+Sets/gets nulls sorting information. It can be either FIRST or LAST, or empty (no value) in case it wasn't specified.
 
-Gets/sets arrayref which contains grouping information (basically array of expressions)
-
-=head2 sorts()
-
-Gets/sets arrayref which contains ordering information.
-
-Each element is object of Ordering class.
-
-=head2 having()
-
-Gets/sets having condition of a query. Most likely some kind of Operation object.
+=cut
 
 =head1 AUTHOR
 
@@ -75,6 +67,7 @@ automatically be notified of progress on your bug as I make changes.
 You can find documentation for this module with the perldoc command.
 
     perldoc Pg::SQL::Parser
+
 
 You can also look for information at:
 
