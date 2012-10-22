@@ -56,11 +56,14 @@ sub get_yylex {
         $sql =~ s/\A\s*//;
         return ( '', undef ) if '' eq $sql;
 
+        # Special cases
+        return ( 'S_NULLS_FIRST', $1 ) if $sql =~ s{\A(nulls\s+first)\b}{}io;
+        return ( 'S_NULLS_LAST',  $1 ) if $sql =~ s{\A(nulls\s+last)\b}{}io;
+
+        # Keywords
         return ( uc( $1 ), $1 ) if $sql =~ s{\A($keywords)\b}{}o;
 
-        return ( 'QUOTED_IDENTIFIER',  $1 ) if $sql =~ s{\A("(?:[^"]*|"")+")}{}o;
-        return ( 'UQUOTED_IDENTIFIER', $1 ) if $sql =~ s{\A(u\&"(?:[^"]*|"")+")}{}io;
-
+        # Literal values
         return ( 'STRING_CONSTANT',  $1 ) if $sql =~ s{\A('(?:''|[^']*)+')}{}o;
         return ( 'USTRING_CONSTANT', $1 ) if $sql =~ s{\A(u\&'(?:[^']*|'')+')}{}o;
         return ( 'ESTRING_CONSTANT', $1 ) if $sql =~ s{\A(E'(?:[^\\']*|\\.|'')+')}{}oi;
@@ -76,7 +79,10 @@ sub get_yylex {
         return ( 'NUMERIC_CONSTANT',    $1 ) if $sql =~ s{\A((?:\d+\.\d*|\.\d+)(?:e[+-]\d+)?|\d+e[+-]\d+)}{}io;
         return ( 'INTEGER_CONSTANT',    $1 ) if $sql =~ s{\A(\d+)}{}o;
 
-        return ( 'IDENTIFIER', $1 ) if $sql =~ s{\A([a-z_][a-z0-9_\$]*)}{}io;
+        # Identifiers
+        return ( 'QUOTED_IDENTIFIER',  $1 ) if $sql =~ s{\A("(?:[^"]*|"")+")}{}o;
+        return ( 'UQUOTED_IDENTIFIER', $1 ) if $sql =~ s{\A(u\&"(?:[^"]*|"")+")}{}io;
+        return ( 'IDENTIFIER',         $1 ) if $sql =~ s{\A([a-z_][a-z0-9_\$]*)}{}io;
 
         # Regexps for operators are built based on information in:
         # http://www.postgresql.org/docs/current/interactive/sql-createoperator.html
