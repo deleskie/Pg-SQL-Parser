@@ -39,15 +39,36 @@ statements: statement          { [ $_[1] ] }
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT result_columns                              { $factory->make( 'Select', 'results' => $_[2] ) }
-    | SELECT result_columns FROM query_sources optional_where optional_grouping optional_having optional_ordering  {
-                                                                                                                        my $q = $factory->make( 'Select', 'results' => $_[2], 'sources' => $_[4], );
-                                                                                                                        $q->where(  $_[5] ) if defined $_[5];
-                                                                                                                        $q->groups( $_[6] ) if defined $_[6];
-                                                                                                                        $q->having( $_[7] ) if defined $_[7];
-                                                                                                                        $q->sorts(  $_[8] ) if defined $_[8];
-                                                                                                                        $q;
-                                                                                                                    }
+select_stmt: SELECT result_columns
+                optional_from
+                optional_where
+                optional_grouping
+                optional_having
+                optional_ordering
+                optional_limit
+                optional_offset    {
+                                        my $q = $factory->make( 'Select', 'results' => $_[2], );
+                                        $q->sources( $_[3] ) if defined $_[3];
+                                        $q->where(   $_[4] ) if defined $_[4];
+                                        $q->groups(  $_[5] ) if defined $_[5];
+                                        $q->having(  $_[6] ) if defined $_[6];
+                                        $q->sorts(   $_[7] ) if defined $_[7];
+                                        $q->limit(   $_[8] ) if defined $_[8];
+                                        $q->offset(  $_[9] ) if defined $_[9];
+                                        $q;
+                                    }
+;
+
+optional_limit: LIMIT a_expr { $_[2] }
+    | /* EMPTY */            { undef }
+;
+
+optional_offset: OFFSET a_expr { $_[2] }
+    | /* EMPTY */              { undef }
+;
+
+optional_from: FROM query_sources { $_[2] }
+    | /* EMPTY */                 { undef }
 ;
 
 optional_where: WHERE a_expr { $_[2] }

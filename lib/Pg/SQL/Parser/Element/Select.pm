@@ -23,14 +23,16 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLES
 
-    # SELECT a FROM b where c = 1 group by a order by a having min(x) < 10
+    # SELECT a FROM b where c = 1 group by a having min(x) < 10 order by a limit 2 offset 15
     my $select = Pg::SQL::Parser::Element::Select->new();
     $select->results( [ $object_for_column_a ] );
     $select->sources( [ $object_for_table_b ] );
     $select->where( $object_for_expression_c_equals_1 );
     $select->groups( [ $object_for_column_a ] );
-    $select->sorts( [ $object_for_ordering_by_column_a ] );
     $select->having( $object_for_expression_min_x_less_than_10 );
+    $select->sorts( [ $object_for_ordering_by_column_a ] );
+    $select->limit( $object_for_literal_value_2 );
+    $select->offset( $object_for_literal_value_15 );
 
 =head1 METHODS
 
@@ -59,6 +61,14 @@ Each element is object of Ordering class.
 =head2 having()
 
 Gets/sets having condition of a query. Most likely some kind of Operation object.
+
+=head2 limit()
+
+Gets/sets limit on number of rows returned by query. Usually an integer constant.
+
+=head2 offset()
+
+Gets/sets offset of rows returned by query (how many rows to skip). Usually an integer constant.
 
 =head1 AUTHOR
 

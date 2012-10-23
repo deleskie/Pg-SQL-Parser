@@ -97,6 +97,8 @@ t/07-parser-data/27-expect
 t/07-parser-data/27-query
 t/07-parser-data/28-expect
 t/07-parser-data/28-query
+t/07-parser-data/29-expect
+t/07-parser-data/29-query
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc
