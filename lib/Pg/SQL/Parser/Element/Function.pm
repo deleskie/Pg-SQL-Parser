@@ -35,31 +35,33 @@ our $VERSION = '0.01';
         ]
     );
 
+    # count( distinct a )
+    my $f = Pg::SQL::Parser::Element::Function->new();
+    $f->name( 'count' );
+    $f->arguments( [ $object_for_column_a ] );
+    $f->distinct( 1 );
+
 =head1 METHODS
 
 =head2 arguments()
 
 Sets, or gets, list of arguments to this function call. It should be arrayref.
 
-=cut
-
 =head2 arguments()
 
 Sets, or gets, list of arguments to this function call. It should be arrayref.
-
-=cut
 
 =head2 name()
 
 Sets the name of the function
 
-=cut
-
 =head2 schema()
 
 Sets the schema of the function. This is optional, and usually not needed.
 
-=cut
+=head2 distinct()
+
+Gets/sets whether values of function should be first be passed through distinct (remove of duplicated). Values: 1/undef.
 
 =head1 AUTHOR
 

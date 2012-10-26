@@ -23,7 +23,7 @@ our $VERSION = '0.01';
 
 =head1 EXAMPLES
 
-    # SELECT a FROM b where c = 1 group by a having min(x) < 10 order by a limit 2 offset 15
+    # SELECT DISTINCT a FROM b where c = 1 group by a having min(x) < 10 order by a limit 2 offset 15
     my $select = Pg::SQL::Parser::Element::Select->new();
     $select->results( [ $object_for_column_a ] );
     $select->sources( [ $object_for_table_b ] );
@@ -33,6 +33,7 @@ our $VERSION = '0.01';
     $select->sorts( [ $object_for_ordering_by_column_a ] );
     $select->limit( $object_for_literal_value_2 );
     $select->offset( $object_for_literal_value_15 );
+    $select->distinct( 1 );
 
 =head1 METHODS
 
@@ -69,6 +70,22 @@ Gets/sets limit on number of rows returned by query. Usually an integer constant
 =head2 offset()
 
 Gets/sets offset of rows returned by query (how many rows to skip). Usually an integer constant.
+
+=head2 distinct()
+
+Gets/sets marker whether the query uses "DISTINCT". There are two forms of distinct:
+
+=over
+
+=item * SELECT distinct a,b from c;
+
+This is set using $select->distinct(1);
+
+=item * SELECT distinct on (a,b) a, b, c from d;
+
+This is set using $select->distinct( [ $object_a, $object_b ] );
+
+=back
 
 =head1 AUTHOR
 
