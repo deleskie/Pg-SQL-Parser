@@ -47,10 +47,6 @@ our $VERSION = '0.01';
 
 Sets, or gets, list of arguments to this function call. It should be arrayref.
 
-=head2 arguments()
-
-Sets, or gets, list of arguments to this function call. It should be arrayref.
-
 =head2 name()
 
 Sets the name of the function
@@ -62,6 +58,20 @@ Sets the schema of the function. This is optional, and usually not needed.
 =head2 distinct()
 
 Gets/sets whether values of function should be first be passed through distinct (remove of duplicated). Values: 1/undef.
+
+=head2 window()
+
+Gets/sets information about whether the function is called in window context.
+
+When it's not set, it's not window function. It can be set to either
+Pg::SQL::Parser::Element::Window object, or a simple string, in which case
+it's name for named window.
+
+    count(x) over ( order by a )
+    $count_function_object->window( Pg::SQL::Parser::Element::Window->new( .... ) );
+
+    count(x) over ( y )
+    $count_function_object->window( 'y' );
 
 =head1 AUTHOR
 

@@ -1,0 +1,13 @@
+- parsing:
+    - function in from (select * from generate_series())
+    - set operations
+    - cte
+    - subselects
+    - "weird" functions:
+        - extract()
+        - overlay()
+        - position()
+        - position(substring in string)
+        - substring()
+        - trim()
+- cli tidy

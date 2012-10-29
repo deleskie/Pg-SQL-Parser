@@ -1,4 +1,4 @@
-package Pg::SQL::Parser::Element::Select;
+package Pg::SQL::Parser::Element::Window;
 use v5.12;
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use base qw( Pg::SQL::Parser::Element );
 
 =head1 NAME
 
-Pg::SQL::Parser::Element::Select - Class representing single SELECT query
+Pg::SQL::Parser::Element::Window - Class representing window definition (for window functions)
 
 =head1 VERSION
 
@@ -21,78 +21,23 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-=head1 EXAMPLES
+=head1 EXAMPLE
 
-    # SELECT DISTINCT a FROM b where c = 1 group by a having min(x) < 10 WINDOW z as ( order by a ) order by a limit 2 offset 15
-    my $select = Pg::SQL::Parser::Element::Select->new();
-    $select->results( [ $object_for_column_a ] );
-    $select->sources( [ $object_for_table_b ] );
-    $select->where( $object_for_expression_c_equals_1 );
-    $select->groups( [ $object_for_column_a ] );
-    $select->having( $object_for_expression_min_x_less_than_10 );
-    $select->sorts( [ $object_for_ordering_by_column_a ] );
-    $select->limit( $object_for_literal_value_2 );
-    $select->offset( $object_for_literal_value_15 );
-    $select->distinct( 1 );
-    $select->windows( { 'z' => $object_for_window_order_by_a } );
+    # window x as ( partition by a, b order by c, d )
+    my $window = Pg::SQL::Parser::Element::Window->new();
+    $window->partitioning( [ $object_for_column_a, $object_for_column_b ] );
+    $window->sorts( [ $object_for_column_c, $object_for_column_d ] );
+    $select_object->windows( { 'x' => $window } );
 
 =head1 METHODS
 
-=head2 results()
+=head2 partitioning()
 
-Gets/sets arrayref of results of a query.
-
-=head2 sources()
-
-Gets/sets arrayref of sources of data in a query (FROM ...)
-
-=head2 where()
-
-Gets/sets where condition of a query. Most likely some kind of Operation object.
-
-=head2 groups()
-
-Gets/sets arrayref which contains grouping information (basically array of expressions)
+Gets/sets arrayref which contains partitioning information for window functions. Each element will usually be simply column object.
 
 =head2 sorts()
 
-Gets/sets arrayref which contains ordering information.
-
-Each element is object of Ordering class.
-
-=head2 having()
-
-Gets/sets having condition of a query. Most likely some kind of Operation object.
-
-=head2 limit()
-
-Gets/sets limit on number of rows returned by query. Usually an integer constant.
-
-=head2 offset()
-
-Gets/sets offset of rows returned by query (how many rows to skip). Usually an integer constant.
-
-=head2 distinct()
-
-Gets/sets marker whether the query uses "DISTINCT". There are two forms of distinct:
-
-=over
-
-=item * SELECT distinct a,b from c;
-
-This is set using $select->distinct(1);
-
-=item * SELECT distinct on (a,b) a, b, c from d;
-
-This is set using $select->distinct( [ $object_a, $object_b ] );
-
-=back
-
-=head2 windows()
-
-Gets/sets hashref with information about defined windows.
-
-Keys are names for windows, values are Pg::SQL::Parser::Element::Window objects.
+Gets/sets arrayref which contains sorting information for window functions. Each element will usually be simply column object.
 
 =head1 AUTHOR
 
@@ -109,6 +54,7 @@ automatically be notified of progress on your bug as I make changes.
 You can find documentation for this module with the perldoc command.
 
     perldoc Pg::SQL::Parser
+
 
 You can also look for information at:
 

@@ -46,6 +46,7 @@ select_stmt: SELECT
                 optional_where
                 optional_grouping
                 optional_having
+                optional_windows
                 optional_ordering
                 optional_limit
                 optional_offset    {
@@ -55,11 +56,23 @@ select_stmt: SELECT
                                         $q->where(    $_[5]  ) if defined $_[5];
                                         $q->groups(   $_[6]  ) if defined $_[6];
                                         $q->having(   $_[7]  ) if defined $_[7];
-                                        $q->sorts(    $_[8]  ) if defined $_[8];
-                                        $q->limit(    $_[9]  ) if defined $_[9];
-                                        $q->offset(   $_[10] ) if defined $_[10];
+                                        $q->windows(  $_[8]  ) if defined $_[8];
+                                        $q->sorts(    $_[9]  ) if defined $_[9];
+                                        $q->limit(    $_[10] ) if defined $_[10];
+                                        $q->offset(   $_[11] ) if defined $_[11];
                                         $q;
                                     }
+;
+
+optional_windows: WINDOW window_list { $_[2] }
+    | /* EMPTY */                    { undef }
+;
+
+window_list: window_with_name          { my $w = $_[1]; my $o = { @{ $w } }; $o }
+    | window_list ',' window_with_name { my $o = $_[1]; my $w = $_[3]; $o->{ $w->[0] } = $w->[1]; $o }
+;
+
+window_with_name: identifier AS window_definition { [ $_[1], $_[3] ] }
 ;
 
 optional_select_distinct: DISTINCT        { 1 }
@@ -127,6 +140,18 @@ query_sources: query_source          { [ $_[1] ] }
 
 query_source: table_source                       { $_[1] }
     | join_source                                { $_[1] }
+;
+
+window_definition: '(' optional_partitioning optional_ordering ')'  {
+                                                                        my $w = $factory->make( 'Window' );
+                                                                        $w->partitioning( $_[2] ) if $_[2];
+                                                                        $w->sorts( $_[3] )        if $_[3];
+                                                                        $w;
+                                                                    }
+;
+
+optional_partitioning: PARTITION BY expression_list { $_[3] }
+    | /* EMPTY */                                   { undef }
 ;
 
 join_source: query_source normal_join_operator query_source join_condition { $factory->make( 'Join', 'left' => $_[1], 'right' => $_[3], 'type' => $_[2], 'condition_type' => $_[4]->[0], 'condition' => $_[4]->[1] ) }
@@ -251,9 +276,11 @@ column_expression: identifier                   { $factory->make( 'Column', 'nam
     | identifier '.' identifier '.' '*'         { $factory->make( 'Column', 'name' => $_[5], 'source' => [ $_[1], $_[3] ] ) }
 ;
 
-function_expression: function_name '(' optional_function_distinct function_args ')' { $_[1]->arguments( $_[4] ); $_[1]->distinct(1) if $_[3]; $_[1] }
-    | normal_type literal_value                                                     { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
-    | CAST '(' a_expr AS normal_type ')'                                            { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
+function_expression: function_name '(' optional_function_distinct function_args ')'           { $_[1]->arguments( $_[4] ); $_[1]->distinct(1) if $_[3]; $_[1] }
+    | function_name '(' optional_function_distinct function_args ')' OVER '(' identifier ')'  { $_[1]->arguments( $_[4] ); $_[1]->window( $_[8] ); $_[1] }
+    | function_name '(' optional_function_distinct function_args ')' OVER window_definition   { $_[1]->arguments( $_[4] ); $_[1]->window( $_[7] ); $_[1] }
+    | normal_type literal_value                                                               { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
+    | CAST '(' a_expr AS normal_type ')'                                                      { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
 ;
 
 optional_function_distinct: DISTINCT { 1 }
