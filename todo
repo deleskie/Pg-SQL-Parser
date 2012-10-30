@@ -1,7 +1,5 @@
 - parsing:
-    - function in from (select * from generate_series())
     - values()
-    - aliases for source in form of "as x (a,b,c)"
     - set operations
     - cte
     - subselects
