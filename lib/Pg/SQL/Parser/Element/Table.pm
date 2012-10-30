@@ -25,10 +25,11 @@ our $VERSION = '0.01';
 
     my $table = Pg::SQL::Parser::Element::Table->new();
 
-    # a.b as c
+    # a.b as c (x)
     $table->schema( 'a' );
     $table->name( 'b' );
     $table->alias( 'c' );
+    $table->column_aliases( [ 'x' ] );
 
 =head1 METHODS
 
@@ -47,6 +48,14 @@ Table name getter/setter.
 =head2 alias()
 
 Table alias getter/setter. Optional.
+
+=head2 column_aliases()
+
+Gets/sets names for returned columns.
+
+Used in cases of specific aliases, like:
+
+    select * from table as a (b,c);
 
 =cut
 

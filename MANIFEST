@@ -104,6 +104,8 @@ t/07-parser-data/30-expect
 t/07-parser-data/30-query
 t/07-parser-data/31-expect
 t/07-parser-data/31-query
+t/07-parser-data/32-expect
+t/07-parser-data/32-query
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc

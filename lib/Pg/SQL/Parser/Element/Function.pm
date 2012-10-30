@@ -41,6 +41,10 @@ our $VERSION = '0.01';
     $f->arguments( [ $object_for_column_a ] );
     $f->distinct( 1 );
 
+    # ... FROM generate_series(1,10) as g (i)
+    $f->alias('g');
+    $f->column_aliases( ['i'] );
+
 =head1 METHODS
 
 =head2 arguments()
@@ -72,6 +76,20 @@ it's name for named window.
 
     count(x) over ( y )
     $count_function_object->window( 'y' );
+
+=head2 alias()
+
+Alias getter/setter. Used when function is used as data source in FROM. Like in:
+
+    SELECT * from generate_series(1,10) as i;
+
+=head2 column_aliases()
+
+Gets/sets names for returned columns.
+
+Used in cases of specific aliases, like:
+
+    select * from generate_series(1,10) as a (i);
 
 =head1 AUTHOR
 

@@ -138,8 +138,30 @@ query_sources: query_source          { [ $_[1] ] }
     | query_sources ',' query_source { push @{ $_[1] }, $_[3]; $_[1] }
 ;
 
-query_source: table_source                       { $_[1] }
-    | join_source                                { $_[1] }
+query_source: table_source optional_source_alias    {
+                                                        $_[1]->alias( $_[2]->[0] ) if defined $_[2];
+                                                        $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
+                                                        $_[1];
+                                                    }
+    | function_expression optional_source_alias     {
+                                                        $_[1]->alias( $_[2]->[0] ) if defined $_[2];
+                                                        $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
+                                                        $_[1];
+                                                    }
+    | join_source                                   { $_[1] }
+;
+
+optional_source_alias: optional_as identifier         { [ $_[2] ] }
+    | optional_as identifier '(' identifier_list ')'  { [ $_[2], $_[4] ] }
+    | /* EMPTY */                                     { undef }
+;
+
+identifier_list: identifier          { [ $_[1] ] }
+    | identifier_list ',' identifier { push @{ $_[1] }, $_[3]; $_[1] }
+;
+
+optional_as: AS   { undef }
+    | /* EMPTY */ { undef }
 ;
 
 window_definition: '(' optional_partitioning optional_ordering ')'  {
@@ -178,11 +200,7 @@ join_using_column_list: identifier          { [ $factory->make( 'Column', 'name'
 ;
 
 table_source: identifier                         { $factory->make( 'Table', 'name' => $_[1] ) }
-    | identifier identifier                      { $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[2] ) }
-    | identifier '.' identifier                  { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[2] ) }
-    | identifier '.' identifier identifier       { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[4] ) }
-    | identifier AS identifier                   { $factory->make( 'Table', 'name' => $_[1], 'alias' => $_[3] ) }
-    | identifier '.' identifier AS identifier    { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3], 'alias' => $_[5] ) }
+    | identifier '.' identifier                  { $factory->make( 'Table', 'schema' => $_[1], 'name' => $_[3] ) }
 ;
 
 result_columns: result_column          { [ $_[1] ] }
