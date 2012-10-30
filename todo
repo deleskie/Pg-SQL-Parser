@@ -1,5 +1,4 @@
 - parsing:
-    - values()
     - set operations
     - cte
     - subselects

@@ -17,6 +17,7 @@ lib/Pg/SQL/Parser/Element/Result_Column.pm
 lib/Pg/SQL/Parser/Element/Select.pm
 lib/Pg/SQL/Parser/Element/Table.pm
 lib/Pg/SQL/Parser/Element/Type.pm
+lib/Pg/SQL/Parser/Element/Values.pm
 lib/Pg/SQL/Parser/Element/Window.pm
 lib/Pg/SQL/Parser/Lexer.pm
 lib/Pg/SQL/Parser/Lexer/Keywords.pm
@@ -106,6 +107,8 @@ t/07-parser-data/31-expect
 t/07-parser-data/31-query
 t/07-parser-data/32-expect
 t/07-parser-data/32-query
+t/07-parser-data/33-expect
+t/07-parser-data/33-query
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc

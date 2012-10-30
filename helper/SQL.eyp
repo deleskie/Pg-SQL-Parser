@@ -138,17 +138,32 @@ query_sources: query_source          { [ $_[1] ] }
     | query_sources ',' query_source { push @{ $_[1] }, $_[3]; $_[1] }
 ;
 
-query_source: table_source optional_source_alias    {
-                                                        $_[1]->alias( $_[2]->[0] ) if defined $_[2];
-                                                        $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
-                                                        $_[1];
-                                                    }
-    | function_expression optional_source_alias     {
-                                                        $_[1]->alias( $_[2]->[0] ) if defined $_[2];
-                                                        $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
-                                                        $_[1];
-                                                    }
-    | join_source                                   { $_[1] }
+query_source: table_source optional_source_alias        {
+                                                            $_[1]->alias( $_[2]->[0] ) if defined $_[2];
+                                                            $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
+                                                            $_[1];
+                                                        }
+    | function_expression optional_source_alias         {
+                                                            $_[1]->alias( $_[2]->[0] ) if defined $_[2];
+                                                            $_[1]->column_aliases( $_[2]->[1] ) if defined $_[2] && defined $_[2]->[1];
+                                                            $_[1];
+                                                        }
+    | '(' values_expression ')' optional_source_alias   {
+                                                            $_[2]->alias( $_[4]->[0] ) if defined $_[4];
+                                                            $_[2]->column_aliases( $_[4]->[1] ) if defined $_[4] && defined $_[4]->[1];
+                                                            $_[2];
+                                                        }
+    | join_source                                       { $_[1] }
+;
+
+values_expression: VALUES rows_list                   { $factory->make( 'Values', 'rows' => $_[2] ) }
+;
+
+rows_list: row               { [ $_[1] ] }
+    | rows_list ',' row      { push @{ $_[1] }, $_[3]; $_[1] }
+;
+
+row: '(' expression_list ')' { $_[2] }
 ;
 
 optional_source_alias: optional_as identifier         { [ $_[2] ] }
