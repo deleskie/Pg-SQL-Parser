@@ -15,7 +15,7 @@ if ( 0 == scalar @tests ) {
     @tests = sort { $a <=> $b }
         grep { !$uniq{ $_ }++ }
         map { s/-.*//; $_ }
-        grep { /^\d+-(?:expect|query)$/ } readdir $dir;
+        grep { /^\d+-(?:expect\.pl|query\.sql)$/ } readdir $dir;
 
     closedir $dir;
 }
@@ -24,7 +24,7 @@ plan 'tests' => scalar @tests;
 
 for my $test ( @tests ) {
 
-    my $query_file = 't/06-lexer-data/' . $test . '-query';
+    my $query_file = 't/06-lexer-data/' . $test . '-query.sql';
 
     my $query = slurp( $query_file );
 
@@ -45,7 +45,7 @@ exit;
 sub get_expected_from_file {
     my $test_no = shift;
 
-    my $filename = 't/06-lexer-data/' . $test_no . '-expect';
+    my $filename = 't/06-lexer-data/' . $test_no . '-expect.pl';
 
     my $expected_str = slurp( $filename );
 
