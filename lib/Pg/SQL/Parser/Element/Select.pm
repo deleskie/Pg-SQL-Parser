@@ -54,15 +54,15 @@ Gets/sets where condition of a query. Most likely some kind of Operation object.
 
 Gets/sets arrayref which contains grouping information (basically array of expressions)
 
+=head2 having()
+
+Gets/sets having condition of a query. Most likely some kind of Operation object.
+
 =head2 sorts()
 
 Gets/sets arrayref which contains ordering information.
 
 Each element is object of Ordering class.
-
-=head2 having()
-
-Gets/sets having condition of a query. Most likely some kind of Operation object.
 
 =head2 limit()
 
