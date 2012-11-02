@@ -1,5 +1,4 @@
 - parsing:
-    - set operations
     - cte
     - subselects
     - "weird" functions:

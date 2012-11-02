@@ -15,6 +15,7 @@ lib/Pg/SQL/Parser/Element/Operation.pm
 lib/Pg/SQL/Parser/Element/Ordering.pm
 lib/Pg/SQL/Parser/Element/Result_Column.pm
 lib/Pg/SQL/Parser/Element/Select.pm
+lib/Pg/SQL/Parser/Element/Set_Operation.pm
 lib/Pg/SQL/Parser/Element/Table.pm
 lib/Pg/SQL/Parser/Element/Type.pm
 lib/Pg/SQL/Parser/Element/Values.pm
@@ -109,6 +110,10 @@ t/07-parser-data/32-expect.pl
 t/07-parser-data/32-query.sql
 t/07-parser-data/33-expect.pl
 t/07-parser-data/33-query.sql
+t/07-parser-data/34-expect.pl
+t/07-parser-data/34-query.sql
+t/07-parser-data/35-expect.pl
+t/07-parser-data/35-query.sql
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc

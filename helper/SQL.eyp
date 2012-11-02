@@ -39,17 +39,49 @@ statements: statement          { [ $_[1] ] }
 statement: select_stmt         { $_[1] }
 ;
 
-select_stmt: SELECT
+
+set_select: basic_select_stmt set_operator basic_select_stmt { $factory->make( 'Set_Operation', 'operator' => $_[2], 'first' => $_[1], 'second' => $_[3] ) }
+    | set_select set_operator basic_select_stmt              { $factory->make( 'Set_Operation', 'operator' => $_[2], 'first' => $_[1], 'second' => $_[3] ) }
+;
+
+set_operator: UNION  { 'UNION' }
+    | EXCEPT         { 'EXCEPT' }
+    | INTERSECT      { 'INTERSECT' }
+    | UNION ALL      { 'UNION ALL' }
+    | EXCEPT ALL     { 'EXCEPT ALL' }
+    | INTERSECT ALL  { 'INTERSECT ALL' }
+;
+
+select_stmt: basic_select_stmt
+                optional_ordering
+                optional_limit
+                optional_offset    {
+                                        my $q = $_[1];
+                                        $q->sorts(    $_[2] ) if defined $_[2];
+                                        $q->limit(    $_[3] ) if defined $_[3];
+                                        $q->offset(   $_[4] ) if defined $_[4];
+                                        $q;
+                                    }
+    | set_select
+        optional_ordering
+        optional_limit
+        optional_offset     {
+                                my $q = $_[1];
+                                $q->sorts(    $_[2] ) if defined $_[2];
+                                $q->limit(    $_[3] ) if defined $_[3];
+                                $q->offset(   $_[4] ) if defined $_[4];
+                                $q;
+                            }
+;
+
+basic_select_stmt: SELECT
                 optional_select_distinct
                 result_columns
                 optional_from
                 optional_where
                 optional_grouping
                 optional_having
-                optional_windows
-                optional_ordering
-                optional_limit
-                optional_offset    {
+                optional_windows    {
                                         my $q = $factory->make( 'Select', 'results' => $_[3], );
                                         $q->distinct( $_[2]  ) if defined $_[2];
                                         $q->sources(  $_[4]  ) if defined $_[4];
@@ -57,11 +89,9 @@ select_stmt: SELECT
                                         $q->groups(   $_[6]  ) if defined $_[6];
                                         $q->having(   $_[7]  ) if defined $_[7];
                                         $q->windows(  $_[8]  ) if defined $_[8];
-                                        $q->sorts(    $_[9]  ) if defined $_[9];
-                                        $q->limit(    $_[10] ) if defined $_[10];
-                                        $q->offset(   $_[11] ) if defined $_[11];
                                         $q;
                                     }
+    | '(' select_stmt ')'           { $_[2] }
 ;
 
 optional_windows: WINDOW window_list { $_[2] }

@@ -1,6 +1,6 @@
 #!perl -T
 
-use Test::More tests => 18;
+use Test::More tests => 19;
 
 BEGIN {
     use_ok( 'Pg::SQL::Parser' )                         || print "Bail out on Pg::SQL::Parser\n";
@@ -14,6 +14,7 @@ BEGIN {
     use_ok( 'Pg::SQL::Parser::Element::Ordering' )      || print "Bail out on Pg::SQL::Parser::Element::Ordering\n";
     use_ok( 'Pg::SQL::Parser::Element::Result_Column' ) || print "Bail out on Pg::SQL::Parser::Element::Result_Column\n";
     use_ok( 'Pg::SQL::Parser::Element::Select' )        || print "Bail out on Pg::SQL::Parser::Element::Select\n";
+    use_ok( 'Pg::SQL::Parser::Element::Set_Operation' ) || print "Bail out on Pg::SQL::Parser::Element::Set_Operation\n";
     use_ok( 'Pg::SQL::Parser::Element::Table' )         || print "Bail out on Pg::SQL::Parser::Element::Table\n";
     use_ok( 'Pg::SQL::Parser::Element::Type' )          || print "Bail out on Pg::SQL::Parser::Element::Type\n";
     use_ok( 'Pg::SQL::Parser::Element::Values' )        || print "Bail out on Pg::SQL::Parser::Element::Values\n";
