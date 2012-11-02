@@ -1,6 +1,7 @@
 - parsing:
     - cte
     - subselects
+    - extended window definitions (frame_clause)
     - "weird" functions:
         - extract()
         - overlay()
