@@ -117,6 +117,8 @@ t/07-parser-data/35-expect.pl
 t/07-parser-data/35-query.sql
 t/07-parser-data/36-expect.pl
 t/07-parser-data/36-query.sql
+t/07-parser-data/37-expect.pl
+t/07-parser-data/37-query.sql
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc

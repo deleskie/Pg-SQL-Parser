@@ -361,6 +361,7 @@ column_expression: identifier                   { $factory->make( 'Column', 'nam
 function_expression: function_name '(' optional_function_distinct function_args ')'           { $_[1]->arguments( $_[4] ); $_[1]->distinct(1) if $_[3]; $_[1] }
     | function_name '(' optional_function_distinct function_args ')' OVER '(' identifier ')'  { $_[1]->arguments( $_[4] ); $_[1]->window( $_[8] ); $_[1] }
     | function_name '(' optional_function_distinct function_args ')' OVER window_definition   { $_[1]->arguments( $_[4] ); $_[1]->window( $_[7] ); $_[1] }
+    | ANY '(' function_args ')'                                                               { $factory->make( 'Function', 'name' => 'any', 'arguments' => $_[3] ) }
     | normal_type literal_value                                                               { $factory->make( 'Cast', 'method' => 'function', 'value' => $_[2], 'final_type' => $_[1] ) }
     | CAST '(' a_expr AS normal_type ')'                                                      { $factory->make( 'Cast', 'method' => 'sql', 'value' => $_[3], 'final_type' => $_[5] ) }
 ;
