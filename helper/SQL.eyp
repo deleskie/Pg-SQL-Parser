@@ -328,7 +328,26 @@ b_expr:  c_expr                                            { $_[1] }
 c_expr:  column_expression { $_[1] }
     | literal_value        { $_[1] }
     | function_expression  { $_[1] }
+    | case_expression      { $_[1] }
     | '(' a_expr ')'       { $_[2] }
+;
+
+case_expression: CASE when_then_list optional_else END  {
+                                                            my $case = $factory->make('Case', 'when_then' => $_[2] );
+                                                            $case->else( $_[3] ) if defined $_[3];
+                                                            $case;
+                                                        }
+;
+
+when_then_list: when_then       { [ $_[1] ] }
+    | when_then_list when_then  { push @{ $_[1] }, $_[2]; $_[1] }
+;
+
+when_then: WHEN a_expr THEN a_expr { [ $_[2], $_[4] ] }
+;
+
+optional_else: ELSE a_expr { $_[2] }
+    | /* EMPTY */          { undef }
 ;
 
 column_expression: identifier                   { $factory->make( 'Column', 'name' => $_[1] ) }

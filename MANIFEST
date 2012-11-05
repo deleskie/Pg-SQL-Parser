@@ -6,6 +6,7 @@ helper/SQL.eyp
 helper/update_SQL_eyp_based_on_keywords
 lib/Pg/SQL/Parser.pm
 lib/Pg/SQL/Parser/Element.pm
+lib/Pg/SQL/Parser/Element/Case.pm
 lib/Pg/SQL/Parser/Element/Cast.pm
 lib/Pg/SQL/Parser/Element/Column.pm
 lib/Pg/SQL/Parser/Element/Function.pm
@@ -114,6 +115,8 @@ t/07-parser-data/34-expect.pl
 t/07-parser-data/34-query.sql
 t/07-parser-data/35-expect.pl
 t/07-parser-data/35-query.sql
+t/07-parser-data/36-expect.pl
+t/07-parser-data/36-query.sql
 t/07-parser.t
 t/perlcriticrc
 t/perltidyrc

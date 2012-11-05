@@ -1,10 +1,11 @@
 #!perl -T
 
-use Test::More tests => 19;
+use Test::More tests => 20;
 
 BEGIN {
     use_ok( 'Pg::SQL::Parser' )                         || print "Bail out on Pg::SQL::Parser\n";
     use_ok( 'Pg::SQL::Parser::Element' )                || print "Bail out on Pg::SQL::Parser::Element\n";
+    use_ok( 'Pg::SQL::Parser::Element::Case' )          || print "Bail out on Pg::SQL::Parser::Element::Case\n";
     use_ok( 'Pg::SQL::Parser::Element::Cast' )          || print "Bail out on Pg::SQL::Parser::Element::Cast\n";
     use_ok( 'Pg::SQL::Parser::Element::Column' )        || print "Bail out on Pg::SQL::Parser::Element::Column\n";
     use_ok( 'Pg::SQL::Parser::Element::Function' )      || print "Bail out on Pg::SQL::Parser::Element::Function\n";
