@@ -36,6 +36,12 @@ our $VERSION = '0.01';
     $select->distinct( 1 );
     $select->windows( { 'z' => $object_for_window_order_by_a } );
 
+    # WITH RECURSIVE a as ( ... ) select * from a;
+    my $cte = { 'a' => $object_for_cte_select };
+    my $select = Pg::SQL::Parser::Element::Select->new();
+    $select->recursive_cte( 1 );
+    $select->cte( $cte );
+
 =head1 METHODS
 
 =head2 results()
@@ -93,6 +99,15 @@ This is set using $select->distinct( [ $object_a, $object_b ] );
 Gets/sets hashref with information about defined windows.
 
 Keys are names for windows, values are Pg::SQL::Parser::Element::Window objects.
+
+=head2 recursive_cte()
+
+Gets/Sets information whether CTEs in this select are recursive, or not. 1/undef.
+
+=head2 cte()
+
+Gets/sets hashref with all ctes for this query. Key in hashref is name of
+the CTE, value is query object.
 
 =head1 AUTHOR
 

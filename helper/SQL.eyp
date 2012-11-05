@@ -36,9 +36,27 @@ statements: statement          { [ $_[1] ] }
     | statements ';'           { $_[1] }
 ;
 
-statement: select_stmt         { $_[1] }
+statement: optional_cte select_stmt {
+                                        my $s = $_[2];
+                                        if ( defined $_[1] ) {
+                                            $s->cte( $_[1]->[1] );
+                                            $s->recursive_cte( 1 ) if $_[1]->[0];
+                                        }
+                                        $s;
+                                    }
 ;
 
+optional_cte: WITH RECURSIVE cte_list { [ 1, $_[3] ] }
+    | WITH cte_list { [ undef, $_[2] ] }
+    | /* EMPTY */   { undef }
+;
+
+cte_list: cte_element           { my $e = {}; $e->{ $_[1]->[0] } = $_[1]->[1]; $e; }
+    | cte_list ',' cte_element  { my $e = $_[1]; $e->{ $_[3]->[0] } = $_[3]->[1]; $e; }
+;
+
+cte_element: identifier 'AS' '(' statement ')' { [ $_[1], $_[4] ] }
+;
 
 set_select: basic_select_stmt set_operator basic_select_stmt { $factory->make( 'Set_Operation', 'operator' => $_[2], 'first' => $_[1], 'second' => $_[3] ) }
     | set_select set_operator basic_select_stmt              { $factory->make( 'Set_Operation', 'operator' => $_[2], 'first' => $_[1], 'second' => $_[3] ) }

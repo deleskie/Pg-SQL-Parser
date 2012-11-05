@@ -32,6 +32,12 @@ our $VERSION = '0.01';
     $set->limit( $object_for_literal_value_2 );
     $set->offset( $object_for_literal_value_5 );
 
+    # WITH RECURSIVE a as ( ... ) select * from a union ...;
+    my $cte = { 'a' => $object_for_cte_select };
+    my $set = Pg::SQL::Parser::Element::Set_Operation->new();
+    $set->recursive_cte( 1 );
+    $set->cte( $cte );
+
 =head1 METHODS
 
 =head2 operator()
@@ -75,6 +81,16 @@ Gets/sets limit on number of rows returned by query. Usually an integer constant
 =head2 offset()
 
 Gets/sets offset of rows returned by query (how many rows to skip). Usually an integer constant.
+
+=head2 recursive_cte()
+
+Gets/Sets information whether CTEs in this select are recursive, or not. 1/undef.
+
+=head2 cte()
+
+Gets/sets hashref with all ctes for this query. Key in hashref is name of
+the CTE, value is query object.
+
 
 =head1 AUTHOR
 
