@@ -1,5 +1,8 @@
 - parsing:
     - subselects
+    - array[]
+    - in (...)
+    - (a,b,c) = (d,e,f)
     - extended window definitions (frame_clause)
     - "weird" functions:
         - extract()
