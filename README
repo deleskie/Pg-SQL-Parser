@@ -7,6 +7,10 @@ INSTALLATION
 
 To install this module, run the following commands:
 
+	cpan install Parse::Eyapp
+	cd helper
+	make
+	cd ..
 	perl Build.PL
 	./Build
 	./Build test
